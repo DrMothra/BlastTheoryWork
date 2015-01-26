@@ -7,63 +7,39 @@
 $(document).ready(function() {
     //Initialise app
 
-    var width = 960,
-        height = 600,
-        svg = d3.select('#graph')
-            .append('svg')
-            .attr({width: width,
-                   height: height});
+    var margin = {top: 60, right: 20, bottom: 30, left: 60},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
-    var barHeight = 20;
+    var svg = d3.select('#graph')
+        .append('svg')
+        .attr({width: width + margin.left + margin.right,
+            height: height + margin.top + margin.bottom});
+
+    var barWidth = 20;
+    var responseKey = [ 'strongly disagree', 'disagree', 'neither agree or disagree', 'agree', 'strongly agree' ];
+    var data = [0, 10, 0, 0, 0];
 
     var y = d3.scale.linear()
-        .range([height, 0]);
+        .range([height, 0])
+        .domain([0, 10]);
 
-    d3.tsv("data/data.tsv", type, function(error, data) {
-        //DEBUG
-        console.log('Loaded data');
+    var top = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        y.domain([0, d3.max(data, function (d) {
-            return d.value;
-        })]);
+    var bar = top.selectAll('g')
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("transform", function(d, i) { return "translate(" + i*barWidth + ", 0)"; });
 
-        var barWidth = width / data.length;
+    bar.append("rect")
+        .attr("y", function(d) { return y(d); })
+        .attr("height", function(d) { return height - y(d); })
+        .attr("width", barWidth - 1);
 
-        var bar = svg.selectAll("g")
-            .data(data)
-            .enter()
-            .append("g")
-            .attr("transform", function (d, i) {
-                return "translate(" + i * barWidth + ",0)";
-            });
-
-        bar.append("rect")
-            .attr("y", function (d) {
-                return y(d.value);
-            })
-            .attr("width", barWidth - 1)
-            .attr("height", function (d) {
-                height - y(d.value)
-            });
-
-        bar.append("text")
-            .attr("x", barWidth / 2)
-            .attr("y", function (d) {
-                return y(d.value) + 3;
-            })
-            .attr("dy", ".75em")
-            .text(function (d) {
-                return d.value;
-            });
-
-    });
-
-    function type(d) {
-        d.value = +d.value;
-        return d;
-    }
-
-    function error() {
-        console.log('Error in loading data');
-    }
+    bar.append("text")
+        .attr("x", barWidth/2)
+        .attr("y", function(d) { return y(d)+15; })
+        .text(function(d) { return d; });
 });
