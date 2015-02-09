@@ -23,6 +23,9 @@ body {
     background-color: #c9c9c9;
     color: #6a6a6a;
 }
+.title {
+    font-size: 2em;
+}
 .centred {
     text-align: center;
 }
