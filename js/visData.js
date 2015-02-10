@@ -28,21 +28,24 @@ $(document).ready(function() {
 
     //Visualise the received data
     function visualiseData(data) {
-        var margin = {top: 10, right: 60, bottom: 60, left: 60},
-            width = 512,
-            height = 400;
+        var margin = {top: 20, right: 60, bottom: 60, left: 80},
+            width = 512 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
         var maxMeanValue = 5;
 
         var svg = d3.select('#graph')
             .append('svg')
-            .attr({width: width,
-                height: height});
+            .attr({width: width + margin.left + margin.right,
+                height: height + margin.top + margin.bottom})
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        var barWidth = 20;
+        var barWidth = 30;
+        var interGap = 5;
 
         if(data.scales) {
-            var meanData = [0, data.scales[0].mean, 0];
+            var meanData = [data.scales[0].mean, 2.5];
         }
 
         var x = d3.scale.linear()
@@ -52,29 +55,46 @@ $(document).ready(function() {
             .range([height, 0])
             .domain([0, maxMeanValue]);
 
+        /*
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom");
+        */
 
-        var top = svg.append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        svg.append('text')
+            .attr("x", width/6)
+            .text(data.scales[0].name);
 
+        svg.append("line")
+            .attr({x1: 0,
+                y1: height,
+                x2: width/2,
+                y2: height,
+                stroke: 'black',
+                'stroke-width': 1});
 
-        var axis = svg.append("g")
-            .attr("transform", "translate("+ margin.left + "," + height + ")")
-            .call(xAxis);
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
 
+        svg.append("g")
+            .attr("class", "axis")
+            .call(yAxis);
 
-        var bar = top.selectAll('g')
+        var bar = svg.selectAll('.bar')
             .data(meanData)
             .enter()
             .append("g")
-            .attr("transform", function(d, i) { return "translate(" + i*barWidth + ", 0)"; });
+            .attr("transform", function(d, i) {
+                i+=1.25;
+                return "translate(" + i * barWidth + ", 0)";
+            });
 
         bar.append("rect")
+            .attr("class", "bar")
             .attr("y", function(d) { return y(d); })
             .attr("height", function(d) { return height - y(d); })
-            .attr("width", barWidth - 1);
+            .attr("width", barWidth - interGap);
 
         bar.append("text")
             .attr("x", barWidth/2)
