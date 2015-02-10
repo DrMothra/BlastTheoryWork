@@ -25,6 +25,11 @@ body {
 }
 .title {
     font-size: 2em;
+    margin: 1% 0 2% 0;
+}
+#subTitle {
+    font-size: 1.5em;
+    margin-bottom: 2%;
 }
 .centred {
     text-align: center;
@@ -32,32 +37,47 @@ body {
 .autoCentre {
     margin: 0 auto;
 }
-#graph rect {
-    fill: steelblue;
-}
-#graph text {
-    fill: white;
-    font: 10px sans-serif;
-    text-anchor: middle;
-}
 .bar {
     fill: steelblue;
 }
 
-.bar:hover {
-    fill: brown;
+.barText {
+    fill: white;
+    font-size: 0.75em;
+    text-anchor: middle;
 }
-
 .axis {
     font: 10px sans-serif;
+    fill: white;
 }
-
 .axis path,
 .axis line {
     fill: none;
     stroke: #000;
 }
-
-.x.axis path {
-    text-decoration: none;
+.smallPadLeft {
+    padding-left: 3%;
+}
+.indicator {
+    width: 0;
+    height: 0;
+    margin: 10% 0 0 0;
+}
+.red {
+    border-right: 5px solid red;
+    border-left: 5px solid red;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.steelblue {
+    border-right: 5px solid steelblue;
+    border-left: 5px solid steelblue;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.userKey {
+    padding-left: 5%;
+}
+.keyInfo {
+    margin: 2% 0 2% 0;
 }
