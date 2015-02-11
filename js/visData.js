@@ -11,10 +11,15 @@ var margin = {top: 20, right: 60, bottom: 60, left: 80},
 var maxMeanValue = 5;
 
 $(document).ready(function() {
+    //Init app
+    var visApp = new graphApp();
+    var dataURL = 'https://kserver.blasttheory.com/user';
+    visApp.getData(dataURL);
+
     //Retrieve data
 
     var xhr = new XMLHttpRequest(),
-        url = 'https://kserver.blasttheory.com/user';
+        url =
 
     xhr.onreadystatechange = function () {
 
@@ -62,10 +67,9 @@ $(document).ready(function() {
         }
 
         //Draw graphs with this data
-
-
         var xStart = 0, yStart = 0, numColumns = 2, numRows = userInfo.length/numColumns;
 
+        /*
         for(var row=0; row<numRows; ++row) {
             for (var col = 0; col < numColumns; ++col) {
                 drawGraph(xStart, yStart, userInfo[col+(row*2)]);
@@ -74,7 +78,11 @@ $(document).ready(function() {
             xStart = 0;
             yStart += outerHeight;
         }
+        */
 
+        for(i=0; i<data.scales.length; ++i) {
+            drawGraph(xStart, yStart, userInfo[i]);
+        }
     }
 
     function drawGraph(xPos, yPos, data) {
