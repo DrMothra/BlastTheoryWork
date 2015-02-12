@@ -3,7 +3,19 @@
  */
 //Framework for implementing graphing applications
 
-var graphApp = function() {};
+var graphApp = function() {
+    //Default values
+    //Graph area
+    this.margin = {top: 20, right: 60, bottom: 60, left: 80};
+    this.outerWidth = 512;
+    this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
+    this.outerHeight = 512;
+    this.innerHeight = this.outerHeight - this.margin.top - this.margin.bottom;
+
+    //Bar charts
+    this.barWidth = 30;
+    this.barGap = 5;
+};
 
 graphApp.prototype = {
 
@@ -20,15 +32,17 @@ graphApp.prototype = {
         var _this = this;
         var xhr = new XMLHttpRequest();
 
+
         xhr.onreadystatechange = function () {
 
             if (xhr.readyState === 4 && xhr.status === 200) {
 
                 // turn the JSON string into a JS object
                 var data = JSON.parse(xhr.responseText);
-                _this.visualiseData(data);
+                callback ? callback.call(_this, data) : _this.visualiseData(data);
             }
         };
+
 
         xhr.open('POST', url, true);
         // must set content type for POST
@@ -41,69 +55,35 @@ graphApp.prototype = {
 
         //Visualise the received data
         //Get scales and means from data
-        var i = 0;
-        var userInfo = [];
 
-        if (data.scales) {
-            for (i = 0; i < data.scales.length; ++i) {
-                var userMeanInfo = {};
-                userMeanInfo.name = data.scales[i].name;
-                userMeanInfo.userMean = data.scales[i].mean;
-                userInfo.push(userMeanInfo);
-            }
-        } else {
-            console.log('No scale data!');
-            return;
-        }
-
-        var aggScales = data.aggregate.scales ? data.aggregate.scales : null;
-        if (aggScales) {
-            for (i = 0; i < aggScales.length; ++i) {
-                //Assumes arrays in same order - check for this
-                userInfo[i].generalMean = aggScales[i].mean;
-            }
-        } else {
-            this.displayError('No aggregate scale data!');
-            return;
-        }
-
-        //Draw graphs with this data
-        var xStart = 0, yStart = 0, numColumns = 2, numRows = userInfo.length/numColumns;
-
-        for(i=0; i<data.scales.length; ++i) {
-            this.drawGraph(xStart, yStart, userInfo[i]);
-        }
     },
 
-    drawGraph: function(xPos, yPos, data) {
+    drawBarChart: function(element, title, values, maxX, maxY) {
         //Draw graphs from data
-        var svg = d3.select('#graph')
+        var _this = this;
+        var svg = d3.select('#'+element)
             .append('svg')
-            .attr({width: outerWidth,
-                height: outerHeight})
+            .attr({width: this.outerWidth,
+                height: this.outerHeight})
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var barWidth = 30;
-        var interGap = 5;
-        var meanData = [data.userMean, data.generalMean];
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var x = d3.scale.linear()
-            .range([0, 150]);
+            .range([0, maxX]);
 
         var y = d3.scale.linear()
-            .range([innerHeight, 0])
-            .domain([0, maxMeanValue]);
+            .range([this.innerHeight, 0])
+            .domain([0, maxY]);
 
         svg.append('text')
-            .attr("x", innerWidth/6)
-            .text(data.name);
+            .attr("x", this.innerWidth/6)
+            .text(title);
 
         svg.append("line")
             .attr({x1: 0,
-                y1: innerHeight,
-                x2: innerWidth/2,
-                y2: innerHeight,
+                y1: this.innerHeight,
+                x2: this.innerWidth/2,
+                y2: this.innerHeight,
                 stroke: 'black',
                 'stroke-width': 1});
 
@@ -116,12 +96,12 @@ graphApp.prototype = {
             .call(yAxis);
 
         var bar = svg.selectAll('.bar')
-            .data(meanData)
+            .data(values)
             .enter()
             .append("g")
             .attr("transform", function(d, i) {
                 i+=1.25;
-                return "translate(" + i * barWidth + ", 0)";
+                return "translate(" + i * _this.barWidth + ", 0)";
             })
             .style("fill", function(d, i) {
                 if(i%2) {
@@ -133,12 +113,12 @@ graphApp.prototype = {
 
         bar.append("rect")
             .attr("y", function(d) { return y(d); })
-            .attr("height", function(d) { return innerHeight - y(d); })
-            .attr("width", barWidth - interGap);
+            .attr("height", function(d) { return _this.innerHeight - y(d); })
+            .attr("width", this.barWidth - this.barGap);
 
         bar.append("text")
             .attr("class", "barText")
-            .attr("x", barWidth/2)
+            .attr("x", this.barWidth/2)
             .attr("y", function(d) { return y(d)+15; })
             .text(function(d) { return d > 0 ? d : null; });
     },
