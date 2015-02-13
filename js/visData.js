@@ -2,6 +2,24 @@
  * Created by DrTone on 04/12/2014.
  */
 //Karen app with Blast Theory
+//Data type id's
+var COUNTRY = 0;
+var countryData = [];
+
+function getFrequency(names) {
+    //Get frequency of data
+    var i, length=0, freq = {};
+
+    for(i=0; i<names.length; ++i) {
+        if(names[i] in freq) {
+            ++(freq[names[i]]);
+        } else {
+            freq[names[i]] = 1;
+        }
+    }
+
+    return freq;
+}
 
 $(document).ready(function() {
     //Init app
@@ -10,15 +28,31 @@ $(document).ready(function() {
     //Get scale and distribution data
     var dataURL = 'https://kserver.blasttheory.com/user';
     visApp.getData(dataURL, filterData);
-
-    //Get geolocation data
-    dataURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=50.829858,-0.21051';
-    visApp.getData(dataURL, filterGeoData);
 });
 
 function filterData(data) {
     //Filter data
+    //Get geo data
     var i = 0;
+    if(data.locations) {
+        var latlng = [];
+        for(i=0; i<data.locations.length; ++i) {
+            latlng.push(data.locations[i].lat);
+            latlng.push(data.locations[i].lng);
+        }
+    }
+
+    //Get location data
+    //Inform main app hwo much data to expect
+    this.setDataRequest(COUNTRY, data.locations.length, renderCountryData);
+
+    var dataURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
+    var currentURL;
+    for(i=0; i<latlng.length; i+=2) {
+        currentURL = dataURL + latlng[i] + ',' + latlng[i+1];
+        this.getData(currentURL, filterGeoData);
+    }
+
     var meanData = [];
 
     if (data.scales) {
@@ -71,5 +105,34 @@ function filterData(data) {
 }
 
 function filterGeoData(data) {
-    console.log("Data =", data);
+    //Get country data
+    var results = data.results;
+    var types;
+    for(var i=0; i<results.length; ++i) {
+        types = results[i].types;
+        for(var key in types) {
+            if(types[key] === 'country') {
+                console.log('Got country');
+                countryData.push(results[i].address_components[0].long_name);
+            }
+        }
+    }
+
+    //Inform base app we have data
+    this.updateDataRequests(COUNTRY);
+}
+
+function renderCountryData() {
+    //Render country data
+    //Get countries and frequency
+    var countryGraphData = getFrequency(countryData);
+
+    //Get values from data
+    var values = [];
+    for(var val in countryGraphData) {
+        values.push(countryGraphData[val]);
+    }
+    var maxX = Math.max.apply(null, values);
+    this.setColours(['magenta']);
+    this.drawHorizontalBarChart('countries', 'Countries', Object.keys(countryGraphData), values, maxX, values.length);
 }

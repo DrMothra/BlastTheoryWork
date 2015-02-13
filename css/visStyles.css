@@ -45,6 +45,9 @@ body {
     font-size: 0.75em;
     text-anchor: middle;
 }
+.barHorizontal {
+    fill: #c661b2;
+}
 .axis {
     font: 10px sans-serif;
     fill: white;

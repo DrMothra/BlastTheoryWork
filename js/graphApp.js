@@ -5,6 +5,10 @@
 
 var graphApp = function() {
     //Default values
+
+    //Data requests
+    this.dataRequests = [];
+
     //Graph area
     this.margin = {top: 40, right: 60, bottom: 60, left: 80};
     this.outerWidth = 512;
@@ -61,6 +65,34 @@ graphApp.prototype = {
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         // urlencoded email and password hash
         xhr.send('hash=hashValue&email=user%40domain.com');
+    },
+
+    setDataRequest: function(id, numRequests, callback) {
+        //Set data requests for this id
+        var requestItem = {};
+        requestItem.id = id;
+        requestItem.numRequests = numRequests;
+        requestItem.received = 0;
+        requestItem.callback = callback;
+        this.dataRequests.push(requestItem);
+    },
+
+    updateDataRequests: function(id) {
+        //Add to data requests
+        var requests = this.dataRequests;
+        for(var i=0; i<requests.length; ++i) {
+            if(requests[i].id === id) {
+                //Found id for request
+                requests[i].received++;
+                if(requests[i].received === requests[i].numRequests) {
+                    //Call the appropriate callback
+                    requests[i].callback.call(this);
+                }
+                return;
+            }
+        }
+        //Couldn't find id
+        console.log("Couldn't find request id");
     },
 
     visualiseData: function(data) {
@@ -131,6 +163,52 @@ graphApp.prototype = {
             .attr("x", this.barWidth/2)
             .attr("y", function(d) { return y(d)+15; })
             .text(function(d) { return d > 0 ? d : null; });
+    },
+
+    drawHorizontalBarChart: function(element, title, keys, values, maxX, maxY) {
+        //Draw graph from data
+        var _this = this;
+        var svg = d3.select('#' + element)
+            .append('svg')
+            .attr({
+                width: this.outerWidth,
+                height: this.outerHeight
+            });
+
+        var x = d3.scale.linear()
+            .range([0, this.innerWidth])
+            .domain([0, maxX]);
+
+        var y = d3.scale.linear()
+            .range([0, this.innerHeight])
+            .domain([0, maxY]);
+
+        svg.append('text')
+            .attr("x", this.outerWidth / 4)
+            .attr("y", this.margin.top / 2)
+            .text(title);
+
+        var graph = svg.append("g")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
+            .style("fill", function(d, i) {
+                return _this.colours[i%_this.colours.length];
+            });
+
+        var bar = graph.selectAll('.bar')
+            .data(values)
+            .enter()
+            .append("g")
+            .attr("transform", function(d, i) {
+                return "translate(0," + i * _this.barWidth + ")";
+            });
+
+        bar.append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("height", this.barWidth - this.barGap)
+            .attr("width", function(d) {
+                return x(d);
+            });
     },
 
     displayError: function(errorMsg) {
