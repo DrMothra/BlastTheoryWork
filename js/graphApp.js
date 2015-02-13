@@ -6,7 +6,7 @@
 var graphApp = function() {
     //Default values
     //Graph area
-    this.margin = {top: 20, right: 60, bottom: 60, left: 80};
+    this.margin = {top: 40, right: 60, bottom: 60, left: 80};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 512;
@@ -15,11 +15,23 @@ var graphApp = function() {
     //Bar charts
     this.barWidth = 30;
     this.barGap = 5;
+
+    //Colours
+    this.colours = ['red'];
 };
 
 graphApp.prototype = {
 
     constructor: graphApp,
+
+    setColours: function(colours) {
+        if(!colours || colours.length === 0) {
+            this.displayError("Colour array not defined!");
+            return;
+        } else {
+            this.colours = colours.slice();
+        }
+    },
 
     getData: function(url, callback) {
         //Retrieve data
@@ -64,8 +76,14 @@ graphApp.prototype = {
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: this.outerWidth,
-                height: this.outerHeight})
-            .append("g")
+                height: this.outerHeight});
+
+        svg.append('text')
+            .attr("x", this.outerWidth/4)
+            .attr("y", this.margin.top/2)
+            .text(title);
+
+        var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var x = d3.scale.linear()
@@ -75,14 +93,10 @@ graphApp.prototype = {
             .range([this.innerHeight, 0])
             .domain([0, maxY]);
 
-        svg.append('text')
-            .attr("x", this.innerWidth/6)
-            .text(title);
-
-        svg.append("line")
+        graph.append("line")
             .attr({x1: 0,
                 y1: this.innerHeight,
-                x2: this.innerWidth/2,
+                x2: this.innerWidth,
                 y2: this.innerHeight,
                 stroke: 'black',
                 'stroke-width': 1});
@@ -91,11 +105,11 @@ graphApp.prototype = {
             .scale(y)
             .orient("left");
 
-        svg.append("g")
+        graph.append("g")
             .attr("class", "axis")
             .call(yAxis);
 
-        var bar = svg.selectAll('.bar')
+        var bar = graph.selectAll('.bar')
             .data(values)
             .enter()
             .append("g")
@@ -104,11 +118,7 @@ graphApp.prototype = {
                 return "translate(" + i * _this.barWidth + ", 0)";
             })
             .style("fill", function(d, i) {
-                if(i%2) {
-                    return "steelblue";
-                } else {
-                    return "red";
-                }
+                return _this.colours[i%_this.colours.length];
             });
 
         bar.append("rect")

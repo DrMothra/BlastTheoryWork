@@ -6,8 +6,14 @@
 $(document).ready(function() {
     //Init app
     var visApp = new graphApp();
+
+    //Get scale and distribution data
     var dataURL = 'https://kserver.blasttheory.com/user';
     visApp.getData(dataURL, filterData);
+
+    //Get geolocation data
+    dataURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=50.829858,-0.21051';
+    visApp.getData(dataURL, filterGeoData);
 });
 
 function filterData(data) {
@@ -41,6 +47,9 @@ function filterData(data) {
     }
 
     //Draw graphs with this data
+    //Set up drawing environment
+    var colours = ['red', 'steelblue'];
+    this.setColours(colours);
     for(i=0; i<data.scales.length; ++i) {
         this.drawBarChart('graph', meanData[i].name, meanData[i].values, 100, 5);
     }
@@ -55,5 +64,12 @@ function filterData(data) {
         this.displayError("No distribution in data!");
         return;
     }
+    //Alter colours
+    colours = ['green'];
+    this.setColours(colours);
     this.drawBarChart('distribution', 'Distribution', distValues, 150, 10);
+}
+
+function filterGeoData(data) {
+    console.log("Data =", data);
 }
