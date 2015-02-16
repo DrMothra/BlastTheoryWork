@@ -134,5 +134,7 @@ function renderCountryData() {
     }
     var maxX = Math.max.apply(null, values);
     this.setColours(['magenta']);
+    this.setRenderWidth(512+256);
+    this.setMargin(40, 60, 60, 256);
     this.drawHorizontalBarChart('countries', 'Countries', Object.keys(countryGraphData), values, maxX, values.length);
 }

@@ -28,6 +28,14 @@ graphApp.prototype = {
 
     constructor: graphApp,
 
+    setRenderWidth: function(width) {
+        this.outerWidth = width;
+    },
+
+    setMargin: function(top, right, bottom, left) {
+        this.margin = {top: top, right: right, bottom: bottom, left: left};
+    },
+
     setColours: function(colours) {
         if(!colours || colours.length === 0) {
             this.displayError("Colour array not defined!");
@@ -189,10 +197,8 @@ graphApp.prototype = {
             .text(title);
 
         var graph = svg.append("g")
-            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
-            .style("fill", function(d, i) {
-                return _this.colours[i%_this.colours.length];
-            });
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
 
         var bar = graph.selectAll('.bar')
             .data(values)
@@ -200,6 +206,9 @@ graphApp.prototype = {
             .append("g")
             .attr("transform", function(d, i) {
                 return "translate(0," + i * _this.barWidth + ")";
+            })
+            .style("fill", function(d, i) {
+                return _this.colours[i%_this.colours.length];
             });
 
         bar.append("rect")
@@ -209,6 +218,23 @@ graphApp.prototype = {
             .attr("width", function(d) {
                 return x(d);
             });
+
+        bar.append("text")
+            .attr("x", function(d) {
+                return x(d) + 5;
+            })
+            .attr("y", this.barWidth/2)
+            .text(function(d) {
+                return d;
+            });
+
+        bar.append("text")
+            .attr("x", -this.margin.left/2)
+            .attr("y", this.barWidth/2)
+            .text(function(d, i) {
+                return keys[i];
+            });
+
     },
 
     displayError: function(errorMsg) {
