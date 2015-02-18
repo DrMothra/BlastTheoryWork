@@ -19,6 +19,7 @@ var graphApp = function() {
     //Bar charts
     this.barWidth = 30;
     this.barGap = 5;
+    this.blankAxis = true;
 
     //Colours
     this.colours = ['red'];
@@ -110,13 +111,21 @@ graphApp.prototype = {
 
     },
 
-    drawBarChart: function(element, title, values, maxX, maxY) {
-        //Draw graphs from data
-        var _this = this;
+    createSVG: function(element) {
+        //Create SVG
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: this.outerWidth,
                 height: this.outerHeight});
+
+        return svg;
+    },
+
+    drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
+        //Draw graphs from data
+        var _this = this;
+
+        var svg = this.createSVG(element);
 
         svg.append('text')
             .attr("x", this.outerWidth/4)
@@ -127,24 +136,37 @@ graphApp.prototype = {
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var x = d3.scale.linear()
-            .range([0, maxX]);
+            .range([0, this.innerWidth])
+            .domain([0, maxX]);
 
         var y = d3.scale.linear()
             .range([this.innerHeight, 0])
             .domain([0, maxY]);
 
-        graph.append("line")
-            .attr({x1: 0,
-                y1: this.innerHeight,
-                x2: this.innerWidth,
-                y2: this.innerHeight,
-                stroke: 'black',
-                'stroke-width': 1});
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .ticks(maxX);
 
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left");
+            .orient("left")
+            .ticks(maxY);
 
+        if(showxAxis) {
+            graph.append("g")
+                .attr("transform", "translate(0," + this.innerHeight + ")")
+                .attr("class", "axis")
+                .call(xAxis);
+        } else if(this.blankAxis) {
+            graph.append("line")
+                .attr({x1: 0,
+                    y1: this.innerHeight,
+                    x2: this.innerWidth,
+                    y2: this.innerHeight,
+                    stroke: 'black',
+                    'stroke-width': 1});
+        }
         graph.append("g")
             .attr("class", "axis")
             .call(yAxis);
@@ -173,15 +195,11 @@ graphApp.prototype = {
             .text(function(d) { return d > 0 ? d : null; });
     },
 
-    drawHorizontalBarChart: function(element, title, keys, values, maxX, maxY) {
+    drawHorizontalBarChart: function(element, title, keys, values, maxY) {
         //Draw graph from data
+        var maxX = d3.max(values);
         var _this = this;
-        var svg = d3.select('#' + element)
-            .append('svg')
-            .attr({
-                width: this.outerWidth,
-                height: this.outerHeight
-            });
+        var svg = this.createSVG(element);
 
         var x = d3.scale.linear()
             .range([0, this.innerWidth])
@@ -235,6 +253,46 @@ graphApp.prototype = {
                 return keys[i];
             });
 
+    },
+
+    drawPieChart: function(element, title, values) {
+        //Draw pie chart at given element
+        var svg = this.createSVG(element);
+
+        var graph = svg.append("g")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+        var arc = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius(this.innerWidth/2);
+
+        var pie = d3.layout.pie();
+
+        //Easy colors accessible via a 10-step ordinal scale
+        var color = d3.scale.category10();
+
+        var arcs = graph.selectAll("g.arc")
+            .data(pie(values))
+            .enter()
+            .append("g")
+            .attr("class", "arc")
+            .attr("transform", "translate(" + this.innerWidth/2 + "," + this.innerWidth/2 + ")");
+
+        //Draw arc paths
+        arcs.append("path")
+            .attr("fill", function(d, i) {
+                return color(i);
+            })
+            .attr("d", arc);
+
+        arcs.append("text")
+            .attr("transform", function(d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
+            .attr("text-anchor", "middle")
+            .text(function(d) {
+                return d.value;
+            });
     },
 
     displayError: function(errorMsg) {

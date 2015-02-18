@@ -85,8 +85,11 @@ function filterData(data) {
     var colours = ['red', 'steelblue'];
     this.setColours(colours);
     for(i=0; i<data.scales.length; ++i) {
-        this.drawBarChart('graph', meanData[i].name, meanData[i].values, 100, 5);
+        this.drawBarChart('graph', meanData[i].name, meanData[i].values, 5, 5, true);
     }
+
+    //Draw pie chart as well
+    this.drawPieChart('pie', "Scales", meanData[0].values);
 
     //Get distribution
     var distValues = [];
@@ -101,7 +104,7 @@ function filterData(data) {
     //Alter colours
     colours = ['green'];
     this.setColours(colours);
-    this.drawBarChart('distribution', 'Distribution', distValues, 150, 10);
+    this.drawBarChart('distribution', 'Distribution', distValues, 5, 10);
 }
 
 function filterGeoData(data) {
@@ -132,9 +135,8 @@ function renderCountryData() {
     for(var val in countryGraphData) {
         values.push(countryGraphData[val]);
     }
-    var maxX = Math.max.apply(null, values);
     this.setColours(['magenta']);
     this.setRenderWidth(512+256);
     this.setMargin(40, 60, 60, 256);
-    this.drawHorizontalBarChart('countries', 'Countries', Object.keys(countryGraphData), values, maxX, values.length);
+    this.drawHorizontalBarChart('countries', 'Countries', Object.keys(countryGraphData), values, values.length);
 }
