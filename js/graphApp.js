@@ -183,10 +183,16 @@ graphApp.prototype = {
                 return _this.colours[i%_this.colours.length];
             });
 
-        bar.append("rect")
+        var transit = bar.append("rect")
             .attr("y", function(d) { return y(d); })
-            .attr("height", function(d) { return _this.innerHeight - y(d); })
+            .attr("height", 0)
             .attr("width", this.barWidth - this.barGap);
+
+        transit.transition()
+            .duration(3000)
+            .attr("height", function(d) {
+                return _this.innerHeight - y(d);
+            });
 
         bar.append("text")
             .attr("class", "barText")
@@ -283,7 +289,10 @@ graphApp.prototype = {
             .attr("fill", function(d, i) {
                 return color(i);
             })
-            .attr("d", arc);
+            .attr("d", arc)
+            .transition()
+            .duration(3000)
+            .attr('transform', 'rotate(180)');
 
         arcs.append("text")
             .attr("transform", function(d) {
@@ -293,6 +302,70 @@ graphApp.prototype = {
             .text(function(d) {
                 return d.value;
             });
+    },
+
+    drawScatterPlot: function(element, title, values, maxX, maxY) {
+        //Draw scatter from values
+        var _this = this;
+
+        var svg = this.createSVG(element);
+
+        svg.append('text')
+            .attr("x", this.outerWidth/4)
+            .attr("y", this.margin.top/2)
+            .text(title);
+
+        var graph = svg.append("g")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+        var x = d3.scale.linear()
+            .range([0, this.innerWidth])
+            .domain([0, maxX]);
+
+        var y = d3.scale.linear()
+            .range([this.innerHeight, 0])
+            .domain([0, maxY]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .ticks(maxX);
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .ticks(maxY);
+
+        graph.append("g")
+            .attr("transform", "translate(0," + this.innerHeight + ")")
+            .attr("class", "axis")
+            .call(xAxis);
+
+        graph.append("g")
+            .attr("class", "axis")
+            .call(yAxis);
+
+        var scatter = graph.selectAll('.scatter')
+            .data(values)
+            .enter()
+            .append("g")
+            .attr("transform", function(d, i) {
+                i+=1.25;
+                return "translate(" + i * _this.barWidth + ", 0)";
+            })
+            .style("fill", function(d, i) {
+                return _this.colours[i%_this.colours.length];
+            });
+
+        var transit = scatter.append("circle")
+            .attr("cy", function(d) {
+                return y(d);
+            })
+            .attr('r', 0);
+
+        transit.transition()
+            .duration(3000)
+            .attr('r', 7);
     },
 
     displayError: function(errorMsg) {

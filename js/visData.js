@@ -88,6 +88,11 @@ function filterData(data) {
         this.drawBarChart('graph', meanData[i].name, meanData[i].values, 5, 5, true);
     }
 
+    //Draw scatter plots
+    for(i=0; i<data.scales.length; ++i) {
+        this.drawScatterPlot('scatter', meanData[i].name, meanData[i].values, 5, 5);
+    }
+
     //Draw pie chart as well
     this.drawPieChart('pie', "Scales", meanData[0].values);
 
