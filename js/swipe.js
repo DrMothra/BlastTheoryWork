@@ -9,8 +9,13 @@ $(document).ready(function() {
 
     console.log('Default =', $.mobile.defaultPageTransition);
     $.mobile.defaultPageTransition = 'slide';
-    $('#swipeTarget').on('swipeleft', function() {
+    $('#pageone').on('swipeleft', function() {
         //alert('Swiped');
         window.location.href = '#pagetwo';
-    })
+    });
+
+    $('#pagetwo').on('swiperight', function() {
+        //alert('Swiped');
+        window.location.href = '#pageone';
+    });
 });
