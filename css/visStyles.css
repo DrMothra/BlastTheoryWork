@@ -65,6 +65,14 @@ ol {
     font-size: 0.75em;
     text-anchor: middle;
 }
+#pageone,
+#pagetwo,
+#pagethree,
+#pagefour,
+#pagefive {
+    background-color: #333333;
+    color: #aaaaaa;
+}
 .barHorizontal {
     fill: #c661b2;
 }

@@ -28,6 +28,52 @@ $(document).ready(function() {
     //Get scale and distribution data
     var dataURL = 'https://kserver.blasttheory.com/user';
     visApp.getData(dataURL, filterData);
+
+    $.mobile.defaultPageTransition = 'slide';
+    var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
+
+    page1.on('swipeleft', function() {
+        //alert('Swiped');
+        //window.location.href = '#pagetwo';
+        $.mobile.navigate("#pagetwo", {transition: "slide"});
+    });
+
+    page2.on('swipeleft', function() {
+        //alert('Swiped');
+        //window.location.href = '#pagethree';
+        $.mobile.navigate("#pagethree", {transition: "slide"});
+    });
+
+    page2.on('swiperight', function() {
+        //alert('Swiped');
+        //window.location.href = '#pageone';
+        $.mobile.navigate("#pageone", {transition: "slide", direction: "reverse"});
+    });
+
+    page3.on('swipeleft', function() {
+        //alert('Swiped');
+        $.mobile.navigate("#pagefour", {transition: "slide"});
+    });
+
+    page3.on('swiperight', function() {
+        //alert('Swiped');
+        $.mobile.navigate("#pagetwo", {transition: "slide", direction: "reverse"});
+    });
+
+    page4.on('swipeleft', function() {
+        //alert('Swiped');
+        $.mobile.navigate("#pagefive", {transition: "slide"});
+    });
+
+    page4.on('swiperight', function() {
+        //alert('Swiped');
+        $.mobile.navigate("#pagethree", {transition: "slide", direction: "reverse"});
+    });
+
+    page5.on('swiperight', function() {
+        //alert('Swiped');
+        $.mobile.navigate("#pagefour", {transition: "slide", direction: "reverse"});
+    });
 });
 
 function filterData(data) {
@@ -94,7 +140,9 @@ function filterData(data) {
     }
 
     //Draw pie chart as well
-    this.drawPieChart('pie', "Scales", meanData[0].values);
+    for(i=0; i<3; ++i) {
+        this.drawPieChart('pie', "Scales", meanData[i].values);
+    }
 
     //Get distribution
     var distValues = [];

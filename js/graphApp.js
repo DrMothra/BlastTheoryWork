@@ -289,10 +289,7 @@ graphApp.prototype = {
             .attr("fill", function(d, i) {
                 return color(i);
             })
-            .attr("d", arc)
-            .transition()
-            .duration(3000)
-            .attr('transform', 'rotate(180)');
+            .attr("d", arc);
 
         arcs.append("text")
             .attr("transform", function(d) {
