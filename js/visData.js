@@ -6,6 +6,17 @@
 var COUNTRY = 0;
 var countryData = [];
 
+//DEBUG
+//Sample data
+var data = {
+    "questions": [
+        {
+            "question": "What do you want to work on?",
+            "answer": "Life goals"
+        }
+    ]
+};
+
 function getFrequency(names) {
     //Get frequency of data
     var i, length=0, freq = {};
@@ -26,53 +37,59 @@ $(document).ready(function() {
     var visApp = new graphApp();
 
     //Get scale and distribution data
+    //DEBUG
+    //Use fake data for now
+    /*
     var dataURL = 'https://kserver.blasttheory.com/user';
     visApp.getData(dataURL, filterData);
+    */
+
+    filterData(data);
 
     $.mobile.defaultPageTransition = 'slide';
     var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
 
     page1.on('swipeleft', function() {
-        //alert('Swiped');
+        //alert('Swipe left');
         //window.location.href = '#pagetwo';
-        $.mobile.navigate("#pagetwo", {transition: "slide"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide"});
     });
 
     page2.on('swipeleft', function() {
-        //alert('Swiped');
+        //alert('Swipe left');
         //window.location.href = '#pagethree';
-        $.mobile.navigate("#pagethree", {transition: "slide"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide"});
     });
 
     page2.on('swiperight', function() {
-        //alert('Swiped');
+        //alert('Swipe right');
         //window.location.href = '#pageone';
-        $.mobile.navigate("#pageone", {transition: "slide", direction: "reverse"});
+        $.mobile.pageContainer.pagecontainer("change", "#pageone", {transition: "slide", reverse: true});
     });
 
     page3.on('swipeleft', function() {
         //alert('Swiped');
-        $.mobile.navigate("#pagefour", {transition: "slide"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagefour", {transition: "slide"});
     });
 
     page3.on('swiperight', function() {
         //alert('Swiped');
-        $.mobile.navigate("#pagetwo", {transition: "slide", direction: "reverse"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide", reverse: true});
     });
 
     page4.on('swipeleft', function() {
         //alert('Swiped');
-        $.mobile.navigate("#pagefive", {transition: "slide"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagefive", {transition: "slide"});
     });
 
     page4.on('swiperight', function() {
         //alert('Swiped');
-        $.mobile.navigate("#pagethree", {transition: "slide", direction: "reverse"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});
     });
 
     page5.on('swiperight', function() {
         //alert('Swiped');
-        $.mobile.navigate("#pagefour", {transition: "slide", direction: "reverse"});
+        $.mobile.pageContainer.pagecontainer("change", "#pagefour", {transition: "slide", reverse: true});
     });
 });
 
@@ -86,20 +103,30 @@ function filterData(data) {
             latlng.push(data.locations[i].lat);
             latlng.push(data.locations[i].lng);
         }
-    }
 
-    //Get location data
-    //Inform main app hwo much data to expect
-    this.setDataRequest(COUNTRY, data.locations.length, renderCountryData);
+        //Get location data
+        //Inform main app how much data to expect
+        this.setDataRequest(COUNTRY, data.locations.length, renderCountryData);
 
-    var dataURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
-    var currentURL;
-    for(i=0; i<latlng.length; i+=2) {
-        currentURL = dataURL + latlng[i] + ',' + latlng[i+1];
-        this.getData(currentURL, filterGeoData);
+        var dataURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
+        var currentURL;
+        for(i=0; i<latlng.length; i+=2) {
+            currentURL = dataURL + latlng[i] + ',' + latlng[i+1];
+            this.getData(currentURL, filterGeoData);
+        }
     }
 
     var meanData = [];
+
+    //Get questions
+    if(data.questions) {
+        for(i=0; i<data.questions.length; ++i) {
+            this.drawPieChart('pie', data.questions[i], 0);
+        }
+    } else {
+        this.displayError('No question data!');
+        return;
+    }
 
     if (data.scales) {
         for (i = 0; i < data.scales.length; ++i) {

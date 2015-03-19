@@ -65,12 +65,22 @@ ol {
     font-size: 0.75em;
     text-anchor: middle;
 }
+.column-1-10 {
+    width: 10%;
+}
+.column-3-10 {
+    width: 30%;
+}
+.column-6-10 {
+    width: 60%;
+}
 #pageone,
 #pagetwo,
 #pagethree,
 #pagefour,
 #pagefive {
-    background-color: #333333;
+    background: radial-gradient(circle, #0f2010, black);
+    background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
 }
 .barHorizontal {
