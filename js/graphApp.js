@@ -9,11 +9,14 @@ var graphApp = function() {
     //Data requests
     this.dataRequests = [];
 
+    //Container width
+    this.containerWidth = 512;
+
     //Graph area
     this.margin = {top: 40, right: 60, bottom: 60, left: 80};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
-    this.outerHeight = 512;
+    this.outerHeight = 760;
     this.innerHeight = this.outerHeight - this.margin.top - this.margin.bottom;
 
     //Bar charts
@@ -113,12 +116,83 @@ graphApp.prototype = {
 
     createSVG: function(element) {
         //Create SVG
+        //Use default height but container's width
+        this.containerWidth = $('#'+element).width() * 0.01 * window.innerWidth;
         var svg = d3.select('#'+element)
             .append('svg')
-            .attr({width: this.outerWidth,
+            .attr({width: this.containerWidth,
                 height: this.outerHeight});
 
         return svg;
+    },
+
+    drawQuestion: function(element, question) {
+        //Render the required question and response
+        var svg = this.createSVG(element);
+
+        var textPos = this.outerHeight * 0.05;
+        var underlinePos = this.outerHeight * 0.08;
+        var choicePos = this.outerHeight * 0.18;
+        var circlePos = this.outerHeight * 0.5, underline2Pos = this.outerHeight * 0.85, analysisText = this.outerHeight * 0.9;
+        if(window.innerHeight < 780) {
+            circlePos = this.outerHeight * 0.4;
+            underline2Pos = this.outerHeight * 0.6;
+            analysisText = this.outerHeight * 0.65;
+        }
+
+        //Question text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + textPos)
+            .attr('font-family', 'verdana')
+            .attr('font-size', '16px')
+            .attr('stroke', 'none')
+            .style('fill', '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .text("WHAT DO YOU WANT TO WORK ON?");
+
+        //Underline
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.margin.top + underlinePos,
+                x2: this.containerWidth,
+                y2: this.margin.top + underlinePos,
+                stroke: '#FFBBBE',
+                'stroke-width': 3});
+
+        //Choice text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + choicePos)
+            .attr('font-size', '60px')
+            .style('fill', '#EE4355')
+            .attr('text-anchor', 'middle')
+            .text("CHOICE");
+
+        //User choice
+        svg.append('circle')
+            .attr("cx", this.containerWidth/2)
+            .attr("cy", this.margin.top + circlePos)
+            .style("fill", '#EE4355')
+            .attr("r", this.containerWidth/2 * 0.8);
+
+        //Underline
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.margin.top + underline2Pos,
+                x2: this.containerWidth,
+                y2: this.margin.top + underline2Pos,
+                stroke: '#FFBBBE',
+                'stroke-width': 3});
+
+        //Analysis text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + analysisText)
+            .attr('font-size', '16px')
+            .style('fill', '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .text("ANALYSIS");
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {

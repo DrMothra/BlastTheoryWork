@@ -14,6 +14,21 @@ var data = {
             "question": "What do you want to work on?",
             "answer": "Life goals"
         }
+    ],
+
+    "responses": [
+        {
+            "question": "Life goals",
+            "value": 43
+        },
+        {
+            "question": "Attitude to relationships",
+            "value": 44
+        },
+        {
+            "question": "Control",
+            "value": 13
+        }
     ]
 };
 
@@ -44,7 +59,7 @@ $(document).ready(function() {
     visApp.getData(dataURL, filterData);
     */
 
-    filterData(data);
+    filterData.call(visApp, data);
 
     $.mobile.defaultPageTransition = 'slide';
     var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
@@ -121,13 +136,15 @@ function filterData(data) {
     //Get questions
     if(data.questions) {
         for(i=0; i<data.questions.length; ++i) {
-            this.drawPieChart('pie', data.questions[i], 0);
+            this.drawQuestion("question", data.questions[i]);
         }
     } else {
         this.displayError('No question data!');
         return;
     }
 
+    //DEBUG
+    /*
     if (data.scales) {
         for (i = 0; i < data.scales.length; ++i) {
             var meanDataItem = {};
@@ -185,6 +202,7 @@ function filterData(data) {
     colours = ['green'];
     this.setColours(colours);
     this.drawBarChart('distribution', 'Distribution', distValues, 5, 10);
+    */
 }
 
 function filterGeoData(data) {

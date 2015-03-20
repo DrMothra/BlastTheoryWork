@@ -22,6 +22,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #aaaaaa;
     color: #221546;
+    text-shadow: none;
 }
 .title {
     font-size: 2em;
@@ -49,13 +50,29 @@ ol {
 }
 .next {
     text-align: right;
+    padding-top: 30%;
+}
+.previous {
+    padding-top: 30%;
 }
 .previousScreen {
     text-align: left;
     margin-left: 10%;
 }
+.navigate {
+    width: 75%;
+}
 .autoCentre {
     margin: 0 auto;
+}
+.rotatedText {
+    font-family: 'verdana';
+    font-size: 16px;
+    color: #FFBBBE;
+    margin-right: -500%;
+    padding-top: 1000%;
+    transform-origin: 5% 90%;
+    transform: rotate(-90deg);
 }
 .bar {
     fill: steelblue;
@@ -82,6 +99,7 @@ ol {
     background: radial-gradient(circle, #0f2010, black);
     background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
+    text-shadow: none;
 }
 .barHorizontal {
     fill: #c661b2;
