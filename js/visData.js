@@ -29,6 +29,13 @@ var data = {
             "question": "Control",
             "value": 13
         }
+    ],
+
+    "distributions": [
+        {
+            "question": "What do you value?",
+            "score": 3.7
+        }
     ]
 };
 
@@ -145,6 +152,11 @@ function filterData(data) {
 
     if(data.responses) {
         this.drawResponse("response", data.responses[i]);
+    }
+
+    if(data.distributions) {
+        this.drawDistributionQuestion('distribution', data.distributions[i]);
+        //this.drawDistribution('distributionGraph', data.distributions[i]);
     }
 
     //DEBUG

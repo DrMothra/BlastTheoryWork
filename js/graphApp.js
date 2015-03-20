@@ -139,6 +139,7 @@ graphApp.prototype = {
             underline2Pos = this.outerHeight * 0.6;
             analysisText = this.outerHeight * 0.65;
         }
+        var textOffset = 15;
 
         //Question text
         svg.append('text')
@@ -176,6 +177,23 @@ graphApp.prototype = {
             .style("fill", '#EE4355')
             .attr("r", this.containerWidth/2 * 0.8);
 
+        //User text
+        svg.append("text")
+            .attr("x", this.containerWidth/2)
+            .attr("y", this.margin.top + circlePos - textOffset)
+            .style("fill", '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "30px")
+            .text("LIFE");
+
+        svg.append("text")
+            .attr("x", this.containerWidth/2)
+            .attr("y", this.margin.top + circlePos + textOffset)
+            .style("fill", '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "30px")
+            .text("GOALS");
+
         //Underline
         svg.append("line")
             .attr({x1: 0,
@@ -200,33 +218,179 @@ graphApp.prototype = {
         var svg = this.createSVG(element);
 
         //Render responses
-        var circleXPos = 0.20;
-        var circleYPos = [0.25, 0.45, 0.65];
-        var smallRadius = 50, largeRadius = 200;
+        var circleXPos = 0.2;
+        var circleYPos = [0.275, 0.45, 0.625];
+        var smallRadius = 55, largeRadius = 200;
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
             .attr("cy", this.outerHeight * circleYPos[0])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
 
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[0]-5)
+            .style("fill", '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "15px")
+            .text("LIFE GOALS");
+
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[0]+20)
+            .style("fill", '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "22px")
+            .text("43%");
+
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
             .attr("cy", this.outerHeight * circleYPos[1])
             .attr("r", smallRadius)
-            .style("fill", '#EE4355');
+            .style("fill", '#cee4b5');
+
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[1]-5)
+            .style("fill", '#9dc56d')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "12px")
+            .text("RELATIONSHIPS");
+
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[1]+20)
+            .style("fill", '#9dc56d')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "22px")
+            .text("44%");
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
             .attr("cy", this.outerHeight * circleYPos[2])
             .attr("r", smallRadius)
-            .style("fill", '#EE4355');
+            .style("fill", '#e7f1d9');
 
-        //Main circle
-        svg.append("circle")
-            .attr("cx", this.containerWidth * 0.65)
-            .attr("cy", this.outerHeight * 0.45)
-            .attr("r", largeRadius)
-            .style("fill", '#EE4355');
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[2]-5)
+            .style("fill", '#9dc56d')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "15px")
+            .text("CONTROL");
+
+        svg.append("text")
+            .attr("x", this.outerWidth * circleXPos)
+            .attr("y", this.outerHeight * circleYPos[2]+20)
+            .style("fill", '#9dc56d')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "22px")
+            .text("13%");
+
+        //Pie chart
+        var arc = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius(this.containerWidth/2 * 0.675);
+
+        var pie = d3.layout.pie();
+        //var color = d3.scale.category10();
+        var color = ['#EE4355', '#cee4b5', '#e7f1d9'];
+        //DEBUG
+        console.log("Colour =", color);
+
+        var values = [43, 44, 13];
+
+        var arcs = svg.selectAll("g.arc")
+            .data(pie(values))
+            .enter()
+            .append("g")
+            .attr("transform", "translate(" + this.containerWidth/1.55 + "," + this.innerHeight/1.9 + ")");
+
+        //Draw arc paths
+        arcs.append("path")
+            .attr("transform", "rotate(-158)")
+            .attr("fill", function(d, i) {
+                return color[i];
+            })
+            .attr("d", arc);
+    },
+
+    drawDistributionQuestion: function(element, data) {
+        var svg = this.createSVG(element);
+
+        var textPos = this.outerHeight * 0.05;
+        var underlinePos = this.outerHeight * 0.08;
+        var choicePos = this.outerHeight * 0.18;
+        var circlePos = this.outerHeight * 0.5, underline2Pos = this.outerHeight * 0.85, analysisText = this.outerHeight * 0.9;
+        if(window.innerHeight < 780) {
+            circlePos = this.outerHeight * 0.4;
+            underline2Pos = this.outerHeight * 0.6;
+            analysisText = this.outerHeight * 0.65;
+        }
+        var textOffset = 15;
+
+        //Question text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + textPos)
+            .attr('font-family', 'verdana')
+            .attr('font-size', '16px')
+            .attr('stroke', 'none')
+            .style('fill', '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .text("WHAT DO YOU VALUE?");
+
+        //Underline
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.margin.top + underlinePos,
+                x2: this.containerWidth,
+                y2: this.margin.top + underlinePos,
+                stroke: '#FFBBBE',
+                'stroke-width': 3});
+
+        //Choice text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + choicePos)
+            .attr('font-size', '60px')
+            .style('fill', '#EE4355')
+            .attr('text-anchor', 'middle')
+            .text("SCORE");
+
+        //User choice
+        svg.append('circle')
+            .attr("cx", this.containerWidth/2)
+            .attr("cy", this.margin.top + circlePos)
+            .style("fill", '#EE4355')
+            .attr("r", this.containerWidth/2 * 0.8);
+
+        //User text
+        svg.append("text")
+            .attr("x", this.containerWidth/2)
+            .attr("y", this.margin.top + circlePos - textOffset)
+            .style("fill", '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .attr("font-size", "30px")
+            .text(3.7);
+
+        //Underline
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.margin.top + underline2Pos,
+                x2: this.containerWidth,
+                y2: this.margin.top + underline2Pos,
+                stroke: '#FFBBBE',
+                'stroke-width': 3});
+
+        //Analysis text
+        svg.append('text')
+            .attr('x', this.containerWidth/2)
+            .attr('y', this.margin.top + analysisText)
+            .attr('font-size', '16px')
+            .style('fill', '#FFBBBE')
+            .attr('text-anchor', 'middle')
+            .text("ANALYSIS");
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
