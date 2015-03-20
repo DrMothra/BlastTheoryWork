@@ -143,6 +143,10 @@ function filterData(data) {
         return;
     }
 
+    if(data.responses) {
+        this.drawResponse("response", data.responses[i]);
+    }
+
     //DEBUG
     /*
     if (data.scales) {

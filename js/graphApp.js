@@ -195,6 +195,40 @@ graphApp.prototype = {
             .text("ANALYSIS");
     },
 
+    drawResponse: function(element, response) {
+        //Render given responses
+        var svg = this.createSVG(element);
+
+        //Render responses
+        var circleXPos = 0.20;
+        var circleYPos = [0.25, 0.45, 0.65];
+        var smallRadius = 50, largeRadius = 200;
+        svg.append("circle")
+            .attr("cx", this.outerWidth * circleXPos)
+            .attr("cy", this.outerHeight * circleYPos[0])
+            .attr("r", smallRadius)
+            .style("fill", '#EE4355');
+
+        svg.append("circle")
+            .attr("cx", this.outerWidth * circleXPos)
+            .attr("cy", this.outerHeight * circleYPos[1])
+            .attr("r", smallRadius)
+            .style("fill", '#EE4355');
+
+        svg.append("circle")
+            .attr("cx", this.outerWidth * circleXPos)
+            .attr("cy", this.outerHeight * circleYPos[2])
+            .attr("r", smallRadius)
+            .style("fill", '#EE4355');
+
+        //Main circle
+        svg.append("circle")
+            .attr("cx", this.containerWidth * 0.65)
+            .attr("cy", this.outerHeight * 0.45)
+            .attr("r", largeRadius)
+            .style("fill", '#EE4355');
+    },
+
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
         //Draw graphs from data
         var _this = this;
