@@ -295,8 +295,6 @@ graphApp.prototype = {
         var pie = d3.layout.pie();
         //var color = d3.scale.category10();
         var color = ['#EE4355', '#cee4b5', '#e7f1d9'];
-        //DEBUG
-        console.log("Colour =", color);
 
         var values = [43, 44, 13];
 
@@ -368,10 +366,10 @@ graphApp.prototype = {
         //User text
         svg.append("text")
             .attr("x", this.containerWidth/2)
-            .attr("y", this.margin.top + circlePos - textOffset)
+            .attr("y", this.margin.top + circlePos)
             .style("fill", '#FFBBBE')
             .attr('text-anchor', 'middle')
-            .attr("font-size", "30px")
+            .attr("font-size", "50px")
             .text(3.7);
 
         //Underline
@@ -391,6 +389,28 @@ graphApp.prototype = {
             .style('fill', '#FFBBBE')
             .attr('text-anchor', 'middle')
             .text("ANALYSIS");
+    },
+
+    drawDistribution: function(element, data) {
+        //Create distribution graph
+        var svg = this.createSVG(element);
+
+        var numLines = 9;
+        var lineGap = 50;
+        var startX = 0.1 * this.containerWidth;
+        var startY = 0.175 * this.innerHeight;
+
+        for(var i=0; i<numLines; ++i) {
+            svg.append("line")
+                .attr({x1: startX,
+                    y1: startY + (lineGap*i),
+                    x2: this.containerWidth * 0.9,
+                    y2: startY + (lineGap*i),
+                    stroke: '#9dc56d',
+                    'stroke-width': 1,
+                    'stroke-dasharray': '3,3'});
+        }
+
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
