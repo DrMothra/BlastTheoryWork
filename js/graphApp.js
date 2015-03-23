@@ -119,11 +119,10 @@ graphApp.prototype = {
         //Use default height but container's width
         var elem = $('#'+element);
         this.containerWidth = elem.width() * 0.01 * window.innerWidth;
-        this.containerHeight = elem.height();
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: this.containerWidth,
-                height: this.outerHeight});
+                height: window.innerHeight});
 
         return svg;
     },
@@ -132,19 +131,49 @@ graphApp.prototype = {
         //Add line background to exisitng svg content
         var numLines = 9;
         var lineGap = 50;
-        var startX = 0.1 * this.containerWidth;
+        var startX = 0.05 * this.containerWidth;
         var startY = 0.175 * this.innerHeight;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
                 .attr({x1: startX,
                     y1: startY + (lineGap*i),
-                    x2: this.containerWidth * 0.9,
+                    x2: this.containerWidth * 0.95,
                     y2: startY + (lineGap*i),
                     stroke: '#9dc56d',
                     'stroke-width': 1,
                     'stroke-dasharray': '3,3'});
         }
+
+        //Draw scale
+        element.append("text")
+            .attr("x", this.containerWidth*0.15)
+            .attr("y", startY + (lineGap*9))
+            .attr('font-family', 'quicksandregular')
+            .attr('font-size', '1.2em')
+            .attr('font-weight', 'bold')
+            .attr('stroke', 'none')
+            .style('fill', '#bcebc1')
+            .text("1");
+
+        element.append("line")
+            .attr({x1: this.containerWidth*0.2,
+                y1: startY + (lineGap*8.85),
+                x2: this.containerWidth*0.8,
+                y2: startY + (lineGap*8.85),
+                stroke: '#9dc56d',
+                'stroke-width': 1,
+                'stroke-dasharray': '3,3'});
+
+        element.append("text")
+            .attr("x", this.containerWidth*0.85)
+            .attr("y", startY + (lineGap*9))
+            .attr('font-family', 'quicksandregular')
+            .attr('font-size', '1.2em')
+            .attr('font-weight', 'bold')
+            .attr('stroke', 'none')
+            .style('fill', '#bcebc1')
+            .text("5");
     },
 
     drawNormalDistribution: function(element, currentMean) {
@@ -234,87 +263,33 @@ graphApp.prototype = {
         //Render the required question and response
         var svg = this.createSVG(element);
 
-        var textPos = this.outerHeight * 0.05;
-        var underlinePos = this.outerHeight * 0.08;
-        var choicePos = this.outerHeight * 0.18;
-        var circlePos = this.outerHeight * 0.5, underline2Pos = this.outerHeight * 0.85, analysisText = this.outerHeight * 0.9;
-        if(window.innerHeight < 780) {
-            circlePos = this.outerHeight * 0.4;
-            underline2Pos = this.outerHeight * 0.6;
-            analysisText = this.outerHeight * 0.65;
-        }
-        var textOffset = 15;
-
-        //Question text
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + textPos)
-            .attr('font-family', 'verdana')
-            .attr('font-size', '16px')
-            .attr('stroke', 'none')
-            .style('fill', '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .text("WHAT DO YOU WANT TO WORK ON?");
+        var underlineTopPos = this.outerHeight * 0.10;
+        var circlePos = window.innerHeight * 0.4, underlineBottomPos = window.innerHeight * 0.6;
 
         //Underline
         svg.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlinePos,
+                y1: this.margin.top + underlineTopPos,
                 x2: this.containerWidth,
-                y2: this.margin.top + underlinePos,
+                y2: this.margin.top + underlineTopPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
-
-        //Choice text
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + choicePos)
-            .attr('font-size', '60px')
-            .style('fill', '#EE4355')
-            .attr('text-anchor', 'middle')
-            .text("CHOICE");
 
         //User choice
         svg.append('circle')
             .attr("cx", this.containerWidth/2)
             .attr("cy", this.margin.top + circlePos)
             .style("fill", '#EE4355')
-            .attr("r", this.containerWidth/2 * 0.8);
-
-        //User text
-        svg.append("text")
-            .attr("x", this.containerWidth/2)
-            .attr("y", this.margin.top + circlePos - textOffset)
-            .style("fill", '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "30px")
-            .text("LIFE");
-
-        svg.append("text")
-            .attr("x", this.containerWidth/2)
-            .attr("y", this.margin.top + circlePos + textOffset)
-            .style("fill", '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "30px")
-            .text("GOALS");
+            .attr("r", this.containerWidth * 0.45);
 
         //Underline
         svg.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underline2Pos,
+                y1: this.margin.top + underlineBottomPos,
                 x2: this.containerWidth,
-                y2: this.margin.top + underline2Pos,
+                y2: this.margin.top + underlineBottomPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
-
-        //Analysis text
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + analysisText)
-            .attr('font-size', '16px')
-            .style('fill', '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .text("ANALYSIS");
     },
 
     drawResponse: function(element, response) {
@@ -325,27 +300,13 @@ graphApp.prototype = {
         var circleXPos = 0.2;
         var circleYPos = [0.275, 0.45, 0.625];
         var smallRadius = 55, largeRadius = 200;
+        var lineXStart = this.containerWidth * 0.23;
+
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
             .attr("cy", this.outerHeight * circleYPos[0])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
-
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[0]-5)
-            .style("fill", '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "15px")
-            .text("LIFE GOALS");
-
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[0]+20)
-            .style("fill", '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "22px")
-            .text("43%");
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
@@ -353,48 +314,16 @@ graphApp.prototype = {
             .attr("r", smallRadius)
             .style("fill", '#cee4b5');
 
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[1]-5)
-            .style("fill", '#9dc56d')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "12px")
-            .text("RELATIONSHIPS");
-
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[1]+20)
-            .style("fill", '#9dc56d')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "22px")
-            .text("44%");
-
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
             .attr("cy", this.outerHeight * circleYPos[2])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
 
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[2]-5)
-            .style("fill", '#9dc56d')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "15px")
-            .text("CONTROL");
-
-        svg.append("text")
-            .attr("x", this.outerWidth * circleXPos)
-            .attr("y", this.outerHeight * circleYPos[2]+20)
-            .style("fill", '#9dc56d')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "22px")
-            .text("13%");
-
         //Pie chart
         var arc = d3.svg.arc()
             .innerRadius(0)
-            .outerRadius(this.containerWidth/2 * 0.675);
+            .outerRadius(this.containerWidth/2 * 0.6);
 
         var pie = d3.layout.pie();
         //var color = d3.scale.category10();
@@ -406,7 +335,7 @@ graphApp.prototype = {
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + this.containerWidth/1.55 + "," + this.innerHeight/1.9 + ")");
+            .attr("transform", "translate(" + this.containerWidth * 0.6 + "," + this.innerHeight * 0.52 + ")");
 
         //Draw arc paths
         arcs.append("path")
@@ -415,81 +344,70 @@ graphApp.prototype = {
                 return color[i];
             })
             .attr("d", arc);
+
+        var yOffsets = [0.32, 0.52, 0.72];
+        svg.append("line")
+            .attr({x1: lineXStart,
+                y1: this.innerHeight * yOffsets[0],
+                x2: lineXStart + this.containerWidth * 0.4,
+                y2: this.innerHeight * yOffsets[0],
+                stroke: '#EE4355',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+
+        svg.append("line")
+            .attr({x1: lineXStart,
+                y1: this.innerHeight * yOffsets[1],
+                x2: lineXStart + this.containerWidth * 0.2,
+                y2: this.innerHeight * yOffsets[1],
+                stroke: '#e7f1d9',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+
+        svg.append("line")
+            .attr({x1: lineXStart,
+                y1: this.innerHeight * yOffsets[2],
+                x2: lineXStart + this.containerWidth * 0.35,
+                y2: this.innerHeight * yOffsets[2],
+                stroke: '#e7f1d9',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
     },
 
     drawDistributionQuestion: function(element, data) {
         var svg = this.createSVG(element);
 
-        var textPos = this.outerHeight * 0.05;
-        var underlinePos = this.outerHeight * 0.08;
-        var choicePos = this.outerHeight * 0.18;
-        var circlePos = this.outerHeight * 0.5, underline2Pos = this.outerHeight * 0.85, analysisText = this.outerHeight * 0.9;
-        if(window.innerHeight < 780) {
-            circlePos = this.outerHeight * 0.4;
-            underline2Pos = this.outerHeight * 0.6;
-            analysisText = this.outerHeight * 0.65;
-        }
-        var textOffset = 15;
+        var underlineTopPos = window.innerHeight * 0.08;
+        var circlePos = window.innerHeight * 0.4, underlineBottomPos = window.innerHeight * 0.6;
 
-        //Question text
-        /*
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + textPos)
-            .attr('font-family', 'verdana')
-            .attr('font-size', '16px')
-            .attr('stroke', 'none')
-            .style('fill', '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .text("WHAT DO YOU VALUE?");
-        */
-
-        //Underline
+        //Top Underline
         svg.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlinePos,
+                y1: this.margin.top + underlineTopPos,
                 x2: this.containerWidth,
-                y2: this.margin.top + underlinePos,
+                y2: this.margin.top + underlineTopPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
-        //Choice text
-        /*
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + choicePos)
-            .attr('font-size', '60px')
-            .style('fill', '#EE4355')
-            .attr('text-anchor', 'middle')
-            .text("SCORE");
-        */
-
         //User choice
+        var radius = window.innerWidth * 0.115;
         svg.append('circle')
             .attr("cx", this.containerWidth/2)
             .attr("cy", this.margin.top + circlePos)
             .style("fill", '#EE4355')
-            .attr("r", this.containerWidth/2 * 0.8);
-
-        //User text
-        svg.append("text")
-            .attr("x", this.containerWidth/2)
-            .attr("y", this.margin.top + circlePos)
-            .style("fill", '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .attr("font-size", "50px")
-            .text(3.7);
+            .attr("r", radius);
 
         //Underline
         svg.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underline2Pos,
+                y1: this.margin.top + underlineBottomPos,
                 x2: this.containerWidth,
-                y2: this.margin.top + underline2Pos,
+                y2: this.margin.top + underlineBottomPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
         //Analysis text
+        /*
         svg.append('text')
             .attr('x', this.containerWidth/2)
             .attr('y', this.margin.top + analysisText)
@@ -497,6 +415,7 @@ graphApp.prototype = {
             .style('fill', '#FFBBBE')
             .attr('text-anchor', 'middle')
             .text("ANALYSIS");
+        */
     },
 
     drawDistribution: function(element, data) {
@@ -508,6 +427,44 @@ graphApp.prototype = {
         this.drawNormalDistribution(svg, 0);
         this.colours = ['#b7d690'];
         this.drawNormalDistribution(svg, 0.75)
+
+        //Draw user score indication
+        svg.append("line")
+            .attr({x1: this.containerWidth * 0.6,
+                y1: this.margin.top,
+                x2: this.containerWidth * 0.6,
+                y2: this.innerHeight * 0.9,
+                stroke: '#ef5f68',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+
+        svg.append("circle")
+            .attr("cx", this.containerWidth * 0.6)
+            .attr("cy", this.innerHeight * 0.5)
+            .style('fill', '#ef5f68')
+            .attr('r', this.containerWidth *0.06);
+    },
+
+    drawDistributionKey: function(element) {
+        var svg = this.createSVG(element);
+
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.innerHeight * 0.36,
+                x2: this.containerWidth * 0.95,
+                y2: this.innerHeight * 0.36,
+                stroke: '#9dc56d',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+
+        svg.append("line")
+            .attr({x1: 0,
+                y1: this.innerHeight * 0.6,
+                x2: this.containerWidth * 0.95,
+                y2: this.innerHeight * 0.6,
+                stroke: '#c0e9bd',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {

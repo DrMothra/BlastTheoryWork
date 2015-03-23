@@ -49,14 +49,32 @@ body {
 }
 .quicksand {
     font-family: 'quicksandregular';
-    font-weight: bold;
     letter-spacing: normal;
+}
+.heavy {
+    font-weight: bold;
+}
+.smallText {
+    font-size: 0.7em;
 }
 .normalText {
     font-size: 1.2em;
 }
+.smallMediumText {
+    font-size: 1.8em;
+}
+.mediumText {
+    font-size: 2.5em;
+}
 .bigText {
-    font-size: 4em;
+    font-size: 4.5em;
+    -webkit-text-fill-color: #EE4355;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: #EE4355;
+}
+.superBigText {
+    font-size: 10em;
+    font-weight: 300;
 }
 .pink {
     color: #FFBBBE;
@@ -64,13 +82,96 @@ body {
 .darkpink {
     color: #EE4355;
 }
+.lightGreen {
+    color: #c0e9bd;
+}
+.green {
+    color: #9dc56d;
+}
+.darkGreen {
+    color: #b7d690;
+}
+#currentQuestion,
 #distQuestion {
     position: fixed;
-    top: 62px;
+    top: 8%;
 }
+#choice,
 #score {
     position: fixed;
-    top: 125px;
+    top: 15%;
+}
+#userAnswer,
+#userScore {
+    position: fixed;
+}
+#userScore {
+    top: 250px;
+}
+#userAnswer {
+    top: 37%;
+}
+#analysisChoice,
+#analysis {
+    position: fixed;
+    top: 520px;
+}
+#responded,
+#respondents {
+    position: fixed;
+    top: 36%;
+    left: 36%;
+}
+#response1,
+#response2,
+#response3 {
+    position: fixed;
+}
+#response1 {
+    top: 24%;
+    left: 41.5%;
+}
+#response2 {
+    top: 42%;
+    left: 41%;
+}
+#response3 {
+    top: 59%;
+    left: 42%;
+}
+#agree {
+    position: fixed;
+    top: 10%;
+    left: 38%;
+}
+#least {
+    padding-right: 28%;
+}
+#respondentKey {
+    position: fixed;
+    top: 33%;
+    left: 87%;
+}
+#normalKey {
+    position: fixed;
+    top: 53%;
+    left: 87%;
+}
+#you {
+    position: fixed;
+    top: 40%;
+    left: 67%;
+}
+.goLeft {
+    position: fixed;
+    top: 40%;
+    left: 0%;
+}
+.goRight {
+    position: fixed;
+    top: 40%;
+    right: 0%;
+    text-align: right;
 }
 ol {
     font-size: 1.5em;
@@ -96,20 +197,20 @@ ol {
     margin-left: 10%;
 }
 .navigate {
-    width: 75%;
+    width: 25%;
 }
 .autoCentre {
     margin: 0 auto;
 }
-.rotatedText {
-    font-family: 'verdana';
-    font-size: 16px;
-    color: #FFBBBE;
-    margin-right: -500%;
-    padding-top: 1000%;
-    transform-origin: 5% 90%;
+#rotatedQuestionText {
+    margin-left: -220%;
     transform: rotate(-90deg);
 }
+#rotatedDistText {
+    margin-left: -180%;
+    transform: rotate(-90deg);
+}
+
 .bar {
     fill: steelblue;
 }
@@ -136,6 +237,7 @@ ol {
     background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
     text-shadow: none;
+    padding-left: 2%;
 }
 .barHorizontal {
     fill: #c661b2;
