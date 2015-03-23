@@ -16,7 +16,7 @@ var graphApp = function() {
     this.margin = {top: 40, right: 60, bottom: 60, left: 80};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
-    this.outerHeight = 760;
+    this.outerHeight = 768;
     this.innerHeight = this.outerHeight - this.margin.top - this.margin.bottom;
 
     //Bar charts
@@ -117,13 +117,117 @@ graphApp.prototype = {
     createSVG: function(element) {
         //Create SVG
         //Use default height but container's width
-        this.containerWidth = $('#'+element).width() * 0.01 * window.innerWidth;
+        var elem = $('#'+element);
+        this.containerWidth = elem.width() * 0.01 * window.innerWidth;
+        this.containerHeight = elem.height();
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: this.containerWidth,
                 height: this.outerHeight});
 
         return svg;
+    },
+
+    drawLineBackground: function(element) {
+        //Add line background to exisitng svg content
+        var numLines = 9;
+        var lineGap = 50;
+        var startX = 0.1 * this.containerWidth;
+        var startY = 0.175 * this.innerHeight;
+
+        for(var i=0; i<numLines; ++i) {
+            element.append("line")
+                .attr({x1: startX,
+                    y1: startY + (lineGap*i),
+                    x2: this.containerWidth * 0.9,
+                    y2: startY + (lineGap*i),
+                    stroke: '#9dc56d',
+                    'stroke-width': 1,
+                    'stroke-dasharray': '3,3'});
+        }
+    },
+
+    drawNormalDistribution: function(element, currentMean) {
+        //Draw normal distribution curve
+        //Draw normal curve
+        var normalData = [];
+        getData();
+
+        var x = d3.scale.linear()
+            .range([0, this.containerWidth]);
+
+        var y = d3.scale.linear()
+            .range([this.innerHeight-this.margin.top, 120]);
+
+        var line = d3.svg.line()
+            .x(function(d) {
+                return x(d.q);
+            })
+            .y(function(d) {
+                return y(d.p);
+            });
+
+        x.domain(d3.extent(normalData, function(d) {
+            return d.q;
+        }));
+        y.domain(d3.extent(normalData, function(d) {
+            return d.p;
+        }));
+
+        element.append("path")
+            .datum(normalData)
+            .style('fill', 'none')
+            .style("stroke", this.colours[0])
+            .style("stroke-width", "2px")
+            .style("stroke-dasharray", ("3,3"))
+            .attr("d", line);
+
+        function getData() {
+
+            // loop to populate data array with
+            // probabily - quantile pairs
+            var q, p, el;
+            for (var i = 0; i < 10000; i++) {
+                q = normal(); // calc random draw from normal dist
+                p = gaussian(q); // calc prob of rand draw
+                el = {
+                    "q": q,
+                    "p": p
+                };
+                normalData.push(el)
+            }
+
+            // need to sort for plotting
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+            normalData.sort(function(x, y) {
+                return x.q - y.q;
+            });
+        }
+
+        // Sample from a normal distribution with mean 0, stddev 1.
+        function normal() {
+            var x = 0,
+                y = 0,
+                rds, c;
+            do {
+                x = Math.random() * 2 - 1;
+                y = Math.random() * 2 - 1;
+                rds = x * x + y * y;
+            } while (rds == 0 || rds > 1);
+            c = Math.sqrt(-2 * Math.log(rds) / rds); // Box-Muller transform
+            return x * c; // throw away extra sample y * c
+        }
+
+        //taken from Jason Davies science library
+        // https://github.com/jasondavies/science.js/
+        function gaussian(x) {
+            var gaussianConstant = 1 / Math.sqrt(2 * Math.PI),
+                mean = currentMean,
+                sigma = 1;
+
+            x = (x - mean) / sigma;
+            return gaussianConstant * Math.exp(-.5 * x * x) / sigma;
+        }
     },
 
     drawQuestion: function(element, question) {
@@ -328,6 +432,7 @@ graphApp.prototype = {
         var textOffset = 15;
 
         //Question text
+        /*
         svg.append('text')
             .attr('x', this.containerWidth/2)
             .attr('y', this.margin.top + textPos)
@@ -337,6 +442,7 @@ graphApp.prototype = {
             .style('fill', '#FFBBBE')
             .attr('text-anchor', 'middle')
             .text("WHAT DO YOU VALUE?");
+        */
 
         //Underline
         svg.append("line")
@@ -348,6 +454,7 @@ graphApp.prototype = {
                 'stroke-width': 3});
 
         //Choice text
+        /*
         svg.append('text')
             .attr('x', this.containerWidth/2)
             .attr('y', this.margin.top + choicePos)
@@ -355,6 +462,7 @@ graphApp.prototype = {
             .style('fill', '#EE4355')
             .attr('text-anchor', 'middle')
             .text("SCORE");
+        */
 
         //User choice
         svg.append('circle')
@@ -395,22 +503,11 @@ graphApp.prototype = {
         //Create distribution graph
         var svg = this.createSVG(element);
 
-        var numLines = 9;
-        var lineGap = 50;
-        var startX = 0.1 * this.containerWidth;
-        var startY = 0.175 * this.innerHeight;
-
-        for(var i=0; i<numLines; ++i) {
-            svg.append("line")
-                .attr({x1: startX,
-                    y1: startY + (lineGap*i),
-                    x2: this.containerWidth * 0.9,
-                    y2: startY + (lineGap*i),
-                    stroke: '#9dc56d',
-                    'stroke-width': 1,
-                    'stroke-dasharray': '3,3'});
-        }
-
+        this.drawLineBackground(svg);
+        this.colours = ['#bcebc1'];
+        this.drawNormalDistribution(svg, 0);
+        this.colours = ['#b7d690'];
+        this.drawNormalDistribution(svg, 0.75)
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
