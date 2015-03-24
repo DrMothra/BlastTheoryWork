@@ -114,21 +114,28 @@ graphApp.prototype = {
 
     },
 
-    createSVG: function(element) {
+    createSVG: function(element, id) {
         //Create SVG
         //Use default height but container's width
         var elem = $('#'+element);
         this.containerWidth = elem.width() * 0.01 * window.innerWidth;
         var svg = d3.select('#'+element)
             .append('svg')
+            .attr("id", id != null ? id : -1)
             .attr({width: this.containerWidth,
                 height: window.innerHeight});
 
         return svg;
     },
 
+    removeSVG: function(id) {
+        if(id != -1 && id != null) {
+            d3.selectAll('#'+id).remove();
+        }
+    },
+
     drawLineBackground: function(element) {
-        //Add line background to exisitng svg content
+        //Add line background to existing svg content
         var numLines = 9;
         var lineGap = 50;
         var startX = 0.05 * this.containerWidth;
@@ -259,11 +266,11 @@ graphApp.prototype = {
         }
     },
 
-    drawQuestion: function(element, question) {
+    drawQuestion: function(element, id, question) {
         //Render the required question and response
-        var svg = this.createSVG(element);
+        var svg = this.createSVG(element, id);
 
-        var underlineTopPos = this.outerHeight * 0.10;
+        var underlineTopPos = window.innerHeight * 0.10;
         var circlePos = window.innerHeight * 0.4, underlineBottomPos = window.innerHeight * 0.6;
 
         //Underline
@@ -299,24 +306,24 @@ graphApp.prototype = {
         //Render responses
         var circleXPos = 0.2;
         var circleYPos = [0.275, 0.45, 0.625];
-        var smallRadius = 55, largeRadius = 200;
-        var lineXStart = this.containerWidth * 0.23;
+        var smallRadius = 55;
+        var lineXStart = this.containerWidth * 0.25;
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", this.outerHeight * circleYPos[0])
+            .attr("cy", window.innerHeight * circleYPos[0])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", this.outerHeight * circleYPos[1])
+            .attr("cy", window.innerHeight * circleYPos[1])
             .attr("r", smallRadius)
             .style("fill", '#cee4b5');
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", this.outerHeight * circleYPos[2])
+            .attr("cy", window.innerHeight * circleYPos[2])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
 
@@ -335,7 +342,7 @@ graphApp.prototype = {
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + this.containerWidth * 0.6 + "," + this.innerHeight * 0.52 + ")");
+            .attr("transform", "translate(" + this.containerWidth * 0.6 + "," + window.innerHeight * 0.47 + ")");
 
         //Draw arc paths
         arcs.append("path")
@@ -345,30 +352,30 @@ graphApp.prototype = {
             })
             .attr("d", arc);
 
-        var yOffsets = [0.32, 0.52, 0.72];
+        var yOffsets = [0.28, 0.45, 0.63];
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: this.innerHeight * yOffsets[0],
+                y1: window.innerHeight * yOffsets[0],
                 x2: lineXStart + this.containerWidth * 0.4,
-                y2: this.innerHeight * yOffsets[0],
+                y2: window.innerHeight * yOffsets[0],
                 stroke: '#EE4355',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: this.innerHeight * yOffsets[1],
+                y1: window.innerHeight * yOffsets[1],
                 x2: lineXStart + this.containerWidth * 0.2,
-                y2: this.innerHeight * yOffsets[1],
+                y2: window.innerHeight * yOffsets[1],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: this.innerHeight * yOffsets[2],
+                y1: window.innerHeight * yOffsets[2],
                 x2: lineXStart + this.containerWidth * 0.35,
-                y2: this.innerHeight * yOffsets[2],
+                y2: window.innerHeight * yOffsets[2],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
@@ -440,7 +447,7 @@ graphApp.prototype = {
 
         svg.append("circle")
             .attr("cx", this.containerWidth * 0.6)
-            .attr("cy", this.innerHeight * 0.5)
+            .attr("cy", window.innerHeight * 0.44)
             .style('fill', '#ef5f68')
             .attr('r', this.containerWidth *0.06);
     },
@@ -448,20 +455,23 @@ graphApp.prototype = {
     drawDistributionKey: function(element) {
         var svg = this.createSVG(element);
 
+        var topLinePos = window.innerHeight * 0.32;
+        var bottomLinePos = window.innerHeight * 0.52;
+
         svg.append("line")
             .attr({x1: 0,
-                y1: this.innerHeight * 0.36,
+                y1: topLinePos,
                 x2: this.containerWidth * 0.95,
-                y2: this.innerHeight * 0.36,
+                y2: topLinePos,
                 stroke: '#9dc56d',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: 0,
-                y1: this.innerHeight * 0.6,
+                y1: bottomLinePos,
                 x2: this.containerWidth * 0.95,
-                y2: this.innerHeight * 0.6,
+                y2: bottomLinePos,
                 stroke: '#c0e9bd',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});

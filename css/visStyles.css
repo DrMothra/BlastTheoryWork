@@ -19,10 +19,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #aaaaaa;
-    color: #221546;
-    text-shadow: none;
+
 }
 @font-face {
     font-family: 'quicksandregular';
@@ -106,7 +103,7 @@ body {
     position: fixed;
 }
 #userScore {
-    top: 250px;
+    top: 33%;
 }
 #userAnswer {
     top: 37%;
@@ -114,12 +111,17 @@ body {
 #analysisChoice,
 #analysis {
     position: fixed;
-    top: 520px;
+    top: 67%;
 }
 #responded,
 #respondents {
     position: fixed;
     top: 36%;
+}
+#responded {
+    left: 40%;
+}
+#respondents {
     left: 36%;
 }
 #response1,
@@ -145,22 +147,22 @@ body {
     left: 38%;
 }
 #least {
-    padding-right: 28%;
+    padding-right: 25%;
 }
 #respondentKey {
     position: fixed;
     top: 33%;
-    left: 87%;
+    left: 88.5%;
 }
 #normalKey {
     position: fixed;
     top: 53%;
-    left: 87%;
+    left: 88.5%;
 }
 #you {
     position: fixed;
     top: 40%;
-    left: 67%;
+    left: 67.5%;
 }
 .goLeft {
     position: fixed;
@@ -203,14 +205,15 @@ ol {
     margin: 0 auto;
 }
 #rotatedQuestionText {
-    margin-left: -220%;
+    margin-left: -250%;
     transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
 }
 #rotatedDistText {
     margin-left: -180%;
     transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
 }
-
 .bar {
     fill: steelblue;
 }
@@ -228,15 +231,18 @@ ol {
 .column-6-10 {
     width: 60%;
 }
+.page {
+    padding-left: 2%;
+}
 #pageone,
 #pagetwo,
 #pagethree,
-#pagefour,
-#pagefive {
+#pagefour {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: none;
     background: radial-gradient(circle, #0f2010, black);
     background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
-    text-shadow: none;
     padding-left: 2%;
 }
 .barHorizontal {

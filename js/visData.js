@@ -68,7 +68,13 @@ $(document).ready(function() {
 
     filterData.call(visApp, data);
 
-    $.mobile.defaultPageTransition = 'slide';
+    var numTimes = 0;
+    //Take action when pages showing
+    $(document).on("pageshow","#pagethree",function(){
+
+    });
+
+    //Swiping functionality
     var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
 
     page1.on('swipeleft', function() {
@@ -99,19 +105,9 @@ $(document).ready(function() {
         $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide", reverse: true});
     });
 
-    page4.on('swipeleft', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagefive", {transition: "slide"});
-    });
-
     page4.on('swiperight', function() {
         //alert('Swiped');
         $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});
-    });
-
-    page5.on('swiperight', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagefour", {transition: "slide", reverse: true});
     });
 });
 
@@ -143,7 +139,7 @@ function filterData(data) {
     //Get questions
     if(data.questions) {
         for(i=0; i<data.questions.length; ++i) {
-            this.drawQuestion("question", data.questions[i]);
+            this.drawQuestion("question", "q1", data.questions[i]);
         }
     } else {
         this.displayError('No question data!');
