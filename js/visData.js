@@ -77,6 +77,7 @@ $(document).ready(function() {
     //Swiping functionality
     var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
 
+
     page1.on('swipeleft', function() {
         //alert('Swipe left');
         //window.location.href = '#pagetwo';
@@ -109,6 +110,7 @@ $(document).ready(function() {
         //alert('Swiped');
         $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});
     });
+
 });
 
 function filterData(data) {

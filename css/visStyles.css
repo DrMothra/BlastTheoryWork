@@ -243,7 +243,9 @@ ol {
     background: radial-gradient(circle, #0f2010, black);
     background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
-    padding-left: 2%;
+    padding-left: 0%;
+    overflow: hidden;
+    max-width: 100%;
 }
 .barHorizontal {
     fill: #c661b2;

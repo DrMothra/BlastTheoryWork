@@ -118,7 +118,7 @@ graphApp.prototype = {
         //Create SVG
         //Use default height but container's width
         var elem = $('#'+element);
-        this.containerWidth = elem.width() * 0.01 * window.innerWidth;
+        this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
         var svg = d3.select('#'+element)
             .append('svg')
             .attr("id", id != null ? id : -1)

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Karen Visualisations</title>
+
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/visStyles.css?v=0.1" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery-1.11.2.min.js"></script>
 
     <script>
         $(document).bind("mobileinit", function(){
-            $.event.special.swipe.horizontalDistanceThreshold (default: 50px);
-            $.event.special.swipe.verticalDistanceThreshold (default: 75px);
+            $.event.special.swipe.horizontalDistanceThreshold = 75; //(default: 30px) – Swipe horizontal displacement must be more than this.
+            $.event.special.swipe.verticalDistanceThreshold = 75; //(default: 75px) – Swipe vertical displacement must be less than this.
         });
     </script>
 
@@ -20,8 +23,6 @@
     <script type="text/javascript" src="js/graphApp.js"></script>
     <script type="text/javascript" src="js/visData.js"></script>
 
-    <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.1" rel="stylesheet" type="text/css">
 </head>
 <body>
 
