@@ -13,7 +13,7 @@ var graphApp = function() {
     this.containerWidth = 512;
 
     //Graph area
-    this.margin = {top: 40, right: 60, bottom: 60, left: 80};
+    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 768;
@@ -118,11 +118,11 @@ graphApp.prototype = {
         //Create SVG
         //Use default height but container's width
         var elem = $('#'+element);
-        this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
+        //this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
         var svg = d3.select('#'+element)
             .append('svg')
             .attr("id", id != null ? id : -1)
-            .attr({width: this.containerWidth,
+            .attr({width: window.innerWidth,
                 height: window.innerHeight});
 
         return svg;
@@ -270,44 +270,45 @@ graphApp.prototype = {
         //Render the required question and response
         var svg = this.createSVG(element, id);
 
-        var underlineTopPos = window.innerHeight * 0.10;
-        var circlePos = window.innerHeight * 0.4, underlineBottomPos = window.innerHeight * 0.6;
+        var graph = svg.append("g")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+        var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
+        var underlineTopPos = height * 0.13;
+        var circlePos = height * 0.45, underlineBottomPos = height * 0.6;
 
         //Underline
-        svg.append("line")
+        graph.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlineTopPos,
-                x2: this.containerWidth,
-                y2: this.margin.top + underlineTopPos,
+                y1: underlineTopPos,
+                x2: width * 0.24,
+                y2: underlineTopPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
         //User choice
-        svg.append('circle')
-            .attr("cx", this.containerWidth/2)
-            .attr("cy", this.margin.top + circlePos)
+        graph.append('circle')
+            .attr("cx", width * 0.14)
+            .attr("cy", circlePos)
             .style("fill", '#EE4355')
-            .attr("r", this.containerWidth * 0.45);
+            .attr("r", width * 0.12);
 
         //Underline
-        svg.append("line")
+        graph.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlineBottomPos,
-                x2: this.containerWidth,
-                y2: this.margin.top + underlineBottomPos,
+                y1: underlineBottomPos,
+                x2: width * 0.24,
+                y2: underlineBottomPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
-    },
 
-    drawResponse: function(element, response) {
+        return;
+
         //Render given responses
-        var svg = this.createSVG(element);
-
-        //Render responses
-        var circleXPos = 0.2;
+        var circleXPos = 0.5;
         var circleYPos = [0.275, 0.45, 0.625];
         var smallRadius = 55;
-        var lineXStart = this.containerWidth * 0.25;
+        var lineXStart = this.containerWidth * 0.5;
 
         svg.append("circle")
             .attr("cx", this.outerWidth * circleXPos)

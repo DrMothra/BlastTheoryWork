@@ -149,7 +149,7 @@ function filterData(data) {
     }
 
     if(data.responses) {
-        this.drawResponse("response", data.responses[i]);
+        //this.drawResponse("response", data.responses[i]);
     }
 
     if(data.distributions) {
