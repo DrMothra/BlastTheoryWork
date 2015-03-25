@@ -13,7 +13,7 @@ var graphApp = function() {
     this.containerWidth = 512;
 
     //Graph area
-    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
+    this.margin = {top: 20, right: 0, bottom: 20, left: 20};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 768;
@@ -134,18 +134,18 @@ graphApp.prototype = {
         }
     },
 
-    drawLineBackground: function(element) {
+    drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
         var numLines = 9;
         var lineGap = 50;
-        var startX = 0.05 * this.containerWidth;
-        var startY = 0.175 * this.innerHeight;
+        var startX = 0.37 * width;
+        var startY = 0.15 * height;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
                 .attr({x1: startX,
                     y1: startY + (lineGap*i),
-                    x2: this.containerWidth * 0.95,
+                    x2: width * 0.9,
                     y2: startY + (lineGap*i),
                     stroke: '#9dc56d',
                     'stroke-width': 1,
@@ -154,7 +154,7 @@ graphApp.prototype = {
 
         //Draw scale
         element.append("text")
-            .attr("x", this.containerWidth*0.15)
+            .attr("x", width*0.45)
             .attr("y", startY + (lineGap*9))
             .attr('font-family', 'quicksandregular')
             .attr('font-size', '1.2em')
@@ -164,16 +164,16 @@ graphApp.prototype = {
             .text("1");
 
         element.append("line")
-            .attr({x1: this.containerWidth*0.2,
+            .attr({x1: width*0.5,
                 y1: startY + (lineGap*8.85),
-                x2: this.containerWidth*0.8,
+                x2: width*0.8,
                 y2: startY + (lineGap*8.85),
                 stroke: '#9dc56d',
                 'stroke-width': 1,
                 'stroke-dasharray': '3,3'});
 
         element.append("text")
-            .attr("x", this.containerWidth*0.85)
+            .attr("x", width*0.85)
             .attr("y", startY + (lineGap*9))
             .attr('font-family', 'quicksandregular')
             .attr('font-size', '1.2em')
@@ -183,17 +183,17 @@ graphApp.prototype = {
             .text("5");
     },
 
-    drawNormalDistribution: function(element, currentMean) {
+    drawNormalDistribution: function(element, currentMean, width, height) {
         //Draw normal distribution curve
         //Draw normal curve
         var normalData = [];
         getData();
 
         var x = d3.scale.linear()
-            .range([0, this.containerWidth]);
+            .range([width * 0.3, width * 0.95]);
 
         var y = d3.scale.linear()
-            .range([this.innerHeight-this.margin.top, 120]);
+            .range([height * 0.9, height * 0.17]);
 
         var line = d3.svg.line()
             .x(function(d) {
@@ -275,7 +275,8 @@ graphApp.prototype = {
 
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
         var underlineTopPos = height * 0.13;
-        var circlePos = height * 0.45, underlineBottomPos = height * 0.6;
+        var circlePos = height * 0.45, underlineBottomPos = height * 0.65;
+        var circleRadius = 0.17;
 
         //Underline
         graph.append("line")
@@ -288,10 +289,10 @@ graphApp.prototype = {
 
         //User choice
         graph.append('circle')
-            .attr("cx", width * 0.14)
+            .attr("cx", width * 0.13)
             .attr("cy", circlePos)
             .style("fill", '#EE4355')
-            .attr("r", width * 0.12);
+            .attr("r", height * circleRadius);
 
         //Underline
         graph.append("line")
@@ -302,36 +303,33 @@ graphApp.prototype = {
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
-        return;
-
         //Render given responses
-        var circleXPos = 0.5;
-        var circleYPos = [0.275, 0.45, 0.625];
-        var smallRadius = 55;
-        var lineXStart = this.containerWidth * 0.5;
+        var circleXPos = 0.465;
+        var circleYPos = [0.285, 0.475, 0.66];
+        var smallRadius = height * 0.08;
 
         svg.append("circle")
-            .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", window.innerHeight * circleYPos[0])
+            .attr("cx", width * circleXPos)
+            .attr("cy", height * circleYPos[0])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
 
         svg.append("circle")
-            .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", window.innerHeight * circleYPos[1])
+            .attr("cx", width * circleXPos)
+            .attr("cy", height * circleYPos[1])
             .attr("r", smallRadius)
             .style("fill", '#cee4b5');
 
         svg.append("circle")
-            .attr("cx", this.outerWidth * circleXPos)
-            .attr("cy", window.innerHeight * circleYPos[2])
+            .attr("cx", width * circleXPos)
+            .attr("cy", height * circleYPos[2])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
 
         //Pie chart
         var arc = d3.svg.arc()
             .innerRadius(0)
-            .outerRadius(this.containerWidth/2 * 0.6);
+            .outerRadius(height * 0.3);
 
         var pie = d3.layout.pie();
         //var color = d3.scale.category10();
@@ -343,7 +341,7 @@ graphApp.prototype = {
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + this.containerWidth * 0.6 + "," + window.innerHeight * 0.47 + ")");
+            .attr("transform", "translate(" + width * 0.77 + "," + height * 0.47 + ")");
 
         //Draw arc paths
         arcs.append("path")
@@ -353,125 +351,111 @@ graphApp.prototype = {
             })
             .attr("d", arc);
 
-        var yOffsets = [0.28, 0.45, 0.63];
+        var lineXStart = width * 0.53;
+        var yOffsets = [0.28, 0.475, 0.66];
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: window.innerHeight * yOffsets[0],
-                x2: lineXStart + this.containerWidth * 0.4,
-                y2: window.innerHeight * yOffsets[0],
+                y1: height * yOffsets[0],
+                x2: lineXStart + width * 0.4,
+                y2: height * yOffsets[0],
                 stroke: '#EE4355',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: window.innerHeight * yOffsets[1],
-                x2: lineXStart + this.containerWidth * 0.2,
-                y2: window.innerHeight * yOffsets[1],
+                y1: height * yOffsets[1],
+                x2: lineXStart + width * 0.2,
+                y2: height * yOffsets[1],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStart,
-                y1: window.innerHeight * yOffsets[2],
-                x2: lineXStart + this.containerWidth * 0.35,
-                y2: window.innerHeight * yOffsets[2],
+                y1: height * yOffsets[2],
+                x2: lineXStart + width * 0.25,
+                y2: height * yOffsets[2],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
     },
 
-    drawDistributionQuestion: function(element, data) {
+    drawDistribution: function(element, data) {
         var svg = this.createSVG(element);
 
-        var underlineTopPos = window.innerHeight * 0.08;
-        var circlePos = window.innerHeight * 0.4, underlineBottomPos = window.innerHeight * 0.6;
+        var graph = svg.append("g")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+        var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
+
+        var underlineTopPos = height * 0.12;
+        var circlePos = height * 0.43, underlineBottomPos = height * 0.65;
 
         //Top Underline
-        svg.append("line")
+        graph.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlineTopPos,
-                x2: this.containerWidth,
-                y2: this.margin.top + underlineTopPos,
+                y1: underlineTopPos,
+                x2: width * 0.24,
+                y2: underlineTopPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
         //User choice
-        var radius = window.innerWidth * 0.115;
-        svg.append('circle')
-            .attr("cx", this.containerWidth/2)
-            .attr("cy", this.margin.top + circlePos)
+        var radius = width * 0.12;
+        graph.append('circle')
+            .attr("cx", width * 0.13)
+            .attr("cy", circlePos)
             .style("fill", '#EE4355')
             .attr("r", radius);
 
         //Underline
-        svg.append("line")
+        graph.append("line")
             .attr({x1: 0,
-                y1: this.margin.top + underlineBottomPos,
-                x2: this.containerWidth,
-                y2: this.margin.top + underlineBottomPos,
+                y1: underlineBottomPos,
+                x2: width * 0.24,
+                y2: underlineBottomPos,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
-        //Analysis text
-        /*
-        svg.append('text')
-            .attr('x', this.containerWidth/2)
-            .attr('y', this.margin.top + analysisText)
-            .attr('font-size', '16px')
-            .style('fill', '#FFBBBE')
-            .attr('text-anchor', 'middle')
-            .text("ANALYSIS");
-        */
-    },
-
-    drawDistribution: function(element, data) {
-        //Create distribution graph
-        var svg = this.createSVG(element);
-
-        this.drawLineBackground(svg);
+        this.drawLineBackground(graph, width, height);
         this.colours = ['#bcebc1'];
-        this.drawNormalDistribution(svg, 0);
+        this.drawNormalDistribution(graph, 0, width, height);
         this.colours = ['#b7d690'];
-        this.drawNormalDistribution(svg, 0.75)
+        this.drawNormalDistribution(graph, 0.75, width, height);
 
         //Draw user score indication
-        svg.append("line")
-            .attr({x1: this.containerWidth * 0.6,
+        graph.append("line")
+            .attr({x1: width * 0.695,
                 y1: this.margin.top,
-                x2: this.containerWidth * 0.6,
-                y2: this.innerHeight * 0.9,
+                x2: width * 0.695,
+                y2: height * 0.9,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
-        svg.append("circle")
-            .attr("cx", this.containerWidth * 0.6)
-            .attr("cy", window.innerHeight * 0.44)
+        graph.append("circle")
+            .attr("cx", width * 0.695)
+            .attr("cy", height * 0.43)
             .style('fill', '#ef5f68')
-            .attr('r', this.containerWidth *0.06);
-    },
+            .attr('r', width *0.04);
 
-    drawDistributionKey: function(element) {
-        var svg = this.createSVG(element);
-
-        var topLinePos = window.innerHeight * 0.32;
-        var bottomLinePos = window.innerHeight * 0.52;
+        var topLinePos = height * 0.32;
+        var bottomLinePos = height * 0.52;
 
         svg.append("line")
-            .attr({x1: 0,
+            .attr({x1: width * 0.945,
                 y1: topLinePos,
-                x2: this.containerWidth * 0.95,
+                x2: width * 0.995,
                 y2: topLinePos,
                 stroke: '#9dc56d',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
-            .attr({x1: 0,
+            .attr({x1: width * 0.945,
                 y1: bottomLinePos,
-                x2: this.containerWidth * 0.95,
+                x2: width * 0.995,
                 y2: bottomLinePos,
                 stroke: '#c0e9bd',
                 'stroke-width': 3,

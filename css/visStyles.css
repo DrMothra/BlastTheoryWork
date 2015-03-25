@@ -52,26 +52,37 @@ body {
     font-weight: bold;
 }
 .smallText {
-    font-size: 0.7em;
+    font-size: 1.25vw;
 }
 .normalText {
-    font-size: 1.2em;
+    font-size: 1.9vw;
 }
 .smallMediumText {
-    font-size: 1.8em;
+    font-size: 2.75vw;
 }
 .mediumText {
-    font-size: 2.5em;
+    font-size: 4vw;
 }
 .bigText {
-    font-size: 4.5em;
+    font-size: 6vw;
     -webkit-text-fill-color: #EE4355;
-    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: #EE4355;
 }
 .superBigText {
     font-size: 10em;
     font-weight: 300;
+}
+@media screen and (min-width: 1200px) {
+    .normalText {
+        font-size: 1.3em;
+    }
+    .bigText {
+        font-size: 4em;
+    }
+    .mediumText {
+        font-size: 2.2em;
+    }
 }
 .pink {
     color: #FFBBBE;
@@ -91,28 +102,31 @@ body {
 #currentQuestion,
 #distQuestion {
     position: fixed;
-    top: 7%;
+    top: 8%;
     padding-left: 1%;
 }
 #choice,
 #score {
     position: fixed;
     top: 15%;
+    left: 1%;
 }
 #userAnswer,
 #userScore {
     position: fixed;
 }
 #userScore {
-    top: 33%;
+    top: 30%;
 }
 #userAnswer {
     top: 37%;
+    left: 1.5%;
 }
 #analysisChoice,
 #analysis {
     position: fixed;
     top: 67%;
+    left: 1%;
 }
 #responded,
 #respondents {
@@ -132,7 +146,7 @@ body {
 }
 #response1 {
     top: 24%;
-    left: 41.5%;
+    left: 42%;
 }
 #response2 {
     top: 42%;
@@ -140,7 +154,18 @@ body {
 }
 #response3 {
     top: 59%;
-    left: 42%;
+    left: 42.5%;
+}
+@media screen and (max-height: 670px) {
+    #response1 {
+        top: 22%;
+    }
+    #response2 {
+        top: 41%;
+    }
+    #response3 {
+        top: 58%;
+    }
 }
 #agree {
     position: fixed;
@@ -163,7 +188,7 @@ body {
 #you {
     position: fixed;
     top: 40%;
-    left: 67.5%;
+    left: 68.5%;
 }
 .goLeft {
     position: fixed;

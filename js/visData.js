@@ -153,9 +153,7 @@ function filterData(data) {
     }
 
     if(data.distributions) {
-        this.drawDistributionQuestion('distribution', data.distributions[i]);
-        this.drawDistribution('distributionGraph', data.distributions[i]);
-        this.drawDistributionKey('keys');
+        this.drawDistribution('distribution', data.distributions[i]);
     }
 
     //DEBUG
