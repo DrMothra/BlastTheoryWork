@@ -33,15 +33,15 @@ body {
     font-style: normal;
 }
 .title {
-    font-size: 2em;
+    font-size: 3vw;
     margin: 3%;
 }
 .bigTitle {
-    font-size: 4em;
+    font-size: 6vw;
     margin: 5%;
 }
 .subTitle {
-    font-size: 1.5em;
+    font-size: 2.2vw;
     margin: 2%;
 }
 .quicksand {
@@ -70,7 +70,7 @@ body {
     -webkit-text-stroke-color: #EE4355;
 }
 .superBigText {
-    font-size: 10em;
+    font-size: 14vw;
     font-weight: 300;
 }
 @media screen and (min-width: 1200px) {
@@ -82,6 +82,9 @@ body {
     }
     .mediumText {
         font-size: 2.2em;
+    }
+    .superBigText {
+        font-size: 9em;
     }
 }
 .pink {
@@ -99,7 +102,7 @@ body {
 .darkGreen {
     color: #b7d690;
 }
-#currentQuestion,
+#currentQuestionContainer,
 #distQuestion {
     position: fixed;
     top: 8%;
@@ -111,22 +114,53 @@ body {
     top: 15%;
     left: 1%;
 }
-#userAnswer,
+@media screen and (orientation: portrait) and (max-width: 640px) {
+    #choice {
+        top: 27%;
+    }
+    #currentQuestionContainer {
+        top: 20%;
+    }
+    #score {
+        top: 27%;
+    }
+    #distQuestion {
+        top: 23%;
+    }
+}
+#userAnswerContainer,
 #userScore {
     position: fixed;
 }
 #userScore {
     top: 30%;
+    left: 1%;
 }
-#userAnswer {
+#userAnswerContainer {
     top: 37%;
     left: 1.5%;
+}
+@media screen and (orientation: portrait) and (max-width: 640px) {
+    #userAnswerContainer {
+        top: 38%;
+    }
+    #userScore {
+        top: 34%;
+    }
 }
 #analysisChoice,
 #analysis {
     position: fixed;
     top: 67%;
     left: 1%;
+}
+@media screen and (orientation: portrait) and (max-width: 640px) {
+    #analysisChoice {
+        top: 57%;
+    }
+    #analysis {
+        top: 54%;
+    }
 }
 #responded,
 #respondents {
@@ -167,6 +201,17 @@ body {
         top: 58%;
     }
 }
+@media screen and (orientation: portrait) and (max-width: 640px) {
+    #response1 {
+        top: 29%;
+    }
+    #response2 {
+        top: 39%;
+    }
+    #response3 {
+        top: 48.5%;
+    }
+}
 #agree {
     position: fixed;
     top: 10%;
@@ -174,6 +219,11 @@ body {
 }
 #least {
     padding-right: 25%;
+}
+@media screen and (min-width: 1200px) {
+    #least {
+        padding-right: 35%;
+    }
 }
 #respondentKey {
     position: fixed;
@@ -202,7 +252,7 @@ body {
     text-align: right;
 }
 ol {
-    font-size: 1.5em;
+    font-size: 2.4vw;
     line-height: 1.5em;
     padding-left: 10%;
 }

@@ -76,9 +76,9 @@
 <div data-role="page" id="pagethree">
 
     <div id="question" class="pure-g">
-        <div id="currentQuestion" class="pure-u-6-24 centred">
-            <span class="quicksand heavy pink normalText">
-                    WHAT DO YOU WANT TO WORK ON?
+        <div id="currentQuestionContainer" class="pure-u-6-24 centred">
+            <span id="currentQuestion" class="quicksand heavy pink normalText">
+
             </span>
         </div>
         <div id="choice" class="pure-u-6-24 centred">
@@ -86,8 +86,8 @@
                 CHOICE
             </span>
         </div>
-        <div id="userAnswer" class="pure-u-6-24 centred">
-            <span class="quicksand pink mediumText">LIFE<br>GOALS</span>
+        <div id="userAnswerContainer" class="pure-u-6-24 centred">
+            <span id="userAnswer" class="quicksand pink mediumText"></span>
         </div>
         <div id="analysisChoice" class="pure-u-6-24 centred">
             <span class="quicksand heavy pink normalText">ANALYSIS</span>
@@ -162,13 +162,11 @@
         <div id="distributionGraph" class="pure-u-13-24">
 
         </div>
-        <div id="keys" class="pure-u-2-24">
-            <div id="respondentKey" class="pure-u-3-24 centred">
-                <span class="quicksand darkGreen smallText">RESPONDENTS'<br>DISTRIBUTION</span>
-            </div>
-            <div id="normalKey" class="pure-u-3-24 centred">
-                <span class="quicksand lightGreen smallText">NORMAL<br>DISTRIBUTION</span>
-            </div>
+        <div id="respondentKey" class="pure-u-3-24 centred">
+            <span class="quicksand darkGreen smallText">RESPONDENTS'<br>DISTRIBUTION</span>
+        </div>
+        <div id="normalKey" class="pure-u-3-24 centred">
+            <span class="quicksand lightGreen smallText">NORMAL<br>DISTRIBUTION</span>
         </div>
     </div>
 

@@ -193,7 +193,7 @@ graphApp.prototype = {
             .range([width * 0.3, width * 0.95]);
 
         var y = d3.scale.linear()
-            .range([height * 0.9, height * 0.17]);
+            .range([height * 0.85, height * 0.15]);
 
         var line = d3.svg.line()
             .x(function(d) {
@@ -270,13 +270,31 @@ graphApp.prototype = {
         //Render the required question and response
         var svg = this.createSVG(element, id);
 
+        //Insert user questions into page
+        $('#currentQuestion').html(question.question);
+        var splitAnswer = question.answer.split(" ");
+        var answerHTML = '';
+        for(var i=0; i<splitAnswer.length; ++i) {
+            answerHTML += splitAnswer[i] + '<br>';
+        }
+        $('#userAnswer').html(answerHTML);
+
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
+        var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
         var underlineTopPos = height * 0.13;
-        var circlePos = height * 0.45, underlineBottomPos = height * 0.65;
-        var circleRadius = 0.17;
+        var circlePosY = height * 0.45, circlePosX = width * 0.13, underlineBottomPos = height * 0.65;
+        var circleRadius = height * 0.17;
+        if(width < height) {
+            portrait = true;
+            circleRadius = width * 0.12;
+            circlePosY = height * 0.41;
+            circlePosX = width * 0.12;
+            underlineTopPos = height * 0.24;
+            underlineBottomPos = height * 0.53;
+        }
 
         //Underline
         graph.append("line")
@@ -289,10 +307,10 @@ graphApp.prototype = {
 
         //User choice
         graph.append('circle')
-            .attr("cx", width * 0.13)
-            .attr("cy", circlePos)
+            .attr("cx", circlePosX)
+            .attr("cy", circlePosY)
             .style("fill", '#EE4355')
-            .attr("r", height * circleRadius);
+            .attr("r", circleRadius);
 
         //Underline
         graph.append("line")
@@ -307,6 +325,14 @@ graphApp.prototype = {
         var circleXPos = 0.465;
         var circleYPos = [0.285, 0.475, 0.66];
         var smallRadius = height * 0.08;
+        var pieRadius = height * 0.3;
+        var pieHeight = height * 0.47;
+        if(portrait) {
+            smallRadius = height * 0.04;
+            pieRadius = height * 0.15;
+            circleYPos = [0.33, 0.43, 0.53];
+            pieHeight = height * 0.43;
+        }
 
         svg.append("circle")
             .attr("cx", width * circleXPos)
@@ -329,7 +355,7 @@ graphApp.prototype = {
         //Pie chart
         var arc = d3.svg.arc()
             .innerRadius(0)
-            .outerRadius(height * 0.3);
+            .outerRadius(pieRadius);
 
         var pie = d3.layout.pie();
         //var color = d3.scale.category10();
@@ -341,7 +367,7 @@ graphApp.prototype = {
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + width * 0.77 + "," + height * 0.47 + ")");
+            .attr("transform", "translate(" + width * 0.77 + "," + pieHeight + ")");
 
         //Draw arc paths
         arcs.append("path")
@@ -353,10 +379,16 @@ graphApp.prototype = {
 
         var lineXStart = width * 0.53;
         var yOffsets = [0.28, 0.475, 0.66];
+        var lineWidths = [0.25, 0.2, 0.25];
+        if(portrait) {
+            lineXStart = width * 0.54;
+            lineWidths = [0.25, 0.2, 0.25];
+            yOffsets = [0.33, 0.425, 0.53];
+        }
         svg.append("line")
             .attr({x1: lineXStart,
                 y1: height * yOffsets[0],
-                x2: lineXStart + width * 0.4,
+                x2: lineXStart + width * lineWidths[0],
                 y2: height * yOffsets[0],
                 stroke: '#EE4355',
                 'stroke-width': 3,
@@ -365,7 +397,7 @@ graphApp.prototype = {
         svg.append("line")
             .attr({x1: lineXStart,
                 y1: height * yOffsets[1],
-                x2: lineXStart + width * 0.2,
+                x2: lineXStart + width * lineWidths[1],
                 y2: height * yOffsets[1],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
@@ -374,7 +406,7 @@ graphApp.prototype = {
         svg.append("line")
             .attr({x1: lineXStart,
                 y1: height * yOffsets[2],
-                x2: lineXStart + width * 0.25,
+                x2: lineXStart + width * lineWidths[2],
                 y2: height * yOffsets[2],
                 stroke: '#e7f1d9',
                 'stroke-width': 3,
@@ -387,11 +419,21 @@ graphApp.prototype = {
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
+        var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
 
         var underlineTopPos = height * 0.12;
-        var circlePos = height * 0.43, underlineBottomPos = height * 0.65;
-
+        var circlePosY = height * 0.43, underlineBottomPos = height * 0.65;
+        var circlePosX = width * 0.13;
+        var circleRadius = height * 0.17;
+        if(width < height) {
+            portrait = true;
+            underlineTopPos = height * 0.25;
+            underlineBottomPos = height * 0.53;
+            circleRadius = height * 0.08;
+            circlePosX = width * 0.115;
+            circlePosY = height * 0.41;
+        }
         //Top Underline
         graph.append("line")
             .attr({x1: 0,
@@ -402,12 +444,11 @@ graphApp.prototype = {
                 'stroke-width': 3});
 
         //User choice
-        var radius = width * 0.12;
         graph.append('circle')
-            .attr("cx", width * 0.13)
-            .attr("cy", circlePos)
+            .attr("cx", circlePosX)
+            .attr("cy", circlePosY)
             .style("fill", '#EE4355')
-            .attr("r", radius);
+            .attr("r", circleRadius);
 
         //Underline
         graph.append("line")
@@ -425,6 +466,10 @@ graphApp.prototype = {
         this.drawNormalDistribution(graph, 0.75, width, height);
 
         //Draw user score indication
+        var yourScoreY = height * 0.43;
+        if(portrait) {
+            yourScoreY = height * 0.42;
+        }
         graph.append("line")
             .attr({x1: width * 0.695,
                 y1: this.margin.top,
@@ -436,7 +481,7 @@ graphApp.prototype = {
 
         graph.append("circle")
             .attr("cx", width * 0.695)
-            .attr("cy", height * 0.43)
+            .attr("cy", yourScoreY)
             .style('fill', '#ef5f68')
             .attr('r', width *0.04);
 

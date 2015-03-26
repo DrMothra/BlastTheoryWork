@@ -11,22 +11,22 @@ var countryData = [];
 var data = {
     "questions": [
         {
-            "question": "What do you want to work on?",
-            "answer": "Life goals"
+            "question": "WHAT DO YOU WANT TO WORK ON?",
+            "answer": "LIFE GOALS"
         }
     ],
 
     "responses": [
         {
-            "question": "Life goals",
+            "question": "LIFE GOALS",
             "value": 43
         },
         {
-            "question": "Attitude to relationships",
+            "question": "RELATIONSHIPS",
             "value": 44
         },
         {
-            "question": "Control",
+            "question": "CONTROL",
             "value": 13
         }
     ],
@@ -141,7 +141,7 @@ function filterData(data) {
     //Get questions
     if(data.questions) {
         for(i=0; i<data.questions.length; ++i) {
-            this.drawQuestion("question", "q1", data.questions[i]);
+            this.drawQuestion("question", 'q'+i, data.questions[i]);
         }
     } else {
         this.displayError('No question data!');
