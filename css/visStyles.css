@@ -87,6 +87,17 @@ body {
         font-size: 9em;
     }
 }
+@media only screen and (max-height: 640px) {
+    .bigText {
+        font-size: 1.5em;
+    }
+    .normalText {
+        font-size: 0.5em;
+    }
+    .mediumText {
+        font-size: 1em;
+    }
+}
 .pink {
     color: #FFBBBE;
 }
@@ -102,23 +113,23 @@ body {
 .darkGreen {
     color: #b7d690;
 }
-#currentQuestionContainer,
+.currentQuestionContainer,
 #distQuestion {
     position: fixed;
     top: 8%;
     padding-left: 1%;
 }
-#choice,
+.choice,
 #score {
     position: fixed;
     top: 15%;
     left: 1%;
 }
 @media screen and (orientation: portrait) and (max-width: 640px) {
-    #choice {
+    .choice {
         top: 27%;
     }
-    #currentQuestionContainer {
+    .currentQuestionContainer {
         top: 20%;
     }
     #score {
@@ -128,7 +139,7 @@ body {
         top: 23%;
     }
 }
-#userAnswerContainer,
+.userAnswerContainer,
 #userScore {
     position: fixed;
 }
@@ -136,79 +147,79 @@ body {
     top: 30%;
     left: 1%;
 }
-#userAnswerContainer {
+.userAnswerContainer {
     top: 37%;
     left: 1.5%;
 }
 @media screen and (orientation: portrait) and (max-width: 640px) {
-    #userAnswerContainer {
+    .userAnswerContainer {
         top: 38%;
     }
     #userScore {
         top: 34%;
     }
 }
-#analysisChoice,
+.analysisChoice,
 #analysis {
     position: fixed;
     top: 67%;
     left: 1%;
 }
 @media screen and (orientation: portrait) and (max-width: 640px) {
-    #analysisChoice {
+    .analysisChoice {
         top: 57%;
     }
     #analysis {
         top: 54%;
     }
 }
-#responded,
+.responded,
 #respondents {
     position: fixed;
     top: 36%;
 }
-#responded {
+.responded {
     left: 40%;
 }
 #respondents {
     left: 36%;
 }
-#response1,
-#response2,
-#response3 {
+.response1,
+.response2,
+.response3 {
     position: fixed;
 }
-#response1 {
+.response1 {
     top: 24%;
     left: 42%;
 }
-#response2 {
+.response2 {
     top: 42%;
     left: 41%;
 }
-#response3 {
+.response3 {
     top: 59%;
     left: 42.5%;
 }
 @media screen and (max-height: 670px) {
-    #response1 {
+    .response1 {
         top: 22%;
     }
-    #response2 {
+    .response2 {
         top: 41%;
     }
-    #response3 {
+    .response3 {
         top: 58%;
     }
 }
 @media screen and (orientation: portrait) and (max-width: 640px) {
-    #response1 {
+    .response1 {
         top: 29%;
     }
-    #response2 {
+    .response2 {
         top: 39%;
     }
-    #response3 {
+    .response3 {
         top: 48.5%;
     }
 }
@@ -280,7 +291,7 @@ ol {
 .autoCentre {
     margin: 0 auto;
 }
-#rotatedQuestionText {
+.rotatedQuestionText {
     margin-left: -250%;
     transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);

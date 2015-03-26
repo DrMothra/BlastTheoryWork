@@ -156,6 +156,29 @@ function filterData(data) {
         this.drawDistribution('distribution', data.distributions[i]);
     }
 
+    //Create other pages
+
+    var newPage = $('#pagethree').clone();
+    var newPageContents = newPage[0];
+    newPageContents.attributes[2].nodeValue = "pagefive";
+
+    newPageContents.id = "pagefive";
+    for(var i=newPageContents.children.length-1; i>=1; --i) {
+        newPageContents.children[i].remove();
+    }
+    //Replace id's
+    var ids = ['question', 'currentQuestion', 'userAnswer'];
+    var elem;
+    for(i=0; i<ids.length; ++i) {
+        elem = newPage.find('#'+ids[i]);
+        if(elem) {
+            elem[0].id = ids[i] + '1';
+        }
+    }
+
+    newPage.appendTo('body');
+    var test = 0;
+
     //DEBUG
     /*
     if (data.scales) {
