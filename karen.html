@@ -18,6 +18,7 @@
     </script>
 
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquerymobile-swipeupdown.js"></script>
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/graphApp.js"></script>
@@ -27,21 +28,20 @@
 <body>
 
 <div data-role="page" id="pageone">
-    <div class="goRight">
-        <a href="#pagetwo"><img class="navigate" src="images/arrow-right.png"></a>
-    </div>
+        <div class="goRight">
+            <a href="#pagetwo"><img class="navigate" src="images/arrow-right.png"></a>
+        </div>
 
-    <div class="bigTitle centred">
-        Welcome to Karen
-    </div>
+        <div class="bigTitle centred">
+            Welcome to Karen
+        </div>
 
-    <div class="subTitle centred">
-        <p>Have a look at your profile.</p>
-    </div>
-
+        <div class="subTitle centred">
+            <p>Have a look at your profile.</p>
+        </div>
 </div>
 
-<div data-role="page" id="pagetwo">
+<div class="mainPage" data-role="page" id="pagetwo">
 
     <div class="title centred">
         <p>Make a selection</p>
@@ -75,9 +75,9 @@
 
 <div data-role="page" id="pagethree">
 
-    <div id="question" class="pure-g">
+    <div class="mainPage" id="question0" class="pure-g">
         <div class="pure-u-6-24 centred currentQuestionContainer">
-            <span id="currentQuestion" class="quicksand heavy pink normalText">
+            <span id="currentQuestion0" class="quicksand heavy pink normalText">
 
             </span>
         </div>
@@ -87,7 +87,7 @@
             </span>
         </div>
         <div class="pure-u-6-24 centred userAnswerContainer">
-            <span id="userAnswer" class="quicksand pink mediumText"></span>
+            <span id="userAnswer0" class="quicksand pink mediumText"></span>
         </div>
         <div class="pure-u-6-24 centred analysisChoice">
             <span class="quicksand heavy pink normalText">ANALYSIS</span>
@@ -98,16 +98,16 @@
             </div>
         </div>
         <div class="centred response1">
-            <span class="quicksand heavy pink smallText">LIFE GOALS<br></span>
-            <span class="quicksand heavy pink smallMediumText">43%</span>
+            <span id="firstResponse0" class="quicksand heavy pink smallText"></span>
+            <span id="firstResponsePercent0" class="quicksand heavy pink smallMediumText"></span>
         </div>
         <div class="centred response2">
-            <span class="quicksand heavy green smallText">RELATIONSHIPS<br></span>
-            <span class="quicksand heavy green smallMediumText">44%</span>
+            <span id="secondResponse0" class="quicksand heavy green smallText"></span>
+            <span id="secondResponsePercent0" class="quicksand heavy green smallMediumText"></span>
         </div>
         <div class="centred response3">
-            <span class="quicksand heavy green smallText">CONTROL<br></span>
-            <span class="quicksand heavy green smallMediumText">13%</span>
+            <span id="thirdResponse0" class="quicksand heavy green smallText"></span>
+            <span id="thirdResponsePercent0" class="quicksand heavy green smallMediumText"></span>
         </div>
     </div>
 
@@ -123,49 +123,40 @@
 
 <div data-role="page" id="pagefour">
 
-    <div id="distribution" class="pure-g">
-        <div id="distQuestion" class="pure-u-6-24 centred">
+    <div class="mainPage" id="distribution" class="pure-g">
+        <div class="pure-u-6-24 centred distQuestion">
             <span class="quicksand pink heavy normalText">
                 WHAT DO YOU VALUE?
             </span>
         </div>
-        <div id="score" class="pure-u-6-24 centred">
+        <div class="pure-u-6-24 centred score">
             <span class="quicksand darkpink bigText">
                 SCORE
             </span>
         </div>
-        <div id="userScore" class="pure-u-6-24 centred">
+        <div class="pure-u-6-24 centred userScore">
             <span class="quicksand pink superBigText">3</span><span class="quicksand pink mediumText">.7</span>
         </div>
-        <div id="analysis" class="pure-u-6-24 centred">
+        <div class="pure-u-6-24 centred analysis">
             <span class="quicksand pink heavy normalText">ANALYSIS</span>
         </div>
-        <div id="respondents" class="pure-u-1-12">
-            <div id="rotatedDistText">
+        <div class="pure-u-1-12 respondents">
+            <div class="rotatedDistText">
                 <span class="quicksand lightGreen normalText">< % OF RESPONDENTS ></span>
             </div>
         </div>
-        <div id="agree" class="pure-u-13-24">
-            <span id="least" class="quicksand lightGreen normalText">< LEAST AGREEABLE</span>
+        <div class="pure-u-13-24 agree">
+            <span class="quicksand lightGreen normalText least">< LEAST AGREEABLE</span>
             <span class="quicksand lightGreen normalText">MOST AGREEABLE ></span>
         </div>
-        <div id="you" class="centred">
+        <div class="centred you">
             <span class="quicksand pink smallText">YOU<br></span>
             <span class="quicksand pink normalText">3.7</span>
         </div>
-        <div id="distributionText" class="pure-u-6-24 centred">
-
-        </div>
-        <div class="pure-u-2-24">
-
-        </div>
-        <div id="distributionGraph" class="pure-u-13-24">
-
-        </div>
-        <div id="respondentKey" class="pure-u-3-24 centred">
+        <div class="pure-u-3-24 centred respondentKey">
             <span class="quicksand darkGreen smallText">RESPONDENTS'<br>DISTRIBUTION</span>
         </div>
-        <div id="normalKey" class="pure-u-3-24 centred">
+        <div class="pure-u-3-24 centred normalKey">
             <span class="quicksand lightGreen smallText">NORMAL<br>DISTRIBUTION</span>
         </div>
     </div>

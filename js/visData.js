@@ -13,6 +13,10 @@ var data = {
         {
             "question": "WHAT DO YOU WANT TO WORK ON?",
             "answer": "LIFE GOALS"
+        },
+        {
+            "question": "WHAT WAS YOUR FIRST PET?",
+            "answer": "A TORTOISE"
         }
     ],
 
@@ -27,7 +31,19 @@ var data = {
         },
         {
             "question": "CONTROL",
-            "value": 13
+            "value": 10
+        },
+        {
+            "question": "RESPONSE 2",
+            "value": 10
+        },
+        {
+            "question": "RESPONSE 2",
+            "value": 20
+        },
+        {
+            "question": "RESPONSE 2",
+            "value": 30
         }
     ],
 
@@ -106,6 +122,16 @@ $(document).ready(function() {
         $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide", reverse: true});
     });
 
+    page3.on('swipeup', function() {
+        //alert('Swiped');
+        $.mobile.pageContainer.pagecontainer("change", "#pagethreePlus1", {transition: "slideup"});
+    });
+
+    $('#pagethreePlus1').on('swipedown', function() {
+        //alert('Swiped');
+        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slidedown"});
+    });
+
     page4.on('swiperight', function() {
         //alert('Swiped');
         $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});
@@ -139,9 +165,18 @@ function filterData(data) {
     var meanData = [];
 
     //Get questions
+    var numQuestions;
     if(data.questions) {
+        numQuestions = data.questions.length;
+        //Create additional pages
+        if(numQuestions >= 2) {
+            for(i=1; i<numQuestions; ++i) {
+                createPage(i);
+            }
+        }
+
         for(i=0; i<data.questions.length; ++i) {
-            this.drawQuestion("question", 'q'+i, data.questions[i]);
+            this.drawQuestion("question"+i, data, i);
         }
     } else {
         this.displayError('No question data!');
@@ -155,29 +190,6 @@ function filterData(data) {
     if(data.distributions) {
         this.drawDistribution('distribution', data.distributions[i]);
     }
-
-    //Create other pages
-
-    var newPage = $('#pagethree').clone();
-    var newPageContents = newPage[0];
-    newPageContents.attributes[2].nodeValue = "pagefive";
-
-    newPageContents.id = "pagefive";
-    for(var i=newPageContents.children.length-1; i>=1; --i) {
-        newPageContents.children[i].remove();
-    }
-    //Replace id's
-    var ids = ['question', 'currentQuestion', 'userAnswer'];
-    var elem;
-    for(i=0; i<ids.length; ++i) {
-        elem = newPage.find('#'+ids[i]);
-        if(elem) {
-            elem[0].id = ids[i] + '1';
-        }
-    }
-
-    newPage.appendTo('body');
-    var test = 0;
 
     //DEBUG
     /*
@@ -239,6 +251,40 @@ function filterData(data) {
     this.setColours(colours);
     this.drawBarChart('distribution', 'Distribution', distValues, 5, 10);
     */
+}
+
+function createPage(index) {
+    //Clone the relevant page
+    //Create other pages
+    var newPage = $('#pagethree').clone();
+    var newPageContents = newPage[0];
+    var pageId = "pagethreePlus" + index;
+    newPageContents.attributes[2].nodeValue = pageId;
+
+    newPageContents.id = pageId;
+    for(var i=newPageContents.children.length-1; i>=1; --i) {
+        newPageContents.children[i].remove();
+    }
+    //Remove all svg nodes
+    var svgs = newPageContents.getElementsByTagName("svg");
+    if(svgs) {
+        for(i=svgs.length; i--;) {
+            svgs[i].remove();
+        }
+    }
+
+    //Replace id's
+    var ids = ['question0', 'currentQuestion0', 'userAnswer0', 'firstResponse0',
+        'firstResponsePercent0', 'secondResponse0', 'secondResponsePercent0', 'thirdResponse0', 'thirdResponsePercent0'];
+    for(i=0; i<ids.length; ++i) {
+        elem = newPage.find('#'+ids[i]);
+        if(elem) {
+            elem[0].id = ids[i].substring(0, ids[i].length-1) + '1';
+        }
+    }
+
+    newPage.addClass("mainPage");
+    newPage.appendTo('body');
 }
 
 function filterGeoData(data) {

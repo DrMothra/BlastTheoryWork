@@ -114,16 +114,15 @@ graphApp.prototype = {
 
     },
 
-    createSVG: function(element, id) {
+    createSVG: function(element) {
         //Create SVG
         //Use default height but container's width
         var elem = $('#'+element);
         //this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
         var svg = d3.select('#'+element)
             .append('svg')
-            .attr("id", id != null ? id : -1)
             .attr({width: window.innerWidth,
-                height: window.innerHeight});
+                height: window.innerHeight*0.99});
 
         return svg;
     },
@@ -266,18 +265,21 @@ graphApp.prototype = {
         }
     },
 
-    drawQuestion: function(element, id, question) {
+    drawQuestion: function(element, data, pageIndex) {
         //Render the required question and response
-        var svg = this.createSVG(element, id);
+        var svg = this.createSVG(element);
+
+        //Get relevant data
+        var questions = data.questions[pageIndex];
 
         //Insert user questions into page
-        $('#currentQuestion').html(question.question);
-        var splitAnswer = question.answer.split(" ");
+        $('#currentQuestion'+pageIndex).html(questions.question);
+        var splitAnswer = questions.answer.split(" ");
         var answerHTML = '';
         for(var i=0; i<splitAnswer.length; ++i) {
             answerHTML += splitAnswer[i] + '<br>';
         }
-        $('#userAnswer').html(answerHTML);
+        $('#userAnswer'+pageIndex).html(answerHTML);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -333,6 +335,17 @@ graphApp.prototype = {
             circleYPos = [0.33, 0.43, 0.53];
             pieHeight = height * 0.43;
         }
+
+        //Fill in user responses
+        var responseNumber = pageIndex*3;
+        var responses = data.responses;
+        $('#firstResponse'+pageIndex).html(responses[responseNumber].question + '<br>');
+        $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question + '<br>');
+        $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question + '<br>');
+
+        $('#firstResponsePercent'+pageIndex).html(responses[responseNumber].value + '%');
+        $('#secondResponsePercent'+pageIndex).html(responses[responseNumber+1].value + '%');
+        $('#thirdResponsePercent'+pageIndex).html(responses[responseNumber+2].value + '%');
 
         svg.append("circle")
             .attr("cx", width * circleXPos)
@@ -422,9 +435,9 @@ graphApp.prototype = {
         var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
 
-        var underlineTopPos = height * 0.12;
-        var circlePosY = height * 0.43, underlineBottomPos = height * 0.65;
-        var circlePosX = width * 0.13;
+        var underlineTopPos = height * 0.1;
+        var circlePosY = height * 0.43, underlineBottomPos = height * 0.62;
+        var circlePosX = width * 0.12;
         var circleRadius = height * 0.17;
         if(width < height) {
             portrait = true;
