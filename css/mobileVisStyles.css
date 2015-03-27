@@ -116,7 +116,7 @@ body {
 .currentQuestionContainer,
 .distQuestion {
     position: fixed;
-    top: 8%;
+    top: 1%;
     padding-left: 1%;
 }
 .choice,

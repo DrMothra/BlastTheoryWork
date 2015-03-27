@@ -297,6 +297,10 @@ graphApp.prototype = {
             underlineTopPos = height * 0.24;
             underlineBottomPos = height * 0.53;
         }
+        //Adjustments for mobiles
+        if(window.innerWidth <= 800 && window.innerHeight <=480) {
+            circlePosX = width * 0.11;
+        }
 
         //Underline
         graph.append("line")
@@ -336,6 +340,11 @@ graphApp.prototype = {
             pieHeight = height * 0.43;
         }
 
+        //Adjustments for mobiles
+        if(window.innerWidth <= 800 && window.innerHeight <=480) {
+            smallRadius = height * 0.09;
+
+        }
         //Fill in user responses
         var responseNumber = pageIndex*3;
         var responses = data.responses;

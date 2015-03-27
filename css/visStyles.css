@@ -87,17 +87,6 @@ body {
         font-size: 9em;
     }
 }
-@media only screen and (max-height: 640px) {
-    .bigText {
-        font-size: 1.5em;
-    }
-    .normalText {
-        font-size: 0.5em;
-    }
-    .mediumText {
-        font-size: 1em;
-    }
-}
 .pink {
     color: #FFBBBE;
 }
@@ -125,20 +114,6 @@ body {
     top: 15%;
     left: 1%;
 }
-@media screen and (orientation: portrait) and (max-width: 640px) {
-    .choice {
-        top: 27%;
-    }
-    .currentQuestionContainer {
-        top: 20%;
-    }
-    .score {
-        top: 27%;
-    }
-    .distQuestion {
-        top: 23%;
-    }
-}
 .userAnswerContainer,
 .userScore {
     position: fixed;
@@ -151,27 +126,11 @@ body {
     top: 37%;
     left: 1.5%;
 }
-@media screen and (orientation: portrait) and (max-width: 640px) {
-    .userAnswerContainer {
-        top: 38%;
-    }
-    .userScore {
-        top: 34%;
-    }
-}
 .analysisChoice,
 .analysis {
     position: fixed;
     top: 67%;
     left: 1%;
-}
-@media screen and (orientation: portrait) and (max-width: 640px) {
-    .analysisChoice {
-        top: 57%;
-    }
-    .analysis {
-        top: 54%;
-    }
 }
 .responded,
 .respondents {
@@ -200,28 +159,6 @@ body {
 .response3 {
     top: 59%;
     left: 42.5%;
-}
-@media screen and (max-height: 670px) {
-    .response1 {
-        top: 22%;
-    }
-    .response2 {
-        top: 41%;
-    }
-    .response3 {
-        top: 58%;
-    }
-}
-@media screen and (orientation: portrait) and (max-width: 640px) {
-    .response1 {
-        top: 29%;
-    }
-    .response2 {
-        top: 39%;
-    }
-    .response3 {
-        top: 48.5%;
-    }
 }
 .agree {
     position: fixed;
@@ -375,4 +312,84 @@ ol {
     stroke-dasharray: 3,3;
     stroke: #bcebc1;
     stroke-width: 2px;
+}
+@media screen
+and (max-width: 802px)
+and (orientation: landscape) {
+    .currentQuestionContainer {
+        top: 1%;
+    }
+    .choice {
+        top: 20%;
+    }
+    .analysisChoice {
+        top: 62%;
+    }
+    .response1 {
+        top: 15%;
+        left: 40%;
+    }
+    .response2 {
+        top: 32%;
+        left: 40%;
+    }
+    .response3 {
+        top: 45%;
+        left: 40%;
+    }
+    .smallMediumText {
+        font-size: 1.8vw;
+    }
+    .bigText {
+        font-size: 4vw;
+    }
+    .mediumText {
+        font-size: 3vw;
+    }
+}
+@media screen
+and (max-width: 600px)
+and (orientation : landscape) {
+    .choice {
+        top: 18%;
+    }
+    .currentQuestionContainer {
+        top: 1%;
+    }
+    .response1 {
+        top: 17%;
+        left: 41%;
+    }
+    .response2 {
+        top: 36%;
+        left: 41%;
+    }
+    .response3 {
+        top: 52%;
+        left: 42.5%;
+    }
+}
+@media screen and (max-width: 980px) and (orientation : landscape) {
+    /* LANDSCAPE:
+    Nexus 7
+    HTC Evo 3D*/
+    .currentQuestionContainer {
+        top: 1%;
+    }
+    .userAnswerContainer {
+        top: 33%;
+        left: 1.5%;
+    }
+    .response1 {
+        top: 18%;
+        left: 41%;
+    }
+    .response2 {
+        top: 36%;
+        left: 41%;
+    }
+    .response3 {
+        top: 52%;
+        left: 42.5%;
+    }
 }
