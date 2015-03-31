@@ -312,11 +312,13 @@ graphApp.prototype = {
                 'stroke-width': 3});
 
         //User choice
+        /*
         graph.append('circle')
             .attr("cx", circlePosX)
             .attr("cy", circlePosY)
             .style("fill", '#EE4355')
             .attr("r", circleRadius);
+        */
 
         //Underline
         graph.append("line")
@@ -330,7 +332,7 @@ graphApp.prototype = {
         //Render given responses
         var circleXPos = 0.465;
         var circleYPos = [0.285, 0.475, 0.66];
-        var smallRadius = height * 0.08;
+        var smallRadius = height * 0.05;
         var pieRadius = height * 0.3;
         var pieHeight = height * 0.47;
         if(portrait) {

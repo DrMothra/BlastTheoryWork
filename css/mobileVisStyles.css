@@ -187,12 +187,14 @@ body {
 .response1,
 .response2,
 .response3 {
-    position: fixed;
+    position: relative;
 }
+/*
 .response1 {
     top: 24%;
     left: 42%;
 }
+*/
 .response2 {
     top: 42%;
     left: 42%;

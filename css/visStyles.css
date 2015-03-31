@@ -58,7 +58,7 @@ body {
     font-size: 1.9vw;
 }
 .smallMediumText {
-    font-size: 2.75vw;
+    font-size: 2.2vw;
 }
 .mediumText {
     font-size: 4vw;
@@ -149,7 +149,7 @@ body {
     position: fixed;
 }
 .response1 {
-    top: 24%;
+    top: 22%;
     left: 42%;
 }
 .response2 {
@@ -159,6 +159,11 @@ body {
 .response3 {
     top: 59%;
     left: 42.5%;
+}
+.responsePercent1 {
+    position: fixed;
+    top: 24%;
+    left: 42%;
 }
 .agree {
     position: fixed;
@@ -338,7 +343,7 @@ and (orientation: landscape) {
         left: 40%;
     }
     .smallMediumText {
-        font-size: 1.8vw;
+        font-size: 1.4vw;
     }
     .bigText {
         font-size: 4vw;
