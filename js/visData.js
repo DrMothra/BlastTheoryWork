@@ -22,16 +22,16 @@ var data = {
 
     "responses": [
         {
+            "question": "CONTROL",
+            "value": 13
+        },
+        {
             "question": "LIFE GOALS",
             "value": 43
         },
         {
             "question": "RELATIONSHIPS",
             "value": 44
-        },
-        {
-            "question": "CONTROL",
-            "value": 10
         },
         {
             "question": "RESPONSE 2",
@@ -169,13 +169,15 @@ function filterData(data) {
     if(data.questions) {
         numQuestions = data.questions.length;
         //Create additional pages
+        /*
         if(numQuestions >= 2) {
             for(i=1; i<numQuestions; ++i) {
                 createPage(i);
             }
         }
+        */
 
-        for(i=0; i<data.questions.length; ++i) {
+        for(i=0; i<1; ++i) {
             this.drawQuestion("question"+i, data, i);
         }
     } else {

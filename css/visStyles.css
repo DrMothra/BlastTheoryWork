@@ -19,7 +19,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 body {
-
+    overflow: hidden;
 }
 @font-face {
     font-family: 'quicksandregular';
@@ -52,7 +52,7 @@ body {
     font-weight: bold;
 }
 .smallText {
-    font-size: 1.25vw;
+    font-size: 1.6vw;
 }
 .normalText {
     font-size: 1.9vw;
@@ -61,13 +61,16 @@ body {
     font-size: 2.2vw;
 }
 .mediumText {
-    font-size: 4vw;
+    font-size: 6vw;
 }
 .bigText {
     font-size: 6vw;
     -webkit-text-fill-color: #EE4355;
     -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: #EE4355;
+}
+.largeText {
+    font-size: 3vw;
 }
 .superBigText {
     font-size: 14vw;
@@ -105,43 +108,48 @@ body {
 .currentQuestionContainer,
 .distQuestion {
     position: fixed;
-    top: 8%;
-    padding-left: 1%;
+    top: 9%;
+    left: 4%;
 }
 .choice,
 .score {
     position: fixed;
-    top: 15%;
-    left: 1%;
+    top: 18%;
+    left: 4%;
 }
 .userAnswerContainer,
-.userScore {
+.userScore,
+.userOutOf{
     position: fixed;
 }
 .userScore {
-    top: 30%;
-    left: 1%;
+    top: 25%;
+    left: 4%;
 }
 .userAnswerContainer {
-    top: 37%;
-    left: 1.5%;
+    top: 30%;
+    left: 4%;
+}
+.userOutOf {
+    top: 45%;
+    left: 4%;
 }
 .analysisChoice,
 .analysis {
     position: fixed;
-    top: 67%;
-    left: 1%;
+    top: 60%;
+    left: 4%;
 }
 .responded,
 .respondents {
     position: fixed;
-    top: 36%;
+    top: 9%;
 }
 .responded {
     left: 40%;
 }
 .respondents {
-    left: 36%;
+    left: 45%;
 }
 .response1,
 .response2,
@@ -149,29 +157,41 @@ body {
     position: fixed;
 }
 .response1 {
-    top: 22%;
-    left: 42%;
+    top: 29%;
+    left: 75%;
 }
 .response2 {
-    top: 42%;
-    left: 42%;
+    top: 45%;
+    left: 74%;
 }
 .response3 {
-    top: 59%;
-    left: 42.5%;
+    top: 60%;
+    left: 74%;
+}
+.responsePercent1,
+.responsePercent2,
+.responsePercent3 {
+    position: fixed;
 }
 .responsePercent1 {
-    position: fixed;
-    top: 24%;
-    left: 42%;
+    top: 22%;
+    left: 77.5%;
+}
+.responsePercent2 {
+    top: 38%;
+    left: 77%;
+}
+.responsePercent3 {
+    top: 54%;
+    left: 77.5%;
 }
 .agree {
     position: fixed;
-    top: 10%;
-    left: 38%;
+    top: 53%;
+    left: 32%;
 }
 .least {
-    padding-right: 27%;
+    padding-right: 80%;
 }
 @media screen and (min-width: 1200px) {
     .least {
@@ -318,6 +338,7 @@ ol {
     stroke: #bcebc1;
     stroke-width: 2px;
 }
+/*
 @media screen
 and (max-width: 802px)
 and (orientation: landscape) {
@@ -352,6 +373,8 @@ and (orientation: landscape) {
         font-size: 3vw;
     }
 }
+*/
+/*
 @media screen
 and (max-width: 600px)
 and (orientation : landscape) {
@@ -374,27 +397,6 @@ and (orientation : landscape) {
         left: 42.5%;
     }
 }
-@media screen and (max-width: 980px) and (orientation : landscape) {
-    /* LANDSCAPE:
-    Nexus 7
-    HTC Evo 3D*/
-    .currentQuestionContainer {
-        top: 1%;
-    }
-    .userAnswerContainer {
-        top: 33%;
-        left: 1.5%;
-    }
-    .response1 {
-        top: 18%;
-        left: 41%;
-    }
-    .response2 {
-        top: 36%;
-        left: 41%;
-    }
-    .response3 {
-        top: 52%;
-        left: 42.5%;
-    }
-}
+*/
+
+

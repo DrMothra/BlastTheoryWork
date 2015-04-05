@@ -13,7 +13,7 @@ var graphApp = function() {
     this.containerWidth = 512;
 
     //Graph area
-    this.margin = {top: 20, right: 0, bottom: 20, left: 20};
+    this.margin = {top: 60, right: 60, bottom: 60, left: 60};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 768;
@@ -122,7 +122,7 @@ graphApp.prototype = {
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: window.innerWidth,
-                height: window.innerHeight*0.99});
+                height: window.innerHeight});
 
         return svg;
     },
@@ -135,10 +135,10 @@ graphApp.prototype = {
 
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
-        var numLines = 9;
-        var lineGap = 50;
-        var startX = 0.37 * width;
-        var startY = 0.15 * height;
+        var numLines = 6;
+        var lineGap = 64;
+        var startX = 0.3 * width;
+        var startY = 0.1 * height;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
@@ -150,36 +150,6 @@ graphApp.prototype = {
                     'stroke-width': 1,
                     'stroke-dasharray': '3,3'});
         }
-
-        //Draw scale
-        element.append("text")
-            .attr("x", width*0.45)
-            .attr("y", startY + (lineGap*9))
-            .attr('font-family', 'quicksandregular')
-            .attr('font-size', '1.2em')
-            .attr('font-weight', 'bold')
-            .attr('stroke', 'none')
-            .style('fill', '#bcebc1')
-            .text("1");
-
-        element.append("line")
-            .attr({x1: width*0.5,
-                y1: startY + (lineGap*8.85),
-                x2: width*0.8,
-                y2: startY + (lineGap*8.85),
-                stroke: '#9dc56d',
-                'stroke-width': 1,
-                'stroke-dasharray': '3,3'});
-
-        element.append("text")
-            .attr("x", width*0.85)
-            .attr("y", startY + (lineGap*9))
-            .attr('font-family', 'quicksandregular')
-            .attr('font-size', '1.2em')
-            .attr('font-weight', 'bold')
-            .attr('stroke', 'none')
-            .style('fill', '#bcebc1')
-            .text("5");
     },
 
     drawNormalDistribution: function(element, currentMean, width, height) {
@@ -189,10 +159,10 @@ graphApp.prototype = {
         getData();
 
         var x = d3.scale.linear()
-            .range([width * 0.3, width * 0.95]);
+            .range([width * 0.3, width * 0.9]);
 
         var y = d3.scale.linear()
-            .range([height * 0.85, height * 0.15]);
+            .range([height * 0.6, height * 0.1]);
 
         var line = d3.svg.line()
             .x(function(d) {
@@ -287,7 +257,7 @@ graphApp.prototype = {
         var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
         var underlineTopPos = height * 0.13;
-        var circlePosY = height * 0.45, circlePosX = width * 0.13, underlineBottomPos = height * 0.65;
+        var circlePosY = height * 0.45, circlePosX = width * 0.13, underlineBottomPos = height * 0.57;
         var circleRadius = height * 0.17;
         if(width < height) {
             portrait = true;
@@ -330,9 +300,9 @@ graphApp.prototype = {
                 'stroke-width': 3});
 
         //Render given responses
-        var circleXPos = 0.465;
+        var circleXPos = 0.9;
         var circleYPos = [0.285, 0.475, 0.66];
-        var smallRadius = height * 0.05;
+        var smallRadius = height * 0.04;
         var pieRadius = height * 0.3;
         var pieHeight = height * 0.47;
         if(portrait) {
@@ -350,9 +320,9 @@ graphApp.prototype = {
         //Fill in user responses
         var responseNumber = pageIndex*3;
         var responses = data.responses;
-        $('#firstResponse'+pageIndex).html(responses[responseNumber].question + '<br>');
-        $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question + '<br>');
-        $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question + '<br>');
+        $('#firstResponse'+pageIndex).html(responses[responseNumber].question);
+        $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question);
+        $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question);
 
         $('#firstResponsePercent'+pageIndex).html(responses[responseNumber].value + '%');
         $('#secondResponsePercent'+pageIndex).html(responses[responseNumber+1].value + '%');
@@ -362,13 +332,15 @@ graphApp.prototype = {
             .attr("cx", width * circleXPos)
             .attr("cy", height * circleYPos[0])
             .attr("r", smallRadius)
-            .style("fill", '#EE4355');
+            .style("fill", '#e7f1d9');
+            //.style("fill", '#EE4355');
 
         svg.append("circle")
             .attr("cx", width * circleXPos)
             .attr("cy", height * circleYPos[1])
             .attr("r", smallRadius)
-            .style("fill", '#cee4b5');
+            .style("fill", '#EE4355');
+            //.style("fill", '#cee4b5');
 
         svg.append("circle")
             .attr("cx", width * circleXPos)
@@ -391,48 +363,65 @@ graphApp.prototype = {
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + width * 0.77 + "," + pieHeight + ")");
+            .attr("transform", "translate(" + width * 0.6 + "," + pieHeight + ")");
 
         //Draw arc paths
+        //Determine amount to rotate
+        var centroids = [];
         arcs.append("path")
-            .attr("transform", "rotate(-158)")
+            .attr("transform", function(d) {
+                //Get centroids for later
+                centroids.push(arc.centroid(d));
+                return "rotate(37)";
+            })
             .attr("fill", function(d, i) {
                 return color[i];
             })
             .attr("d", arc);
 
-        var lineXStart = width * 0.53;
+        var lineXStarts = [width * 0.625, width * 0.5, width * 0.8];
         var yOffsets = [0.28, 0.475, 0.66];
-        var lineWidths = [0.25, 0.2, 0.25];
+        var lineWidths = [0.225, 0.35, 0.06];
         if(portrait) {
             lineXStart = width * 0.54;
             lineWidths = [0.25, 0.2, 0.25];
             yOffsets = [0.33, 0.425, 0.53];
         }
+
         svg.append("line")
-            .attr({x1: lineXStart,
+            .attr({x1: lineXStarts[0],
                 y1: height * yOffsets[0],
-                x2: lineXStart + width * lineWidths[0],
+                x2: lineXStarts[0] + width * lineWidths[0],
                 y2: height * yOffsets[0],
+                stroke: '#476327',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+
+        svg.append("line")
+            .attr({x1: lineXStarts[1],
+                y1: height * yOffsets[1],
+                x2: lineXStarts[1] + width * lineWidths[1],
+                y2: height * yOffsets[1],
                 stroke: '#EE4355',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
-            .attr({x1: lineXStart,
-                y1: height * yOffsets[1],
-                x2: lineXStart + width * lineWidths[1],
-                y2: height * yOffsets[1],
-                stroke: '#e7f1d9',
+            .attr({x1: lineXStarts[2],
+                y1: height * yOffsets[2],
+                x2: lineXStarts[2] + width * lineWidths[2],
+                y2: height * yOffsets[2],
+                stroke: '#476327',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
+        //Add elbow
         svg.append("line")
-            .attr({x1: lineXStart,
-                y1: height * yOffsets[2],
-                x2: lineXStart + width * lineWidths[2],
+            .attr({x1: width * 0.675,
+                y1: height * 0.55,
+                x2: lineXStarts[2],
                 y2: height * yOffsets[2],
-                stroke: '#e7f1d9',
+                stroke: '#476327',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
     },
@@ -447,7 +436,7 @@ graphApp.prototype = {
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
 
         var underlineTopPos = height * 0.1;
-        var circlePosY = height * 0.43, underlineBottomPos = height * 0.62;
+        var circlePosY = height * 0.38, underlineBottomPos = height * 0.6;
         var circlePosX = width * 0.12;
         var circleRadius = height * 0.17;
         if(width < height) {
@@ -487,48 +476,79 @@ graphApp.prototype = {
         this.colours = ['#bcebc1'];
         this.drawNormalDistribution(graph, 0, width, height);
         this.colours = ['#b7d690'];
-        this.drawNormalDistribution(graph, 0.75, width, height);
+        //this.drawNormalDistribution(graph, 0.75, width, height);
 
         //Draw user score indication
-        var yourScoreY = height * 0.43;
+        var yourScoreY = height * 0.6;
         if(portrait) {
             yourScoreY = height * 0.42;
         }
+        /*
         graph.append("line")
-            .attr({x1: width * 0.695,
+            .attr({x1: width * 0.65,
                 y1: this.margin.top,
-                x2: width * 0.695,
-                y2: height * 0.9,
+                x2: width * 0.65,
+                y2: height * 0.6,
+                stroke: '#ef5f68',
+                'stroke-width': 3,
+                'stroke-dasharray': '3,3'});
+                */
+
+        graph.append("circle")
+            .attr("cx", width * 0.65)
+            .attr("cy", yourScoreY)
+            .style('fill', '#ef5f68')
+            .attr('r', width *0.01);
+
+        //Connect user score to graph
+        var yHeight = 0.38;
+        graph.append("line")
+            .attr({x1: width * 0.24,
+                y1: height * yHeight,
+                x2: width * 0.5,
+                y2: height * yHeight,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
-        graph.append("circle")
-            .attr("cx", width * 0.695)
-            .attr("cy", yourScoreY)
-            .style('fill', '#ef5f68')
-            .attr('r', width *0.04);
-
-        var topLinePos = height * 0.32;
-        var bottomLinePos = height * 0.52;
-
-        svg.append("line")
-            .attr({x1: width * 0.945,
-                y1: topLinePos,
-                x2: width * 0.995,
-                y2: topLinePos,
-                stroke: '#9dc56d',
+        //Elbow
+        graph.append("line")
+            .attr({x1: width * 0.5,
+                y1: height * yHeight,
+                x2: width * 0.65,
+                y2: height * 0.6,
+                stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
-        svg.append("line")
-            .attr({x1: width * 0.945,
-                y1: bottomLinePos,
-                x2: width * 0.995,
-                y2: bottomLinePos,
-                stroke: '#c0e9bd',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
+        //Axes
+        var x = d3.scale.linear()
+            .range([width*0.5, width*0.9])
+            .domain([2, 10]);
+
+        var y = d3.scale.linear()
+            .range([this.innerHeight, 0])
+            .domain([0, 10]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .ticks(10);
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .ticks(10);
+
+        graph.append("g")
+            .attr("transform", "translate(0," + width*0.4 + ")")
+            .call(xAxis);
+
+        /*
+        graph.append("g")
+            .attr("class", "axis")
+            .call(yAxis);
+        */
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
