@@ -318,8 +318,21 @@ graphApp.prototype = {
 
         }
         //Fill in user responses
+        //Position user answer to left
         var responseNumber = pageIndex*3;
         var responses = data.responses;
+        for(var i=0; i<responses.length; ++i) {
+            if(responses[i].question === questions.answer) {
+                //DEBUG
+                console.log("You chose", questions.answer);
+                break;
+            }
+        }
+        //DEBUG
+        console.log("Answer number =", i);
+
+        var values = [43, 44, 13];
+
         $('#firstResponse'+pageIndex).html(responses[responseNumber].question);
         $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question);
         $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question);
@@ -357,8 +370,6 @@ graphApp.prototype = {
         //var color = d3.scale.category10();
         var color = ['#EE4355', '#cee4b5', '#e7f1d9'];
 
-        var values = [43, 44, 13];
-
         var arcs = svg.selectAll("g.arc")
             .data(pie(values))
             .enter()
@@ -372,7 +383,7 @@ graphApp.prototype = {
             .attr("transform", function(d) {
                 //Get centroids for later
                 centroids.push(arc.centroid(d));
-                return "rotate(37)";
+                return "rotate(0)";
             })
             .attr("fill", function(d, i) {
                 return color[i];
@@ -478,27 +489,34 @@ graphApp.prototype = {
         this.colours = ['#b7d690'];
         //this.drawNormalDistribution(graph, 0.75, width, height);
 
-        //Draw user score indication
-        var yourScoreY = height * 0.6;
-        if(portrait) {
-            yourScoreY = height * 0.42;
-        }
-        /*
-        graph.append("line")
-            .attr({x1: width * 0.65,
-                y1: this.margin.top,
-                x2: width * 0.65,
-                y2: height * 0.6,
-                stroke: '#ef5f68',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
-                */
+        //Axes
+        var x = d3.scale.linear()
+            .range([width*0.3, width*0.9])
+            .domain([2, 10]);
 
-        graph.append("circle")
-            .attr("cx", width * 0.65)
-            .attr("cy", yourScoreY)
-            .style('fill', '#ef5f68')
-            .attr('r', width *0.01);
+        var y = d3.scale.linear()
+            .range([this.innerHeight*0.6, this.innerHeight*0.1])
+            .domain([0, 10]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .ticks(10);
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("right")
+            .ticks(3);
+
+        graph.append("g")
+            .attr("transform", "translate(0," + height*0.6 + ")")
+            .attr("class", "axis")
+            .call(xAxis);
+
+        graph.append("g")
+            .attr("transform", "translate(" + width*0.92 + ",0)")
+            .attr("class", "axis")
+            .call(yAxis);
 
         //Connect user score to graph
         var yHeight = 0.38;
@@ -520,35 +538,32 @@ graphApp.prototype = {
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
-
-        //Axes
-        var x = d3.scale.linear()
-            .range([width*0.5, width*0.9])
-            .domain([2, 10]);
-
-        var y = d3.scale.linear()
-            .range([this.innerHeight, 0])
-            .domain([0, 10]);
-
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom")
-            .ticks(10);
-
-        var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left")
-            .ticks(10);
-
-        graph.append("g")
-            .attr("transform", "translate(0," + width*0.4 + ")")
-            .call(xAxis);
-
         /*
         graph.append("g")
             .attr("class", "axis")
             .call(yAxis);
         */
+        //Draw user score indication
+        var yourScoreY = height * 0.6;
+        if(portrait) {
+            yourScoreY = height * 0.42;
+        }
+        /*
+         graph.append("line")
+         .attr({x1: width * 0.65,
+         y1: this.margin.top,
+         x2: width * 0.65,
+         y2: height * 0.6,
+         stroke: '#ef5f68',
+         'stroke-width': 3,
+         'stroke-dasharray': '3,3'});
+         */
+
+        graph.append("circle")
+            .attr("cx", width * 0.65)
+            .attr("cy", yourScoreY)
+            .style('fill', '#ef5f68')
+            .attr('r', width *0.01);
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {

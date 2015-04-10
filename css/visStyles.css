@@ -108,7 +108,7 @@ body {
 .currentQuestionContainer,
 .distQuestion {
     position: fixed;
-    top: 9%;
+    top: 11%;
     left: 4%;
 }
 .choice,
@@ -129,6 +129,9 @@ body {
 .userAnswerContainer {
     top: 30%;
     left: 4%;
+}
+#userAnswer0 {
+    width: 100%;
 }
 .userOutOf {
     top: 45%;
