@@ -2,7 +2,15 @@
  * Created by atg on 11/02/2015.
  */
 //Framework for implementing graphing applications
-
+function radiansToDegrees(rads) {
+    return 180/Math.PI * rads;
+}
+function getAngle(vec0, vec1) {
+    //Dot
+    var dot = vec0.dot(vec1);
+    var cos0 = dot/(vec0.length() * vec1.length());
+    return Math.acos(cos0);
+}
 var graphApp = function() {
     //Default values
 
@@ -13,7 +21,7 @@ var graphApp = function() {
     this.containerWidth = 512;
 
     //Graph area
-    this.margin = {top: 60, right: 60, bottom: 60, left: 60};
+    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 768;
@@ -237,6 +245,7 @@ graphApp.prototype = {
 
     drawQuestion: function(element, data, pageIndex) {
         //Render the required question and response
+        var i;
         var svg = this.createSVG(element);
 
         //Get relevant data
@@ -246,7 +255,7 @@ graphApp.prototype = {
         $('#currentQuestion'+pageIndex).html(questions.question);
         var splitAnswer = questions.answer.split(" ");
         var answerHTML = '';
-        for(var i=0; i<splitAnswer.length; ++i) {
+        for(i=0; i<splitAnswer.length; ++i) {
             answerHTML += splitAnswer[i] + '<br>';
         }
         $('#userAnswer'+pageIndex).html(answerHTML);
@@ -254,74 +263,34 @@ graphApp.prototype = {
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-        var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
-        var underlineTopPos = height * 0.13;
-        var circlePosY = height * 0.45, circlePosX = width * 0.13, underlineBottomPos = height * 0.57;
-        var circleRadius = height * 0.17;
-        if(width < height) {
-            portrait = true;
-            circleRadius = width * 0.12;
-            circlePosY = height * 0.41;
-            circlePosX = width * 0.12;
-            underlineTopPos = height * 0.24;
-            underlineBottomPos = height * 0.53;
-        }
-        //Adjustments for mobiles
-        if(window.innerWidth <= 800 && window.innerHeight <=480) {
-            circlePosX = width * 0.11;
-        }
+        var topLinePosY = height * 0.23, topLinePosX = width * 0.27;
+        var bottomLinePosY = height * 0.67, bottomLinePosX = width * 0.27;
 
         //Underline
         graph.append("line")
             .attr({x1: 0,
-                y1: underlineTopPos,
-                x2: width * 0.24,
-                y2: underlineTopPos,
+                y1: topLinePosY,
+                x2: topLinePosX,
+                y2: topLinePosY,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
-        //User choice
-        /*
-        graph.append('circle')
-            .attr("cx", circlePosX)
-            .attr("cy", circlePosY)
-            .style("fill", '#EE4355')
-            .attr("r", circleRadius);
-        */
-
         //Underline
         graph.append("line")
             .attr({x1: 0,
-                y1: underlineBottomPos,
-                x2: width * 0.24,
-                y2: underlineBottomPos,
+                y1: bottomLinePosY,
+                x2: bottomLinePosX,
+                y2: bottomLinePosY,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
         //Render given responses
-        var circleXPos = 0.9;
-        var circleYPos = [0.285, 0.475, 0.66];
-        var smallRadius = height * 0.04;
-        var pieRadius = height * 0.3;
-        var pieHeight = height * 0.47;
-        if(portrait) {
-            smallRadius = height * 0.04;
-            pieRadius = height * 0.15;
-            circleYPos = [0.33, 0.43, 0.53];
-            pieHeight = height * 0.43;
-        }
-
-        //Adjustments for mobiles
-        if(window.innerWidth <= 800 && window.innerHeight <=480) {
-            smallRadius = height * 0.09;
-
-        }
-        //Fill in user responses
-        //Position user answer to left
+        //DEBUG
+        var values = [43, 44, 13];
         var responseNumber = pageIndex*3;
         var responses = data.responses;
-        for(var i=0; i<responses.length; ++i) {
+        for(i=0; i<responses.length; ++i) {
             if(responses[i].question === questions.answer) {
                 //DEBUG
                 console.log("You chose", questions.answer);
@@ -331,8 +300,6 @@ graphApp.prototype = {
         //DEBUG
         console.log("Answer number =", i);
 
-        var values = [43, 44, 13];
-
         $('#firstResponse'+pageIndex).html(responses[responseNumber].question);
         $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question);
         $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question);
@@ -341,92 +308,104 @@ graphApp.prototype = {
         $('#secondResponsePercent'+pageIndex).html(responses[responseNumber+1].value + '%');
         $('#thirdResponsePercent'+pageIndex).html(responses[responseNumber+2].value + '%');
 
+
+        var smallCircleXPos = width * 0.9;
+        var smallCircleYPos = [0.285 * height, 0.475 * height, 0.66 * height];
+        var smallRadius = height * 0.04;
+
         svg.append("circle")
-            .attr("cx", width * circleXPos)
-            .attr("cy", height * circleYPos[0])
+            .attr("cx", smallCircleXPos)
+            .attr("cy", smallCircleYPos[0])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
-            //.style("fill", '#EE4355');
 
         svg.append("circle")
-            .attr("cx", width * circleXPos)
-            .attr("cy", height * circleYPos[1])
+            .attr("cx", smallCircleXPos)
+            .attr("cy", smallCircleYPos[1])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
-            //.style("fill", '#cee4b5');
 
         svg.append("circle")
-            .attr("cx", width * circleXPos)
-            .attr("cy", height * circleYPos[2])
+            .attr("cx", smallCircleXPos)
+            .attr("cy", smallCircleYPos[2])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
 
         //Pie chart
+        var pieRadius = height * 0.3;
+        var pieXPos = width * 0.6, pieYPos = height * 0.49;
         var arc = d3.svg.arc()
             .innerRadius(0)
             .outerRadius(pieRadius);
 
         var pie = d3.layout.pie();
-        //var color = d3.scale.category10();
+        pie.sort(null);
         var color = ['#EE4355', '#cee4b5', '#e7f1d9'];
 
         var arcs = svg.selectAll("g.arc")
             .data(pie(values))
             .enter()
             .append("g")
-            .attr("transform", "translate(" + width * 0.6 + "," + pieHeight + ")");
+            .attr("transform", "translate(" + pieXPos + "," + pieYPos + ")");
 
         //Draw arc paths
         //Determine amount to rotate
+        //Dummy rotation to get centroids - bit of a hack!
         var centroids = [];
         arcs.append("path")
             .attr("transform", function(d) {
                 //Get centroids for later
                 centroids.push(arc.centroid(d));
                 return "rotate(0)";
-            })
+            });
+
+        //Form vectors
+        var wedgeCentre = new THREE.Vector2(centroids[0][0], centroids[0][1]);
+        var dest = new THREE.Vector2(-10, 0);
+        var angle = getAngle(dest, wedgeCentre);
+        angle = radiansToDegrees(angle);
+        angle *= -1;
+
+        arcs.append("path")
+            .attr("transform", "rotate("+angle+")")
             .attr("fill", function(d, i) {
                 return color[i];
             })
             .attr("d", arc);
 
-        var lineXStarts = [width * 0.625, width * 0.5, width * 0.8];
-        var yOffsets = [0.28, 0.475, 0.66];
-        var lineWidths = [0.225, 0.35, 0.06];
-        if(portrait) {
-            lineXStart = width * 0.54;
-            lineWidths = [0.25, 0.2, 0.25];
-            yOffsets = [0.33, 0.425, 0.53];
-        }
+        var lineXStarts = [width * 0.625, width * 0.5, width * 0.625];
+        var lineYStarts = [height * 0.28, height * 0.475, height * 0.66];
+        var lineWidths = [width * 0.225, width * 0.35, width * 0.23];
 
         svg.append("line")
             .attr({x1: lineXStarts[0],
-                y1: height * yOffsets[0],
-                x2: lineXStarts[0] + width * lineWidths[0],
-                y2: height * yOffsets[0],
+                y1: lineYStarts[0],
+                x2: lineXStarts[0] + lineWidths[0],
+                y2: lineYStarts[0],
                 stroke: '#476327',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStarts[1],
-                y1: height * yOffsets[1],
-                x2: lineXStarts[1] + width * lineWidths[1],
-                y2: height * yOffsets[1],
+                y1: lineYStarts[1],
+                x2: lineXStarts[1] + lineWidths[1],
+                y2: lineYStarts[1],
                 stroke: '#EE4355',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         svg.append("line")
             .attr({x1: lineXStarts[2],
-                y1: height * yOffsets[2],
-                x2: lineXStarts[2] + width * lineWidths[2],
-                y2: height * yOffsets[2],
+                y1: lineYStarts[2],
+                x2: lineXStarts[2] + lineWidths[2],
+                y2: lineYStarts[2],
                 stroke: '#476327',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         //Add elbow
+        /*
         svg.append("line")
             .attr({x1: width * 0.675,
                 y1: height * 0.55,
@@ -435,6 +414,7 @@ graphApp.prototype = {
                 stroke: '#476327',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
+        */
     },
 
     drawDistribution: function(element, data) {
@@ -443,21 +423,13 @@ graphApp.prototype = {
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-        var portrait = false;
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
 
         var underlineTopPos = height * 0.1;
         var circlePosY = height * 0.38, underlineBottomPos = height * 0.6;
         var circlePosX = width * 0.12;
         var circleRadius = height * 0.17;
-        if(width < height) {
-            portrait = true;
-            underlineTopPos = height * 0.25;
-            underlineBottomPos = height * 0.53;
-            circleRadius = height * 0.08;
-            circlePosX = width * 0.115;
-            circlePosY = height * 0.41;
-        }
+
         //Top Underline
         graph.append("line")
             .attr({x1: 0,
@@ -487,7 +459,6 @@ graphApp.prototype = {
         this.colours = ['#bcebc1'];
         this.drawNormalDistribution(graph, 0, width, height);
         this.colours = ['#b7d690'];
-        //this.drawNormalDistribution(graph, 0.75, width, height);
 
         //Axes
         var x = d3.scale.linear()
@@ -545,9 +516,7 @@ graphApp.prototype = {
         */
         //Draw user score indication
         var yourScoreY = height * 0.6;
-        if(portrait) {
-            yourScoreY = height * 0.42;
-        }
+
         /*
          graph.append("line")
          .attr({x1: width * 0.65,
