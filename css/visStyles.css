@@ -114,8 +114,13 @@ body {
 .choice,
 .score {
     position: fixed;
-    top: 29%;
     left: 4%;
+}
+.choice {
+    top: 29%;
+}
+.score {
+    top: 22%;
 }
 .userAnswerContainer,
 .userScore,
@@ -123,8 +128,8 @@ body {
     position: fixed;
 }
 .userScore {
-    top: 25%;
-    left: 4%;
+    top: 28%;
+    left: 3%;
 }
 .userAnswerContainer {
     top: 40%;
@@ -134,19 +139,19 @@ body {
     width: 100%;
 }
 .userOutOf {
-    top: 45%;
-    left: 4%;
+    top: 48%;
+    left: 3%;
 }
 .analysisChoice,
 .analysis {
     position: fixed;
-    top: 66%;
+    top: 70%;
     left: 4%;
 }
 .responded,
 .respondents {
     position: fixed;
-    top: 9%;
+    top: 12%;
 }
 .responded {
     left: 40%;
@@ -190,16 +195,11 @@ body {
 }
 .agree {
     position: fixed;
-    top: 53%;
+    top: 71%;
     left: 32%;
 }
 .least {
-    padding-right: 80%;
-}
-@media screen and (min-width: 1200px) {
-    .least {
-        padding-right: 35%;
-    }
+    padding-right: 77%;
 }
 .respondentKey {
     position: fixed;

@@ -144,9 +144,9 @@ graphApp.prototype = {
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
         var numLines = 6;
-        var lineGap = 64;
+        var lineGap = 0.11 * height;
         var startX = 0.3 * width;
-        var startY = 0.1 * height;
+        var startY = 0.15 * height;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
@@ -166,11 +166,13 @@ graphApp.prototype = {
         var normalData = [];
         getData();
 
+        var xRangeMin = width * 0.3, xRangeMax = width * 0.9;
         var x = d3.scale.linear()
-            .range([width * 0.3, width * 0.9]);
+            .range([xRangeMin, xRangeMax]);
 
+        var yRangeMin = height * 0.7, yRangeMax = height * 0.15;
         var y = d3.scale.linear()
-            .range([height * 0.6, height * 0.1]);
+            .range([yRangeMin, yRangeMax]);
 
         var line = d3.svg.line()
             .x(function(d) {
@@ -424,34 +426,33 @@ graphApp.prototype = {
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
+        var topLinePosY = height * 0.15, topLinePosX = width * 0.27;
 
-        var underlineTopPos = height * 0.1;
-        var circlePosY = height * 0.38, underlineBottomPos = height * 0.6;
-        var circlePosX = width * 0.12;
-        var circleRadius = height * 0.17;
-
-        //Top Underline
+        //Top underline
         graph.append("line")
             .attr({x1: 0,
-                y1: underlineTopPos,
-                x2: width * 0.24,
-                y2: underlineTopPos,
+                y1: topLinePosY,
+                x2: topLinePosX,
+                y2: topLinePosY,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
         //User choice
+        var circlePosY = height * 0.43, circlePosX = width * 0.12;
+        var circleRadius = height * 0.17;
         graph.append('circle')
             .attr("cx", circlePosX)
             .attr("cy", circlePosY)
             .style("fill", '#EE4355')
             .attr("r", circleRadius);
 
-        //Underline
+        //Bottom underline
+        var bottomLinePosY = height * 0.7, bottomLinePosX = width * 0.27;
         graph.append("line")
             .attr({x1: 0,
-                y1: underlineBottomPos,
-                x2: width * 0.24,
-                y2: underlineBottomPos,
+                y1: bottomLinePosY,
+                x2: bottomLinePosX,
+                y2: bottomLinePosY,
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
@@ -461,78 +462,68 @@ graphApp.prototype = {
         this.colours = ['#b7d690'];
 
         //Axes
+        var xTicks = 10, yTicks = 3;
+        var graphYPos = height*0.7, graphXPos = width*0.92;
+        var xRangeMin = width*0.3, xRangeMax = width*0.9;
         var x = d3.scale.linear()
-            .range([width*0.3, width*0.9])
+            .range([xRangeMin, xRangeMax])
             .domain([2, 10]);
 
+        var yRangeMin = this.innerHeight*0.3, yRangeMax = this.innerHeight*0.06;
         var y = d3.scale.linear()
-            .range([this.innerHeight*0.6, this.innerHeight*0.1])
+            .range([yRangeMin, yRangeMax])
             .domain([0, 10]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
-            .ticks(10);
+            .ticks(xTicks);
 
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
-            .ticks(3);
+            .ticks(yTicks);
 
         graph.append("g")
-            .attr("transform", "translate(0," + height*0.6 + ")")
+            .attr("transform", "translate(0," + graphYPos + ")")
             .attr("class", "axis")
             .call(xAxis);
 
         graph.append("g")
-            .attr("transform", "translate(" + width*0.92 + ",0)")
+            .attr("transform", "translate(" + graphXPos + ",0)")
             .attr("class", "axis")
             .call(yAxis);
 
         //Connect user score to graph
-        var yHeight = 0.38;
+        var scoreYPos = height * 0.44, scoreXPos = width * 0.5;
         graph.append("line")
             .attr({x1: width * 0.24,
-                y1: height * yHeight,
-                x2: width * 0.5,
-                y2: height * yHeight,
+                y1: scoreYPos,
+                x2: scoreXPos,
+                y2: scoreYPos,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
         //Elbow
+        var elbowXPos = width * 0.65, elbowYPos = height * 0.7;
         graph.append("line")
-            .attr({x1: width * 0.5,
-                y1: height * yHeight,
-                x2: width * 0.65,
-                y2: height * 0.6,
+            .attr({x1: scoreXPos,
+                y1: scoreYPos,
+                x2: elbowXPos,
+                y2: elbowYPos,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
-        /*
-        graph.append("g")
-            .attr("class", "axis")
-            .call(yAxis);
-        */
-        //Draw user score indication
-        var yourScoreY = height * 0.6;
 
-        /*
-         graph.append("line")
-         .attr({x1: width * 0.65,
-         y1: this.margin.top,
-         x2: width * 0.65,
-         y2: height * 0.6,
-         stroke: '#ef5f68',
-         'stroke-width': 3,
-         'stroke-dasharray': '3,3'});
-         */
+        //Draw user score indication
+        var scoreRadius = width *0.01;
 
         graph.append("circle")
-            .attr("cx", width * 0.65)
-            .attr("cy", yourScoreY)
+            .attr("cx", elbowXPos)
+            .attr("cy", elbowYPos)
             .style('fill', '#ef5f68')
-            .attr('r', width *0.01);
+            .attr('r', scoreRadius);
     },
 
     drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
