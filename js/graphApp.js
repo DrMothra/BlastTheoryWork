@@ -145,9 +145,9 @@ graphApp.prototype = {
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
         var numLines = 6;
-        var lineGap = 0.102 * height;
         var startX = 0.1 * width;
-        var startY = 0.05 * height;
+        var startY = 0.1 * height, endY = 0.7 * height;
+        var lineGap = (endY - startY)/numLines;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
@@ -452,7 +452,7 @@ graphApp.prototype = {
     },
 
     drawDistribution: function(element, data) {
-        var elem = $('#userScoreContainer');
+        var elem = $('#ref');
         var height = elem.height();
         var svg = this.createSVG(element);
 
