@@ -122,16 +122,6 @@ $(document).ready(function() {
         $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide", reverse: true});
     });
 
-    page3.on('swipeup', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagethreePlus1", {transition: "slideup"});
-    });
-
-    $('#pagethreePlus1').on('swipedown', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slidedown"});
-    });
-
     page4.on('swiperight', function() {
         //alert('Swiped');
         $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});

@@ -5,7 +5,7 @@
     <title>Karen Visualisations</title>
 
     <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.2" rel="stylesheet" type="text/css">
+    <link href="css/visStyles.css?v=0.4" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -18,57 +18,52 @@
     </script>
 
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/jquerymobile-swipeupdown.js"></script>
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
-    <script type="text/javascript" src="js/graphApp.js?v=0.2"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.3"></script>
     <script type="text/javascript" src="js/visData.js?v=0.1"></script>
 
 </head>
 <body>
 
-<div data-role="page" id="pageone">
-        <div class="goRight">
-            <a href="#pagetwo"><img class="navigate" src="images/arrow-right.png"></a>
+<div data-role="page"  class="mainPage" id="pageone">
+
+    <div class="pure-g noDecoration grey">
+        <div class="pure-u-1-24 navigate">
+
         </div>
+        <div class="pure-u-11-12">
+            <div class="bigTitle centred">
+                Welcome to Karen
+            </div>
 
-        <div class="bigTitle centred">
-            Welcome to Karen
+            <div class="subTitle centred">
+                <p>Have a look at your profile.</p>
+            </div>
         </div>
-
-        <div class="subTitle centred">
-            <p>Have a look at your profile.</p>
+        <div class="pure-u-1-24 navigate">
+            <a href="#pagetwo"><img src="images/arrow-right.png"></a>
         </div>
-</div>
-
-<div class="mainPage" data-role="page" id="pagetwo">
-
-    <div class="title centred">
-        <p>Make a selection</p>
     </div>
 
-    <div class="pure-g">
-        <div class="goLeft">
-            <a href="#pageone"><img class="navigate" src="images/arrow-left.png"></a>
-        </div>
-        <div class="goRight">
-            <a href="#pagethree"><img class="navigate" src="images/arrow-right.png"></a>
-        </div>
+</div>
 
-        <div class="pure-u-3-8">
+<div data-role="page" class="mainPage" id="pagetwo">
+
+    <div class="pure-g noDecoration grey">
+        <div class="pure-u-1-24 navigate">
+            <a href="#pageone"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-11-12">
+            <div class="bigTitle centred">
+                Make a selection
+            </div>
+
 
         </div>
-        <div class="pure-u-1-4">
-            <ol type="1">
-                <li>Your personality</li>
-                <li>Your scales</li>
-                <li>Your responses</li>
-                <li>Distribution</li>
-            </ol>
-        </div>
-        <div class="pure-u-3-8">
-
+        <div class="pure-u-1-24 navigate">
+            <a href="#pagethree"><img src="images/arrow-right.png"></a>
         </div>
     </div>
 
@@ -76,7 +71,7 @@
 
 <div data-role="page" id="pagethree">
 
-    <div class=" pure-g mainPage">
+    <div class="pure-g mainPage">
         <div class="pure-u-1-24 navigate">
             <a href="#pagetwo"><img src="images/arrow-left.png"></a>
         </div>
@@ -96,25 +91,8 @@
             </div>
         </div>
         <div id="question0" class="pure-u-15-24">
-            <div id="responses" class="centred quicksand heavy darkGreen normalSizeText">
-                <div id="percent1">
-                    13%
-                </div>
-                <div id="response1">
-                    CONTROL
-                </div>
-                <div id="percent2" class="pink">
-                    44%
-                </div>
-                <div id="response2" class="pink">
-                    LIFE GOALS
-                </div>
-                <div id="percent3">
-                    43%
-                </div>
-                <div id="response3">
-                    RELATIONSHIPS
-                </div>
+            <div id="responses">
+
             </div>
         </div>
         <div class="pure-u-1-24 navigate">
@@ -131,7 +109,7 @@
         <div class="pure-u-1-24 navigate">
             <a href="#pagethree"><img src="images/arrow-left.png"></a>
         </div>
-        <div class="pure-u-7-24 centred">
+        <div id="ref" class="pure-u-7-24 centred">
             <div class="quicksand heavy pink normalSizeText">
                 <div id="userDistContainer" class="pinkBottomBorder">
                     <span>WHAT DO YOU VALUE?</span>
@@ -142,26 +120,26 @@
                 <canvas id="scoreBackground">
 
                 </canvas>
-                <div id="userScoreContainer">
+                <div id="userScoreContainer" class="pinkBottomBorder">
                     <span class="veryBigSizeText">3</span><span class="mediumSizeText">.7</span>
-                </div>
-                <div id="outOfContainer" class="pinkBottomBorder">
-                    OUT OF 5
+                    <div id="outOfValue">OUT OF 5</div>
                 </div>
                 ANALYSIS
             </div>
         </div>
-        <div id="distribution" class="pure-u-15-24">
+
+        <div id="distribution" class="pure-u-15-24 centred">
+            <div class="quicksand lightGreen normalSizeText centred">
+                HOW OTHERS RESPONDED
+            </div>
+
 
         </div>
+
         <div class="pure-u-1-24 navigate">
 
         </div>
 
-    </div>
-
-    <div class="goLeft">
-        <a href="#pagethree"><img class="navigate" src="images/arrow-left.png"></a>
     </div>
 
 </div>

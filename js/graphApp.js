@@ -124,7 +124,7 @@ graphApp.prototype = {
 
     createSVG: function(element) {
         //Create SVG
-        //Use default height but container's width
+        //Use element dimensions
         var elem = $('#'+element);
         this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
         this.containerHeight = window.innerHeight * 0.95;
@@ -145,9 +145,9 @@ graphApp.prototype = {
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
         var numLines = 6;
-        var lineGap = 0.11 * height;
-        var startX = 0.3 * width;
-        var startY = 0.15 * height;
+        var lineGap = 0.102 * height;
+        var startX = 0.1 * width;
+        var startY = 0.05 * height;
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
@@ -167,11 +167,11 @@ graphApp.prototype = {
         var normalData = [];
         getData();
 
-        var xRangeMin = width * 0.3, xRangeMax = width * 0.9;
+        var xRangeMin = width * 0.1, xRangeMax = width * 0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax]);
 
-        var yRangeMin = height * 0.7, yRangeMax = height * 0.15;
+        var yRangeMin = height * 0.55, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax]);
 
@@ -302,17 +302,68 @@ graphApp.prototype = {
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
 
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[0])
+            .style("text-anchor", "middle")
+            .style("fill", "#b7d690")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("13%");
+
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[0] + smallRadius)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", "#b7d690")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("CONTROL");
+
         svg.append("circle")
             .attr("cx", smallCircleXPos)
             .attr("cy", smallCircleYPos[1])
             .attr("r", smallRadius)
             .style("fill", '#EE4355');
 
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[1])
+            .style("text-anchor", "middle")
+            .style("fill", "#FFBBBE")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("43%");
+
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[1] + smallRadius)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", "#FFBBBE")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("LIFE GOALS");
+
         svg.append("circle")
             .attr("cx", smallCircleXPos)
             .attr("cy", smallCircleYPos[2])
             .attr("r", smallRadius)
             .style("fill", '#e7f1d9');
+
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[2])
+            .style("text-anchor", "middle")
+            .style("fill", "#b7d690")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("44%");
+
+        svg.append('text')
+            .attr("x", smallCircleXPos)
+            .attr("y", smallCircleYPos[2] + smallRadius)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", "#b7d690")
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("RELATIONSHIPS");
 
         //Pie chart
         var pieRadius = height * 0.38;
@@ -401,45 +452,15 @@ graphApp.prototype = {
     },
 
     drawDistribution: function(element, data) {
+        var elem = $('#userScoreContainer');
+        var height = elem.height();
         var svg = this.createSVG(element);
 
         var graph = svg.append("g")
-            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+            .attr("transform", "translate(0, 0)");
 
-        var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
-        var topLinePosY = height * 0.15, topLinePosX = width * 0.27;
+        var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
-<<<<<<< HEAD
-=======
-        //Top underline
-        graph.append("line")
-            .attr({x1: 0,
-                y1: topLinePosY,
-                x2: topLinePosX,
-                y2: topLinePosY,
-                stroke: '#FFBBBE',
-                'stroke-width': 3});
-
-        //User choice
-        var circlePosY = height * 0.43, circlePosX = width * 0.12;
-        var circleRadius = height * 0.17;
-        graph.append('circle')
-            .attr("cx", circlePosX)
-            .attr("cy", circlePosY)
-            .style("fill", '#EE4355')
-            .attr("r", circleRadius);
-
-        //Bottom underline
-        var bottomLinePosY = height * 0.7, bottomLinePosX = width * 0.27;
-        graph.append("line")
-            .attr({x1: 0,
-                y1: bottomLinePosY,
-                x2: bottomLinePosX,
-                y2: bottomLinePosY,
-                stroke: '#FFBBBE',
-                'stroke-width': 3});
-
->>>>>>> origin/master
         this.drawLineBackground(graph, width, height);
         this.colours = ['#bcebc1'];
         this.drawNormalDistribution(graph, 0, width, height);
@@ -447,13 +468,13 @@ graphApp.prototype = {
 
         //Axes
         var xTicks = 10, yTicks = 3;
-        var graphYPos = height*0.7, graphXPos = width*0.92;
-        var xRangeMin = width*0.3, xRangeMax = width*0.9;
+        var graphYPos = height*0.56, graphXPos = width*0.92;
+        var xRangeMin = width * 0.1, xRangeMax = width*0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
             .domain([2, 10]);
 
-        var yRangeMin = this.innerHeight*0.3, yRangeMax = this.innerHeight*0.06;
+        var yRangeMin = height * 0.55, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
             .domain([0, 10]);
@@ -479,9 +500,9 @@ graphApp.prototype = {
             .call(yAxis);
 
         //Connect user score to graph
-        var scoreYPos = height * 0.44, scoreXPos = width * 0.5;
+        var scoreYPos = height * 0.35, scoreXPos = width * 0.35;
         graph.append("line")
-            .attr({x1: width * 0.24,
+            .attr({x1: 0,
                 y1: scoreYPos,
                 x2: scoreXPos,
                 y2: scoreYPos,
@@ -490,7 +511,7 @@ graphApp.prototype = {
                 'stroke-dasharray': '3,3'});
 
         //Elbow
-        var elbowXPos = width * 0.65, elbowYPos = height * 0.7;
+        var elbowXPos = width * 0.65, elbowYPos = height * 0.56;
         graph.append("line")
             .attr({x1: scoreXPos,
                 y1: scoreYPos,

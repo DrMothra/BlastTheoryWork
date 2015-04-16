@@ -41,12 +41,15 @@ body {
 .heavy {
     font-weight: bold;
 }
+.noDecoration {
+    text-shadow: none;
+}
 /* Text sizes */
 .normalSizeText {
     font-size: 1.9vw;
 }
 .mediumSizeText {
-    font-size: 3vw;
+    font-size: 3.5vw;
 }
 .bigSizeText {
     font-size: 6vw;
@@ -58,12 +61,23 @@ body {
     font-size: 14vw;
     font-weight: 300;
 }
+.bigTitle {
+    font-size: 6vw;
+    margin: 5%;
+}
+.subTitle {
+    font-size: 2.2vw;
+    margin: 15% 0;
+}
 /* Colours */
 .pink {
     color: #FFBBBE;
 }
 .darkPink {
     color: #EE4355;
+}
+.grey {
+    color: #939393;
 }
 .lightGreen {
     color: #c0e9bd;
@@ -74,137 +88,7 @@ body {
 .darkGreen {
     color: #b7d690;
 }
-<<<<<<< HEAD
 /* Positioning */
-=======
-.currentQuestionContainer,
-.distQuestion {
-    position: fixed;
-    top: 11%;
-    left: 4%;
-}
-.choice,
-.score {
-    position: fixed;
-    left: 4%;
-}
-.choice {
-    top: 29%;
-}
-.score {
-    top: 22%;
-}
-.userAnswerContainer,
-.userScore,
-.userOutOf{
-    position: fixed;
-}
-.userScore {
-    top: 28%;
-    left: 3%;
-}
-.userAnswerContainer {
-    top: 40%;
-    left: 4%;
-}
-#userAnswer0 {
-    width: 100%;
-}
-.userOutOf {
-    top: 48%;
-    left: 3%;
-}
-.analysisChoice,
-.analysis {
-    position: fixed;
-    top: 70%;
-    left: 4%;
-}
-.responded,
-.respondents {
-    position: fixed;
-    top: 12%;
-}
-.responded {
-    left: 40%;
-}
-.respondents {
-    left: 45%;
-}
-.response1,
-.response2,
-.response3 {
-    position: fixed;
-}
-.response1 {
-    top: 29%;
-    left: 78%;
-}
-.response2 {
-    top: 45%;
-    left: 78%;
-}
-.response3 {
-    top: 61%;
-    left: 76%;
-}
-.responsePercent1,
-.responsePercent2,
-.responsePercent3 {
-    position: fixed;
-}
-.responsePercent1 {
-    top: 22%;
-    left: 80%;
-}
-.responsePercent2 {
-    top: 38%;
-    left: 80%;
-}
-.responsePercent3 {
-    top: 55%;
-    left: 80%;
-}
-.agree {
-    position: fixed;
-    top: 71%;
-    left: 32%;
-}
-.least {
-    padding-right: 77%;
-}
-.respondentKey {
-    position: fixed;
-    top: 33%;
-    left: 88.5%;
-}
-.normalKey {
-    position: fixed;
-    top: 53%;
-    left: 88.5%;
-}
-.you {
-    position: fixed;
-    top: 41%;
-    left: 68.5%;
-}
-.goLeft {
-    position: fixed;
-    top: 40%;
-    left: 0%;
-}
-.goRight {
-    position: fixed;
-    top: 40%;
-    right: 0%;
-    text-align: right;
-}
-ol {
-    font-size: 2.4vw;
-    line-height: 1.5em;
-    padding-left: 10%;
-}
->>>>>>> origin/master
 .centred {
     text-align: center;
 }
@@ -218,9 +102,7 @@ ol {
     text-shadow: none;
     background: radial-gradient(circle, #0f2010, black);
     background: -webkit-radial-gradient(circle, #113312, #000000);
-    padding-left: 0%;
     color: #aaaaaa;
-    overflow: hidden;
     max-width: 100%;
 }
 .pinkBottomBorder {
@@ -242,63 +124,41 @@ ol {
     padding: 12.5% 0 8% 0;
     margin-bottom: 12%;
 }
-#responses {
-    position: absolute;
-    width: 17%;
-    top: 27%;
-    left: 81%;
-}
-#response1 {
-    margin-top: 16%;
-}
-#percent2 {
-    margin-top: 47%;
-}
-#response2 {
-    margin-top: 27%;
-}
-#percent3 {
-    margin-top: 35%;
-}
-#response3 {
-    margin-top: 30%;
-}
 
 #scoreBackground {
     position: absolute;
     top: 20%;
     left: 5%;
 }
+#userDistContainer {
+    padding-bottom: 10%;
+}
+#scoredContainer {
+    padding-top: 10%;
+}
+#userScoreContainer {
+    margin: 10% 0 15% 0;
+}
+#outOfValue {
+    margin-top: -10%;
+    padding-bottom: 15%;
+}
+
 /* Graph styles */
 .axis {
     font: 10px sans-serif;
-    fill: white;
+    fill: #9dc56d;
     shape-rendering: crispEdges;
 }
 .axis path,
 .axis line {
     fill: none;
-    stroke: #000;
+    stroke: #9dc56d;
 }
 /* Media queries */
 @media only screen and (min-width: 500px) and (orientation: landscape) {
     .mainPage {
         padding-top: 4%;
-    }
-    #responses {
-        top: 23%;
-    }
-    #percent2 {
-        margin-top: 40%;
-    }
-    #response2 {
-        margin-top: 22%;
-    }
-    #percent3 {
-        margin-top: 27%;
-    }
-    #response3 {
-        margin-top: 22%;
     }
 }
 
