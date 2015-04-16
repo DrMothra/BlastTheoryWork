@@ -21,7 +21,7 @@ var graphApp = function() {
     this.containerWidth = 512;
 
     //Graph area
-    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
+    this.margin = {top: 0, right: 0, bottom: 0, left: 0};
     this.outerWidth = 512;
     this.innerWidth = this.outerWidth - this.margin.left - this.margin.right;
     this.outerHeight = 768;
@@ -126,11 +126,12 @@ graphApp.prototype = {
         //Create SVG
         //Use default height but container's width
         var elem = $('#'+element);
-        //this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
+        this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
+        this.containerHeight = window.innerHeight * 0.95;
         var svg = d3.select('#'+element)
             .append('svg')
-            .attr({width: window.innerWidth,
-                height: window.innerHeight});
+            .attr({width: this.containerWidth,
+                height: this.containerHeight});
 
         return svg;
     },
@@ -265,27 +266,7 @@ graphApp.prototype = {
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-        var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
-        var topLinePosY = height * 0.23, topLinePosX = width * 0.27;
-        var bottomLinePosY = height * 0.67, bottomLinePosX = width * 0.27;
-
-        //Underline
-        graph.append("line")
-            .attr({x1: 0,
-                y1: topLinePosY,
-                x2: topLinePosX,
-                y2: topLinePosY,
-                stroke: '#FFBBBE',
-                'stroke-width': 3});
-
-        //Underline
-        graph.append("line")
-            .attr({x1: 0,
-                y1: bottomLinePosY,
-                x2: bottomLinePosX,
-                y2: bottomLinePosY,
-                stroke: '#FFBBBE',
-                'stroke-width': 3});
+        var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
         //Render given responses
         //DEBUG
@@ -312,8 +293,8 @@ graphApp.prototype = {
 
 
         var smallCircleXPos = width * 0.9;
-        var smallCircleYPos = [0.285 * height, 0.475 * height, 0.66 * height];
-        var smallRadius = height * 0.04;
+        var smallCircleYPos = [0.2 * height, 0.46 * height, 0.7 * height];
+        var smallRadius = height * 0.06;
 
         svg.append("circle")
             .attr("cx", smallCircleXPos)
@@ -334,8 +315,8 @@ graphApp.prototype = {
             .style("fill", '#e7f1d9');
 
         //Pie chart
-        var pieRadius = height * 0.3;
-        var pieXPos = width * 0.6, pieYPos = height * 0.49;
+        var pieRadius = height * 0.38;
+        var pieXPos = width * 0.4, pieYPos = height * 0.44;
         var arc = d3.svg.arc()
             .innerRadius(0)
             .outerRadius(pieRadius);
@@ -375,9 +356,9 @@ graphApp.prototype = {
             })
             .attr("d", arc);
 
-        var lineXStarts = [width * 0.625, width * 0.5, width * 0.625];
-        var lineYStarts = [height * 0.28, height * 0.475, height * 0.66];
-        var lineWidths = [width * 0.225, width * 0.35, width * 0.23];
+        var lineXStarts = [width * 0.5, width * 0.4, width * 0.45];
+        var lineYStarts = [height * 0.2, height * 0.45, height * 0.7];
+        var lineWidths = [width * 0.33, width * 0.43, width * 0.37];
 
         svg.append("line")
             .attr({x1: lineXStarts[0],
@@ -428,6 +409,8 @@ graphApp.prototype = {
         var width = window.innerWidth - this.margin.left - this.margin.right , height = window.innerHeight - this.margin.top - this.margin.bottom;
         var topLinePosY = height * 0.15, topLinePosX = width * 0.27;
 
+<<<<<<< HEAD
+=======
         //Top underline
         graph.append("line")
             .attr({x1: 0,
@@ -456,6 +439,7 @@ graphApp.prototype = {
                 stroke: '#FFBBBE',
                 'stroke-width': 3});
 
+>>>>>>> origin/master
         this.drawLineBackground(graph, width, height);
         this.colours = ['#bcebc1'];
         this.drawNormalDistribution(graph, 0, width, height);

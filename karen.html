@@ -5,7 +5,7 @@
     <title>Karen Visualisations</title>
 
     <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.1" rel="stylesheet" type="text/css">
+    <link href="css/visStyles.css?v=0.2" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -22,7 +22,7 @@
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
-    <script type="text/javascript" src="js/graphApp.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.2"></script>
     <script type="text/javascript" src="js/visData.js?v=0.1"></script>
 
 </head>
@@ -76,51 +76,50 @@
 
 <div data-role="page" id="pagethree">
 
-    <div class="mainPage" id="question0" class="pure-g">
-        <div class="pure-u-6-24 centred currentQuestionContainer">
-            <span id="currentQuestion0" class="quicksand heavy pink normalText">
-
-            </span>
+    <div class=" pure-g mainPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#pagetwo"><img src="images/arrow-left.png"></a>
         </div>
-        <div class="pure-u-6-24 centred choice">
-            <span class="quicksand darkpink bigText">
-                CHOICE
-            </span>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div id="userQuestionContainer" class="pinkBottomBorder">
+                    <span>WHAT DO YOU WANT TO WORK ON?</span>
+                </div>
+                <div id="questionTextContainer" class="darkPink bigSizeText pinkBottomBorder">
+                    CHOICE
+                    <div id="userAnswerContainer">
+                        LIFE<br>
+                        GOALS
+                    </div>
+                </div>
+                ANALYSIS
+            </div>
         </div>
-        <div class="pure-u-6-24 centred userAnswerContainer">
-            <div id="userAnswer0" class="quicksand darkpink bigText"></div>
+        <div id="question0" class="pure-u-15-24">
+            <div id="responses" class="centred quicksand heavy darkGreen normalSizeText">
+                <div id="percent1">
+                    13%
+                </div>
+                <div id="response1">
+                    CONTROL
+                </div>
+                <div id="percent2" class="pink">
+                    44%
+                </div>
+                <div id="response2" class="pink">
+                    LIFE GOALS
+                </div>
+                <div id="percent3">
+                    43%
+                </div>
+                <div id="response3">
+                    RELATIONSHIPS
+                </div>
+            </div>
         </div>
-        <div class="pure-u-6-24 centred analysisChoice">
-            <span class="quicksand heavy pink normalText">ANALYSIS</span>
+        <div class="pure-u-1-24 navigate">
+            <a href="#pagefour"><img src="images/arrow-right.png"></a>
         </div>
-
-
-        <div class="response1 centred">
-            <span id="firstResponse0" class="quicksand heavy green smallText"></span>
-        </div>
-        <div class="responsePercent1 centred">
-            <span id="firstResponsePercent0" class="quicksand heavy green smallMediumText"></span>
-        </div>
-
-        <div class="response2 centred">
-            <span id="secondResponse0" class="quicksand heavy pink smallText"></span>
-        </div>
-        <div class="responsePercent2 centred">
-            <span id="secondResponsePercent0" class="quicksand heavy pink smallMediumText"></span>
-        </div>
-        <div class="response3 centred">
-            <span id="thirdResponse0" class="quicksand heavy green smallText"></span>
-        </div>
-        <div class="responsePercent3 centred">
-            <span id="thirdResponsePercent0" class="quicksand heavy green smallMediumText"></span>
-        </div>
-    </div>
-
-    <div class="goLeft">
-        <a href="#pagetwo"><img class="navigate" src="images/arrow-left.png"></a>
-    </div>
-    <div class="goRight">
-        <a href="#pagefour"><img class="navigate" src="images/arrow-right.png"></a>
     </div>
 
 </div>
@@ -128,33 +127,37 @@
 
 <div data-role="page" id="pagefour">
 
-    <div class="mainPage" id="distribution" class="pure-g">
-        <div class="pure-u-6-24 centred distQuestion">
-            <span class="quicksand pink heavy normalText">
-                WHAT DO YOU VALUE?
-            </span>
+    <div class="pure-g mainPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#pagethree"><img src="images/arrow-left.png"></a>
         </div>
-        <div class="pure-u-6-24 centred score">
-            <span class="quicksand darkpink largeText">
-                YOU SCORED
-            </span>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div id="userDistContainer" class="pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div id="scoredContainer" class="darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+                <canvas id="scoreBackground">
+
+                </canvas>
+                <div id="userScoreContainer">
+                    <span class="veryBigSizeText">3</span><span class="mediumSizeText">.7</span>
+                </div>
+                <div id="outOfContainer" class="pinkBottomBorder">
+                    OUT OF 5
+                </div>
+                ANALYSIS
+            </div>
         </div>
-        <div class="pure-u-6-24 centred userScore">
-            <span class="quicksand pink superBigText">3</span><span class="quicksand pink mediumText">.7</span>
+        <div id="distribution" class="pure-u-15-24">
+
         </div>
-        <div class="pure-u-6-24 centred userOutOf">
-            <span class="quicksand pink largeText">OUT OF 5</span>
+        <div class="pure-u-1-24 navigate">
+
         </div>
-        <div class="pure-u-6-24 centred analysis">
-            <span class="quicksand pink heavy normalText">ANALYSIS</span>
-        </div>
-        <div class="respondents">
-            <span class="quicksand lightGreen normalText">HOW OTHERS RESPONDED</span>
-        </div>
-        <div class="pure-u-13-24 agree">
-            <span class="quicksand lightGreen normalText least">LESS</span>
-            <span class="quicksand lightGreen normalText">MORE</span>
-        </div>
+
     </div>
 
     <div class="goLeft">

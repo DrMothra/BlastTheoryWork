@@ -19,9 +19,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 body {
-
+    overflow: hidden;
 }
-/* Fonts */
 @font-face {
     font-family: 'quicksandregular';
     src: url('../fonts/Quicksand-Regular-webfont.eot');
@@ -33,36 +32,68 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+.title {
+    font-size: 3vw;
+    margin: 3%;
+}
+.bigTitle {
+    font-size: 6vw;
+    margin: 5%;
+}
+.subTitle {
+    font-size: 2.2vw;
+    margin: 2%;
+}
 .quicksand {
     font-family: 'quicksandregular';
     letter-spacing: normal;
 }
-/* Font styles */
 .heavy {
     font-weight: bold;
 }
-/* Text sizes */
-.normalSizeText {
+.smallText {
+    font-size: 1.6vw;
+}
+.normalText {
     font-size: 1.9vw;
 }
-.mediumSizeText {
-    font-size: 3vw;
+.smallMediumText {
+    font-size: 2.2vw;
 }
-.bigSizeText {
+.mediumText {
+    font-size: 6vw;
+}
+.bigText {
     font-size: 6vw;
     -webkit-text-fill-color: #EE4355;
-    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: #EE4355;
 }
-.veryBigSizeText {
+.largeText {
+    font-size: 3vw;
+}
+.superBigText {
     font-size: 14vw;
     font-weight: 300;
 }
-/* Colours */
+@media screen and (min-width: 1200px) {
+    .normalText {
+        font-size: 1.3em;
+    }
+    .bigText {
+        font-size: 4em;
+    }
+    .mediumText {
+        font-size: 2.2em;
+    }
+    .superBigText {
+        font-size: 9em;
+    }
+}
 .pink {
     color: #FFBBBE;
 }
-.darkPink {
+.darkpink {
     color: #EE4355;
 }
 .lightGreen {
@@ -74,9 +105,6 @@ body {
 .darkGreen {
     color: #b7d690;
 }
-<<<<<<< HEAD
-/* Positioning */
-=======
 .currentQuestionContainer,
 .distQuestion {
     position: fixed;
@@ -86,13 +114,8 @@ body {
 .choice,
 .score {
     position: fixed;
-    left: 4%;
-}
-.choice {
     top: 29%;
-}
-.score {
-    top: 22%;
+    left: 4%;
 }
 .userAnswerContainer,
 .userScore,
@@ -100,8 +123,8 @@ body {
     position: fixed;
 }
 .userScore {
-    top: 28%;
-    left: 3%;
+    top: 25%;
+    left: 4%;
 }
 .userAnswerContainer {
     top: 40%;
@@ -111,19 +134,19 @@ body {
     width: 100%;
 }
 .userOutOf {
-    top: 48%;
-    left: 3%;
+    top: 45%;
+    left: 4%;
 }
 .analysisChoice,
 .analysis {
     position: fixed;
-    top: 70%;
+    top: 66%;
     left: 4%;
 }
 .responded,
 .respondents {
     position: fixed;
-    top: 12%;
+    top: 9%;
 }
 .responded {
     left: 40%;
@@ -167,11 +190,16 @@ body {
 }
 .agree {
     position: fixed;
-    top: 71%;
+    top: 53%;
     left: 32%;
 }
 .least {
-    padding-right: 77%;
+    padding-right: 80%;
+}
+@media screen and (min-width: 1200px) {
+    .least {
+        padding-right: 35%;
+    }
 }
 .respondentKey {
     position: fixed;
@@ -204,16 +232,61 @@ ol {
     line-height: 1.5em;
     padding-left: 10%;
 }
->>>>>>> origin/master
 .centred {
     text-align: center;
+}
+.nextScreen {
+    text-align: right;
+    padding-right: 10%;
+}
+.next {
+    text-align: right;
+    padding-top: 30%;
+}
+.previous {
+    padding-top: 30%;
+}
+.previousScreen {
+    text-align: left;
+    margin-left: 10%;
+}
+.navigate {
+    width: 25%;
 }
 .autoCentre {
     margin: 0 auto;
 }
+.rotatedQuestionText {
+    margin-left: -250%;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+.rotatedDistText {
+    margin-left: -190%;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+.bar {
+    fill: steelblue;
+}
+.barText {
+    fill: white;
+    font-size: 0.75em;
+    text-anchor: middle;
+}
+.column-1-10 {
+    width: 10%;
+}
+.column-3-10 {
+    width: 30%;
+}
+.column-6-10 {
+    width: 60%;
+}
 
-.mainPage {
-    padding-top: 7%;
+.mainPage,
+#pageone,
+#pagetwo {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: none;
     background: radial-gradient(circle, #0f2010, black);
@@ -223,53 +296,9 @@ ol {
     overflow: hidden;
     max-width: 100%;
 }
-.pinkBottomBorder {
-    border-bottom: 2px solid pink;
+.barHorizontal {
+    fill: #c661b2;
 }
-.navigate {
-    margin-top: 25%;
-}
-.navigate img {
-    width: 100%;
-}
-#userQuestionContainer {
-    padding-bottom: 10%;
-}
-#userAnswerContainer {
-    margin: 10% 0;
-}
-#questionTextContainer {
-    padding: 12.5% 0 8% 0;
-    margin-bottom: 12%;
-}
-#responses {
-    position: absolute;
-    width: 17%;
-    top: 27%;
-    left: 81%;
-}
-#response1 {
-    margin-top: 16%;
-}
-#percent2 {
-    margin-top: 47%;
-}
-#response2 {
-    margin-top: 27%;
-}
-#percent3 {
-    margin-top: 35%;
-}
-#response3 {
-    margin-top: 30%;
-}
-
-#scoreBackground {
-    position: absolute;
-    top: 20%;
-    left: 5%;
-}
-/* Graph styles */
 .axis {
     font: 10px sans-serif;
     fill: white;
@@ -280,26 +309,38 @@ ol {
     fill: none;
     stroke: #000;
 }
-/* Media queries */
-@media only screen and (min-width: 500px) and (orientation: landscape) {
-    .mainPage {
-        padding-top: 4%;
-    }
-    #responses {
-        top: 23%;
-    }
-    #percent2 {
-        margin-top: 40%;
-    }
-    #response2 {
-        margin-top: 22%;
-    }
-    #percent3 {
-        margin-top: 27%;
-    }
-    #response3 {
-        margin-top: 22%;
-    }
+.smallPadLeft {
+    padding-left: 3%;
 }
+.indicator {
+    width: 0;
+    height: 0;
+    margin: 10% 0 0 0;
+}
+.red {
+    border-right: 5px solid red;
+    border-left: 5px solid red;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.steelblue {
+    border-right: 5px solid steelblue;
+    border-left: 5px solid steelblue;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.userKey {
+    padding-left: 5%;
+}
+.keyInfo {
+    margin: 2% 0 2% 0;
+}
+.normalLine {
+    fill: none;
+    stroke-dasharray: 3,3;
+    stroke: #bcebc1;
+    stroke-width: 2px;
+}
+
 
 
