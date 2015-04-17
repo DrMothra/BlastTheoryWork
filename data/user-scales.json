@@ -1,0 +1,256 @@
+{
+    "scales": [
+        {
+            "name": "scaleMR",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "MR01",
+                    "text": "Although I'm sometimes sad, I mostly have an optimistic outlook.",
+                    "value": 1
+                },
+                {
+                    "name": "MR02",
+                    "text": "I try to think good thoughts no matter how badly I feel.",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "name": "KscaleFeel",
+            "sum": 5,
+            "questions": [
+                {
+                    "name": "FeelT2",
+                    "text": "Not sure.",
+                    "value": 1
+                },
+                {
+                    "name": "FeelT5",
+                    "text": "Ready for anything.",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "name": "scaleOpenness",
+            "sum": 10,
+            "questions": [
+                {
+                    "name": "Openness01",
+                    "text": "Having difficulty understanding abstract ideas?",
+                    "value": 5
+                },
+                {
+                    "name": "Openness02",
+                    "text": "So, would you say you have excellent ideas?",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "name": "scaleNeuro",
+            "sum": 10,
+            "questions": [
+                {
+                    "name": "Neuro01",
+                    "text": "And are you relaxed most of the time?",
+                    "value": 5
+                },
+                {
+                    "name": "Neuro02",
+                    "text": "What about getting stressed out easily?",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "name": "scaleIS",
+            "sum": 2,
+            "questions": [
+                {
+                    "name": "IS02",
+                    "text": "You're right. We're animals deep down.",
+                    "value": 2
+                }
+            ]
+        },
+        {
+            "name": "scalePAD",
+            "sum": 7,
+            "questions": [
+                {
+                    "name": "PAD01",
+                    "text": "Taking control starts with the people we're closest to. Now would you say Jo is more guided or more autonomous.",
+                    "value": 3
+                },
+                {
+                    "name": "PAD02",
+                    "text": "And how about this?",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "name": "scaleRWB",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "RWB01",
+                    "text": "Would you agree that Jo takes time out for others?",
+                    "value": 3
+                },
+                {
+                    "name": "RWB02",
+                    "text": "And would you say that they have frequent mood swings?",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "name": "scaleIST2",
+            "sum": 5,
+            "questions": [
+                {
+                    "name": "IS01_T2",
+                    "text": "Yes.",
+                    "value": 2
+                },
+                {
+                    "name": "IS03_T2",
+                    "text": "Yes.",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "name": "KscaleConsistent",
+            "sum": "020",
+            "questions": [
+                {
+                    "name": "Consistent01",
+                    "value": "2"
+                },
+                {
+                    "name": "Consistent02",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "name": "KscaleJudgemental",
+            "sum": "001",
+            "questions": [
+                {
+                    "name": "Judgemental01",
+                    "value": "0"
+                },
+                {
+                    "name": "KarenFeel",
+                    "text": "You look tired.",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "KscaleGetInvolved",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "GetInvolved01",
+                    "text": "You can't keep doing what?",
+                    "value": 1
+                },
+                {
+                    "name": "GetInvolved02",
+                    "text": "Do you love her?",
+                    "value": 2
+                },
+                {
+                    "name": "GetInvolved04",
+                    "text": "Maybe I can speak to her.",
+                    "value": 1
+                },
+                {
+                    "name": "CoinToss",
+                    "text": "Heads",
+                    "value": 2
+                }
+            ]
+        },
+        {
+            "name": "scaleAS",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "AS01",
+                    "text": "Okay let's begin. Do you sometimes feel like biting or scratching during intercourse?",
+                    "value": 3
+                },
+                {
+                    "name": "AS02",
+                    "text": "And would you agree that in a sexual union, tenderness is the most important quality?",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "name": "scaleGuilt",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "Guilt01",
+                    "text": "Now. Are you sometimes disgusted by your own sexual desires and fantasies?",
+                    "value": 3
+                },
+                {
+                    "name": "Guilt02",
+                    "text": "Do you sometimes harbour guilty secrets that you're afraid will come out one day?",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "name": "KscaleUserGuilt",
+            "sum": 6,
+            "questions": [
+                {
+                    "name": "UserGuilt01",
+                    "text": "I should tell you something about Dave.",
+                    "value": 1
+                },
+                {
+                    "name": "UserGuilt02",
+                    "text": "I'm sorry, that shouldn't have happened.",
+                    "value": 2
+                },
+                {
+                    "name": "UserGuilt03",
+                    "text": "I'd rather not say.",
+                    "value": 2
+                },
+                {
+                    "name": "UserGuilt04",
+                    "text": "I'm sorry.",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "KscaleUserFeedback",
+            "sum": 2,
+            "questions": [
+                {
+                    "name": "UserFeedback01",
+                    "text": "It's important to be honest.",
+                    "value": 1
+                },
+                {
+                    "name": "UserFeedback02",
+                    "text": "I knew that.",
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}

@@ -73,10 +73,13 @@ function getFrequency(names) {
 $(document).ready(function() {
     //Init app
     var elem = $(".subPage");
-    var padding = elem.css("padding-top");
-    padding = parseInt(padding);
-    padding = (100 - padding + 2)/100;
-    var renderHeight = window.innerHeight*padding;
+    var paddingCss = elem.css("padding-top");
+    var padding = parseInt(paddingCss);
+    if(paddingCss.substr(padding.length-1) == '%') {
+        padding = window.innerWidth * (padding/100);
+    }
+
+    var renderHeight = window.innerHeight - padding;
     elem.height(renderHeight);
 
     var visApp = new graphApp(renderHeight);
