@@ -11,9 +11,9 @@ function getAngle(vec0, vec1) {
     var cos0 = dot/(vec0.length() * vec1.length());
     return Math.acos(cos0);
 }
-var graphApp = function() {
+var graphApp = function(renderHeight) {
     //Default values
-
+    this.renderHeight = renderHeight;
     //Data requests
     this.dataRequests = [];
 
@@ -127,7 +127,8 @@ graphApp.prototype = {
         //Use element dimensions
         var elem = $('#'+element);
         this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
-        this.containerHeight = window.innerHeight * 0.95;
+        this.containerHeight = this.renderHeight;
+
         var svg = d3.select('#'+element)
             .append('svg')
             .attr({width: this.containerWidth,

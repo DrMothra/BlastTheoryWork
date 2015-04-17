@@ -5,7 +5,7 @@
     <title>Karen Visualisations</title>
 
     <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.4" rel="stylesheet" type="text/css">
+    <link href="css/visStyles.css?v=0.5" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -21,15 +21,15 @@
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
-    <script type="text/javascript" src="js/graphApp.js?v=0.3"></script>
-    <script type="text/javascript" src="js/visData.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.4"></script>
+    <script type="text/javascript" src="js/visData.js?v=0.2"></script>
 
 </head>
 <body>
 
 <div data-role="page"  class="mainPage" id="pageone">
 
-    <div class="pure-g noDecoration grey">
+    <div class="pure-g noDecoration grey subPage">
         <div class="pure-u-1-24 navigate">
 
         </div>
@@ -51,7 +51,7 @@
 
 <div data-role="page" class="mainPage" id="pagetwo">
 
-    <div class="pure-g noDecoration grey">
+    <div class="pure-g noDecoration grey subPage">
         <div class="pure-u-1-24 navigate">
             <a href="#pageone"><img src="images/arrow-left.png"></a>
         </div>
@@ -69,9 +69,9 @@
 
 </div>
 
-<div data-role="page" id="pagethree">
+<div data-role="page" id="pagethree" class="mainPage">
 
-    <div class="pure-g mainPage">
+    <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">
             <a href="#pagetwo"><img src="images/arrow-left.png"></a>
         </div>
@@ -100,12 +100,16 @@
         </div>
     </div>
 
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
 </div>
 
 
-<div data-role="page" id="pagefour">
+<div data-role="page" id="pagefour" class="mainPage">
 
-    <div class="pure-g mainPage">
+    <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">
             <a href="#pagethree"><img src="images/arrow-left.png"></a>
         </div>
@@ -135,6 +139,9 @@
         <div class="pure-u-1-24 navigate">
 
         </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
 
     </div>
 

@@ -97,13 +97,17 @@ body {
 }
 
 .mainPage {
-    padding-top: 7%;
+    padding-top: 0%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: none;
     background: radial-gradient(circle, #0f2010, black);
     background: -webkit-radial-gradient(circle, #113312, #000000);
     color: #aaaaaa;
     max-width: 100%;
+}
+.subPage {
+    padding-top: 5%;
+    overflow: hidden;
 }
 .pinkBottomBorder {
     border-bottom: 2px solid pink;

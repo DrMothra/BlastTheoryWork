@@ -72,7 +72,14 @@ function getFrequency(names) {
 
 $(document).ready(function() {
     //Init app
-    var visApp = new graphApp();
+    var elem = $(".subPage");
+    var padding = elem.css("padding-top");
+    padding = parseInt(padding);
+    padding = (100 - padding + 2)/100;
+    var renderHeight = window.innerHeight*padding;
+    elem.height(renderHeight);
+
+    var visApp = new graphApp(renderHeight);
 
     //Get scale and distribution data
     //DEBUG
