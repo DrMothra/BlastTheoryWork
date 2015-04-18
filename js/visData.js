@@ -32,18 +32,6 @@ var data = {
         {
             "question": "RELATIONSHIPS",
             "value": 44
-        },
-        {
-            "question": "RESPONSE 2",
-            "value": 10
-        },
-        {
-            "question": "RESPONSE 2",
-            "value": 20
-        },
-        {
-            "question": "RESPONSE 2",
-            "value": 30
         }
     ],
 

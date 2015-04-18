@@ -5,12 +5,46 @@
 function radiansToDegrees(rads) {
     return 180/Math.PI * rads;
 }
+function degreesToRadians(degress) {
+    return (Math.PI/180) * degress;
+}
 function getAngle(vec0, vec1) {
     //Dot
     var dot = vec0.dot(vec1);
     var cos0 = dot/(vec0.length() * vec1.length());
     return Math.acos(cos0);
 }
+function rotateVector2D(vec, rot) {
+    //Assumes rotation around origin
+    var cos = Math.cos(degreesToRadians(rot));
+    var sin = Math.sin(degreesToRadians(rot));
+    var rotX = (cos * vec[0]) - (sin * vec[1]);
+    var rotY = (sin * vec[0]) + (cos * vec[1]);
+
+    vec[0] = rotX;
+    vec[1] = rotY;
+
+    return vec;
+}
+function sortResponses(responses, sortCoords) {
+    //Sort responses by sortCoords
+    var sorted = [];
+    for(var i=0; i<responses.length; ++i) {
+        for(var j=0; j<sortCoords.length; ++j) {
+            if(sortCoords[j] === responses[i].centroid[1]) {
+                sorted.push(responses[j]);
+                break;
+            }
+        }
+    }
+
+    return sorted;
+}
+
+//Colours
+var DARK_PINK = '#ee4355', LIGHT_GREEN = '#c0e9bd', OFF_WHITE = '#e7f1d9', GREEN = '#b7d690', DARK_GREEN = '#476327', PINK = '#ffbbbe', GREY = '#939393',
+    LIGHT_BLUE = '#38A6CF';
+
 var graphApp = function(renderHeight) {
     //Default values
     this.renderHeight = renderHeight;
@@ -33,7 +67,8 @@ var graphApp = function(renderHeight) {
     this.blankAxis = true;
 
     //Colours
-    this.colours = ['red'];
+    this.colours = [DARK_PINK, LIGHT_GREEN, OFF_WHITE, DARK_GREEN, LIGHT_BLUE];
+    this.selectionColour = 0;
 };
 
 graphApp.prototype = {
@@ -250,6 +285,7 @@ graphApp.prototype = {
     drawQuestion: function(element, data, pageIndex) {
         //Render the required question and response
         var i;
+        _this = this;
         var svg = this.createSVG(element);
 
         //Get relevant data
@@ -281,90 +317,7 @@ graphApp.prototype = {
                 break;
             }
         }
-        //DEBUG
-        console.log("Answer number =", i);
-
-        $('#firstResponse'+pageIndex).html(responses[responseNumber].question);
-        $('#secondResponse'+pageIndex).html(responses[responseNumber+1].question);
-        $('#thirdResponse'+pageIndex).html(responses[responseNumber+2].question);
-
-        $('#firstResponsePercent'+pageIndex).html(responses[responseNumber].value + '%');
-        $('#secondResponsePercent'+pageIndex).html(responses[responseNumber+1].value + '%');
-        $('#thirdResponsePercent'+pageIndex).html(responses[responseNumber+2].value + '%');
-
-
-        var smallCircleXPos = width * 0.9;
-        var smallCircleYPos = [0.2 * height, 0.46 * height, 0.7 * height];
-        var smallRadius = height * 0.06;
-
-        svg.append("circle")
-            .attr("cx", smallCircleXPos)
-            .attr("cy", smallCircleYPos[0])
-            .attr("r", smallRadius)
-            .style("fill", '#e7f1d9');
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[0])
-            .style("text-anchor", "middle")
-            .style("fill", "#b7d690")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("13%");
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[0] + smallRadius)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("fill", "#b7d690")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("CONTROL");
-
-        svg.append("circle")
-            .attr("cx", smallCircleXPos)
-            .attr("cy", smallCircleYPos[1])
-            .attr("r", smallRadius)
-            .style("fill", '#EE4355');
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[1])
-            .style("text-anchor", "middle")
-            .style("fill", "#FFBBBE")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("43%");
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[1] + smallRadius)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("fill", "#FFBBBE")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("LIFE GOALS");
-
-        svg.append("circle")
-            .attr("cx", smallCircleXPos)
-            .attr("cy", smallCircleYPos[2])
-            .attr("r", smallRadius)
-            .style("fill", '#e7f1d9');
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[2])
-            .style("text-anchor", "middle")
-            .style("fill", "#b7d690")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("44%");
-
-        svg.append('text')
-            .attr("x", smallCircleXPos)
-            .attr("y", smallCircleYPos[2] + smallRadius)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("fill", "#b7d690")
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("RELATIONSHIPS");
+        var userSelection = i;
 
         //Pie chart
         var pieRadius = height * 0.38;
@@ -375,7 +328,6 @@ graphApp.prototype = {
 
         var pie = d3.layout.pie();
         pie.sort(null);
-        var color = ['#EE4355', '#cee4b5', '#e7f1d9'];
 
         var arcs = svg.selectAll("g.arc")
             .data(pie(values))
@@ -395,61 +347,107 @@ graphApp.prototype = {
             });
 
         //Form vectors
-        var wedgeCentre = new THREE.Vector2(centroids[0][0], centroids[0][1]);
-        var dest = new THREE.Vector2(-10, 0);
-        var angle = getAngle(dest, wedgeCentre);
+        var wedgeCentre = new THREE.Vector2(centroids[userSelection][0], centroids[userSelection][1]);
+        var rotateToPoint = new THREE.Vector2(-10, 0);
+        var angle = getAngle(rotateToPoint, wedgeCentre);
         angle = radiansToDegrees(angle);
-        angle *= -1;
+        angle = centroids[userSelection][1] < 0 ? angle *= -1 : angle;
+
+        //Set selected wedge to selection colour
+        var swapColour = this.colours[userSelection];
+        this.colours[userSelection] = DARK_PINK;
+        this.colours[this.selectionColour] = swapColour;
+        this.selectionColour = userSelection;
 
         arcs.append("path")
             .attr("transform", "rotate("+angle+")")
             .attr("fill", function(d, i) {
-                return color[i];
+                return _this.colours[i];
             })
             .attr("d", arc);
 
-        var lineXStarts = [width * 0.5, width * 0.4, width * 0.45];
-        var lineYStarts = [height * 0.2, height * 0.45, height * 0.7];
-        var lineWidths = [width * 0.33, width * 0.43, width * 0.37];
+        //Need to rotate the centroids
+        //Add rotated y pos to responses
+        for(i=0; i<centroids.length; ++i) {
+            centroids[i] = rotateVector2D(centroids[i], angle);
+            responses[i].centroid = centroids[i];
+        }
 
-        svg.append("line")
-            .attr({x1: lineXStarts[0],
-                y1: lineYStarts[0],
-                x2: lineXStarts[0] + lineWidths[0],
-                y2: lineYStarts[0],
-                stroke: '#476327',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
+        //Sort rotated data
+        var yCoords = [];
+        for(i=0; i<centroids.length; ++i) {
+            yCoords.push(centroids[i][1]);
+        }
+        yCoords.sort(function(a,b) {
+            return a-b;
+        });
 
-        svg.append("line")
-            .attr({x1: lineXStarts[1],
-                y1: lineYStarts[1],
-                x2: lineXStarts[1] + lineWidths[1],
-                y2: lineYStarts[1],
-                stroke: '#EE4355',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
+        //Sort responses by position on screen
+        responses = sortResponses(responses, yCoords);
 
-        svg.append("line")
-            .attr({x1: lineXStarts[2],
-                y1: lineYStarts[2],
-                x2: lineXStarts[2] + lineWidths[2],
-                y2: lineYStarts[2],
-                stroke: '#476327',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
+        var smallCircleXPos = width * 0.9;
+        var smallCircleYPos = [0.2 * height, 0.46 * height, 0.7 * height];
+        var smallCircleRadius = height * 0.06;
 
-        //Add elbow
-        /*
-        svg.append("line")
-            .attr({x1: width * 0.675,
-                y1: height * 0.55,
-                x2: lineXStarts[2],
-                y2: height * yOffsets[2],
-                stroke: '#476327',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
-        */
+        var lineXStarts = [], lineXEnds = [];
+        var lineYStarts = [];
+        for(i=0; i<centroids.length; ++i) {
+            lineXStarts.push(pieXPos + responses[i].centroid[0]);
+            lineXEnds.push(smallCircleXPos - smallCircleRadius - (width*0.05));
+            lineYStarts.push(pieYPos + responses[i].centroid[1]);
+        }
+
+        for(i=0; i<centroids.length; ++i) {
+            svg.append("line")
+                .attr({x1: lineXStarts[i],
+                    y1: lineYStarts[i],
+                    x2: lineXEnds[i],
+                    y2: smallCircleYPos[i],
+                    stroke: DARK_GREEN,
+                    'stroke-width': 3,
+                    'stroke-dasharray': '3,3'});
+            //Elbow
+            svg.append("line")
+                .attr({x1: lineXEnds[i],
+                    y1: smallCircleYPos[i],
+                    x2: lineXEnds[i] + width * 0.04,
+                    y2: smallCircleYPos[i],
+                    stroke: DARK_GREEN,
+                    'stroke-width': 3,
+                    'stroke-dasharray': '3,3'});
+        }
+
+        var circleFillColour, textFillColour;
+        for(i=0; i<responses.length; ++i) {
+            circleFillColour = OFF_WHITE;
+            textFillColour = GREEN;
+            if(i === userSelection) {
+                circleFillColour = DARK_PINK;
+                textFillColour = PINK;
+            }
+            svg.append("circle")
+                .attr("cx", smallCircleXPos)
+                .attr("cy", smallCircleYPos[i])
+                .attr("r", smallCircleRadius)
+                .style("fill", circleFillColour);
+
+            svg.append('text')
+                .attr("x", smallCircleXPos)
+                .attr("y", smallCircleYPos[i])
+                .style("text-anchor", "middle")
+                .style("fill", textFillColour)
+                .attr("class", "quicksand heavy normalSizeText")
+                .text(responses[i].value + "%");
+
+            svg.append('text')
+                .attr("x", smallCircleXPos)
+                .attr("y", smallCircleYPos[i] + smallCircleRadius)
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .style("fill", textFillColour)
+                .attr("class", "quicksand heavy normalSizeText")
+                .text(responses[i].question);
+        }
     },
 
     drawDistribution: function(element, data) {
