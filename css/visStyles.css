@@ -106,7 +106,7 @@ body {
     max-width: 100%;
 }
 .subPage {
-    padding-top: 5%;
+    padding-top: 7.5%;
     overflow: hidden;
 }
 .pinkBottomBorder {
@@ -118,32 +118,32 @@ body {
 .navigate img {
     width: 100%;
 }
-#userQuestionContainer {
+.userQuestionContainer {
     padding-bottom: 10%;
 }
-#userAnswerContainer {
+.userAnswerContainer {
     margin: 10% 0;
 }
-#questionTextContainer {
+.questionTextContainer {
     padding: 12.5% 0 8% 0;
     margin-bottom: 12%;
 }
 
-#scoreBackground {
+.scoreBackground {
     position: absolute;
     top: 20%;
     left: 5%;
 }
-#userDistContainer {
+.userDistContainer {
     padding-bottom: 10%;
 }
-#scoredContainer {
+.scoredContainer {
     padding-top: 10%;
 }
-#userScoreContainer {
+.userScoreContainer {
     margin: 10% 0 15% 0;
 }
-#outOfValue {
+.outOfValue {
     margin-top: -10%;
     padding-bottom: 15%;
 }
@@ -159,10 +159,6 @@ body {
     stroke: #9dc56d;
 }
 /* Media queries */
-@media only screen and (min-width: 500px) and (orientation: landscape) {
-    .mainPage {
-        padding-top: 4%;
-    }
-}
+
 
 

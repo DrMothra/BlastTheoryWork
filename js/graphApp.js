@@ -29,9 +29,9 @@ function rotateVector2D(vec, rot) {
 function sortResponses(responses, sortCoords) {
     //Sort responses by sortCoords
     var sorted = [];
-    for(var i=0; i<responses.length; ++i) {
-        for(var j=0; j<sortCoords.length; ++j) {
-            if(sortCoords[j] === responses[i].centroid[1]) {
+    for(var i=0; i<sortCoords.length; ++i) {
+        for(var j=0; j<responses.length; ++j) {
+            if(sortCoords[i] === responses[j].centroid[1]) {
                 sorted.push(responses[j]);
                 break;
             }
@@ -67,7 +67,7 @@ var graphApp = function(renderHeight) {
     this.blankAxis = true;
 
     //Colours
-    this.colours = [DARK_PINK, LIGHT_GREEN, OFF_WHITE, DARK_GREEN, LIGHT_BLUE];
+    this.colours = [DARK_PINK, LIGHT_GREEN, OFF_WHITE, LIGHT_BLUE, GREY];
     this.selectionColour = 0;
 };
 
@@ -182,8 +182,8 @@ graphApp.prototype = {
         //Add line background to existing svg content
         var numLines = 6;
         var startX = 0.1 * width;
-        var startY = 0.1 * height, endY = 0.7 * height;
-        var lineGap = (endY - startY)/numLines;
+        var startY = 0.05 * height, endY = 0.7 * height;
+        var lineGap = (endY - startY)/(numLines-1);
 
         for(var i=0; i<numLines; ++i) {
             element.append("line")
@@ -207,7 +207,7 @@ graphApp.prototype = {
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax]);
 
-        var yRangeMin = height * 0.55, yRangeMax = height * 0.05;
+        var yRangeMin = height * 0.7, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax]);
 
@@ -282,23 +282,11 @@ graphApp.prototype = {
         }
     },
 
-    drawQuestion: function(element, data, pageIndex) {
+    drawQuestion: function(element, responses, answer) {
         //Render the required question and response
         var i;
         _this = this;
         var svg = this.createSVG(element);
-
-        //Get relevant data
-        var questions = data.questions[pageIndex];
-
-        //Insert user questions into page
-        $('#currentQuestion'+pageIndex).html(questions.question);
-        var splitAnswer = questions.answer.split(" ");
-        var answerHTML = '';
-        for(i=0; i<splitAnswer.length; ++i) {
-            answerHTML += splitAnswer[i] + '<br>';
-        }
-        $('#userAnswer'+pageIndex).html(answerHTML);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -306,14 +294,15 @@ graphApp.prototype = {
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
         //Render given responses
-        //DEBUG
-        var values = [43, 44, 13];
-        var responseNumber = pageIndex*3;
-        var responses = data.responses;
+        var values = [];
         for(i=0; i<responses.length; ++i) {
-            if(responses[i].question === questions.answer) {
+            values.push(responses[i].value);
+        }
+
+        for(i=0; i<responses.length; ++i) {
+            if(responses[i].question === answer) {
                 //DEBUG
-                console.log("You chose", questions.answer);
+                console.log("You chose", answer);
                 break;
             }
         }
@@ -383,11 +372,30 @@ graphApp.prototype = {
         });
 
         //Sort responses by position on screen
+        var selectedYPos = yCoords[userSelection];
         responses = sortResponses(responses, yCoords);
+        //Ensure user selection is in middle of responses
+        if(responses.length === 5 && responses[2].centroid[1] !== selectedYPos) {
+            var temp = responses[2];
+            responses[2] = responses[1];
+            responses[1] = temp;
+            userSelection = 2;
+        }
 
-        var smallCircleXPos = width * 0.9;
-        var smallCircleYPos = [0.2 * height, 0.46 * height, 0.7 * height];
+        //Determine circle positions
         var smallCircleRadius = height * 0.06;
+        var smallCircleHeight = smallCircleRadius * 2;
+        var numCircles = responses.length;
+        var circleHeight = pieRadius * 2;
+        var circlePadding = (circleHeight - (smallCircleHeight * numCircles))/(numCircles-1);
+        var smallCircleXPos = width * 0.9;
+        var startCircleYPos = pieYPos - pieRadius + smallCircleRadius;
+        var smallCircleYPos = [];
+        var yOffset = (2*smallCircleRadius) + circlePadding;
+        for(i=0; i<numCircles; ++i) {
+            smallCircleYPos.push(startCircleYPos + (i*yOffset));
+        }
+
 
         var lineXStarts = [], lineXEnds = [];
         var lineYStarts = [];
@@ -397,13 +405,18 @@ graphApp.prototype = {
             lineYStarts.push(pieYPos + responses[i].centroid[1]);
         }
 
+        var lineFill;
         for(i=0; i<centroids.length; ++i) {
+            lineFill = DARK_GREEN;
+            if(i === userSelection) {
+                lineFill = DARK_PINK;
+            }
             svg.append("line")
                 .attr({x1: lineXStarts[i],
                     y1: lineYStarts[i],
                     x2: lineXEnds[i],
                     y2: smallCircleYPos[i],
-                    stroke: DARK_GREEN,
+                    stroke: lineFill,
                     'stroke-width': 3,
                     'stroke-dasharray': '3,3'});
             //Elbow
@@ -412,7 +425,7 @@ graphApp.prototype = {
                     y1: smallCircleYPos[i],
                     x2: lineXEnds[i] + width * 0.04,
                     y2: smallCircleYPos[i],
-                    stroke: DARK_GREEN,
+                    stroke: lineFill,
                     'stroke-width': 3,
                     'stroke-dasharray': '3,3'});
         }
@@ -451,14 +464,24 @@ graphApp.prototype = {
     },
 
     drawDistribution: function(element, data) {
-        var elem = $('#ref');
-        var height = elem.height();
+
+        var elem = $('.userScoreContainer').height();
         var svg = this.createSVG(element);
 
         var graph = svg.append("g")
             .attr("transform", "translate(0, 0)");
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
+
+        //Title text
+        var textFillColour = LIGHT_GREEN;
+        graph.append("text")
+            .attr("x", width/2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", textFillColour)
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("HOW OTHERS RESPONDED");
 
         this.drawLineBackground(graph, width, height);
         this.colours = ['#bcebc1'];
@@ -467,13 +490,13 @@ graphApp.prototype = {
 
         //Axes
         var xTicks = 10, yTicks = 3;
-        var graphYPos = height*0.56, graphXPos = width*0.92;
+        var graphYPos = height*0.7, graphXPos = width*0.92;
         var xRangeMin = width * 0.1, xRangeMax = width*0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
             .domain([2, 10]);
 
-        var yRangeMin = height * 0.55, yRangeMax = height * 0.05;
+        var yRangeMin = graphYPos, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
             .domain([0, 10]);
@@ -486,7 +509,8 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
-            .ticks(yTicks);
+            .ticks(yTicks)
+            .tickFormat(".0%");
 
         graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
@@ -499,7 +523,7 @@ graphApp.prototype = {
             .call(yAxis);
 
         //Connect user score to graph
-        var scoreYPos = height * 0.35, scoreXPos = width * 0.35;
+        var scoreYPos = height * 0.45, scoreXPos = width * 0.35;
         graph.append("line")
             .attr({x1: 0,
                 y1: scoreYPos,
@@ -510,7 +534,7 @@ graphApp.prototype = {
                 'stroke-dasharray': '3,3'});
 
         //Elbow
-        var elbowXPos = width * 0.65, elbowYPos = height * 0.56;
+        var elbowXPos = width * 0.65, elbowYPos = height * 0.7;
         graph.append("line")
             .attr({x1: scoreXPos,
                 y1: scoreYPos,

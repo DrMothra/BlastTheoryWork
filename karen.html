@@ -5,7 +5,7 @@
     <title>Karen Visualisations</title>
 
     <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.5" rel="stylesheet" type="text/css">
+    <link href="css/visStyles.css?v=0.6" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -21,13 +21,13 @@
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
-    <script type="text/javascript" src="js/graphApp.js?v=0.4"></script>
-    <script type="text/javascript" src="js/visData.js?v=0.2"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.5"></script>
+    <script type="text/javascript" src="js/visData.js?v=0.3"></script>
 
 </head>
 <body>
 
-<div data-role="page"  class="mainPage" id="pageone">
+<div data-role="page"  class="mainPage" id="page1">
 
     <div class="pure-g noDecoration grey subPage">
         <div class="pure-u-1-24 navigate">
@@ -43,17 +43,17 @@
             </div>
         </div>
         <div class="pure-u-1-24 navigate">
-            <a href="#pagetwo"><img src="images/arrow-right.png"></a>
+            <a href="#page2"><img src="images/arrow-right.png"></a>
         </div>
     </div>
 
 </div>
 
-<div data-role="page" class="mainPage" id="pagetwo">
+<div data-role="page" class="mainPage" id="page2">
 
     <div class="pure-g noDecoration grey subPage">
         <div class="pure-u-1-24 navigate">
-            <a href="#pageone"><img src="images/arrow-left.png"></a>
+            <a href="#page1"><img src="images/arrow-left.png"></a>
         </div>
         <div class="pure-u-11-12">
             <div class="bigTitle centred">
@@ -63,26 +63,26 @@
 
         </div>
         <div class="pure-u-1-24 navigate">
-            <a href="#pagethree"><img src="images/arrow-right.png"></a>
+            <a href="#page3"><img src="images/arrow-right.png"></a>
         </div>
     </div>
 
 </div>
 
-<div data-role="page" id="pagethree" class="mainPage">
+<div data-role="page" id="page3" class="mainPage">
 
     <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">
-            <a href="#pagetwo"><img src="images/arrow-left.png"></a>
+            <a href="#page2"><img src="images/arrow-left.png"></a>
         </div>
         <div class="pure-u-7-24 centred">
             <div class="quicksand heavy pink normalSizeText">
-                <div id="userQuestionContainer" class="pinkBottomBorder">
+                <div class="userQuestionContainer pinkBottomBorder">
                     <span>WHAT DO YOU WANT TO WORK ON?</span>
                 </div>
-                <div id="questionTextContainer" class="darkPink bigSizeText pinkBottomBorder">
+                <div class="questionTextContainer darkPink bigSizeText pinkBottomBorder">
                     CHOICE
-                    <div id="userAnswerContainer">
+                    <div class="userAnswerContainer">
                         LIFE<br>
                         GOALS
                     </div>
@@ -91,12 +91,10 @@
             </div>
         </div>
         <div id="question0" class="pure-u-15-24">
-            <div id="responses">
 
-            </div>
         </div>
         <div class="pure-u-1-24 navigate">
-            <a href="#pagefour"><img src="images/arrow-right.png"></a>
+            <a href="#page4"><img src="images/arrow-right.png"></a>
         </div>
     </div>
 
@@ -107,24 +105,176 @@
 </div>
 
 
-<div data-role="page" id="pagefour" class="mainPage">
+<div data-role="page" id="page4" class="mainPage">
 
     <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">
-            <a href="#pagethree"><img src="images/arrow-left.png"></a>
+            <a href="#page3"><img src="images/arrow-left.png"></a>
         </div>
-        <div id="ref" class="pure-u-7-24 centred">
-            <div id="ref2" class="quicksand heavy pink normalSizeText">
-                <div id="userDistContainer" class="pinkBottomBorder">
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
                     <span>WHAT DO YOU VALUE?</span>
                 </div>
-                <div id="scoredContainer" class="darkPink mediumSizeText">
+                <div class="scoredContainer darkPink mediumSizeText">
                     YOU SCORED
                 </div>
-                <canvas id="scoreBackground">
+                <canvas class="scoreBackground">
 
                 </canvas>
-                <div id="userScoreContainer" class="pinkBottomBorder">
+                <div class="userScoreContainer pinkBottomBorder">
+                    <span class="veryBigSizeText">3</span><span class="mediumSizeText">.7</span>
+                    <div class="outOfValue">OUT OF 5</div>
+                </div>
+                ANALYSIS
+            </div>
+        </div>
+
+        <div id="distribution0" class="pure-u-15-24 centred">
+
+        </div>
+
+        <div class="pure-u-1-24 navigate">
+            <a href="#page5"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+<div data-role="page" id="page5" class="mainPage">
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page4"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userQuestionContainer pinkBottomBorder">
+                    <span>WHAT DO YOU WANT TO WORK ON?</span>
+                </div>
+                <div class="questionTextContainer darkPink bigSizeText pinkBottomBorder">
+                    CHOICE
+                    <div class="userAnswerContainer">
+                        LIFE<br>
+                        GOALS
+                    </div>
+                </div>
+                <span>ANALYSIS</span>
+            </div>
+        </div>
+        <div id="question1" class="pure-u-15-24">
+
+        </div>
+        <div class="pure-u-1-24 navigate">
+            <a href="#page6"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+
+<div data-role="page" id="page6" class="mainPage">
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page5"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div class="scoredContainer darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+                <canvas class="scoreBackground">
+
+                </canvas>
+                <div class="userScoreContainer pinkBottomBorder">
+                    <span class="veryBigSizeText">3</span><span class="mediumSizeText">.7</span>
+                    <div class="outOfValue">OUT OF 5</div>
+                </div>
+                ANALYSIS
+            </div>
+        </div>
+
+        <div id="distribution1" class="pure-u-15-24 centred">
+
+        </div>
+
+        <div class="pure-u-1-24 navigate">
+            <a href="#page7"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+<div data-role="page" id="page7" class="mainPage">
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page6"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userQuestionContainer pinkBottomBorder">
+                    <span>WHAT DO YOU WANT TO WORK ON?</span>
+                </div>
+                <div class="questionTextContainer darkPink bigSizeText pinkBottomBorder">
+                    CHOICE
+                    <div class="userAnswerContainer">
+                        LIFE<br>
+                        GOALS
+                    </div>
+                </div>
+                <span>ANALYSIS</span>
+            </div>
+        </div>
+        <div id="question2" class="pure-u-15-24">
+
+        </div>
+        <div class="pure-u-1-24 navigate">
+            <a href="#page8"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+
+<div data-role="page" id="page8" class="mainPage">
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page7"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div class="scoredContainer darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+                <canvas class="scoreBackground">
+
+                </canvas>
+                <div class="userScoreContainer pinkBottomBorder">
                     <span class="veryBigSizeText">3</span><span class="mediumSizeText">.7</span>
                     <div id="outOfValue">OUT OF 5</div>
                 </div>
@@ -132,7 +282,7 @@
             </div>
         </div>
 
-        <div id="distribution" class="pure-u-15-24 centred">
+        <div id="distribution2" class="pure-u-15-24 centred">
 
         </div>
 

@@ -15,12 +15,17 @@ var data = {
             "answer": "LIFE GOALS"
         },
         {
-            "question": "WHAT WAS YOUR FIRST PET?",
-            "answer": "A TORTOISE"
+            "question": "WHAT DO YOU WANT TO WORK ON?",
+            "answer": "LIFE GOALS"
+        },
+        {
+            "question": "WHAT DO YOU WANT TO WORK ON?",
+            "answer": "LIFE GOALS"
         }
     ],
 
-    "responses": [
+    "responses":  [
+     [
         {
             "question": "CONTROL",
             "value": 13
@@ -35,7 +40,56 @@ var data = {
         }
     ],
 
+    [
+        {
+            "question": "CONTROL",
+            "value": 13
+        },
+        {
+            "question": "LIFE GOALS",
+            "value": 43
+        },
+        {
+            "question": "RELATIONSHIPS",
+            "value": 34
+        },
+        {
+            "question": "NONSENSE",
+            "value": 10
+        }
+    ],
+    [
+        {
+            "question": "CONTROL",
+            "value": 13
+        },
+        {
+            "question": "LIFE GOALS",
+            "value": 37
+        },
+        {
+            "question": "RELATIONSHIPS",
+            "value": 35
+        },
+        {
+            "question": "NONSENSE",
+            "value": 15
+        },
+        {
+            "question": "NONSENSE2",
+            "value": 10
+        }
+    ]],
+
     "distributions": [
+        {
+            "question": "What do you value?",
+            "score": 3.7
+        },
+        {
+            "question": "What do you value?",
+            "score": 3.7
+        },
         {
             "question": "What do you value?",
             "score": 3.7
@@ -58,6 +112,18 @@ function getFrequency(names) {
     return freq;
 }
 
+function linkPages(numPages) {
+    //Set up swiping between pages
+    for(var page=1; page<numPages; ++page) {
+        $('#page'+page).on('swipeleft', function() {
+            $.mobile.pageContainer.pagecontainer("change", $('#page'+1), {transition: "slide"});
+        });
+        $('#page'+page).on('swiperight', function() {
+            $.mobile.pageContainer.pagecontainer("change", $('#page'-1), {transition: "slide", reverse: true});
+        });
+    }
+}
+
 $(document).ready(function() {
     //Init app
     var elem = $(".subPage");
@@ -70,6 +136,10 @@ $(document).ready(function() {
     var renderHeight = window.innerHeight - padding;
     elem.height(renderHeight);
 
+    //Set up swiping between pages
+    var numPages = 15;
+    linkPages(numPages);
+
     var visApp = new graphApp(renderHeight);
 
     //Get scale and distribution data
@@ -81,12 +151,6 @@ $(document).ready(function() {
     */
 
     filterData.call(visApp, data);
-
-    var numTimes = 0;
-    //Take action when pages showing
-    $(document).on("pageshow","#pagethree",function(){
-
-    });
 
     //Swiping functionality
     var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
@@ -164,9 +228,9 @@ function filterData(data) {
             }
         }
         */
-
-        for(i=0; i<1; ++i) {
-            this.drawQuestion("question"+i, data, i);
+        var responses = data.responses;
+        for(i=0; i<responses.length; ++i) {
+            this.drawQuestion('question'+i, responses[i], data.questions[i].answer);
         }
     } else {
         this.displayError('No question data!');
@@ -178,7 +242,9 @@ function filterData(data) {
     }
 
     if(data.distributions) {
-        this.drawDistribution('distribution', data.distributions[i]);
+        for(i=0; i<data.distributions.length; ++i) {
+            this.drawDistribution('distribution'+i, data.distributions[i]);
+        }
     }
 
     //DEBUG
