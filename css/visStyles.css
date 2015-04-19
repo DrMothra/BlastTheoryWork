@@ -106,7 +106,7 @@ body {
     max-width: 100%;
 }
 .subPage {
-    padding-top: 7.5%;
+    padding-top: 5%;
     overflow: hidden;
 }
 .pinkBottomBorder {
@@ -159,6 +159,10 @@ body {
     stroke: #9dc56d;
 }
 /* Media queries */
-
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+    .subPage {
+        padding-top: 10%;
+    }
+}
 
 

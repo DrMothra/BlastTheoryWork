@@ -114,13 +114,24 @@ function getFrequency(names) {
 
 function linkPages(numPages) {
     //Set up swiping between pages
-    for(var page=1; page<numPages; ++page) {
-        $('#page'+page).on('swipeleft', function() {
-            $.mobile.pageContainer.pagecontainer("change", $('#page'+1), {transition: "slide"});
-        });
-        $('#page'+page).on('swiperight', function() {
-            $.mobile.pageContainer.pagecontainer("change", $('#page'-1), {transition: "slide", reverse: true});
-        });
+    //First page only has swipeleft functionality
+    $('#page1').on('swipeleft', function() {
+        $.mobile.pageContainer.pagecontainer("change", $('#page2'), {transition: "slide"});
+    });
+    for(var page=2; page<numPages; ++page) {
+        (function() {
+            var elem, next, previous;
+            elem = $('#page'+page);
+            next = page+1;
+            previous = page-1;
+            elem.on('swipeleft', function() {
+                $.mobile.pageContainer.pagecontainer("change", $('#page'+next), {transition: "slide"});
+            });
+            elem.on('swiperight', function() {
+                $.mobile.pageContainer.pagecontainer("change", $('#page'+previous), {transition: "slide", reverse: true});
+            });
+        })();
+
     }
 }
 
@@ -129,7 +140,7 @@ $(document).ready(function() {
     var elem = $(".subPage");
     var paddingCss = elem.css("padding-top");
     var padding = parseInt(paddingCss);
-    if(paddingCss.substr(padding.length-1) == '%') {
+    if(paddingCss.substr(paddingCss.length-1) == '%') {
         padding = window.innerWidth * (padding/100);
     }
 
@@ -151,44 +162,6 @@ $(document).ready(function() {
     */
 
     filterData.call(visApp, data);
-
-    //Swiping functionality
-    var page1 = $('#pageone'), page2 = $('#pagetwo'), page3 = $('#pagethree'), page4 = $('#pagefour'), page5 = $('#pagefive');
-
-
-    page1.on('swipeleft', function() {
-        //alert('Swipe left');
-        //window.location.href = '#pagetwo';
-        $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide"});
-    });
-
-    page2.on('swipeleft', function() {
-        //alert('Swipe left');
-        //window.location.href = '#pagethree';
-        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide"});
-    });
-
-    page2.on('swiperight', function() {
-        //alert('Swipe right');
-        //window.location.href = '#pageone';
-        $.mobile.pageContainer.pagecontainer("change", "#pageone", {transition: "slide", reverse: true});
-    });
-
-    page3.on('swipeleft', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagefour", {transition: "slide"});
-    });
-
-    page3.on('swiperight', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagetwo", {transition: "slide", reverse: true});
-    });
-
-    page4.on('swiperight', function() {
-        //alert('Swiped');
-        $.mobile.pageContainer.pagecontainer("change", "#pagethree", {transition: "slide", reverse: true});
-    });
-
 });
 
 function filterData(data) {
