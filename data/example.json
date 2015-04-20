@@ -2,7 +2,7 @@
   "scales": [
     {
       "name": "scaleOpen",
-      "sum": 7,
+      "sum": 7.0,
       "questions": [
         {
           "name":"Open01",

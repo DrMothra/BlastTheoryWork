@@ -5,15 +5,26 @@
 function radiansToDegrees(rads) {
     return 180/Math.PI * rads;
 }
+
 function degreesToRadians(degress) {
     return (Math.PI/180) * degress;
 }
+
 function getAngle(vec0, vec1) {
     //Dot
     var dot = vec0.dot(vec1);
     var cos0 = dot/(vec0.length() * vec1.length());
     return Math.acos(cos0);
 }
+
+function isInteger(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
+}
+
+function isFloat(x) {
+    return (typeof x === 'number') && (x % 1 !== 0);
+}
+
 function rotateVector2D(vec, rot) {
     //Assumes rotation around origin
     var cos = Math.cos(degreesToRadians(rot));
@@ -26,6 +37,7 @@ function rotateVector2D(vec, rot) {
 
     return vec;
 }
+
 function sortResponses(responses, sortCoords) {
     //Sort responses by sortCoords
     var sorted = [];
@@ -122,6 +134,14 @@ graphApp.prototype = {
         xhr.send('hash=hashValue&email=user%40domain.com');
     },
 
+    readInfoFile: function(filename, callback) {
+        var dataLoad = new dataLoader();
+        var _this = this;
+        dataLoad.load(filename, function(data) {
+            callback.call(_this, data);
+        });
+    },
+
     readDataFile: function(filename, callback) {
         //Read data file
         var dataLoad = new dataLoader();
@@ -191,7 +211,7 @@ graphApp.prototype = {
         //Add line background to existing svg content
         var numLines = 6;
         var startX = 0.1 * width;
-        var startY = 0.05 * height, endY = 0.7 * height;
+        var startY = 0.05 * height, endY = 0.8 * height;
         var lineGap = (endY - startY)/(numLines-1);
 
         for(var i=0; i<numLines; ++i) {
@@ -491,7 +511,7 @@ graphApp.prototype = {
         }
     },
 
-    drawDistribution: function(element, index, data) {
+    drawDistribution: function(element, index, data, score, max) {
 
         var svg = this.createSVG(element+index);
 
@@ -499,6 +519,19 @@ graphApp.prototype = {
             .attr("transform", "translate(0, 0)");
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
+
+        //Update user score
+        if(isInteger(score)) {
+            $('#scoreNumber'+element+index).html(score);
+        } else if(isFloat(score)) {
+            $('#scoreNumber'+element+index).html(Math.floor(score));
+            //Fractional part
+            var fraction = Math.ceil((score%1)*10);
+            $('#scoreFraction'+element+index).html("." + fraction);
+        }
+
+        //Max score
+        $('#scoreOutOf'+element+index).html(max);
 
         //Title text
         var textFillColour = LIGHT_GREEN;
@@ -517,7 +550,7 @@ graphApp.prototype = {
 
         //Axes
         var xTicks = 10, yTicks = 3;
-        var graphYPos = height*0.7, graphXPos = width*0.92;
+        var graphYPos = height*0.8, graphXPos = width*0.92;
         var xRangeMin = width * 0.1, xRangeMax = width*0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
@@ -561,7 +594,7 @@ graphApp.prototype = {
 
         graph.append('svg:path')
             .attr('d', lineGen(data.distribution))
-            .attr('stroke', 'green')
+            .attr('stroke', LIGHT_GREEN)
             .attr('stroke-width', 2)
             .attr('fill', 'none');
 
@@ -577,7 +610,7 @@ graphApp.prototype = {
                 'stroke-dasharray': '3,3'});
 
         //Elbow
-        var elbowXPos = width * 0.65, elbowYPos = height * 0.7;
+        var elbowXPos = width * 0.65, elbowYPos = height * 0.8;
         graph.append("line")
             .attr({x1: scoreXPos,
                 y1: scoreYPos,
@@ -597,84 +630,88 @@ graphApp.prototype = {
             .attr('r', scoreRadius);
     },
 
-    drawBarChart: function(element, title, values, maxX, maxY, showxAxis, showyAxis) {
+    drawBarChart: function(element, index, data, score, max) {
         //Draw graphs from data
         var _this = this;
 
-        var svg = this.createSVG(element);
-
-        svg.append('text')
-            .attr("x", this.outerWidth/4)
-            .attr("y", this.margin.top/2)
-            .text(title);
+        var svg = this.createSVG(element+index);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-        var x = d3.scale.linear()
-            .range([0, this.innerWidth])
-            .domain([0, maxX]);
+        var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
+        //Update user score
+        if(isInteger(score)) {
+            $('#scoreNumber'+element+index).html(score);
+        } else if(isFloat(score)) {
+            $('#scoreNumber'+element+index).html(Math.floor(score));
+            //Fractional part
+            var fraction = Math.ceil((score%1)*10);
+            $('#scoreFraction'+element+index).html("." + fraction);
+        }
+
+        //Max score
+        $('#scoreOutOf'+element+index).html(max);
+
+        var textFillColour = DARK_GREEN;
+        graph.append('text')
+            .attr("x", width/2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", textFillColour)
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("HOW OTHERS RESPONDED");
+
+        this.drawLineBackground(graph, width, height);
+
+        //Axes
+        var xTicks = 10, yTicks = 3;
+        var graphYPos = height*0.8, graphXPos = width*0.92;
+        var xRangeMin = width * 0.1, xRangeMax = width*0.9;
+        var barWidth = ((xRangeMax - xRangeMin)/8)/2, shift = barWidth/2;
+        var x = d3.scale.linear()
+            .range([xRangeMin, xRangeMax])
+            .domain([2, 10]);
+
+        var yRangeMin = graphYPos, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
-            .range([this.innerHeight, 0])
-            .domain([0, maxY]);
+            .range([yRangeMin, yRangeMax])
+            .domain([0, 22]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
-            .ticks(maxX);
+            .ticks(xTicks);
 
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left")
-            .ticks(maxY);
+            .orient("right")
+            .ticks(yTicks);
 
-        if(showxAxis) {
-            graph.append("g")
-                .attr("transform", "translate(0," + this.innerHeight + ")")
-                .attr("class", "axis")
-                .call(xAxis);
-        } else if(this.blankAxis) {
-            graph.append("line")
-                .attr({x1: 0,
-                    y1: this.innerHeight,
-                    x2: this.innerWidth,
-                    y2: this.innerHeight,
-                    stroke: 'black',
-                    'stroke-width': 1});
-        }
         graph.append("g")
+            .attr("transform", "translate(0," + graphYPos + ")")
+            .attr("class", "axis")
+            .call(xAxis);
+
+        graph.append("g")
+            .attr("transform", "translate(" + graphXPos + ",0)")
             .attr("class", "axis")
             .call(yAxis);
 
-        var bar = graph.selectAll('.bar')
-            .data(values)
-            .enter()
-            .append("g")
-            .attr("transform", function(d, i) {
-                i+=1.25;
-                return "translate(" + i * _this.barWidth + ", 0)";
-            })
-            .style("fill", function(d, i) {
-                return _this.colours[i%_this.colours.length];
-            });
+        var bar = graph.append("g")
+            .attr("transform", "translate(-"+shift+",0)");
 
-        var transit = bar.append("rect")
-            .attr("y", function(d) { return y(d); })
-            .attr("height", 0)
-            .attr("width", this.barWidth - this.barGap);
-
-        transit.transition()
-            .duration(3000)
+        bar.selectAll('.bar')
+            .data(data.distribution)
+            .enter().append("rect")
+            .attr("y", function(d) { return y(d.users); })
+            .attr("x", function(d) { return x(d.value); })
             .attr("height", function(d) {
-                return _this.innerHeight - y(d);
-            });
-
-        bar.append("text")
-            .attr("class", "barText")
-            .attr("x", this.barWidth/2)
-            .attr("y", function(d) { return y(d)+15; })
-            .text(function(d) { return d > 0 ? d : null; });
+                return graphYPos - y(d.users);
+            })
+            .attr("width", barWidth)
+            .style("fill", LIGHT_GREEN);
     },
 
     drawHorizontalBarChart: function(element, title, keys, values, maxY) {
@@ -777,68 +814,82 @@ graphApp.prototype = {
             });
     },
 
-    drawScatterPlot: function(element, title, values, maxX, maxY) {
+    drawScatterPlot: function(element, index, data, score, max) {
         //Draw scatter from values
         var _this = this;
 
-        var svg = this.createSVG(element);
-
-        svg.append('text')
-            .attr("x", this.outerWidth/4)
-            .attr("y", this.margin.top/2)
-            .text(title);
+        var svg = this.createSVG(element+index);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-        var x = d3.scale.linear()
-            .range([0, this.innerWidth])
-            .domain([0, maxX]);
+        var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
+        //Update user score
+        if(isInteger(score)) {
+            $('#scoreNumber'+element+index).html(score);
+        } else if(isFloat(score)) {
+            $('#scoreNumber'+element+index).html(Math.floor(score));
+            //Fractional part
+            var fraction = Math.ceil((score%1)*10);
+            $('#scoreFraction'+element+index).html("." + fraction);
+        }
+
+        //Max score
+        $('#scoreOutOf'+element+index).html(max);
+
+        var textFillColour = DARK_GREEN;
+        graph.append('text')
+            .attr("x", width/2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", textFillColour)
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("HOW OTHERS RESPONDED");
+
+        this.drawLineBackground(graph, width, height);
+
+        //Axes
+        var xTicks = 10, yTicks = 3;
+        var graphYPos = height*0.8, graphXPos = width*0.92;
+        var xRangeMin = width * 0.1, xRangeMax = width*0.9;
+        var barWidth = ((xRangeMax - xRangeMin)/8)/2, shift = barWidth/2;
+        var x = d3.scale.linear()
+            .range([xRangeMin, xRangeMax])
+            .domain([2, 10]);
+
+        var yRangeMin = graphYPos, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
-            .range([this.innerHeight, 0])
-            .domain([0, maxY]);
+            .range([yRangeMin, yRangeMax])
+            .domain([0, 22]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
-            .ticks(maxX);
+            .ticks(xTicks);
 
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left")
-            .ticks(maxY);
+            .orient("right")
+            .ticks(yTicks);
 
         graph.append("g")
-            .attr("transform", "translate(0," + this.innerHeight + ")")
+            .attr("transform", "translate(0," + graphYPos + ")")
             .attr("class", "axis")
             .call(xAxis);
 
         graph.append("g")
+            .attr("transform", "translate(" + graphXPos + ",0)")
             .attr("class", "axis")
             .call(yAxis);
 
         var scatter = graph.selectAll('.scatter')
-            .data(values)
-            .enter()
-            .append("g")
-            .attr("transform", function(d, i) {
-                i+=1.25;
-                return "translate(" + i * _this.barWidth + ", 0)";
-            })
-            .style("fill", function(d, i) {
-                return _this.colours[i%_this.colours.length];
-            });
-
-        var transit = scatter.append("circle")
-            .attr("cy", function(d) {
-                return y(d);
-            })
-            .attr('r', 0);
-
-        transit.transition()
-            .duration(3000)
-            .attr('r', 7);
+            .data(data.distribution)
+            .enter().append("circle")
+            .attr("cy", height/2)
+            .attr("cx", function(d) { return x(d.value); })
+            .attr('r', function(d) { return x(d.users)/40; })
+            .style("fill", LIGHT_GREEN);
     },
 
     displayError: function(errorMsg) {

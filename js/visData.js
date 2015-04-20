@@ -154,7 +154,10 @@ $(document).ready(function() {
     var visApp = new graphApp(renderHeight);
 
     //Get some data
-    visApp.readDataFile("data/example.json", filterData);
+    visApp.readInfoFile("data/info.json", function(data) {
+        visApp.info = data;
+        visApp.readDataFile("data/example.json", filterData);
+    });
 
     //Get scale and distribution data
     //DEBUG
@@ -171,6 +174,7 @@ function filterData(data) {
     //Filter data
     //Get geo data
     var i = 0;
+    var _this = this;
     //DEBUG
     //Ignore locations for now
     /*
@@ -215,13 +219,47 @@ function filterData(data) {
         return;
     }
 
-    var scales = data.aggregate.scales;
-    if(scales) {
+    var scales = data.scales;
+    var aggScales = data.aggregate.scales;
+    var infoScales = this.info.scales;
+    if(scales && aggScales && infoScales) {
+        var currentScale, aggScale, infoScale;
         for(i=0; i<scales.length; ++i) {
-            this.drawDistribution('distribution', i, scales[i]);
+            currentScale = scales[i].name;
+            //Get this scale in aggregates
+            aggScale = getAggregateScale(scales[i].name);
+            if(aggScale != null) {
+                infoScale = getInfoScale(scales[i].name);
+                if(infoScale != null) {
+                    this.drawDistribution('distribution', i, aggScale, scales[i].sum, infoScale.max);
+                    this.drawBarChart("bar", i, aggScales[i], scales[i].sum, infoScale.max);
+                    this.drawScatterPlot("scatter", i, aggScales[i], scales[i].sum, infoScale.max);
+                }
+            }
         }
     }
 
+    function getAggregateScale(name) {
+        var scales = data.aggregate.scales;
+        for(var i=0; i<scales.length; ++i) {
+            if(scales[i].name === name) {
+                return scales[i];
+            }
+        }
+
+        return null;
+    }
+
+    function getInfoScale(name) {
+        var scales = _this.info.scales;
+        for(var i=0; i<scales.length; ++i) {
+            if(scales[i].name === name) {
+                return scales[i];
+            }
+        }
+
+        return null;
+    }
     /*
     if(data.distributions) {
         for(i=0; i<data.distributions.length; ++i) {
