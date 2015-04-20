@@ -122,6 +122,15 @@ graphApp.prototype = {
         xhr.send('hash=hashValue&email=user%40domain.com');
     },
 
+    readDataFile: function(filename, callback) {
+        //Read data file
+        var dataLoad = new dataLoader();
+        var _this = this;
+        dataLoad.load(filename, function(data) {
+            callback.call(_this, data);
+        });
+    },
+
     setDataRequest: function(id, numRequests, callback) {
         //Set data requests for this id
         var requestItem = {};
@@ -282,11 +291,11 @@ graphApp.prototype = {
         }
     },
 
-    drawQuestion: function(element, responses, answer) {
+    drawQuestion: function(element, index, questions, answers) {
         //Render the required question and response
         var i;
         _this = this;
-        var svg = this.createSVG(element);
+        var svg = this.createSVG(element+index);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -294,15 +303,26 @@ graphApp.prototype = {
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
         //Render given responses
+        //Substitute text
+        $('#question'+index).html(questions.text);
+        $('#choice'+index).html(questions.value);
+
         var values = [];
-        for(i=0; i<responses.length; ++i) {
-            values.push(responses[i].value);
+        var total=0;
+        for(i=0; i<answers.length; ++i) {
+            values.push(answers[i].users);
+            total += values[i];
         }
 
-        for(i=0; i<responses.length; ++i) {
-            if(responses[i].question === answer) {
+        //Convert these to percentages
+        for(i=0; i<values.length; ++i) {
+            values[i] = Math.round((values[i]/total)*100);
+        }
+
+        for(i=0; i<answers.length; ++i) {
+            if(answers[i].value === questions.value) {
                 //DEBUG
-                console.log("You chose", answer);
+                console.log("You chose", answers[i].value);
                 break;
             }
         }
@@ -359,7 +379,7 @@ graphApp.prototype = {
         //Add rotated y pos to responses
         for(i=0; i<centroids.length; ++i) {
             centroids[i] = rotateVector2D(centroids[i], angle);
-            responses[i].centroid = centroids[i];
+            answers[i].centroid = centroids[i];
         }
 
         //Sort rotated data
@@ -367,25 +387,33 @@ graphApp.prototype = {
         for(i=0; i<centroids.length; ++i) {
             yCoords.push(centroids[i][1]);
         }
+        var selectedYPos = yCoords[userSelection];
         yCoords.sort(function(a,b) {
             return a-b;
         });
 
         //Sort responses by position on screen
-        var selectedYPos = yCoords[userSelection];
-        responses = sortResponses(responses, yCoords);
+
+        answers = sortResponses(answers, yCoords);
+        //Update user selection
+        for(i=0; i<answers.length; ++i) {
+            if(answers[i].centroid[1] === selectedYPos) {
+                userSelection = i;
+                break;
+            }
+        }
         //Ensure user selection is in middle of responses
-        if(responses.length === 5 && responses[2].centroid[1] !== selectedYPos) {
-            var temp = responses[2];
-            responses[2] = responses[1];
-            responses[1] = temp;
+        if(answers.length === 5 && answers[2].centroid[1] !== selectedYPos) {
+            var temp = answers[2];
+            answers[2] = answers[1];
+            answers[1] = temp;
             userSelection = 2;
         }
 
         //Determine circle positions
         var smallCircleRadius = height * 0.06;
         var smallCircleHeight = smallCircleRadius * 2;
-        var numCircles = responses.length;
+        var numCircles = answers.length;
         var circleHeight = pieRadius * 2;
         var circlePadding = (circleHeight - (smallCircleHeight * numCircles))/(numCircles-1);
         var smallCircleXPos = width * 0.9;
@@ -400,9 +428,9 @@ graphApp.prototype = {
         var lineXStarts = [], lineXEnds = [];
         var lineYStarts = [];
         for(i=0; i<centroids.length; ++i) {
-            lineXStarts.push(pieXPos + responses[i].centroid[0]);
+            lineXStarts.push(pieXPos + answers[i].centroid[0]);
             lineXEnds.push(smallCircleXPos - smallCircleRadius - (width*0.05));
-            lineYStarts.push(pieYPos + responses[i].centroid[1]);
+            lineYStarts.push(pieYPos + answers[i].centroid[1]);
         }
 
         var lineFill;
@@ -431,7 +459,7 @@ graphApp.prototype = {
         }
 
         var circleFillColour, textFillColour;
-        for(i=0; i<responses.length; ++i) {
+        for(i=0; i<answers.length; ++i) {
             circleFillColour = OFF_WHITE;
             textFillColour = GREEN;
             if(i === userSelection) {
@@ -450,7 +478,7 @@ graphApp.prototype = {
                 .style("text-anchor", "middle")
                 .style("fill", textFillColour)
                 .attr("class", "quicksand heavy normalSizeText")
-                .text(responses[i].value + "%");
+                .text(values[i] + "%");
 
             svg.append('text')
                 .attr("x", smallCircleXPos)
@@ -459,14 +487,13 @@ graphApp.prototype = {
                 .style("text-anchor", "middle")
                 .style("fill", textFillColour)
                 .attr("class", "quicksand heavy normalSizeText")
-                .text(responses[i].question);
+                .text(answers[i].value);
         }
     },
 
-    drawDistribution: function(element, data) {
+    drawDistribution: function(element, index, data) {
 
-        var elem = $('.userScoreContainer').height();
-        var svg = this.createSVG(element);
+        var svg = this.createSVG(element+index);
 
         var graph = svg.append("g")
             .attr("transform", "translate(0, 0)");
@@ -485,7 +512,7 @@ graphApp.prototype = {
 
         this.drawLineBackground(graph, width, height);
         this.colours = ['#bcebc1'];
-        this.drawNormalDistribution(graph, 0, width, height);
+        //this.drawNormalDistribution(graph, 0, width, height);
         this.colours = ['#b7d690'];
 
         //Axes
@@ -499,7 +526,7 @@ graphApp.prototype = {
         var yRangeMin = graphYPos, yRangeMax = height * 0.05;
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
-            .domain([0, 10]);
+            .domain([0, 22]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
@@ -521,6 +548,22 @@ graphApp.prototype = {
             .attr("transform", "translate(" + graphXPos + ",0)")
             .attr("class", "axis")
             .call(yAxis);
+
+        //Render data
+        var lineGen = d3.svg.line()
+            .x(function(d) {
+                return x(d.value);
+            })
+            .y(function(d) {
+                return y(d.users);
+            })
+            .interpolate("basis");
+
+        graph.append('svg:path')
+            .attr('d', lineGen(data.distribution))
+            .attr('stroke', 'green')
+            .attr('stroke-width', 2)
+            .attr('fill', 'none');
 
         //Connect user score to graph
         var scoreYPos = height * 0.45, scoreXPos = width * 0.35;

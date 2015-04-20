@@ -21,6 +21,7 @@
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
+    <script type="text/javascript" src="js/dataLoader.js"></script>
     <script type="text/javascript" src="js/graphApp.js?v=0.5"></script>
     <script type="text/javascript" src="js/visData.js?v=0.4"></script>
 
@@ -78,19 +79,18 @@
         <div class="pure-u-7-24 centred">
             <div class="quicksand heavy pink normalSizeText">
                 <div class="userQuestionContainer pinkBottomBorder">
-                    <span>WHAT DO YOU WANT TO WORK ON?</span>
+                    <span id="question0">WHAT DO YOU WANT TO WORK ON?</span>
                 </div>
                 <div class="questionTextContainer darkPink bigSizeText pinkBottomBorder">
                     CHOICE
                     <div class="userAnswerContainer">
-                        LIFE<br>
-                        GOALS
+                        <span id="choice0"></span>
                     </div>
                 </div>
                 <span>ANALYSIS</span>
             </div>
         </div>
-        <div id="question0" class="pure-u-15-24">
+        <div id="pieChart0" class="pure-u-15-24">
 
         </div>
         <div class="pure-u-1-24 navigate">

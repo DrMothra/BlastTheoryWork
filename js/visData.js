@@ -4,6 +4,7 @@
 //Karen app with Blast Theory
 //Data type id's
 var COUNTRY = 0;
+var NUM_PAGES = 15;
 var countryData = [];
 
 //DEBUG
@@ -148,10 +149,12 @@ $(document).ready(function() {
     elem.height(renderHeight);
 
     //Set up swiping between pages
-    var numPages = 15;
-    linkPages(numPages);
+    linkPages(NUM_PAGES);
 
     var visApp = new graphApp(renderHeight);
+
+    //Get some data
+    visApp.readDataFile("data/example.json", filterData);
 
     //Get scale and distribution data
     //DEBUG
@@ -161,13 +164,16 @@ $(document).ready(function() {
     visApp.getData(dataURL, filterData);
     */
 
-    filterData.call(visApp, data);
+    //filterData.call(visApp, data);
 });
 
 function filterData(data) {
     //Filter data
     //Get geo data
     var i = 0;
+    //DEBUG
+    //Ignore locations for now
+    /*
     if(data.locations) {
         var latlng = [];
         for(i=0; i<data.locations.length; ++i) {
@@ -186,39 +192,43 @@ function filterData(data) {
             this.getData(currentURL, filterGeoData);
         }
     }
+    */
 
     var meanData = [];
 
     //Get questions
-    var numQuestions;
-    if(data.questions) {
-        numQuestions = data.questions.length;
-        //Create additional pages
-        /*
-        if(numQuestions >= 2) {
-            for(i=1; i<numQuestions; ++i) {
-                createPage(i);
+    if(data.questions && data.aggregate.questions) {
+        var numQuestions = data.questions.length;
+        var questionName;
+        for(var question=0; question<numQuestions; ++question) {
+            questionName = data.questions[question].name;
+            //Find this question in aggregates
+            var aggregateQuestions = data.aggregate.questions;
+            for(var name=0; name<aggregateQuestions.length; ++name) {
+                if(questionName === aggregateQuestions[name].name) {
+                    this.drawQuestion('pieChart', name, data.questions[question], aggregateQuestions[name].answers);
+                }
             }
-        }
-        */
-        var responses = data.responses;
-        for(i=0; i<responses.length; ++i) {
-            this.drawQuestion('question'+i, responses[i], data.questions[i].answer);
         }
     } else {
         this.displayError('No question data!');
         return;
     }
 
-    if(data.responses) {
-        //this.drawResponse("response", data.responses[i]);
+    var scales = data.aggregate.scales;
+    if(scales) {
+        for(i=0; i<scales.length; ++i) {
+            this.drawDistribution('distribution', i, scales[i]);
+        }
     }
 
+    /*
     if(data.distributions) {
         for(i=0; i<data.distributions.length; ++i) {
             this.drawDistribution('distribution'+i, data.distributions[i]);
         }
     }
+    */
 
     //DEBUG
     /*

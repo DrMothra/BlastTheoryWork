@@ -1,0 +1,80 @@
+{
+	"scales": [
+		{
+			"name": "scaleNeuro",
+			"min": 2,
+			"max": 10,
+			"min-label": "Low",
+			"max-label": "High",
+			"questions": ["Neuro01","Neuro02"],
+			"classifications": [
+				{
+					"min":2,
+					"max": 5,
+					"name": "LOW",
+					"label": "Low"
+				},
+				{
+					"min":6,
+					"max": 6,
+					"name": "UNSURE",
+					"label": "Unsure"
+				},
+				{
+					"min":7,
+					"max": 10,
+					"name": "HIGH",
+					"label": "High"
+				}
+			]
+		},
+		{
+			"name": "scaleOpen",
+			"min": 2,
+			"max": 10,
+			"min-label": "Low",
+			"max-label": "High",
+			"questions": ["Open01","Open02"],
+			"classifications": [
+				{
+					"min":2,
+					"max": 5,
+					"name": "LOW",
+					"label": "Low"
+				},
+				{
+					"name": "UNSURE",
+					"min":6,
+					"max": 6,
+					"name": "LOW",
+					"label": "Unsure"
+				},
+				{
+					"min":7,
+					"max": 10,
+					"name": "HIGH",
+					"label": "High"
+				}
+			]
+		}
+	],
+	"questions": [
+		{
+			"name": "UserGoal",
+			"answers": [
+				{
+					"value": "CONTROL",
+					"label": "Control"
+				},
+				{
+					"value": "REVIEW",
+					"label": "Life Goals"
+				},
+				{
+					"value": "ATTITUDE",
+					"label": "Relationships"
+				}
+			]
+		}
+	]
+}
