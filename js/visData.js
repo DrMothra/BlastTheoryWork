@@ -136,6 +136,46 @@ function linkPages(numPages) {
     }
 }
 
+function VisApp(renderHeight) {
+    graphApp.call(this, renderHeight);
+}
+
+VisApp.prototype = new graphApp();
+
+VisApp.prototype.getAggregateQuestion = function(questionName) {
+    //Find this question in aggregates
+    var aggregateQuestions = this.data.aggregate.questions;
+    for(var i=0; i<aggregateQuestions.length; ++i) {
+        if(questionName === aggregateQuestions[i].name) {
+            return aggregateQuestions[i];
+        }
+    }
+
+    return null;
+};
+
+VisApp.prototype.getAggregateScale = function(name) {
+    var scales = this.data.aggregate.scales;
+    for(var i=0; i<scales.length; ++i) {
+        if(scales[i].name === name) {
+            return scales[i];
+        }
+    }
+
+    return null;
+};
+
+VisApp.prototype.getInfoScale = function(name) {
+    var scales = this.info.scales;
+    for(var i=0; i<scales.length; ++i) {
+        if(scales[i].name === name) {
+            return scales[i];
+        }
+    }
+
+    return null;
+};
+
 $(document).ready(function() {
     //Init app
     var elem = $(".subPage");
@@ -151,12 +191,12 @@ $(document).ready(function() {
     //Set up swiping between pages
     linkPages(NUM_PAGES);
 
-    var visApp = new graphApp(renderHeight);
+    var app = new VisApp(renderHeight);
 
     //Get some data
-    visApp.readInfoFile("data/info.json", function(data) {
-        visApp.info = data;
-        visApp.readDataFile("data/example.json", filterData);
+    app.readInfoFile("data/info.json", function(data) {
+        app.info = data;
+        app.readDataFile("data/example.json", filterData);
     });
 
     //Get scale and distribution data
@@ -170,10 +210,11 @@ $(document).ready(function() {
     //filterData.call(visApp, data);
 });
 
-function filterData(data) {
+function filterData(data){
     //Filter data
     //Get geo data
     var i = 0;
+    this.data = data;
     var _this = this;
     //DEBUG
     //Ignore locations for now
@@ -198,20 +239,17 @@ function filterData(data) {
     }
     */
 
-    var meanData = [];
-
     //Get questions
-    if(data.questions && data.aggregate.questions) {
-        var numQuestions = data.questions.length;
-        var questionName;
-        for(var question=0; question<numQuestions; ++question) {
-            questionName = data.questions[question].name;
+    var questions = this.data.questions;
+    var aggQuestions = this.data.aggregate.questions;
+    if(questions && aggQuestions) {
+        var questionName, aggQuestionName;
+        for(var question=0; question<this.data.questions.length; ++question) {
+            questionName = this.data.questions[question].name;
             //Find this question in aggregates
-            var aggregateQuestions = data.aggregate.questions;
-            for(var name=0; name<aggregateQuestions.length; ++name) {
-                if(questionName === aggregateQuestions[name].name) {
-                    this.drawQuestion('pieChart', name, data.questions[question], aggregateQuestions[name].answers);
-                }
+            aggQuestionName = this.getAggregateQuestion(questionName);
+            if(aggQuestionName != null) {
+                this.drawQuestion('pieChart', question, this.data.questions[question], aggQuestionName.answers);
             }
         }
     } else {
@@ -219,18 +257,19 @@ function filterData(data) {
         return;
     }
 
-    var scales = data.scales;
-    var aggScales = data.aggregate.scales;
+    var scales = this.data.scales;
+    var aggScales = this.data.aggregate.scales;
     var infoScales = this.info.scales;
     if(scales && aggScales && infoScales) {
         var currentScale, aggScale, infoScale;
         for(i=0; i<scales.length; ++i) {
             currentScale = scales[i].name;
             //Get this scale in aggregates
-            aggScale = getAggregateScale(scales[i].name);
+            aggScale = this.getAggregateScale(scales[i].name);
             if(aggScale != null) {
-                infoScale = getInfoScale(scales[i].name);
+                infoScale = this.getInfoScale(scales[i].name);
                 if(infoScale != null) {
+                    this.updateScores(i, scales[i].sum, infoScale.max);
                     this.drawDistribution('distribution', i, aggScale, scales[i].sum, infoScale.max);
                     this.drawBarChart("bar", i, aggScales[i], scales[i].sum, infoScale.max);
                     this.drawScatterPlot("scatter", i, aggScales[i], scales[i].sum, infoScale.max);
@@ -239,27 +278,6 @@ function filterData(data) {
         }
     }
 
-    function getAggregateScale(name) {
-        var scales = data.aggregate.scales;
-        for(var i=0; i<scales.length; ++i) {
-            if(scales[i].name === name) {
-                return scales[i];
-            }
-        }
-
-        return null;
-    }
-
-    function getInfoScale(name) {
-        var scales = _this.info.scales;
-        for(var i=0; i<scales.length; ++i) {
-            if(scales[i].name === name) {
-                return scales[i];
-            }
-        }
-
-        return null;
-    }
     /*
     if(data.distributions) {
         for(i=0; i<data.distributions.length; ++i) {

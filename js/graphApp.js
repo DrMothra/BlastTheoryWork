@@ -311,6 +311,21 @@ graphApp.prototype = {
         }
     },
 
+    updateScores: function(index, score, max) {
+        //Update common scores
+        if(isInteger(score)) {
+            $('.scoreNumber'+index).html(score);
+        } else if(isFloat(score)) {
+            $('.scoreNumber'+index).html(Math.floor(score));
+            //Fractional part
+            var fraction = Math.ceil((score%1)*10);
+            $('.scoreFraction'+index).html("." + fraction);
+        }
+
+        //Max score
+        $('.scoreOutOf'+index).html(max);
+    },
+
     drawQuestion: function(element, index, questions, answers) {
         //Render the required question and response
         var i;
@@ -520,19 +535,6 @@ graphApp.prototype = {
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
-        //Update user score
-        if(isInteger(score)) {
-            $('#scoreNumber'+element+index).html(score);
-        } else if(isFloat(score)) {
-            $('#scoreNumber'+element+index).html(Math.floor(score));
-            //Fractional part
-            var fraction = Math.ceil((score%1)*10);
-            $('#scoreFraction'+element+index).html("." + fraction);
-        }
-
-        //Max score
-        $('#scoreOutOf'+element+index).html(max);
-
         //Title text
         var textFillColour = LIGHT_GREEN;
         graph.append("text")
@@ -569,13 +571,25 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
-            .ticks(yTicks)
-            .tickFormat(".0%");
+            .ticks(yTicks);
 
-        graph.append("g")
+        var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
             .attr("class", "axis")
             .call(xAxis);
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMin)
+            .attr("dy", "2em")
+            .attr("class", "quicksand smallerSizeText")
+            .text("LESS");
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMax)
+            .attr("dy", "2em")
+            .attr("text-anchor", "end")
+            .attr("class", "quicksand smallerSizeText")
+            .text("MORE");
 
         graph.append("g")
             .attr("transform", "translate(" + graphXPos + ",0)")
@@ -599,7 +613,7 @@ graphApp.prototype = {
             .attr('fill', 'none');
 
         //Connect user score to graph
-        var scoreYPos = height * 0.45, scoreXPos = width * 0.35;
+        var scoreYPos = height * 0.45, scoreXPos = x(score)/2;
         graph.append("line")
             .attr({x1: 0,
                 y1: scoreYPos,
@@ -614,7 +628,7 @@ graphApp.prototype = {
         graph.append("line")
             .attr({x1: scoreXPos,
                 y1: scoreYPos,
-                x2: elbowXPos,
+                x2: x(score),
                 y2: elbowYPos,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
@@ -624,7 +638,7 @@ graphApp.prototype = {
         var scoreRadius = width *0.01;
 
         graph.append("circle")
-            .attr("cx", elbowXPos)
+            .attr("cx", x(score))
             .attr("cy", elbowYPos)
             .style('fill', '#ef5f68')
             .attr('r', scoreRadius);
@@ -641,20 +655,7 @@ graphApp.prototype = {
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
-        //Update user score
-        if(isInteger(score)) {
-            $('#scoreNumber'+element+index).html(score);
-        } else if(isFloat(score)) {
-            $('#scoreNumber'+element+index).html(Math.floor(score));
-            //Fractional part
-            var fraction = Math.ceil((score%1)*10);
-            $('#scoreFraction'+element+index).html("." + fraction);
-        }
-
-        //Max score
-        $('#scoreOutOf'+element+index).html(max);
-
-        var textFillColour = DARK_GREEN;
+        var textFillColour = LIGHT_GREEN;
         graph.append('text')
             .attr("x", width/2)
             .attr("dy", "1em")
@@ -689,10 +690,23 @@ graphApp.prototype = {
             .orient("right")
             .ticks(yTicks);
 
-        graph.append("g")
+        var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
             .attr("class", "axis")
             .call(xAxis);
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMin)
+            .attr("dy", "2em")
+            .attr("class", "quicksand smallerSizeText")
+            .text("LESS");
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMax)
+            .attr("dy", "2em")
+            .attr("text-anchor", "end")
+            .attr("class", "quicksand smallerSizeText")
+            .text("MORE");
 
         graph.append("g")
             .attr("transform", "translate(" + graphXPos + ",0)")
@@ -711,7 +725,9 @@ graphApp.prototype = {
                 return graphYPos - y(d.users);
             })
             .attr("width", barWidth)
-            .style("fill", LIGHT_GREEN);
+            .style("fill", function(d) {
+                return d.value === score ? DARK_PINK : LIGHT_GREEN;
+            });
     },
 
     drawHorizontalBarChart: function(element, title, keys, values, maxY) {
@@ -825,20 +841,7 @@ graphApp.prototype = {
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
-        //Update user score
-        if(isInteger(score)) {
-            $('#scoreNumber'+element+index).html(score);
-        } else if(isFloat(score)) {
-            $('#scoreNumber'+element+index).html(Math.floor(score));
-            //Fractional part
-            var fraction = Math.ceil((score%1)*10);
-            $('#scoreFraction'+element+index).html("." + fraction);
-        }
-
-        //Max score
-        $('#scoreOutOf'+element+index).html(max);
-
-        var textFillColour = DARK_GREEN;
+        var textFillColour = LIGHT_GREEN;
         graph.append('text')
             .attr("x", width/2)
             .attr("dy", "1em")
@@ -873,6 +876,7 @@ graphApp.prototype = {
             .orient("right")
             .ticks(yTicks);
 
+        /* No axes for scatter plots yet
         graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
             .attr("class", "axis")
@@ -882,14 +886,37 @@ graphApp.prototype = {
             .attr("transform", "translate(" + graphXPos + ",0)")
             .attr("class", "axis")
             .call(yAxis);
+        */
 
+        var bottomLabel = graph.append("g")
+            .attr("transform", "translate(0," + graphYPos + ")");
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMin)
+            .attr("dy", "2em")
+            .attr("class", "quicksand smallerSizeText")
+            .style("fill", LIGHT_GREEN)
+            .text("LESS");
+
+        bottomLabel.append("text")
+            .attr("dx", xRangeMax)
+            .attr("dy", "2em")
+            .attr("text-anchor", "end")
+            .attr("class", "quicksand smallerSizeText")
+            .style("fill", LIGHT_GREEN)
+            .text("MORE");
+
+        //Determine max circle size
+        var maxCircleRadius = (width/data.distribution.length)/8;
         var scatter = graph.selectAll('.scatter')
             .data(data.distribution)
             .enter().append("circle")
             .attr("cy", height/2)
             .attr("cx", function(d) { return x(d.value); })
-            .attr('r', function(d) { return x(d.users)/40; })
-            .style("fill", LIGHT_GREEN);
+            .attr('r', function(d) { return (d.users/max)*maxCircleRadius; })
+            .style("fill", function(d) {
+                return d.value === score ? DARK_PINK : LIGHT_GREEN;
+            });
     },
 
     displayError: function(errorMsg) {

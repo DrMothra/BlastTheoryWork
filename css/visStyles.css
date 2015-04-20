@@ -45,6 +45,9 @@ body {
     text-shadow: none;
 }
 /* Text sizes */
+.smallerSizeText {
+    font-size: 1.3vw;
+}
 .normalSizeText {
     font-size: 1.9vw;
 }
@@ -147,9 +150,15 @@ body {
     margin-top: -10%;
     padding-bottom: 15%;
 }
+.closeButton {
+    position: absolute;
+    top: 0%;
+    right: 1%;
+}
 /* Graph styles */
 .axis {
-    font: 10px sans-serif;
+    font-family: sans-serif;
+    font-size: 1.3vw;
     fill: #9dc56d;
     shape-rendering: crispEdges;
 }
