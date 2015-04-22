@@ -98,6 +98,15 @@ var data = {
     ]
 };
 
+function getItem(data, key, item) {
+    //See if item in data
+    for(var i in data) {
+        if(data[i][key] === item) {
+            return data[i];
+        }
+    }
+}
+
 function getFrequency(names) {
     //Get frequency of data
     var i, length=0, freq = {};
@@ -178,15 +187,9 @@ VisApp.prototype.getInfoScale = function(name) {
 
 $(document).ready(function() {
     //Init app
-    var elem = $(".subPage");
-    var paddingCss = elem.css("padding-top");
-    var padding = parseInt(paddingCss);
-    if(paddingCss.substr(paddingCss.length-1) == '%') {
-        padding = window.innerWidth * (padding/100);
-    }
-
-    var renderHeight = window.innerHeight - padding;
-    elem.height(renderHeight);
+    var pageElem = $(".subPageTop");
+    var renderHeight = $('.contentTop').height();
+    pageElem.height(window.innerHeight);
 
     //Set up swiping between pages
     linkPages(NUM_PAGES);
@@ -194,9 +197,11 @@ $(document).ready(function() {
     var app = new VisApp(renderHeight);
 
     //Get some data
-    app.readInfoFile("data/info.json", function(data) {
-        app.info = data;
-        app.readDataFile("data/example.json", filterData);
+    app.readInfoFile("data/info.json", function(info) {
+        app.info = info;
+        app.readDataFile("data/example.json", function(data) {
+            app.filterData(data);
+        });
     });
 
     //Get scale and distribution data
@@ -210,12 +215,70 @@ $(document).ready(function() {
     //filterData.call(visApp, data);
 });
 
-function filterData(data){
+function getTotalUsers(data) {
+    var total = 0;
+    for(var i in data) {
+        total += data[i].users;
+    }
+
+    return total;
+}
+
+function classify(data, value) {
+    for(var i in data) {
+        if(value <= data[i].max) {
+            return i;
+        }
+    }
+}
+
+VisApp.prototype.preProcessData = function () {
+    //Interpret data to get percentages, etc.
+    //Distribution percentages
+    var scales = this.data.scales;
+    var scaleData = this.data.aggregate["scales"];
+    var scaleInfoData = this.info.scales;
+    var numScales = scaleData.length;
+    var percentages = [];
+    var classifications = [], classificationsPercent = [], classData;
+    var i, j, x, index, currentScale, total = 0;
+
+    for(i in scaleData) {
+        total = getTotalUsers(scaleData[i].distribution);
+        for(j in scaleData[i].distribution) {
+            percentages.push((scaleData[i].distribution[j].users/total) * 100);
+        }
+        scaleData[i].distributionPercent = percentages;
+
+        //Classifications for this scale
+        classData = getItem(scaleInfoData, "name", scaleData[i].name);
+        classifications.length = 0;
+        for(x=0; x<classData.classifications.length; ++x) classifications.push(0);
+        for(j=0; j<scaleData[i].distribution.length; ++j) {
+            index = classify(classData.classifications, scaleData[i].distribution[j].value);
+            classifications[index] += scaleData[i].distribution[j].users;
+        }
+        total = 0;
+        for(j in classifications) total += classifications[j];
+        for(j in classifications) {
+            classificationsPercent.push((classifications[j]/total)*100);
+            classData.classifications[j].users = classifications[j];
+            classData.classifications[j].percent = classificationsPercent[j];
+        }
+    }
+
+};
+
+VisApp.prototype.filterData = function(data) {
+    //Pre process data
     //Filter data
     //Get geo data
     var i = 0;
     this.data = data;
     var _this = this;
+
+    this.preProcessData();
+
     //DEBUG
     //Ignore locations for now
     /*
@@ -239,7 +302,79 @@ function filterData(data){
     }
     */
 
-    //Get questions
+    //Parse data attributes on each page
+    for(i=3; i<NUM_PAGES; ++i) {
+        var pageAttributes = $('#page' + i +' *[data-type]');
+        if(pageAttributes) {
+            var dataType, data, scales;
+            pageAttributes.each(function(i) {
+                dataType = this.attributes.getNamedItem("data-type").value;
+                switch(dataType) {
+                    case 'questions':
+                        //Find data item in questions
+                        data = _this.data[dataType];
+                        if(data) {
+                            var questionText = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                            $(this).html(questionText.value);
+                        }
+                        break;
+
+                    case 'pieChart':
+                        //See what to represent
+                        data = _this.data[this.attributes.getNamedItem("data-item").value];
+                        var userChoice = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        //Render this choice from aggregate data
+                        data = _this.data.aggregate.questions;
+                        if(data) {
+                            var answers = getItem(data, "name", userChoice.name);
+                            if(answers) {
+                                _this.drawQuestion($(this), userChoice.value, answers.answers);
+                            }
+                        }
+                        break;
+
+                    case 'scales':
+                        data = _this.data[dataType];
+                        scales = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        $(this).html(scales[this.attributes.getNamedItem("data-value").value]);
+                        break;
+
+                    case 'scalesInfo':
+                        data = _this.info['scales'];
+                        scales = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        $(this).html(scales[this.attributes.getNamedItem("data-value").value]);
+                        break;
+
+                    case 'distribution':
+                        var type = this.attributes.getNamedItem("data-item").value;
+                        data = _this.data[type];
+                        var score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        data = _this.data.aggregate[type];
+                        var distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        data = _this.info[type];
+                        var ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        _this.drawDistribution($(this), distData, score.sum, ranges.max, ranges.min);
+                        break;
+
+                    case 'barChart':
+                        var type = this.attributes.getNamedItem("data-item").value;
+                        data = _this.data[type];
+                        var score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        data = _this.data.aggregate[type];
+                        var distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        data = _this.info[type];
+                        var ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        _this.drawBarChart($(this), distData, score.sum, ranges.max, ranges.min);
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+        }
+    }
+
+    /*
     var questions = this.data.questions;
     var aggQuestions = this.data.aggregate.questions;
     if(questions && aggQuestions) {
@@ -270,13 +405,17 @@ function filterData(data){
                 infoScale = this.getInfoScale(scales[i].name);
                 if(infoScale != null) {
                     this.updateScores(i, scales[i].sum, infoScale.max);
-                    this.drawDistribution('distribution', i, aggScale, scales[i].sum, infoScale.max);
-                    this.drawBarChart("bar", i, aggScales[i], scales[i].sum, infoScale.max);
-                    this.drawScatterPlot("scatter", i, aggScales[i], scales[i].sum, infoScale.max);
+                    this.drawDistribution('distribution', i, aggScale, scales[i].sum, infoScale.max, infoScale.min);
+                    this.drawBarChart("bar", i, aggScales[i], scales[i].sum, infoScale.max, infoScale.min);
+                    this.drawScatterPlot("scatter", i, aggScales[i], scales[i].sum, infoScale.max, infoScale.min);
                 }
             }
         }
+    } else {
+        this.displayError('No scale data!');
+        return;
     }
+    */
 
     /*
     if(data.distributions) {
@@ -346,7 +485,7 @@ function filterData(data){
     this.setColours(colours);
     this.drawBarChart('distribution', 'Distribution', distValues, 5, 10);
     */
-}
+};
 
 function createPage(index) {
     //Clone the relevant page

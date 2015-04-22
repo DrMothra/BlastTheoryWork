@@ -138,7 +138,7 @@ graphApp.prototype = {
         var dataLoad = new dataLoader();
         var _this = this;
         dataLoad.load(filename, function(data) {
-            callback.call(_this, data);
+            callback(data);
         });
     },
 
@@ -147,7 +147,7 @@ graphApp.prototype = {
         var dataLoad = new dataLoader();
         var _this = this;
         dataLoad.load(filename, function(data) {
-            callback.call(_this, data);
+            callback(data);
         });
     },
 
@@ -189,11 +189,11 @@ graphApp.prototype = {
     createSVG: function(element) {
         //Create SVG
         //Use element dimensions
-        var elem = $('#'+element);
-        this.containerWidth = elem.width() <= 100 ? elem.width() * 0.01 * window.innerWidth : elem.width();
+        //var elem = $('#'+element);
+        this.containerWidth = element.width() <= 100 ? element.width() * 0.01 * window.innerWidth : element.width();
         this.containerHeight = this.renderHeight;
 
-        var svg = d3.select('#'+element)
+        var svg = d3.select(element[0])
             .append('svg')
             .attr({width: this.containerWidth,
                 height: this.containerHeight});
@@ -209,7 +209,7 @@ graphApp.prototype = {
 
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
-        var numLines = 6;
+        var numLines = 5;
         var startX = 0.1 * width;
         var startY = 0.05 * height, endY = 0.8 * height;
         var lineGap = (endY - startY)/(numLines-1);
@@ -326,21 +326,17 @@ graphApp.prototype = {
         $('.scoreOutOf'+index).html(max);
     },
 
-    drawQuestion: function(element, index, questions, answers) {
+    drawQuestion: function(element, choice, answers) {
         //Render the required question and response
         var i;
         _this = this;
-        var svg = this.createSVG(element+index);
+        var list = $('.vis');
+        var svg = this.createSVG(element);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
-
-        //Render given responses
-        //Substitute text
-        $('#question'+index).html(questions.text);
-        $('#choice'+index).html(questions.value);
 
         var values = [];
         var total=0;
@@ -355,7 +351,7 @@ graphApp.prototype = {
         }
 
         for(i=0; i<answers.length; ++i) {
-            if(answers[i].value === questions.value) {
+            if(answers[i].value === choice) {
                 //DEBUG
                 console.log("You chose", answers[i].value);
                 break;
@@ -365,7 +361,7 @@ graphApp.prototype = {
 
         //Pie chart
         var pieRadius = height * 0.38;
-        var pieXPos = width * 0.4, pieYPos = height * 0.44;
+        var pieXPos = pieRadius + (width*0.04), pieYPos = height * 0.44;
         var arc = d3.svg.arc()
             .innerRadius(0)
             .outerRadius(pieRadius);
@@ -526,9 +522,9 @@ graphApp.prototype = {
         }
     },
 
-    drawDistribution: function(element, index, data, score, max) {
+    drawDistribution: function(element, data, score, max, min) {
 
-        var svg = this.createSVG(element+index);
+        var svg = this.createSVG(element);
 
         var graph = svg.append("g")
             .attr("transform", "translate(0, 0)");
@@ -551,17 +547,23 @@ graphApp.prototype = {
         this.colours = ['#b7d690'];
 
         //Axes
-        var xTicks = 10, yTicks = 3;
+        var xTicks = 10, yTicks = 4;
         var graphYPos = height*0.8, graphXPos = width*0.92;
         var xRangeMin = width * 0.1, xRangeMax = width*0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
-            .domain([2, 10]);
+            .domain([min, max]);
 
         var yRangeMin = graphYPos, yRangeMax = height * 0.05;
+        //Get max y data
+        var yValues = [];
+        for(var i=0; i<data.distribution.length; ++i) {
+            yValues.push(data.distribution[i].users);
+        }
+        var maxYValue = Math.max.apply(null, yValues);
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
-            .domain([0, 22]);
+            .domain([0, maxYValue]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
@@ -571,11 +573,11 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
-            .ticks(yTicks);
+            .tickValues([0, maxYValue/2, maxYValue]);
 
         var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
-            .attr("class", "axis")
+            .attr("class", "x axis")
             .call(xAxis);
 
         bottomLabel.append("text")
@@ -593,7 +595,7 @@ graphApp.prototype = {
 
         graph.append("g")
             .attr("transform", "translate(" + graphXPos + ",0)")
-            .attr("class", "axis")
+            .attr("class", "y axis")
             .call(yAxis);
 
         //Render data
@@ -606,11 +608,24 @@ graphApp.prototype = {
             })
             .interpolate("basis");
 
+        /*
         graph.append('svg:path')
             .attr('d', lineGen(data.distribution))
             .attr('stroke', LIGHT_GREEN)
             .attr('stroke-width', 2)
-            .attr('fill', 'none');
+            .attr('fill', LIGHT_GREEN);
+        */
+
+        var area = d3.svg.area()
+            .x(function(d) { return x(d.value); })
+            .y0(height*0.8)
+            .y1(function(d) { return y(d.users); })
+            .interpolate("basis");
+
+        graph.append("path")
+            .datum(data.distribution)
+            .attr("class", "area")
+            .attr("d", area);
 
         //Connect user score to graph
         var scoreYPos = height * 0.45, scoreXPos = x(score)/2;
@@ -644,11 +659,11 @@ graphApp.prototype = {
             .attr('r', scoreRadius);
     },
 
-    drawBarChart: function(element, index, data, score, max) {
+    drawBarChart: function(element, data, score, max, min) {
         //Draw graphs from data
         var _this = this;
 
-        var svg = this.createSVG(element+index);
+        var svg = this.createSVG(element);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -673,12 +688,18 @@ graphApp.prototype = {
         var barWidth = ((xRangeMax - xRangeMin)/8)/2, shift = barWidth/2;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
-            .domain([2, 10]);
+            .domain([min, max]);
 
         var yRangeMin = graphYPos, yRangeMax = height * 0.05;
+        //Get max y data
+        var yValues = [];
+        for(var i=0; i<data.distribution.length; ++i) {
+            yValues.push(data.distribution[i].users);
+        }
+        var maxYValue = Math.max.apply(null, yValues);
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
-            .domain([0, 22]);
+            .domain([0, maxYValue]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
@@ -688,7 +709,7 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
-            .ticks(yTicks);
+            .tickValues([0, maxYValue/2, maxYValue]);
 
         var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
@@ -710,7 +731,7 @@ graphApp.prototype = {
 
         graph.append("g")
             .attr("transform", "translate(" + graphXPos + ",0)")
-            .attr("class", "axis")
+            .attr("class", "y axis")
             .call(yAxis);
 
         var bar = graph.append("g")
@@ -830,7 +851,7 @@ graphApp.prototype = {
             });
     },
 
-    drawScatterPlot: function(element, index, data, score, max) {
+    drawScatterPlot: function(element, index, data, score, max, min) {
         //Draw scatter from values
         var _this = this;
 
@@ -856,15 +877,21 @@ graphApp.prototype = {
         var xTicks = 10, yTicks = 3;
         var graphYPos = height*0.8, graphXPos = width*0.92;
         var xRangeMin = width * 0.1, xRangeMax = width*0.9;
-        var barWidth = ((xRangeMax - xRangeMin)/8)/2, shift = barWidth/2;
+        var barWidth = ((xRangeMax - xRangeMin)/(max-min))/2, shift = barWidth/2;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
-            .domain([2, 10]);
+            .domain([min, max]);
 
         var yRangeMin = graphYPos, yRangeMax = height * 0.05;
+        //Get max y data
+        var yValues = [];
+        for(var i=0; i<data.distribution.length; ++i) {
+            yValues.push(data.distribution[i].users);
+        }
+        var maxYValue = Math.max.apply(null, yValues);
         var y = d3.scale.linear()
             .range([yRangeMin, yRangeMax])
-            .domain([0, 22]);
+            .domain([0, maxYValue]);
 
         var xAxis = d3.svg.axis()
             .scale(x)

@@ -5,9 +5,10 @@
     <title>Karen Visualisations</title>
 
     <link rel="stylesheet" href="css/pure-min.css">
-    <link href="css/visStyles.css?v=0.7" rel="stylesheet" type="text/css">
+    <link href="css/visStyles.css?v=0.8" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link href="css/extra.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.2.min.js"></script>
 
     <script>
@@ -21,9 +22,9 @@
 
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/three68.js?v=0.1"></script>
-    <script type="text/javascript" src="js/dataLoader.js"></script>
-    <script type="text/javascript" src="js/graphApp.js?v=0.5"></script>
-    <script type="text/javascript" src="js/visData.js?v=0.4"></script>
+    <script type="text/javascript" src="js/dataLoader.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.6"></script>
+    <script type="text/javascript" src="js/visData.js?v=0.5"></script>
 
 </head>
 <body>
@@ -72,37 +73,58 @@
 
 <div data-role="page" id="page3" class="mainPage">
 
-    <div class="closeButton">
-        <button class="ui-btn ui-corner-all">Close</button>
-    </div>
+    <div class="noDecoration subPageTop">
 
-    <div class="pure-g noDecoration subPage">
-        <div class="pure-u-1-24 navigate">
-            <a href="#page2"><img src="images/arrow-left.png"></a>
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
         </div>
-        <div class="pure-u-7-24 centred">
-            <div class="quicksand heavy pink normalSizeText">
-                <div class="userQuestionContainer pinkBottomBorder">
-                    <span id="question0">WHAT DO YOU WANT TO WORK ON?</span>
-                </div>
-                <div class="questionTextContainer darkPink bigSizeText pinkBottomBorder">
-                    CHOICE
-                    <div class="userAnswerContainer">
-                        <span id="choice0"></span>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page2"><</a>
+        <a class="navRight" href="#page4">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- headline START -->
+                <div class="pure-u-7-24 centred headline">
+                    <div class="quicksand heavy pink normalSizeText">
+                        <div class="questionTextContainer darkPink headline">
+                            You chose
+                            <div class="userAnswerContainer">
+                                <span data-type="questions" data-item="UserGoal" data-value="value"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <span>ANALYSIS</span>
-            </div>
-        </div>
-        <div id="pieChart0" class="pure-u-15-24">
 
-        </div>
-        <div class="pure-u-1-24 navigate">
-            <a href="#page4"><img src="images/arrow-right.png"></a>
+                <!-- vis START -->
+                <div data-type="pieChart" data-item="questions" data-value="UserGoal" class="pure-u-15-24 vis">
+                </div>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
         </div>
     </div>
 
-    <div class="pure-g noDecoration subPage">
+    <div class="noDecoration subPage">
+
+            <!-- sub page / text content -->
+
+                <h2>About Openness</h2>
+                <p>This is a para 100 words -ementum vehicula egestas. In id ornare tortor. Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula efficitur arcu nec consectetur. Vivamus.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>FROM DR KELLY</h2>
+                <p>Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula. <a href="#">This is a link</a> efficitur arcu nec consectetur. Vivamus.</p>
+                <blockquote cite="http://www.worldwildlife.org/who/index.html"> For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally. <p class="credit">Person to credit</p></blockquote>
+                <p>This is a para 100 words - dolor sit amet, consectetur adipiscing elit. Aenean pharetra rhoncus eleifend. Proin maximus orci ac lectus condimentum egestas. Pefficitur arcu nec consectetur. Vivamus.</p>
+
 
     </div>
 
@@ -123,18 +145,16 @@
                 <div class="scoredContainer darkPink mediumSizeText">
                     YOU SCORED
                 </div>
-                <canvas class="scoreBackground">
 
-                </canvas>
                 <div class="userScoreContainer pinkBottomBorder">
-                    <span class="scoreNumber0 veryBigSizeText"></span><span class="scoreFraction0 mediumSizeText">.0</span>
-                    <div class="outOfValue">OUT OF <span class="scoreOutOf0"></span></div>
+                    <span data-type="scales" data-item="scaleOpen" data-value="sum" class="veryBigSizeText"></span>
+                    <div class="outOfValue">OUT OF <span data-type="scalesInfo" data-item="scaleOpen" data-value="max" class="scoreOutOf0"></span></div>
                 </div>
                 ANALYSIS
             </div>
         </div>
 
-        <div id="distribution0" class="pure-u-15-24 centred">
+        <div data-type="distribution" data-item="scales" data-value="scaleOpen" class="pure-u-15-24 centred">
 
         </div>
 
@@ -150,6 +170,10 @@
 </div>
 
 <div data-role="page" id="page5" class="mainPage">
+
+    <div class="closeButton">
+        <button data-role="none" class="pure-button">Close</button>
+    </div>
 
     <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">
@@ -167,14 +191,14 @@
 
                 </canvas>
                 <div class="userScoreContainer pinkBottomBorder">
-                    <span class="scoreNumber0 veryBigSizeText"></span><span class="scoreFraction0 mediumSizeText">.0</span>
-                    <div class="outOfValue">OUT OF <span class="scoreOutOf0"></span></div>
+                    <span data-type="scales" data-item="scaleOpen" data-value="sum" class="veryBigSizeText"></span>
+                    <div class="outOfValue">OUT OF <span data-type="scalesInfo" data-item="scaleOpen" data-value="max" class="scoreOutOf0"></span></div>
                 </div>
                 ANALYSIS
             </div>
         </div>
 
-        <div id="bar0" class="pure-u-15-24 centred">
+        <div data-type="barChart" data-item="scales" data-value="scaleOpen" class="pure-u-15-24 centred">
 
         </div>
 
@@ -190,6 +214,10 @@
 </div>
 
 <div data-role="page" id="page6" class="mainPage">
+
+    <div class="closeButton">
+        <button data-role="none" class="pure-button">Close</button>
+    </div>
 
     <div class="pure-g noDecoration subPage">
         <div class="pure-u-1-24 navigate">

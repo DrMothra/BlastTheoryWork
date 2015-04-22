@@ -2,7 +2,7 @@
   "scales": [
     {
       "name": "scaleOpen",
-      "sum": 7.0,
+      "sum": 7,
       "questions": [
         {
           "name":"Open01",
@@ -22,6 +22,11 @@
       "name": "UserGoal",
       "text": "What do you want to work on?",
       "value": "CONTROL"
+    },
+    {
+      "name": "Name",
+      "text": "What do you want me to call you?",
+      "value": "Prof"
     }
   ],
   "locations": [
