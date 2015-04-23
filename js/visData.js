@@ -145,6 +145,42 @@ function linkPages(numPages) {
     }
 }
 
+function getTotalUsers(data) {
+    var total = 0;
+    for(var i in data) {
+        total += data[i].users;
+    }
+
+    return total;
+}
+
+function classify(data, value) {
+    for(var i in data) {
+        if(value <= data[i].max) {
+            return i;
+        }
+    }
+}
+
+function classifyType(type) {
+    //Do this properly
+    var labels=['LOW', 'UNSURE', 'HIGH'];
+    for(var i in labels) {
+        if(type === labels[i]) {
+            return i;
+        }
+    }
+}
+
+function getClassification(value, classifications, compare) {
+    //Get the classifiction of this value according to given data
+    for(var i in classifications) {
+        if(value <= classifications[i].max) {
+
+        }
+    }
+}
+
 function VisApp(renderHeight) {
     graphApp.call(this, renderHeight);
 }
@@ -189,10 +225,22 @@ $(document).ready(function() {
     //Init app
     var pageElem = $(".subPageTop");
     var renderHeight = $('.contentTop').height();
+    if(renderHeight === 0) {
+        renderHeight = 230;
+    }
     pageElem.height(window.innerHeight);
 
     //Set up swiping between pages
     linkPages(NUM_PAGES);
+
+    //Scrolling
+    $('.readMore').on('click', function() {
+        $.mobile.silentScroll(window.innerHeight);
+    });
+
+    $('.backToTop').on('click', function() {
+        $.mobile.silentScroll(0);
+    });
 
     var app = new VisApp(renderHeight);
 
@@ -215,40 +263,27 @@ $(document).ready(function() {
     //filterData.call(visApp, data);
 });
 
-function getTotalUsers(data) {
-    var total = 0;
-    for(var i in data) {
-        total += data[i].users;
-    }
-
-    return total;
-}
-
-function classify(data, value) {
-    for(var i in data) {
-        if(value <= data[i].max) {
-            return i;
-        }
-    }
-}
-
 VisApp.prototype.preProcessData = function () {
     //Interpret data to get percentages, etc.
     //Distribution percentages
     var scales = this.data.scales;
     var scaleData = this.data.aggregate["scales"];
     var scaleInfoData = this.info.scales;
-    var numScales = scaleData.length;
     var percentages = [];
+    var distribution;
     var classifications = [], classificationsPercent = [], classData;
-    var i, j, x, index, currentScale, total = 0;
+    var i, j, x, index, currentScale, total, allValues;
 
     for(i in scaleData) {
-        total = getTotalUsers(scaleData[i].distribution);
-        for(j in scaleData[i].distribution) {
-            percentages.push((scaleData[i].distribution[j].users/total) * 100);
+        allValues = 0;
+        distribution = scaleData[i].distribution;
+        total = getTotalUsers(distribution);
+        for(j in distribution) {
+            percentages.push((distribution[j].users/total) * 100);
+            allValues += (distribution[j].users * distribution[j].value);
         }
         scaleData[i].distributionPercent = percentages;
+        scaleData[i].mean = allValues/total;
 
         //Classifications for this scale
         classData = getItem(scaleInfoData, "name", scaleData[i].name);
@@ -303,10 +338,11 @@ VisApp.prototype.filterData = function(data) {
     */
 
     //Parse data attributes on each page
-    for(i=3; i<NUM_PAGES; ++i) {
+    for(i=1; i<NUM_PAGES; ++i) {
         var pageAttributes = $('#page' + i +' *[data-type]');
         if(pageAttributes) {
-            var dataType, data, scales;
+            var dataType, data, scales, type, score, distData, ranges, classifications,
+                question, userClass, comparator, classIndex;
             pageAttributes.each(function(i) {
                 dataType = this.attributes.getNamedItem("data-type").value;
                 switch(dataType) {
@@ -316,6 +352,69 @@ VisApp.prototype.filterData = function(data) {
                         if(data) {
                             var questionText = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
                             $(this).html(questionText.value);
+                        }
+                        break;
+
+                    case 'questionsReplace':
+                        data = _this.data['questions'];
+                        question = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        data = _this.info["questins"];
+                        answers = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        comparator = this.attributes.getNamedItem("data-matchType").value;
+                        userClass = this.attributes.getNamedItem("data-match").value;
+                        switch(comparator) {
+                            case 'equals':
+                                if(question.value === answers[userClass].label) {
+                                    $(this).html(answers[userClass].label);
+                                }
+                                break;
+
+                            case 'less':
+                                if(question.value < answers[userClass].label) {
+                                    $(this).html(answers[userClass].label);
+                                }
+                                break;
+
+                            case 'greater':
+                                if(question.value > answers[userClass].label) {
+                                    $(this).html(answers[userClass].label);
+                                }
+                                break;
+
+                            default :
+                                break;
+                        }
+                        break;
+
+                    case 'questionsConditional':
+                        $(this).hide();
+                        data = _this.data['questions'];
+                        question = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        data = _this.info["questins"];
+                        answers = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        comparator = this.attributes.getNamedItem("data-matchType").value;
+                        userClass = this.attributes.getNamedItem("data-match").value;
+                        switch(comparator) {
+                            case 'equals':
+                                if(question.value === answers[userClass].label) {
+                                    $(this).show();
+                                }
+                                break;
+
+                            case 'less':
+                                if(question.value < answers[userClass].label) {
+                                    $(this).show();
+                                }
+                                break;
+
+                            case 'greater':
+                                if(question.value > answers[userClass].label) {
+                                    $(this).show();
+                                }
+                                break;
+
+                            default :
+                                break;
                         }
                         break;
 
@@ -345,25 +444,82 @@ VisApp.prototype.filterData = function(data) {
                         $(this).html(scales[this.attributes.getNamedItem("data-value").value]);
                         break;
 
+                    case 'scalesConditional':
+                        $(this).hide();
+                        data = _this.data['scales'];
+                        score = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        data = _this.info['scales'];
+                        classifications = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        userClass = classify(classifications.classifications, score.sum);
+                        classIndex = classifyType(this.attributes.getNamedItem("data-match").value);
+                        switch(this.attributes.getNamedItem("data-matchType").value) {
+                            case 'equals':
+                                if(userClass === classIndex) {
+                                    $(this).show();
+                                }
+                                break;
+                            case 'less':
+                                if(userClass < classIndex) {
+                                    $(this).show();
+                                }
+                                break;
+                            case 'greater':
+                                if(userClass > classIndex) {
+                                    $(this).show();
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+
+                    case 'scalesReplace':
+                        data = _this.data['scales'];
+                        score = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        data = _this.info['scales'];
+                        classifications = getItem(data, "name", this.attributes.getNamedItem("data-item").value);
+                        userClass = classify(classifications.classifications, score.sum);
+                        classIndex = classifyType(this.attributes.getNamedItem("data-match").value);
+                        switch(this.attributes.getNamedItem("data-matchType").value) {
+                            case 'equals':
+                                if(userClass === classIndex) {
+                                    $(this).html(classifications.classifications[classIndex][this.attributes.getNamedItem("data-display").value]);
+                                }
+                                break;
+                            case 'less':
+                                if(userClass < classIndex) {
+                                    $(this).html(classifications.classifications[classIndex].this.attributes.getNamedItem("data-display").value);
+                                }
+                                break;
+                            case 'greater':
+                                if(userClass > classIndex) {
+                                    $(this).html(classifications.classifications[classIndex].this.attributes.getNamedItem("data-display").value);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+
                     case 'distribution':
-                        var type = this.attributes.getNamedItem("data-item").value;
+                        type = this.attributes.getNamedItem("data-item").value;
                         data = _this.data[type];
-                        var score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         data = _this.data.aggregate[type];
-                        var distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         data = _this.info[type];
-                        var ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         _this.drawDistribution($(this), distData, score.sum, ranges.max, ranges.min);
                         break;
 
                     case 'barChart':
-                        var type = this.attributes.getNamedItem("data-item").value;
+                        type = this.attributes.getNamedItem("data-item").value;
                         data = _this.data[type];
-                        var score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        score = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         data = _this.data.aggregate[type];
-                        var distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        distData = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         data = _this.info[type];
-                        var ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
+                        ranges = getItem(data, "name", this.attributes.getNamedItem("data-value").value);
                         _this.drawBarChart($(this), distData, score.sum, ranges.max, ranges.min);
                         break;
 

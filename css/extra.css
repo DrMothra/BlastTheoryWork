@@ -6,7 +6,7 @@ body {
 /* LAYOUT */
 
 /* iPhone 4 and 5 */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (orientation: landscape) {
 
     .content {
         position: relative;

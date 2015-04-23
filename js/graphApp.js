@@ -211,7 +211,7 @@ graphApp.prototype = {
         //Add line background to existing svg content
         var numLines = 5;
         var startX = 0.1 * width;
-        var startY = 0.05 * height, endY = 0.8 * height;
+        var startY = 0.075 * height, endY = 0.8 * height;
         var lineGap = (endY - startY)/(numLines-1);
 
         for(var i=0; i<numLines; ++i) {
@@ -330,13 +330,22 @@ graphApp.prototype = {
         //Render the required question and response
         var i;
         _this = this;
-        var list = $('.vis');
         var svg = this.createSVG(element);
 
         var graph = svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
+
+        //Title text
+        var textFillColour = LIGHT_GREEN;
+        graph.append("text")
+            .attr("x", width/2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", textFillColour)
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("How Others Responded");
 
         var values = [];
         var total=0;
@@ -361,7 +370,7 @@ graphApp.prototype = {
 
         //Pie chart
         var pieRadius = height * 0.38;
-        var pieXPos = pieRadius + (width*0.04), pieYPos = height * 0.44;
+        var pieXPos = pieRadius + (width*0.04), pieYPos = height * 0.46;
         var arc = d3.svg.arc()
             .innerRadius(0)
             .outerRadius(pieRadius);
@@ -432,13 +441,6 @@ graphApp.prototype = {
                 userSelection = i;
                 break;
             }
-        }
-        //Ensure user selection is in middle of responses
-        if(answers.length === 5 && answers[2].centroid[1] !== selectedYPos) {
-            var temp = answers[2];
-            answers[2] = answers[1];
-            answers[1] = temp;
-            userSelection = 2;
         }
 
         //Determine circle positions
@@ -531,6 +533,25 @@ graphApp.prototype = {
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
+        //Convert data to percentages
+        var percentages = [];
+        var total=0;
+        for(i=0; i<data.distribution.length; ++i) {
+            percentages.push(data.distribution[i].users);
+            total += percentages[i];
+        }
+
+        //Convert these to percentages
+        var processedData = [];
+        var percentItem;
+        for(i=0; i<percentages.length; ++i) {
+            percentages[i] = percentages[i]/total;
+            percentItem = {};
+            percentItem.users = percentages[i];
+            percentItem.value = data.distribution[i].value;
+            processedData.push(percentItem);
+        }
+
         //Title text
         var textFillColour = LIGHT_GREEN;
         graph.append("text")
@@ -539,26 +560,23 @@ graphApp.prototype = {
             .style("text-anchor", "middle")
             .style("fill", textFillColour)
             .attr("class", "quicksand heavy normalSizeText")
-            .text("HOW OTHERS RESPONDED");
+            .text("How Others Responded");
 
         this.drawLineBackground(graph, width, height);
-        this.colours = ['#bcebc1'];
-        //this.drawNormalDistribution(graph, 0, width, height);
-        this.colours = ['#b7d690'];
 
         //Axes
-        var xTicks = 10, yTicks = 4;
+        var xTicks = 10;
         var graphYPos = height*0.8, graphXPos = width*0.92;
         var xRangeMin = width * 0.1, xRangeMax = width*0.9;
         var x = d3.scale.linear()
             .range([xRangeMin, xRangeMax])
             .domain([min, max]);
 
-        var yRangeMin = graphYPos, yRangeMax = height * 0.05;
+        var yRangeMin = graphYPos, yRangeMax = height * 0.075;
         //Get max y data
         var yValues = [];
-        for(var i=0; i<data.distribution.length; ++i) {
-            yValues.push(data.distribution[i].users);
+        for(var i=0; i<processedData.length; ++i) {
+            yValues.push(processedData[i].users);
         }
         var maxYValue = Math.max.apply(null, yValues);
         var y = d3.scale.linear()
@@ -573,6 +591,7 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
+            .ticks(2, "%")
             .tickValues([0, maxYValue/2, maxYValue]);
 
         var bottomLabel = graph.append("g")
@@ -581,20 +600,22 @@ graphApp.prototype = {
             .call(xAxis);
 
         bottomLabel.append("text")
-            .attr("dx", xRangeMin)
-            .attr("dy", "2em")
+            .attr("x", xRangeMin)
+            .attr("dx", "1em")
+            .attr("dy", "2.5em")
             .attr("class", "quicksand smallerSizeText")
             .text("LESS");
 
         bottomLabel.append("text")
-            .attr("dx", xRangeMax)
-            .attr("dy", "2em")
+            .attr("x", xRangeMax)
+            .attr("dx", "-1em")
+            .attr("dy", "2.5em")
             .attr("text-anchor", "end")
             .attr("class", "quicksand smallerSizeText")
             .text("MORE");
 
         graph.append("g")
-            .attr("transform", "translate(" + graphXPos + ",0)")
+            .attr("transform", "translate(" + xRangeMax + ",0)")
             .attr("class", "y axis")
             .call(yAxis);
 
@@ -623,7 +644,7 @@ graphApp.prototype = {
             .interpolate("basis");
 
         graph.append("path")
-            .datum(data.distribution)
+            .datum(processedData)
             .attr("class", "area")
             .attr("d", area);
 
@@ -670,6 +691,25 @@ graphApp.prototype = {
 
         var width = this.containerWidth - this.margin.left - this.margin.right , height = this.containerHeight - this.margin.top - this.margin.bottom;
 
+        //Convert data to percentages
+        var percentages = [];
+        var total=0;
+        for(i=0; i<data.distribution.length; ++i) {
+            percentages.push(data.distribution[i].users);
+            total += percentages[i];
+        }
+
+        //Convert these to percentages
+        var processedData = [];
+        var percentItem;
+        for(i=0; i<percentages.length; ++i) {
+            percentages[i] = percentages[i]/total;
+            percentItem = {};
+            percentItem.users = percentages[i];
+            percentItem.value = data.distribution[i].value;
+            processedData.push(percentItem);
+        }
+
         var textFillColour = LIGHT_GREEN;
         graph.append('text')
             .attr("x", width/2)
@@ -693,8 +733,8 @@ graphApp.prototype = {
         var yRangeMin = graphYPos, yRangeMax = height * 0.05;
         //Get max y data
         var yValues = [];
-        for(var i=0; i<data.distribution.length; ++i) {
-            yValues.push(data.distribution[i].users);
+        for(var i=0; i<processedData.length; ++i) {
+            yValues.push(processedData[i].users);
         }
         var maxYValue = Math.max.apply(null, yValues);
         var y = d3.scale.linear()
@@ -709,6 +749,7 @@ graphApp.prototype = {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("right")
+            .ticks(2, "%")
             .tickValues([0, maxYValue/2, maxYValue]);
 
         var bottomLabel = graph.append("g")
@@ -738,7 +779,7 @@ graphApp.prototype = {
             .attr("transform", "translate(-"+shift+",0)");
 
         bar.selectAll('.bar')
-            .data(data.distribution)
+            .data(processedData)
             .enter().append("rect")
             .attr("y", function(d) { return y(d.users); })
             .attr("x", function(d) { return x(d.value); })
