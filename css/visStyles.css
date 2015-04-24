@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd, ol,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
     margin: 0;
@@ -41,9 +41,7 @@ body {
 .heavy {
     font-weight: bold;
 }
-.noDecoration {
-    text-shadow: none;
-}
+
 /* Text sizes */
 .smallerSizeText {
     font-size: 1.3vw;
@@ -101,23 +99,22 @@ body {
 
 .mainPage {
     padding-top: 0%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: none;
     color: #aaaaaa;
+}
+
+
+/*
+
+.noDecoration {
+    text-shadow: none;
 }
 .subPage {
     padding-top: 0%;
     overflow-x: hidden;
 }
-.pinkBottomBorder {
-    border-bottom: 2px solid pink;
-}
-.navigate {
-    margin-top: 25%;
-}
-.navigate img {
-    width: 100%;
-}
+
+
 .userQuestionContainer {
     padding-bottom: 10%;
 }
@@ -129,6 +126,12 @@ body {
     margin-bottom: 12%;
 }
 
+.navigate {
+    margin-top: 25%;
+}
+.navigate img {
+    width: 100%;
+}
 .scoreBackground {
     position: absolute;
     top: 20%;
@@ -152,32 +155,9 @@ body {
 .more {
     margin-top: -5%;
 }
-.closeButton {
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    font-size: 1.3vw;
-}
-/* Graph styles */
-.axis {
-    font-family: 'quicksandregular';
-    font-size: 1.3vw;
-    fill: #9dc56d;
-    shape-rendering: crispEdges;
-}
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #9dc56d;
-}
-.y.axis path,
-.y.axis line {
-    display: none;
-}
-.area {
-    stroke: #476327;
-    fill: rgba(192, 233, 189, 0.5);
-}
+*/
+
+
 /* Media queries */
 
 

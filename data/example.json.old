@@ -1,0 +1,353 @@
+{
+  "scales": [
+    {
+      "name": "scaleOpen",
+      "sum": 7,
+      "questions": [
+        {
+          "name":"Open01",
+          "text": "Having excellent ideas?",
+          "value": 3
+        },
+        {
+          "name":"Open02",
+          "text": "Do you see yourself as having difficulty understanding abstract ideas?",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "scaleNeuro",
+      "sum": 6,
+      "questions": [
+        {
+          "name":"Neuro01",
+          "text": "Having excellent ideas?",
+          "value": 3
+        },
+        {
+          "name":"Neuro02",
+          "text": "Do you see yourself as having difficulty understanding abstract ideas?",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "scaleLOC",
+      "sum": 1,
+      "questions": [
+        {
+          "name":"LOC01",
+          "text": "Having excellent ideas?",
+          "value": 0
+        },
+        {
+          "name":"LOC02",
+          "text": "Do you see yourself as having difficulty understanding abstract ideas?",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "name": "UserGoal",
+      "text": "What do you want to work on?",
+      "value": "CONTROL"
+    },
+    {
+      "name": "Name",
+      "text": "What do you want me to call you?",
+      "value": "Prof"
+    },
+    {
+      "name": "LocationWork01",
+      "text": "Yes, I'm at work.",
+      "value": "geolocation",
+      "time": 1428684790
+    }
+  ],
+  "locations": [
+    {
+      "lng": -0.21639931201934814,
+      "lat": 50.83674240112305,
+      "timestamp": 1429910981,
+      "date": "2015-04-24T21:29:41.036Z"
+    },
+    {
+      "lng": -0.21641339361667633,
+      "lat": 50.83674621582031,
+      "timestamp": 1429911101,
+      "date": "2015-04-24T21:31:41.341Z"
+    },
+    {
+      "lng": -0.21639534831047058,
+      "lat": 50.83673858642578,
+      "timestamp": 1429990201,
+      "date": "2015-04-25T19:30:00.564Z"
+    }
+  ],
+  "aggregate": {
+    "scales": [
+      {
+        "name": "scaleOpen",
+        "distribution": [ 
+          {
+            "value": 2,
+            "users": 1
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 4,
+            "users": 15
+          },
+          {
+            "value": 5,
+            "users": 18
+          },
+          {
+            "value": 6,
+            "users": 22
+          },
+          {
+            "value": 7,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 10
+          },
+          {
+            "value": 9,
+            "users": 5
+          },
+          {
+            "value": 10,
+            "users": 3
+          }
+        ]
+      },
+      {
+        "name": "scaleNeuro",
+        "distribution": [ 
+          {
+            "value": 2,
+            "users": 1
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 4,
+            "users": 15
+          },
+          {
+            "value": 5,
+            "users": 18
+          },
+          {
+            "value": 6,
+            "users": 40
+          },
+          {
+            "value": 7,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 10
+          },
+          {
+            "value": 9,
+            "users": 5
+          },
+          {
+            "value": 10,
+            "users": 3
+          }
+        ]
+      },
+      {
+        "name": "scaleLOC",
+        "distribution": [ 
+          {
+            "value": 0,
+            "users": 20
+          },
+          {
+            "value": 1,
+            "users": 14
+          },
+          {
+            "value": 2,
+            "users": 10
+          },
+          {
+            "value": 3,
+            "users": 14
+          },
+          {
+            "value": 4,
+            "users": 15
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "name": "UserGoal",
+        "answers": [
+          {
+            "value": "CONTROL",
+            "users": 12
+          },
+          {
+            "value": "ATTITUDE",
+            "users": 18
+          },
+          {
+            "value": "REVIEW",
+            "users": 99
+          }
+        ]
+      }
+    ],
+    "correlations": [
+       {
+         "name1": "UserGoal",
+         "name2": "scaleOpen",
+         "data1": [
+
+            {
+              "value": "CONTROL",
+              "data2": [ 
+                {
+                  "value": 2,
+                  "users": 3
+                },
+                {
+                  "value": 3,
+                  "users": 18
+                },
+                {
+                  "value": 4,
+                  "users": 30
+                },
+                {
+                  "value": 5,
+                  "users": 26
+                },
+                {
+                  "value": 6,
+                  "users": 19
+                },
+                {
+                  "value": 7,
+                  "users": 12
+                },
+                {
+                  "value": 8,
+                  "users": 5
+                },
+                {
+                  "value": 9,
+                  "users": 2
+                },
+                {
+                  "value": 10,
+                  "users": 1
+                }
+              ]
+            },
+
+            {
+              "value": "REVIEW",
+              "data2": [ 
+                {
+                  "value": 2,
+                  "users": 1
+                },
+                {
+                  "value": 3,
+                  "users": 10
+                },
+                {
+                  "value": 4,
+                  "users": 15
+                },
+                {
+                  "value": 5,
+                  "users": 18
+                },
+                {
+                  "value": 6,
+                  "users": 22
+                },
+                {
+                  "value": 7,
+                  "users": 16
+                },
+                {
+                  "value": 8,
+                  "users": 10
+                },
+                {
+                  "value": 9,
+                  "users": 5
+                },
+                {
+                  "value": 10,
+                  "users": 3
+                }
+              ]
+            },
+            {
+              "value": "ATTITUDE",
+              "data2": [ 
+                {
+                  "value": 2,
+                  "users": 1
+                },
+                {
+                  "value": 3,
+                  "users": 3
+                },
+                {
+                  "value": 4,
+                  "users": 5
+                },
+                {
+                  "value": 5,
+                  "users": 8
+                },
+                {
+                  "value": 6,
+                  "users": 12
+                },
+                {
+                  "value": 7,
+                  "users": 16
+                },
+                {
+                  "value": 8,
+                  "users": 11
+                },
+                {
+                  "value": 9,
+                  "users": 6
+                },
+                {
+                  "value": 10,
+                  "users": 2
+                }
+              ]
+            }
+         ]             
+       }
+    ]   
+  }
+}

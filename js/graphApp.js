@@ -207,6 +207,21 @@ graphApp.prototype = {
         }
     },
 
+    drawBackground: function(element, width, height) {
+        //Set up background for graphs
+        //Title text
+        var textFillColour = LIGHT_GREEN;
+        element.append("text")
+            .attr("x", width/2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", textFillColour)
+            .attr("class", "quicksand heavy normalSizeText")
+            .text("How others responded");
+
+        this.drawLineBackground(element, width, height);
+    },
+
     drawLineBackground: function(element, width, height) {
         //Add line background to existing svg content
         var numLines = 5;
@@ -326,7 +341,7 @@ graphApp.prototype = {
         $('.scoreOutOf'+index).html(max);
     },
 
-    drawQuestion: function(element, choice, answers) {
+    drawQuestion: function(element, choice, userData, answers) {
         //Render the required question and response
         var i;
         _this = this;
@@ -345,12 +360,12 @@ graphApp.prototype = {
             .style("text-anchor", "middle")
             .style("fill", textFillColour)
             .attr("class", "quicksand heavy normalSizeText")
-            .text("How Others Responded");
+            .text("How others responded");
 
         var values = [];
         var total=0;
-        for(i=0; i<answers.length; ++i) {
-            values.push(answers[i].users);
+        for(i=0; i<userData.length; ++i) {
+            values.push(userData[i].users);
             total += values[i];
         }
 
@@ -359,10 +374,10 @@ graphApp.prototype = {
             values[i] = Math.round((values[i]/total)*100);
         }
 
-        for(i=0; i<answers.length; ++i) {
-            if(answers[i].value === choice) {
+        for(i=0; i<userData.length; ++i) {
+            if(userData[i].value === choice) {
                 //DEBUG
-                console.log("You chose", answers[i].value);
+                //console.log("You chose", answers[i].value);
                 break;
             }
         }
@@ -419,7 +434,7 @@ graphApp.prototype = {
         //Add rotated y pos to responses
         for(i=0; i<centroids.length; ++i) {
             centroids[i] = rotateVector2D(centroids[i], angle);
-            answers[i].centroid = centroids[i];
+            userData[i].centroid = centroids[i];
         }
 
         //Sort rotated data
@@ -434,10 +449,10 @@ graphApp.prototype = {
 
         //Sort responses by position on screen
 
-        answers = sortResponses(answers, yCoords);
+        userData = sortResponses(userData, yCoords);
         //Update user selection
-        for(i=0; i<answers.length; ++i) {
-            if(answers[i].centroid[1] === selectedYPos) {
+        for(i=0; i<userData.length; ++i) {
+            if(userData[i].centroid[1] === selectedYPos) {
                 userSelection = i;
                 break;
             }
@@ -446,8 +461,10 @@ graphApp.prototype = {
         //Determine circle positions
         var smallCircleRadius = height * 0.06;
         var smallCircleHeight = smallCircleRadius * 2;
-        var numCircles = answers.length;
+        var numCircles = userData.length;
         var circleHeight = pieRadius * 2;
+        //Hack
+        if(numCircles == 1) ++numCircles;
         var circlePadding = (circleHeight - (smallCircleHeight * numCircles))/(numCircles-1);
         var smallCircleXPos = width * 0.9;
         var startCircleYPos = pieYPos - pieRadius + smallCircleRadius;
@@ -461,9 +478,9 @@ graphApp.prototype = {
         var lineXStarts = [], lineXEnds = [];
         var lineYStarts = [];
         for(i=0; i<centroids.length; ++i) {
-            lineXStarts.push(pieXPos + answers[i].centroid[0]);
+            lineXStarts.push(pieXPos + userData[i].centroid[0]);
             lineXEnds.push(smallCircleXPos - smallCircleRadius - (width*0.05));
-            lineYStarts.push(pieYPos + answers[i].centroid[1]);
+            lineYStarts.push(pieYPos + userData[i].centroid[1]);
         }
 
         var lineFill;
@@ -492,7 +509,7 @@ graphApp.prototype = {
         }
 
         var circleFillColour, textFillColour;
-        for(i=0; i<answers.length; ++i) {
+        for(i=0; i<userData.length; ++i) {
             circleFillColour = OFF_WHITE;
             textFillColour = GREEN;
             if(i === userSelection) {
@@ -520,11 +537,11 @@ graphApp.prototype = {
                 .style("text-anchor", "middle")
                 .style("fill", textFillColour)
                 .attr("class", "quicksand heavy normalSizeText")
-                .text(answers[i].value);
+                .text(answers[i].label);
         }
     },
 
-    drawDistribution: function(element, data, score, max, min) {
+    drawDistribution: function(element, data, score, max, min, maxLabel, minLabel) {
 
         var svg = this.createSVG(element);
 
@@ -552,17 +569,7 @@ graphApp.prototype = {
             processedData.push(percentItem);
         }
 
-        //Title text
-        var textFillColour = LIGHT_GREEN;
-        graph.append("text")
-            .attr("x", width/2)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("fill", textFillColour)
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("How Others Responded");
-
-        this.drawLineBackground(graph, width, height);
+        this.drawBackground(graph, width, height);
 
         //Axes
         var xTicks = 10;
@@ -596,27 +603,27 @@ graphApp.prototype = {
 
         var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
-            .attr("class", "x axis")
+            .attr("class", "dist x axis")
             .call(xAxis);
 
         bottomLabel.append("text")
             .attr("x", xRangeMin)
             .attr("dx", "1em")
-            .attr("dy", "2.5em")
+            .attr("dy", "2.75em")
             .attr("class", "quicksand smallerSizeText")
-            .text("LESS");
+            .text(minLabel);
 
         bottomLabel.append("text")
             .attr("x", xRangeMax)
             .attr("dx", "-1em")
-            .attr("dy", "2.5em")
+            .attr("dy", "2.75em")
             .attr("text-anchor", "end")
             .attr("class", "quicksand smallerSizeText")
-            .text("MORE");
+            .text(maxLabel);
 
         graph.append("g")
             .attr("transform", "translate(" + xRangeMax + ",0)")
-            .attr("class", "y axis")
+            .attr("class", "dist y axis")
             .call(yAxis);
 
         //Render data
@@ -648,39 +655,36 @@ graphApp.prototype = {
             .attr("class", "area")
             .attr("d", area);
 
-        //Connect user score to graph
-        var scoreYPos = height * 0.45, scoreXPos = x(score)/2;
+        //Show user on graph
+        var scoreYBottom = height * 0.8, scoreYTop = height * 0.15, scoreXPos = x(score);
         graph.append("line")
-            .attr({x1: 0,
-                y1: scoreYPos,
+            .attr({x1: scoreXPos,
+                y1: scoreYTop,
                 x2: scoreXPos,
-                y2: scoreYPos,
+                y2: scoreYBottom,
                 stroke: '#ef5f68',
                 'stroke-width': 3,
                 'stroke-dasharray': '3,3'});
 
-        //Elbow
-        var elbowXPos = width * 0.65, elbowYPos = height * 0.8;
-        graph.append("line")
-            .attr({x1: scoreXPos,
-                y1: scoreYPos,
-                x2: x(score),
-                y2: elbowYPos,
-                stroke: '#ef5f68',
-                'stroke-width': 3,
-                'stroke-dasharray': '3,3'});
+        graph.append("text")
+            .attr("x", scoreXPos)
+            .attr("y", scoreYTop)
+            .attr("class", "quicksand normalSizeText")
+            .style("fill", DARK_PINK)
+            .attr("text-anchor", "middle")
+            .text("You");
 
         //Draw user score indication
         var scoreRadius = width *0.01;
 
         graph.append("circle")
-            .attr("cx", x(score))
-            .attr("cy", elbowYPos)
+            .attr("cx", scoreXPos)
+            .attr("cy", scoreYBottom)
             .style('fill', '#ef5f68')
             .attr('r', scoreRadius);
     },
 
-    drawBarChart: function(element, data, score, max, min) {
+    drawBarChart: function(element, data, score, max, min, maxLabel, minLabel) {
         //Draw graphs from data
         var _this = this;
 
@@ -710,16 +714,7 @@ graphApp.prototype = {
             processedData.push(percentItem);
         }
 
-        var textFillColour = LIGHT_GREEN;
-        graph.append('text')
-            .attr("x", width/2)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("fill", textFillColour)
-            .attr("class", "quicksand heavy normalSizeText")
-            .text("HOW OTHERS RESPONDED");
-
-        this.drawLineBackground(graph, width, height);
+        this.drawBackground(graph, width, height);
 
         //Axes
         var xTicks = 10, yTicks = 3;
@@ -754,25 +749,25 @@ graphApp.prototype = {
 
         var bottomLabel = graph.append("g")
             .attr("transform", "translate(0," + graphYPos + ")")
-            .attr("class", "axis")
+            .attr("class", "bar x axis")
             .call(xAxis);
 
         bottomLabel.append("text")
             .attr("dx", xRangeMin)
-            .attr("dy", "2em")
+            .attr("dy", "2.75em")
             .attr("class", "quicksand smallerSizeText")
-            .text("LESS");
+            .text(minLabel);
 
         bottomLabel.append("text")
             .attr("dx", xRangeMax)
-            .attr("dy", "2em")
+            .attr("dy", "2.75em")
             .attr("text-anchor", "end")
             .attr("class", "quicksand smallerSizeText")
-            .text("MORE");
+            .text(maxLabel);
 
         graph.append("g")
             .attr("transform", "translate(" + graphXPos + ",0)")
-            .attr("class", "y axis")
+            .attr("class", "bar y axis")
             .call(yAxis);
 
         var bar = graph.append("g")

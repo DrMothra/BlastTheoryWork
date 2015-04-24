@@ -1,6 +1,34 @@
 {
 	"scales": [
 		{
+			"name": "KscalePrivacy",
+			"min": 0,
+			"max": 8,
+			"min-label": "High respect",
+			"max-label": "Low respect",
+			"questions": ["Privacy01","Privacy02","Privacy03","Privacy04"],
+			"classifications": [
+				{
+					"min": 0,
+					"max": 2,
+					"name": "HIGH",
+					"label": "High respect for Karen’s privacy"
+				},
+				{
+					"min": 3,
+					"max": 5,
+					"name": "MODERATE",
+					"label": "Moderate respect for Karen’s privacy"
+				},
+				{
+					"min": 6,
+					"max": 8,
+					"name": "LOW",
+					"label": "Low respect for Karen’s privacy"
+				}
+			]
+		},
+		{
 			"name": "scaleNeuro",
 			"min": 2,
 			"max": 10,
@@ -29,7 +57,29 @@
 			]
 		},
 		{
-			"name": "scaleOpen",
+			"name": "scaleLOC",
+			"min": 0,
+			"max": 4,
+			"min-label": "Low (External)",
+			"max-label": "High (Internal)",
+			"questions": ["LOC01","LOC02"],
+			"classifications": [
+				{
+					"min":0,
+					"max": 2,
+					"name": "EXTERNAL",
+					"label": "External"
+				},
+				{
+					"min":3,
+					"max": 4,
+					"name": "INTERNAL",
+					"label": "Internal"
+				}
+			]
+		},
+		{
+			"name": "scaleOpenness",
 			"min": 2,
 			"max": 10,
 			"min-label": "Low",
@@ -73,6 +123,23 @@
 				{
 					"value": "ATTITUDE",
 					"label": "Relationships"
+				}
+			]
+		},
+		{
+			"name": "Object",
+			"answers": [
+				{
+					"value": "BANGLE",
+					"label": "Bangle"
+				},
+				{
+					"value": "CAMERA",
+					"label": "Camera"
+				},
+				{
+					"value": "DEER",
+					"label": "Deer Family"
 				}
 			]
 		}
