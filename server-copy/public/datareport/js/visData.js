@@ -141,6 +141,7 @@ function filterData(data) {
     intervalId = setInterval(function(){
         if(app != null) {
             clearInterval(intervalId);
+            data = injectedData;
             app.filterData(data);
         }
     }, 500);

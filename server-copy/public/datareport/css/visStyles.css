@@ -1,0 +1,114 @@
+/* Framework styles */
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #aaaaaa;
+    color: #221546;
+}
+.title {
+    font-size: 2em;
+    margin: 3%;
+}
+.bigTitle {
+    font-size: 4em;
+    margin: 5%;
+}
+.subTitle {
+    font-size: 1.5em;
+    margin: 2%;
+}
+ol {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    padding-left: 10%;
+}
+.centred {
+    text-align: center;
+}
+.nextScreen {
+    text-align: right;
+    padding-right: 10%;
+}
+.next {
+    text-align: right;
+}
+.previousScreen {
+    text-align: left;
+    margin-left: 10%;
+}
+.autoCentre {
+    margin: 0 auto;
+}
+.bar {
+    fill: steelblue;
+}
+.barText {
+    fill: white;
+    font-size: 0.75em;
+    text-anchor: middle;
+}
+#pageone,
+#pagetwo,
+#pagethree,
+#pagefour,
+#pagefive {
+    background-color: #333333;
+    color: #aaaaaa;
+}
+.barHorizontal {
+    fill: #c661b2;
+}
+.axis {
+    font: 10px sans-serif;
+    fill: white;
+    shape-rendering: crispEdges;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+}
+.smallPadLeft {
+    padding-left: 3%;
+}
+.indicator {
+    width: 0;
+    height: 0;
+    margin: 10% 0 0 0;
+}
+.red {
+    border-right: 5px solid red;
+    border-left: 5px solid red;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.steelblue {
+    border-right: 5px solid steelblue;
+    border-left: 5px solid steelblue;
+    border-top: 2px transparent;
+    border-bottom: 2px transparent;
+}
+.userKey {
+    padding-left: 5%;
+}
+.keyInfo {
+    margin: 2% 0 2% 0;
+}

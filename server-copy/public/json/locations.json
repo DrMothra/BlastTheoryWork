@@ -1,0 +1,694 @@
+[
+	{
+	    "generic": false,
+	    "id": 1,
+	    "conversationId": 1,
+        "video": "/videos/1a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":83000,
+	    		"out":84860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 2,
+	    "conversationId": 2,
+        "video": "/videos/1b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":28000,
+	    		"out":29860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":83000,
+	    		"out":84860
+	    	},
+	    	{
+	    		"loopId":6,
+	    		"in":168000,
+	    		"out":169860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":205000,
+	    		"out":206860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":305000,
+	    		"out":306860
+	    	},
+	    	{
+	    		"loopId":12,
+	    		"in":448000,
+	    		"out":449860
+	    	},
+	    	{
+	    		"loopId":14,
+	    		"in":475000,
+	    		"out":476860
+	    	},
+	    	{
+	    		"loopId":16,
+	    		"in":486000,
+	    		"out":487860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 3,
+	    "conversationId": 3,
+        "video": "/videos/2a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":21,
+	    		"in":100000,
+	    		"out":101860
+	    	},
+	    	{
+	    		"loopId":22,
+	    		"in":107000,
+	    		"out":108860
+	    	},
+	    	{
+	    		"loopId":23,
+	    		"in":113000,
+	    		"out":114860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":184000,
+	    		"out":185860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":307000,
+	    		"out":308860
+	    	},
+	    	{
+	    		"loopId":111,
+	    		"in":399000,
+	    		"out":400860
+	    	},
+	    	{
+	    		"loopId":112,
+	    		"in":468000,
+	    		"out":469860
+	    	},
+	    	{
+	    		"loopId":113,
+	    		"in":542000,
+	    		"out":543860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 4,
+	    "conversationId": 4,
+        "video": "/videos/2b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":85000,
+	    		"out":86860
+	    	},
+	    	{
+	    		"loopId":5,
+	    		"in":204000,
+	    		"out":205860
+	    	},
+	    	{
+	    		"loopId":7,
+	    		"in":213000,
+	    		"out":214860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 6,
+	    "conversationId": 6,
+        "video": "/videos/3b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":49000,
+	    		"out":52860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":60000,
+	    		"out":63860
+	    	},
+	    	{
+	    		"loopId":511,
+	    		"in":89000,
+	    		"out":90860
+	    	},
+	    	{
+	    		"loopId":61,
+	    		"in":157000,
+	    		"out":157860
+	    	},
+	    	{
+	    		"loopId":7,
+	    		"in":170000,
+	    		"out":171860
+	    	},
+	    	{
+	    		"loopId":9,
+	    		"in":221000,
+	    		"out":222860
+	    	},
+	    	{
+	    		"loopId":11,
+	    		"in":352000,
+	    		"out":353860
+	    	},
+	    	{
+	    		"loopId":131,
+	    		"in":369000,
+	    		"out":370860
+	    	},
+	    	{
+	    		"loopId":132,
+	    		"in":438000,
+	    		"out":439860
+	    	},
+	    	{
+	    		"loopId":17,
+	    		"in":694000,
+	    		"out":696860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 7,
+	    "conversationId": 7,
+        "video": "/videos/3c.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":21,
+	    		"in":28000,
+	    		"out":29860
+	    	},
+	    	{
+	    		"loopId":41,
+	    		"in":45000,
+	    		"out":46860
+	    	},
+	    	{
+	    		"loopId":22,
+	    		"in":90000,
+	    		"out":91860
+	    	},
+	    	{
+	    		"loopId":42,
+	    		"in":107000,
+	    		"out":108860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 8,
+	    "conversationId": 8,
+        "video": "/videos/4a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":29000,
+	    		"out":30860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":41000,
+	    		"out":42860
+	    	},
+	    	{
+	    		"loopId":6,
+	    		"in":139000,
+	    		"out":144860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":165000,
+	    		"out":166860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":209000,
+	    		"out":210860
+	    	},
+	    	{
+	    		"loopId":12,
+	    		"in":267000,
+	    		"out":268860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 9,
+	    "conversationId": 9,
+        "video": "/videos/4b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":84000,
+	    		"out":85860
+	    	},
+	    	{
+	    		"loopId":41,
+	    		"in":110000,
+	    		"out":111860
+	    	},
+	    	{
+	    		"loopId":43,
+	    		"in":178000,
+	    		"out":181860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 11,
+	    "conversationId": 11,
+        "video": "/videos/5b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 12,
+	    "conversationId": 12,
+        "video": "/videos/6a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":31000,
+	    		"out":32860
+	    	},
+	    	{
+	    		"loopId":51,
+	    		"in":77000,
+	    		"out":78860
+	    	},
+	    	{
+	    		"loopId":52,
+	    		"in":105000,
+	    		"out":106860
+	    	},
+	    	{
+	    		"loopId":53,
+	    		"in":134000,
+	    		"out":135860
+	    	},
+	    	{
+	    		"loopId":7,
+	    		"in":145000,
+	    		"out":148860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":220000,
+	    		"out":221860
+	    	},
+	    	{
+	    		"loopId":151,
+	    		"in":266000,
+	    		"out":267860
+	    	},
+	    	{
+	    		"loopId":152,
+	    		"in":353000,
+	    		"out":356860
+	    	},
+	    	{
+	    		"loopId":153,
+	    		"in":436000,
+	    		"out":437860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 13,
+	    "conversationId": 13,
+        "video": "/videos/6b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":33000,
+	    		"out":34860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":86000,
+	    		"out":87860
+	    	},
+	    	{
+	    		"loopId":6,
+	    		"in":100000,
+	    		"out":101860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":113000,
+	    		"out":114860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":134000,
+	    		"out":135860
+	    	},
+	    	{
+	    		"loopId":12,
+	    		"in":174000,
+	    		"out":175860
+	    	},
+	    	{
+	    		"loopId":15,
+	    		"in":352000,
+	    		"out":353860
+	    	},
+	    	{
+	    		"loopId":17,
+	    		"in":401000,
+	    		"out":402860
+	    	},
+	    	{
+	    		"loopId":191,
+	    		"in":414000,
+	    		"out":415860
+	    	},
+	    	{
+	    		"loopId":192,
+	    		"in":427000,
+	    		"out":428860
+	    	},
+	    	{
+	    		"loopId":21,
+	    		"in":457000,
+	    		"out":458860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 14,
+	    "conversationId": 14,
+        "video": "/videos/7a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":30000,
+	    		"out":31860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":46000,
+	    		"out":47860
+	    	},
+	    	{
+	    		"loopId":6,
+	    		"in":66000,
+	    		"out":67860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":82000,
+	    		"out":82860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":93000,
+	    		"out":93860
+	    	},
+	    	{
+	    		"loopId":12,
+	    		"in":107000,
+	    		"out":108860
+	    	},
+	    	{
+	    		"loopId":14,
+	    		"in":121000,
+	    		"out":122860
+	    	},
+	    	{
+	    		"loopId":17,
+	    		"in":138000,
+	    		"out":139860
+	    	},
+	    	{
+	    		"loopId":19,
+	    		"in":152000,
+	    		"out":153860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 15,
+	    "conversationId": 15,
+        "video": "/videos/8a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":21,
+	    		"in":40000,
+	    		"out":43860
+	    	},
+	    	{
+	    		"loopId":22,
+	    		"in":149000,
+	    		"out":149860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 16,
+	    "conversationId": 16,
+        "video": "/videos/8b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":74000,
+	    		"out":75860
+	    	},
+	    	{
+	    		"loopId":4,
+	    		"in":107000,
+	    		"out":108860
+	    	},
+	    	{
+	    		"loopId":6,
+	    		"in":131000,
+	    		"out":132860
+	    	},
+	    	{
+	    		"loopId":8,
+	    		"in":157000,
+	    		"out":158860
+	    	},
+	    	{
+	    		"loopId":10,
+	    		"in":193000,
+	    		"out":194860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 17,
+	    "conversationId": 17,
+        "video": "/videos/9a.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":2,
+	    		"in":36000,
+	    		"out":36860
+	    	},
+	    	{
+	    		"loopId":37,
+	    		"in":137000,
+	    		"out":137860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 18,
+	    "conversationId": 18,
+        "video": "/videos/9b.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":21,
+	    		"in":58000,
+	    		"out":61860
+	    	},
+	    	{
+	    		"loopId":411,
+	    		"in":105000,
+	    		"out":108860
+	    	},
+	    	{
+	    		"loopId":412,
+	    		"in":153000,
+	    		"out":156860
+	    	},
+	    	{
+	    		"loopId":413,
+	    		"in":201000,
+	    		"out":204860
+	    	},
+	    	{
+	    		"loopId":22,
+	    		"in":252000,
+	    		"out":253860
+	    	},
+	    	{
+	    		"loopId":421,
+	    		"in":296000,
+	    		"out":299860
+	    	},
+	    	{
+	    		"loopId":422,
+	    		"in":343000,
+	    		"out":346860
+	    	},
+	    	{
+	    		"loopId":423,
+	    		"in":390000,
+	    		"out":393860
+	    	},
+	    	{
+	    		"loopId":23,
+	    		"in":446000,
+	    		"out":449860
+	    	},
+	    	{
+	    		"loopId":431,
+	    		"in":492000,
+	    		"out":495860
+	    	},
+	    	{
+	    		"loopId":432,
+	    		"in":539000,
+	    		"out":542860
+	    	},
+	    	{
+	    		"loopId":433,
+	    		"in":586000,
+	    		"out":589860
+	    	}
+	    ]
+	},
+	{
+	    "generic": false,
+	    "id": 19,
+	    "conversationId": 19,
+        "video": "/videos/9c.mp4",
+	    "loops":[
+	    	{
+	    		"loopId":1000,
+	    		"in":0,
+	    		"out":1160
+	    	},
+	    	{
+	    		"loopId":999,
+	    		"in":239000,
+	    		"out":239860
+	    	}
+	    ]
+	}
+
+]

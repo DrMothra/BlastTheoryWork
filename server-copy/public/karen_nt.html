@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Karen Visualisations</title>
+
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/visStyles.css?v=0.6" rel="stylesheet" type="text/css">
+    
+    <!-- <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"> -->
+    <link href="css/extra.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+
+    <script>
+        $(document).bind("mobileinit", function(){
+            $.event.special.swipe.horizontalDistanceThreshold = 75; //(default: 30px) – Swipe horizontal displacement must be more than this.
+            $.event.special.swipe.verticalDistanceThreshold = 75; //(default: 75px) – Swipe vertical displacement must be less than this.
+        });
+    </script>
+
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/three68.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.5"></script>
+    <script type="text/javascript" src="js/visData.js?v=0.4"></script>
+
+</head>
+<body>
+
+<!-- PAGE 3 -->     
+
+<div data-role="page" id="page3" class="mainPage">
+
+    <!-- navTop + close -->
+    <div class="navTop">
+        <a class="navClose" href="#">Close</a>
+    </div>
+    
+    <!-- navigation -->
+     <a class="navLeft" href="#page2"><</a>
+     <a class="navRight" href="#page4">></a>
+    
+    <!-- fixed width content -->
+    <div class="content">
+       
+        <!-- top content -->
+        <div class="contentTop">
+
+            <!-- headline START -->
+            <div class="pure-u-7-24 centred headline">
+                <div class="quicksand heavy pink normalSizeText">
+                    <div class="questionTextContainer darkPink headline">
+                        You chose life goals
+                    </div>
+                </div>
+            </div>
+
+            <!-- vis START -->
+            <div id="question0" class="pure-u-15-24 vis">
+            </div>
+
+        </div>
+
+        <!-- read more bar -->
+        <div class="readMore"><a href="#">Read more</a></div>
+
+        <!-- sub page / text content -->
+        <div class="contentBottom">
+            <h2>About Openness</h2>
+            <p>This is a para 100 words - dolor sit amet, consectetur adipiscing elit. Aenean pharetra rhoncus eleifend. Proin maximus orci ac lectus condimentum egestas. Phasellus gravida risus arcu, non mollis tellus ultricies in. Donec vel pharetra elit. <a href="#">This is a link</a> integer bibendum mauris nec tempus sodales. Sed posuere odio et nunc ullamcorper porta. Fusce et turpis dictum, gravida dui id, pulvinar lectus. Aliquam elementum vehicula egestas. In id ornare tortor. Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula efficitur arcu nec consectetur. Vivamus.</p>
+            <div class="backToTop"><a href="#">back to top ^</a></div>
+             <h2>FROM DR KELLY</h2>
+            <p>Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula. <a href="#">This is a link</a> efficitur arcu nec consectetur. Vivamus.</p>
+            <blockquote cite="http://www.worldwildlife.org/who/index.html"> For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally. <p class="credit">Person to credit</p></blockquote>
+            <p>This is a para 100 words - dolor sit amet, consectetur adipiscing elit. Aenean pharetra rhoncus eleifend. Proin maximus orci ac lectus condimentum egestas. Pefficitur arcu nec consectetur. Vivamus.</p>
+
+            
+        </div>
+    </div>
+    
+    <!-- <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page2"><img src="images/arrow-left.png"></a>
+        </div>
+       
+        <div class="pure-u-1-24 navigate">
+            <a href="#page4"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+     -->
+
+</div>
+
+
+
+</body>
+</html>

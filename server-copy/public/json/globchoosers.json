@@ -1,0 +1,10 @@
+[
+	{
+	  "name":"greeting",
+	  "memory":"likesPlayer",
+	  "buckets":{
+	 	"0":"insult1",              
+	  	"1":"endearment1"
+	  }
+	}
+]

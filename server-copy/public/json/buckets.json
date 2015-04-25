@@ -1,0 +1,14 @@
+{
+	"endearment1":{
+		"list":["darling", "sweetheart", "sugar", "honey", "love"]
+	},
+	"insult1":{
+		"list":["arsehole", "twat", "bastard", "prick"]
+	},
+	"amusement1":{
+		"list":["hilarious", "a hoot", "bare jokes", "fun"]
+	},
+	"boredom1":{
+		"list":["great! By which I mean shit", "like eating glass but less healthy", "like watching paint dry, except less entertaining"]
+	}
+}

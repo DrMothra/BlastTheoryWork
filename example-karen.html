@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Karen Visualisations</title>
+
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/visStyles.css?v=0.8" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link href="css/extra.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+
+    <script>
+        $(document).bind("mobileinit", function(){
+            $.event.special.swipe.horizontalDistanceThreshold = 75; //(default: 30px) – Swipe horizontal displacement must be more than this.
+            $.event.special.swipe.verticalDistanceThreshold = 75; //(default: 75px) – Swipe vertical displacement must be less than this.
+        });
+    </script>
+
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/three68.js?v=0.1"></script>
+    <script type="text/javascript" src="js/dataLoader.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.6"></script>
+    <script type="text/javascript" src="js/visData.js?v=0.5"></script>
+
+</head>
+<body>
+
+<div data-role="page"  class="mainPage" id="page1">
+
+    <div class="pure-g noDecoration grey subPage">
+        <div class="pure-u-1-24 navigate">
+
+        </div>
+        <div class="pure-u-11-12">
+            <div class="bigTitle centred">
+                Welcome to Karen
+            </div>
+
+            <div class="subTitle centred">
+                <p>Have a look at your profile.</p>
+            </div>
+        </div>
+        <div class="pure-u-1-24 navigate">
+            <a href="#page2"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" class="mainPage" id="page2">
+
+   <div class="noDecoration subPageTop">
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page1"><</a>
+        <a class="navRight" href="#page3">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+            <h2>Replacements</h2>
+            <p>Question: answer</p>
+            <span data-type="questions" data-item="UserGoal" data-value="value"></span>
+            <p>Scale: score</p>
+            <div><span data-type="scales" data-item="scaleOpen" data-value="sum"></span></div>
+            <p>Scale: score max</p>
+            <span data-type="scalesInfo" data-item="scaleOpen" data-value="max"></span>
+            <p>Classification %</p>
+            <span data-type="scalesReplace" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="HIGH" data-display="percent"></span>
+
+            
+            <h2>Conditionals</h2>
+            <p>Scale: score</p>
+            <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="HIGH">You're high on openness</span>
+            
+            <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="HIGH">You're high on openness</span>
+            
+            
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page3" class="mainPage">
+
+    <div class="noDecoration subPageTop">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page2"><</a>
+        <a class="navRight" href="#page4">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- headline START -->
+                <div class="pure-u-7-24 centred headline">
+                    <div class="quicksand heavy pink normalSizeText">
+                        <div class="questionTextContainer darkPink headline">
+                            You chose
+                            <div class="userAnswerContainer">
+                                <span data-type="questions" data-item="UserGoal" data-value="value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- vis START -->
+                <div data-type="pieChart" data-item="questions" data-value="UserGoal" class="pure-u-15-24 vis">
+                </div>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration subPage">
+
+            <!-- sub page / text content -->
+
+                <h2>About Openness</h2>
+                <p>This is a para 100 words -ementum vehicula egestas. In id ornare tortor. Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula efficitur arcu nec consectetur. Vivamus.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>FROM DR KELLY</h2>
+                <p>Nulla hendrerit libero a tellus sollicitudin fringilla. Pellentesque mollis auctor dui id congue. Nam risus elit, mollis ut justo eget, sollicitudin lobortis risus. Morbi et orci nunc. Nunc luctus vestibulum vehicula. <a href="#">This is a link</a> efficitur arcu nec consectetur. Vivamus.</p>
+                <blockquote cite="http://www.worldwildlife.org/who/index.html"> For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally. <p class="credit">Person to credit</p></blockquote>
+                <p>This is a para 100 words - dolor sit amet, consectetur adipiscing elit. Aenean pharetra rhoncus eleifend. Proin maximus orci ac lectus condimentum egestas. Pefficitur arcu nec consectetur. Vivamus.</p>
+
+
+    </div>
+
+</div>
+
+
+<div data-role="page" id="page4" class="mainPage">
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page3"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div class="scoredContainer darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+
+                <div class="userScoreContainer pinkBottomBorder">
+                    <span data-type="scales" data-item="scaleOpen" data-value="sum" class="veryBigSizeText"></span>
+                    <span data-type="scalesReplace" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="HIGH" data-display="percent"></span>
+                    <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="HIGH" class="conditional">You're high on openness</span>
+                </div>
+                ANALYSIS
+            </div>
+        </div>
+
+        <div data-type="distribution" data-item="scales" data-value="scaleOpen" class="pure-u-15-24 centred">
+
+        </div>
+
+        <div class="pure-u-1-24 navigate">
+            <a href="#page5"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+<div data-role="page" id="page5" class="mainPage">
+
+    <div class="closeButton">
+        <button data-role="none" class="pure-button">Close</button>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page4"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div class="scoredContainer darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+                <canvas class="scoreBackground">
+
+                </canvas>
+                <div class="userScoreContainer pinkBottomBorder">
+                    <span data-type="scales" data-item="scaleOpen" data-value="sum" class="veryBigSizeText"></span>
+                    <div class="outOfValue">OUT OF <span data-type="scalesInfo" data-item="scaleOpen" data-value="max" class="scoreOutOf0"></span></div>
+                </div>
+                ANALYSIS
+            </div>
+        </div>
+
+        <div data-type="barChart" data-item="scales" data-value="scaleOpen" class="pure-u-15-24 centred">
+
+        </div>
+
+        <div class="pure-u-1-24 navigate">
+            <a href="#page6"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+<div data-role="page" id="page6" class="mainPage">
+
+    <div class="closeButton">
+        <button data-role="none" class="pure-button">Close</button>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+        <div class="pure-u-1-24 navigate">
+            <a href="#page5"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-7-24 centred">
+            <div class="quicksand heavy pink normalSizeText">
+                <div class="userDistContainer pinkBottomBorder">
+                    <span>WHAT DO YOU VALUE?</span>
+                </div>
+                <div class="scoredContainer darkPink mediumSizeText">
+                    YOU SCORED
+                </div>
+                <canvas class="scoreBackground">
+
+                </canvas>
+                <div class="userScoreContainer pinkBottomBorder">
+                    <span class="scoreNumber0 veryBigSizeText"></span><span class="scoreFraction0 mediumSizeText">.0</span>
+                    <div class="outOfValue">OUT OF <span class="scoreOutOf0"></span></div>
+                </div>
+                ANALYSIS
+            </div>
+        </div>
+
+        <div id="scatter0" class="pure-u-15-24 centred">
+
+        </div>
+
+        <div class="pure-u-1-24 navigate">
+            <a href="#page8"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+    <div class="pure-g noDecoration subPage">
+
+    </div>
+
+</div>
+
+<div data-role="page" class="mainPage" id="page8">
+
+   <div class="noDecoration subPageTop">
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page6"><</a>
+        <a class="navRight" href="#page3">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+            <h2>Replacement Examples</h2>
+            <p>Question answer:
+                <span data-type="questions" data-item="UserGoal" data-value="value">[REPLACEMENT]</span>
+            </p>
+            <p>Question (% of users index:0):
+                <span data-type="questionsReplace" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="0">[REPLACE]</span>
+            </p>
+
+            <p>Question total users:
+                <span data-type="questionsReplace" data-item="UserGoal" data-display="total">[REPLACE]</span>
+            </p>
+
+            <p>Scale score:
+                <span data-type="scales" data-item="scaleOpen" data-value="sum">[REPLACE]</span>
+            </p>
+            <p>Scale score max:
+                <span data-type="scalesInfo" data-item="scaleOpen" data-value="max">[REPLACE]</span>
+            </p>
+            <p>Scale classification (% of users index:2):
+                <span data-type="scalesReplace" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>
+            </p>
+            <p>Scale classification (% of users index:0):
+                <span data-type="scalesReplace" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>
+            </p>
+
+            <p>Scale total users:
+                <span data-type="scalesReplace" data-item="scaleOpen" data-display="total">[REPLACE]</span>
+            </p>
+
+            <p>Scale mean:
+                <span data-type="scalesReplace" data-item="scaleOpen" data-display="mean">[REPLACE]</span>
+            </p>
+            
+            <h2>Conditional Examples</h2>
+            <p>Question answer (VISIBLE):
+                <span data-type="questionsConditional" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="0">You chose to work on taking control</span>
+            </p>
+
+            <p>Question answer (HIDDEN):
+                <span data-type="questionsConditional" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="2">You chose to work on relationships.</span>
+            </p>
+
+            <p>Scale classification (VISIBLE):
+                <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="2">You're high on openness</span>
+            </p>
+            <p>Scale classification (HIDDEN):
+                <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="equals" data-match="0">You're low on openness</span>
+            </p>
+
+            <p>Scale score greater than mean (VISIBLE):
+                <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="greaterThan" data-match="mean">You're more open than average</span>
+            </p>
+
+            <p>Scale score less than mean (HIDDEN):
+                <span data-type="scalesConditional" data-item="scaleOpen" data-value="classification" data-matchType="lessThan" data-match="mean">You're less open than average</span>
+            </p>
+            
+            
+
+            <h2>Vis Examples</h2>
+            <div class="contentTop">
+                <div data-type="pieChart" data-item="questions" data-value="UserGoal" class="vis"></div>
+            <div>
+
+
+            <div class="contentTop">
+                <div data-type="distribution" data-item="scales" data-value="scaleOpen" class="vis"></div>
+            <div>
+            <div class="contentTop">
+                <div data-type="barChart" data-item="scales" data-value="scaleOpen" class="vis">
+            <div>
+        </div>
+            
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

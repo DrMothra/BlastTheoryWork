@@ -1,0 +1,24 @@
+@media screen and (max-width: 980px) and (orientation : landscape) {
+    /* LANDSCAPE:
+    Nexus 7
+    HTC Evo 3D*/
+    .currentQuestionContainer {
+        top: 1%;
+    }
+    .userAnswerContainer {
+        top: 33%;
+        left: 1.5%;
+    }
+    .response1 {
+        top: 18%;
+        left: 41%;
+    }
+    .response2 {
+        top: 36%;
+        left: 41%;
+    }
+    .response3 {
+        top: 52%;
+        left: 42.5%;
+    }
+}

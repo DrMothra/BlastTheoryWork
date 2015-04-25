@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Karen Visualisations</title>
+
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/visStyles.css?v=0.8" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css">
+    <link href="css/extra.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+
+    <script>
+        $(document).bind("mobileinit", function(){
+            $.event.special.swipe.horizontalDistanceThreshold = 75; //(default: 30px) - Swipe horizontal displacement must be more than this.
+            $.event.special.swipe.verticalDistanceThreshold = 75; //(default: 75px) - Swipe vertical displacement must be less than this.
+        });
+    </script>
+
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/d3.min.js"></script>
+
+    <script type="text/javascript" src="js/info.js?v=0.1"></script>
+    <script type="text/javascript" src="js/three68.js?v=0.1"></script>
+    <script type="text/javascript" src="js/dataLoader.js?v=0.1"></script>
+    <script type="text/javascript" src="js/graphApp.js?v=0.6"></script>
+
+    <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30559940-11', 'auto');
+    ga('set', 'page', '/index.html');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<!-- ********* TITLE PAGE ********** -->
+
+<div data-role="page"  class="mainPage" id="page1">
+
+    <div class="noDecoration subPageTop">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <!-- <a class="navRight" href="#page2">></a>-->
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- title -->
+                <h1 class="pageTitle">
+                    Karen data report
+                </h1>
+
+                <h3>generated</h3>
+
+                <p>
+                    <script language="javascript">
+                     var today = new Date();
+                     document.write(today);
+                     </script>
+                </p>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">OPEN</a></div>
+
+             <div class="contentBottom noHeadline">
+
+                <h2>INTRODUCTION</h2>
+                <p>Welcome to your data report.</p>
+                <p>Like most digital services, Karen gathers data on you throughout your experience. More unusually, in this app your data belongs to you.</p>
+                <p>This report shows how we gathered your data during your time with Karen, how it was used to personalise the experience and what scientific basis - if any - it draws on. As you will see, the science of profiling and psychometric testing is fraught with uncertainties.  And we have used that science in playful and subjective ways.</p>
+                <p>Rest assured that others are using your data with greather sophistication and colder intent. Hopefully Karen highlights some of the queasy feelings that highly personalised and mildly intrusive data collection can trigger.</p>
+                <p>This report is dynamic and will update as more people complete the experience so come back from time to time and see how you compare to other players.</p>
+                <p>You can also share your experience, and listen to others using #karenismylifecoach</p>
+                <div class="centred"> <a href="#page2">OK. Let's begin ></a></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ********* SECTION - PERSONALITY ********** -->
+
+<div data-role="page"  class="mainPage" id="page2">
+
+    <div class="noDecoration subPageTop">
+        
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page1"><</a>
+        <a class="navRight" href="#page3">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- section title -->
+                <h1 class="pageTitle">
+                   Section 1 :<br/>Dimensions Of Your Personality
+                </h1>
+            </div>
+
+            <div class="readMore"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ********* PAGE - OPENNESS ********** -->
+
+<div data-role="page" id="page3" class="mainPage">
+
+    <div class="noDecoration no-subPage">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page2"><</a>
+        <a class="navRight" href="#page4">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- headline -->
+                <h1 class="pageTitle">
+                    How open are you to new and different experiences?
+                </h1>
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom">    
+
+                <!-- vis headline -->
+                <div class="headline">
+                    <h2>
+                        <span class="med">You are<br/></span>                     
+                        <span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="2" data-display="sum">
+                            <span class="big">really open</span>
+                        </span>
+                        <span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="1" data-display="sum">
+                            <span class="big">not sure</span>
+                            <br/>
+                            <span class="med">if you're open</span>
+                        </span>
+                        <span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="0" data-display="sum">
+                            <span class="vbig">closed</span>
+                        </span>
+                    </h2>
+                        <!--
+                        <div class="circle">
+                            <span data-type="scales" data-item="scaleOpenness" data-value="sum">[REPLACE]</span>
+                        </div>
+                    -->
+                </div>
+
+                <div class="backToTop"></div>
+                <h2>About Openness</h2>
+                <p>How open we are to experiences is one of the domains often used to describe human personality. How we score on tests of openness provide a picture of if we are motived to seek new experience or if we are more comfortable with familiar and more traditional experiences. Karen asked you two items from the Five Factor Model of personality about your openness to help her get a sense of how open you may be.</p>
+                <p>This figure shows the distribution of all players on Karen's version of a scale measuring Openness<a href="#refsOpen" class="refs">[10]</a>, with where you came on this scale marked in red:</p>
+                <div data-type="barChart" data-item="scales" data-value="scaleOpenness" class="vis noTitle">
+                </div>
+                <p>The horizontal axis shows the range from low to high openness, scored from 2 to 10. The vertical axis shows the percentange of people who had a given score.</p>
+                <p>The data you shared with Karen tells us that you self-report <span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="0" data-display="sum">a LOW score </span><span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="1" data-display="sum">an UNSURE score </span><span data-type="scalesConditional" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="2" data-display="sum">a HIGH score </span>in openness.</p>
+                <p>From the <span data-type="scalesReplace" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="2" data-display="total">[REPLACE]</span> people who've answered so far on this scale, <span data-type="scalesReplace" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>% of people score HIGH on openness, <span data-type="scalesReplace" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% score UNSURE, and, <span data-type="scalesReplace" data-item="scaleOpenness" data-value="classification" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% score LOW on openness.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>How We Used Openness</h2>
+                <p>Openness to experience is typically measured using multiple items, sometimes as many as 8-10 statements. We selected 2 items from the Five Factor Model as indicators of your openness to experience, and summated there responses. These were: "Having difficulty understanding abstract ideas" and "Having excellent ideas" with response formats strongly agree to strongly disagree. 
+                The feedback she gives you about being more creative or more conservative is drawn from your replies to these questions.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>From Dr Kelly Page</h2>
+                <p>So why would we be interested in measuring how open you are?</p>
+                <p>Growing out of the premise that our socially relevant and salient persona is encoded in language<a href="#refsOpen" class="refs">[1]</a> (and therefore very subjective) early researchers started to explore human habits or our disposition towards certain behaviours, thinking or emotion to explain differences. This became known as trait theory<a href="#refsOpen" class="refs">[2]</a>. The use of trait theory in profiling practices is relative to long held view of traits (and modern day testing of them) as differing across individuals (or groups of individuals), relatively stable over time and as influences of what we do<a href="#refsOpen" class="refs">[2][3]</a>. Yet, there is also many limitations.</p>
+                <p>Today five personality traits: openness, conscientiousness, extraversion, agreeableness, and <a href="#page4">neuroticism</a> (called the Five Factor Model) dominate much of our consciousness and our computer screens when we consider tests of personality. However early researchers on trait theory in the 1920's and 1930's <a href="#refsOpen" class="refs">[2][3][4]</a> considered over 4,000 adjectives to explain human traits, which were reduced to 171 in the 1950's<a href="#refsOpen" class="refs">[4][5][6]</a>, with different multiple item test developed to measure sixteen, five and then three traits of personality respectively in the 1960's<a href="#refsOpen" class="refs">[7][8][9]</a>. In 1961, Tupes and Chrystal examined data collected from eight different samples, ranging from airmen with no more than high-school education to first-year graduate students, and included ratings by peers, supervisors, teachers, or experienced clinicians in settings as diverse as military training courses and sorority houses<a href="#refsOpen" class="refs">[8]</a>. This work provided further weight to a five-factor structure of personality traits. However, it was not really until the 1980's<a href="#refsOpen" class="refs">[10][11][12]</a> that there was widespread acceptance among personality researchers of five traits that "held the most promise" for our understanding of differences (or similarities) in human personas. Whether they do or not is really another question, one worthy of investigation.</p>
+                <p>Openness to experience is one of these domains (which has also been labelled inquiring intellect or, intellectual interests among others labels). Treated as a continuum people high on openness are considered as being motivated to seek new experience, being curious and imaginative and divergent thinkers compared to people who may test low on openness<a href="#refsOpen" class="refs">[13][14]</a>. Low scorers are considered more comfortable with familiar and more traditional experiences, and may be conservative and resistant to change. Researchers have also found as openness increases so too does perceptions of subjective wellbeing <a href="#refsOpen" class="refs">[15]</a>, intelligence <a href="#refsOpen" class="refs">[16]</a> and acceptance and use of social media <a href="#refsOpen" class="refs">[17][18]</a>, and higher rates of use of marijuana <a href="#refsOpen" class="refs">[19]</a> and the drug ecstasy<a href="#refsOpen" class="refs">[20]</a>.</p>
+                <p>There are many different tests of personality and they all measure it in different and very subjective ways. They are also heavily informed by the social thinking, culture and language of the different researchers. This is something to always keep in mind with these tests: Given their subjectivity in how they are developed and administered, can you really believe them?</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>Blast Theory Says</h2>
+                <p>We chose two questions about Openness because we liked the obliqueness of the language in relation to openness. We found the idea that 'understanding abstract ideas' equates to 'openness' in this scale intriguing and wanted to see if we could correlate your self-reported openness with factors that we measured in your relationship with Karen, for example, with your  interest in Karen's personal life, and your willingness to become involved in Karen and Dave's relationship.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* PAGE - NEUROTICISM ********** -->
+
+<div data-role="page" id="page4" class="mainPage">
+
+    <div class="noDecoration no-subPage">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page3"><</a>
+        <a class="navRight" href="#page5">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- title -->
+                <h1 class="pageTitle">
+                    What's your propensity to be neurotic?
+                </h1>
+                
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom">
+
+                <div class="headline">
+                    <span class="med">You scored <br/></span>
+                    <span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="0" data-display="sum" class="conditional"><span class="vbig">low</span></span>
+                    <span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="1" data-display="sum" class="conditional"><span class="vbig">unsure</span></span>
+                    <span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="2" data-display="sum" class="conditional"><span class="vbig">high</span></span>
+                    <br/>
+                    <span class="med">for neuroticism</span>         
+                </div>
+
+                <div class="backToTop"></div>
+                <h2>About Neuroticism</h2>
+                <p>How neurotic we self-report ourselves to be is another domain in the examination of personality. How we score on tests of neuroticism provides a picture of our emotional stability and even-temperedness contrasted with feelings anxiety, nervousness, sadness, and how tense we are. Karen asked you two items from the Five Factor Model of personality about your emotional stability to help her get a sense of how neurotic you may be.</p>
+                <p>This figure shows the distribution of all players on Karen's version of a scale measuring Neuroticism, with where you came on this scale marked in red:</p>
+                <!-- vis START -->
+                <div data-type="barChart" data-item="scales" data-value="scaleNeuro" class="vis noTitle">
+                </div>
+                <p>The horizontal axis shows the range from low to high neuroticism, scored from 2 to 10. The vertical axis shows the percentange of people who had a given score.</p>
+                <p>The data you shared with Karen tells us that you self-report <span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="0" data-display="sum">a LOW score </span><span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="1" data-display="sum">an UNSURE score </span><span data-type="scalesConditional" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="2" data-display="sum">a HIGH score </span>of neuroticism. From the <span data-type="scalesReplace" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="0" data-display="total">[REPLACE]</span> people who've answered so far on this scale, <span data-type="scalesReplace" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>% of people score HIGH on neuroticism, <span data-type="scalesReplace" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% score UNSURE, and <span data-type="scalesReplace" data-item="scaleNeuro" data-value="classification" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% score LOW on neuroticism.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>How We Used This</h2>
+                <p>Neuroticism is typically measured using multiple items, sometimes as many as 8-12 statements<a href="#refsNeuro" class="refs">[6]</a>. We selected 2 items from the Five Factor Model as indicators of your neuroticism, and summated these responses. These were: Would you describe yourself as: "Relaxed most of the time?" and "Getting stressed out easily?" with response formats strongly agree to strongly disagree.</p>
+                <p>Karen, uses this scale to adapt her language after Dave leaves, treating you more gently and showing appreciation for having involved you if you test as high on the measures of neuroticism.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>From Dr Kelly Page</h2>
+                <p>Neuroticism, another domain of the Five Factor Model of personality, is characterized by a large number of different emotional responses to the world around you. Emotional responses such as anxiety, fear, moodiness, worry, envy, frustration, jealousy, and loneliness are all typical indicators of one's emotional stability<a href="#refsNeuro" class="refs">[1]</a> - or neuroticism. Treated as a continuum, people who score high on neuroticism are more than average likely to feel a large number of emotional responses such as those mentioned above. While research has purported that neuroticism is a potential risk factor for some more common mental condition such as depression and panic disorders<a href="#refsNeuro" class="refs">[2]</a>, moderate levels of neuroticism may provide benefits, such as increased drive and productivity, due to greater sensitivity to the world around<a href="#refsNeuro" class="refs">[3]</a>. So it is all relative to the situation or context you find yourself in, an element many personality tests don't take into consideration.</p>
+                <p>So why are we interested in profiling how neurotic you may be? Karen asks certain questions of you and put you in certain situations which could have an impact on you emotionally, and potentially how anxious you feel about what Karen is doing with your information. For example during the experience you are tested on if you would respect Karen's privacy. How you feel after this experience, if you feel guilty for example could well be related to how neurotic you self-report given your sensitivity to the world around you<a href="#refsNeuro" class="refs">[4]</a>.</p>
+                <p>Your emotional stability can also be related to how your response to potentially confrontational situations. For example, Dave became quite confronting of you during the experience. How you responded to this could be influenced by how you test on neuroticism, as neuroticism is considered positively associated with distancing/avoidance behaviours<a href="#refsNeuro" class="refs">[5]</a>.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* PAGE - LOCUS OF CONTROL ********** -->
+
+<div data-role="page" id="page5" class="mainPage">
+
+    <div class="noDecoration no-subPage">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page4"><</a>
+        <a class="navRight" href="#page6">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- title -->
+                <h1 class="pageTitle">
+                    How much control do you feel you have of your life?
+                </h1>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom">
+
+                <div class="headline">
+                            <span class="sml">You have an<br/></span>
+                            <span data-type="scalesConditional" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="0" data-display="sum" class="conditional"><span class="big">external</span></span>
+                            <span data-type="scalesConditional" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="1" data-display="sum" class="conditional"><span class="big">internal</span></span>
+                            <span class="sml">locus of control</span>
+                </div>
+
+                <div class="backToTop"></div>
+                <h2>About Locus Of Control</h2>
+                <p>Psychologically hardy people tend to have an internal locus of control. They believe that they are in control of their own lives. In contrast, people with an external locus of control tend to see their fate as being out of their hands. Karen asked you a couple of questions about how much control you feel you have of your life.</p>
+
+                <p>This figure shows the distribution of all players on Karen's version of a scale measuring Locus Of Control, ranging from EXTERNAL to INTERNAL, with where you came on this scale marked in red:</p>
+                <!-- vis START -->
+                <div data-type="barChart" data-item="scales" data-value="scaleLOC" class="vis noTitle noScale">
+                </div>
+
+                <p>The data you shared with Karen tells us that you probably score <span data-type="scalesConditional" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="0" data-display="sum">EXTERNAL </span><span data-type="scalesConditional" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="1" data-display="sum">INTERNAL </span>for locus of control. From the <span data-type="scalesReplace" data-value="classification" data-matchType="equals" data-match="1" data-item="scaleLOC" data-display="total">[REPLACE]</span> people who've answered so far on this scale, <span data-type="scalesReplace" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% of people self-report EXTERNAL locus of control and <span data-type="scalesReplace" data-item="scaleLOC" data-value="classification" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% of people self-report INTERNAL locus of control.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>How We Used This</h2>
+                <p>We adapted existing measures from a 10 item scale of locus of control, asking two items: 'It's up to me to make it happen, right?' and 'Don't you agree that in the long run people get the respect they deserve?'</p>
+                <p>These were included the morning after Karen's date when she discussed with you her feelings about fate. If you've chosen 'taking control'  as being most important to you she later adapts her advice to you, suggesting you take responsibility for your life, including your mistakes if you scored as EXTERNAL and encouraging you to not beat yourself up if you scored as INTERNAL.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>From Dr Kelly Page</h2>
+                <p>Why was Karen interested in how much control you felt over your life? Locus of control since the 1950's has become an aspect of personality studies in health, education and workplace psychology. It refers to the general expectancy about the extent to which reinforcements are under internal or external control. That is a person's internal belief that reinforcements are determined largely by personal effort, ability and initiative or by other people, social structures, luck and fate<a href="#refsLOC" class="refs">[1][2][3]</a>.</p>
+                <p>Our feelings of control over our life and the experiences we have, like your experience with Karen, can have a pretty profound impact on other areas of your life and your sense of wellbeing. Studies of locus of control report that people with an internal locus of control often engage in activities that will improve their situation, work hard to develop their knowledge, skills and abilities, are inquisitive and more likely male <a href="#refsLOC" class="refs">[5][6][7]</a>. They are also more likely to choose innovative and non-traditional work roles<a href="#refsLOC" class="refs">[4][5][7]</a> and compared to people who self-report external locus of control, internals have better overall physical health, mental health and quality of life <a href="#refsLOC" class="refs">[9]</a>.</p>
+                <p>In contrast due to their locating control outside themselves, externals tend to feel they have less control over their fate, tend to be more stressed and prone to clinical depression <a href="#refsLOC" class="refs">[9][10]</a>, less job satisfaction than internals <a href="#refsLOC" class="refs">[4][6][7]</a> and earn less money <a href="#refsLOC" class="refs">[11][12]</a>. In one study of over 7,500 British adults (followed from birth), who had shown an internal locus of control at age 10, were less likely to be overweight at age 30 <a href="#refsLOC" class="refs">[13]</a>.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>Blast Theory Says</h2>
+                <p>We were interested in the reading about the relationship between locus of control and life outcomes. For us, locus of control raises questions about the relationship between society and ideology to psychometric scales.</p>
+                <p>Studies show people with internal locus of control to score more highly on scales of success within society. However, the characteristics of internal locus of control are strongly related to notions of self-reliance and entrepreneurship.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* SECTION - YOU AND KAREN ********** -->
+
+<div data-role="page"  class="mainPage" id="page6">
+
+    <div class="noDecoration subPageTop">
+        
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page5"><</a>
+        <a class="navRight" href="#page7">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- section title -->
+                <h1 class="pageTitle">
+                   Section 2 :<br/>You and Karen
+                </h1>
+            </div>
+
+            <div class="readMore"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ********* PAGE - USERGOAL ********** -->
+
+<div data-role="page" id="page7" class="mainPage">
+
+    <div class="noDecoration subPageTop">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page6"><</a>
+        <a class="navRight" href="#page8">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- title -->
+                <h1 class="pageTitle">
+                        What is really important to you in your life right now?
+                </h1>
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom noHeadline">
+                <h2>YOUR FOCUS</h2>
+                <p>What you wanted to work on with Karen helped to provide the context for your sessions with her. It also helped Karen to learn what was the most important area in your life right now.</p>
+                <p>To date, <span data-type="questionsReplace" data-item="UserGoal" data-display="total">[REPLACE]</span> people provided responses to Karen's question asking what is the most important area for them to work on. This figure shows the proportion of responses from all players to this question:</p>
+                <!-- vis START -->
+                <div data-type="pieChart" data-item="questions" data-value="UserGoal" class="vis pie"></div>
+                </div>
+                <p><span data-type="questionsConditional" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="0">You chose to work on taking more control of your life. </span><span data-type="questionsConditional" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="1">You chose to review your life goals. </span><span data-type="questionsConditional" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="2">You chose to change your attitude to relationships. </span></p>
+                <p>From the <span data-type="questionsReplace" data-item="UserGoal" data-display="total">[REPLACE]</span> people who answered this question, <span data-type="questionsReplace" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% of people selected that they wanted to take more control, with <span data-type="questionsReplace" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% wanting to review their life goals, and <span data-type="questionsReplace" data-item="UserGoal" data-value="value" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>% wanting to work on relationships.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>FROM DR KELLY PAGE</h2>
+                <p>So why did we ask you this question? To answer this we thought we'd provide you with a bit of history about life coaching. The origin of the term 'coach' is derived from the Hungarian word, Kocsi meaning 'carriage' or a medium of transport.<a href="#refsGoal" class="refs">[1]</a> Interestingly this term was first used as slang in reference to an instructor or private tutor term at Oxford University in the 1830's to describe someone who 'carried a student through an exam.'<a href="#refsGoal" class="refs">[1]</a> It is since then that the practice of coaching has developed to be an informal and personal experience of helping to carry a person from where they are to where they wish to be in their life, through the offering of advice and guidance.</p>
+                <p>Today, coaching is often considered as a useful tool for individual and organizational development<a href="#refsGoal" class="refs">[2]</a> and is a very popular practice used in leadership, management and self-development circles. In fact, life coaching is purported to be a 2 billion dollar industry<a href="#refsGoal" class="refs">[3]</a> and in use by senior executives to sports professionals to it being offered as a health benefit for employees in some workplaces.</p>
+                <p>Unlike traditional psychotherapy, where the therapist is an expert and healer who diagnoses the patient's pathology, a life coach - like Karen - is instead part partner, motivator and confidante, and sometimes a critical friend. The International Coach Federation (ICF) defines coaching as 'partnering with clients in a thought-provoking and creative process that inspires them to maximize their personal and professional potential.'<a href="#refsGoal" class="refs">[4]</a> Someone who helps you to think about meaningful goals and helps to set action to move forward toward those goals and also to explore your life and interaction with others. By downloading Karen you became not just her client, or a user of the app, you became a partner in the co-creation of life coaching experience.</p>
+                <p>Now as coaching is often a private one-to-one experience, we wanted Karen to also be intimate and personal for you. This was in part why we chose an app on your phone so she is always with you, and in part why we chose film based storytelling as a way to develop your relationship with Karen who at first is to you a complete stranger. This is somewhat akin to how today many us increasingly use Facetime, Skype and Google Hangouts.</p>
+                <p>This question centrally focuses on which life goal is most important to you right now, in the moment you completed the question. Usually people seek out and engage with a life coach for a reason. They have something they want to work on to make better or some area of their life they feel they need guidance on. In a 2003 exploratory study about life coaching - one of the first empirical studies to explore its impact, the authors purported that life coaching has promise as an effective approach to personal development and goal attainment in non-clinical populations.<a href="#refsGoal" class="refs">[5]</a> The authors also defined life coaching as a result-oriented, systematic process in which the coach facilitates the enhancement of life experience and goal-attainment in the personal and/or professional lives of normal, non-clinical clients' (p.254)<a href="#refsGoal" class="refs">[5]</a></p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>How We Used This</h2>
+                <p>To provide this similar context for Karen we asked you to select what area of your life you might want to work on with Karen. Not only did this provide Karen with information to begin profiling you it also gave you more of a sense of ownership and an intrinsic motivation to continue the experience as you made the decision Karen didn't make it for you.<a href="#refsGoal" class="refs">[6][7][8]</a></p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>Blast Theory Says</h2>
+                <blockquote cite="http://www.fool.com/investing/general/2013/06/10/charlie-mungers-18-biases-that-cause-you-to-fool-y.aspx"><p>The "If I chose it, it must be good" rule</p>
+                    "If you have a lottery where you get given your number, nobody plays. When you have a lottery where people get to pick their number, you get big play. People think if they have committed to it, it has to be good. The minute they've picked it themselves it gets an extra validity. After all, they thought it and they acted on it."
+                    <div class="credit">Charlie Munger<a href="#refsGoal" class="refs">[9]</a></div>
+                </blockquote>
+                <p>We wanted to comment on life coaching and the tangled relationship between the coach and the person being coached. The three goals Karen offers are very hard to address because they are so broad, and yet they are inevitably engaged to some degree through your relationship with Karen. Karen clearly lacks good life goals, struggles with control and has a damaged history of relationships. Perhaps it is through empathy with Karen that you reflect on your own capacities in your chosen area?</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* PAGE - OBJECT ********** -->
+
+<div data-role="page" id="page8" class="mainPage">
+
+    <div class="noDecoration subPageTop">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page7"><</a>
+        <a class="navRight" href="#page9">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- title -->
+                <h1 class="pageTitle">
+                    What does your materiality say about you?
+                </h1>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom">
+                <div class="headline">
+                    <h2>
+                        <span class="med">You like </span>
+                        <br/>
+                        <span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="0"><span class="vbig">attention</span></span>
+                        <span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="1"><span class="big">capturing moments</span></span>
+                        <span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="2"><span class="big">being with others</span></span>
+                    </h2>
+                
+                </div>
+                <div class="backToTop"></div>
+                <h2>ABOUT OBJECTS</h2>
+                <p>Material things matter in our lives as meaning can be inferred from the things we own, share and create. Not only may things serve a functional purpose but they also serve to communicate to others. What object you chose from the three objects Karen showed you helped Karen to infer meaning about what you may value, like or believe in in your life, as well as what things you may participate in.</p>
+                <!-- vis START -->
+                <p>To date <span data-type="questionsReplace" data-item="Object" data-display="total">[REPLACE]</span> people have responded to Karen's invitation to choose an object and the frequency of the object is shown in this figure:</p>
+                <div data-type="pieChart" data-item="questions" data-value="Object" class="vis pie"></div>
+                </div>
+                <p><span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="0">You selected the bangle. </span><span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="1">You selected the camera. </span><span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="2">You selected the deer family. </span></p>
+                <p>From the <span data-type="questionsReplace" data-item="Object" data-display="total">[REPLACE]</span> people who picked an object when Karen asked: <span data-type="questionsReplace" data-item="Object" data-value="value" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% of people selected the bangle, with <span data-type="questionsReplace" data-item="Object" data-value="value" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% selected the camera and <span data-type="questionsReplace" data-item="Object" data-value="value" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>% selected the deer family.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>FROM DR KELLY PAGE</h2>
+                <p>So what could your selection say about you to others?</p>
+                <p>There is an entire field of enquiry about material cultures and why things matter in our lives.<a href="#refsObject" class="refs">[1]</a> It is an interdisciplinary field drawing from and informing philosophy, anthropology, linguistics, socio-psychological and many others and all with the purpose of telling of relationships between people and things. Daniel Miller's 'Material Cultures: Why Some Things Matter' and the series 'Semiotics, Communication, Cognition', published by De Gruyter Mouton provide a deeper synthesis of its evolution and current day applications.</p>
+                <p>This field has been a matter of interest for decades for anthropologists and archaeologists alike who infer meaning from objects as they trace and piece together the historical associations of things across communities and cultures. They use objects as meaning-making, narrating past lives<a href="#refsObject" class="refs">[2]</a> through the analysis of how objects may be both active and passive in meaning making.</p>
+                <p>This also changes over time as meaning making is an interactive process between you and the object you chose, and which is influenced by the social thinking of the day and other interests. For example, be it to improve ergonomic design in situations where people interact<a href="#refsObject" class="refs">[4]</a> or to inform a branding or communications initiative from consumer research <a href="#refsObject" class="refs">[5][6]</a>, the meaning people infer from things has long informed commercial interests as well as more historical ones.</p>
+                <p>In our discussions, we inferred the following about people from the following objects.</p>
+                <p><strong>Digital Camera:</strong> 'this person may be a creative, visual person who doesn't like attention but capturing the world around them. Their world is about what is around them and the lens through which they see it.'</p>
+                <p><strong>Deer Family:</strong> 'this person may be an earthy animal lover who likes to be in groups, protected by the group's love and warmth. They love being outside, and see the world as about the people they share it with.'</p>
+                <p><strong>Bangle:</strong> 'This person may be flashy and somewhat loud and may like to show everything to everyone. Not a very good listener, as the world is all about them and their boldness to stand out.'
+                </p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>How We Used This</h2>
+                <p>In this case, the only personalisation is the immediate feedback that Karen gives you.</p> 
+                <p>However, Dave also shows you Karen's personal collection of <span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="0">bangles </span><span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="1">photography books along with the camera </span><span data-type="questionsConditional" data-item="Object" data-value="value" data-matchType="equals" data-match="2">animal figures </span> when he takes you into her room to re-iterate the importance of these to her. The object's recurrence in these later episodes is intended as a reminder of your relationship with her.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>Blast Theory Says</h2>
+                <p>The three objects were originally chosen for artistic reasons. From our point of view, there is no scientific relationship between the three objects and the meaning inferred from your choice by Karen.</p>
+                <p>Part of the appeal of this section is that the object is given significance to you because you chose it. However each of the three objects are deeply personal to Karen and she tells what this is, once you have chosen. Your world and her world become further entwined.</p> 
+                <div class="backToTop"><a href="#">back to top ^</a></div> 
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* PAGE - PRIVACY ********** -->
+
+<div data-role="page" class="mainPage" id="page9">
+
+    <div class="noDecoration no-subPage">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page8"><</a>
+        <a class="navRight" href="#page10">></a>
+
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- headline START -->
+                <h1 class="pageTitle">
+                    Would you respect another's right to privacy?
+                </h1>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"><a href="#">Read more</a></div>
+        </div>
+    </div>
+
+    <div class="noDecoration no-subPage">
+
+        <div class="content">
+            <!-- sub page / text content -->
+            <div class="contentBottom">
+                <div class="headline">
+                            <span class="sml">You showed<br/></span>
+                            <span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="0" data-display="sum" class="conditional"><span class="vbig">disrespect</span></span>
+                            <span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="1" data-display="sum" class="conditional"><span class="vbig">moderate</span></span>
+                            <span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="2" data-display="sum" class="conditional"><span class="vbig">respect</span></span>
+                            <br/>
+                            <span class="sml">respect for Karen's privacy</span>
+                </div>
+                <div class="backToTop"></div>
+                <h2>The Right To Privacy</h2>
+                <p>The right to privacy is not just about our privacy rights, it is also about the right to privacy of others who we interact with and share about.</p>
+                <p>Dave asked you three questions during your interaction with him to see if you really would respect another person's right to privacy, especially someone like Karen, a stranger who you have only just met.</p>
+                <p>This figure shows the distribution of how people scored on this scale. The horizontal axis shows the range from respect  to disrespect. The vertical axis shows the percentange of people who had a given score, with where you scored marked in red:</p>
+                <!-- vis START -->
+                <div data-type="barChart" data-item="scales" data-value="KscalePrivacy" class="vis noScale noTitle">
+                </div>
+                <p>To date <span data-type="scalesReplace" data-value="classification" data-matchType="equals" data-match="1" data-item="KscalePrivacy" data-display="total">[REPLACE]</span> people have responded on Karen's version of a scale measuring another's right to privacy.</p>
+                <p>It is evident that you <span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="0" data-display="sum" class="conditional">respect </span><span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="1" data-display="sum" class="conditional">have a moderate respect of </span><span data-type="scalesConditional" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="2" data-display="sum" class="conditional">disrespect </span>Karen's privacy. From the <span data-type="scalesReplace" data-value="classification" data-matchType="equals" data-match="1" data-item="KscalePrivacy" data-display="total">[REPLACE]</span> who have been measured on this scale so far: <span data-type="scalesReplace" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="2" data-display="percent">[REPLACE]</span>% did not respect, <span data-type="scalesReplace" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="1" data-display="percent">[REPLACE]</span>% had moderate respect, and <span data-type="scalesReplace" data-item="KscalePrivacy" data-value="classification" data-matchType="equals" data-match="0" data-display="percent">[REPLACE]</span>% had a high respect for Karen's privacy.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>From Dr Kelly Page</h2>
+                <p>So why is this so important? Or is it?</p>
+                <p>Privacy has been discussed and debated from many different perspectives. One's right to be let alone is a very early definition of privacy that stems from an 1890's article titled the 'Right to Privacy'.<a href="#refsPrivacy" class="refs">[1]</a> In short it refers to our individual right to be immune from scrutiny or being observed in our private settings, such as our own home. This corresponds with a notion of control over our personal information about ourselves that others have access to<a href="#refsPrivacy" class="refs">[2]</a>, as well as the role this information plays in our social relationships.</p>
+                <p>To develop personal, intimate relations with others we have to disclose information about ourselves and we might even invite people into our homes and our personal networks, just as Karen did. As such intimacy is inextricably linked to privacy.<a href="#refsPrivacy" class="refs">[1]</a>. In fact how we share about others is critically important for our social relationships and the health of our social networks. Our respect for others privacy can and does impact emotionally and socially not only our friends and family members but also a complete stranger - like Karen and our relationship with them.<a href="#refsPrivacy" class="refs">[3]</a></p>
+                <p>With the rise in our use of social and mobile media, from mobile apps to social networks, these systems are designed to facilitate our ubiquitous content sharing and sociability. With their use comes a responsibility in how we share about others, from family members such as young children to strangers like Karen.<a href="#refsPrivacy" class="refs">[4]</a> Mobile phones especially are a rich source of personal information about individuals. They are also very personal devices that act as an extension of our personal selves.</p>
+                <p>In a 2012 study conducted on mobile phone users in the USA, an overwhelmingly large number consider information stored on their mobile phones to be private - at least as private as information stored on their home computers.<a href="#refsPrivacy" class="refs">[7]</a> They also overwhelmingly reject several types of data collection and use drawn from current business practices. This responsibility was once mainly the domain of people of certain professions such as journalists who underwent training to determine the extent of legitimate public interest in the information. In this a journalist was expected to distinguish between a right to knowledge and a curious interest in knowing.<a href="#refsPrivacy" class="refs">[5]</a></p>
+                <p>This has given rise to what some are referring to as the 'privacy paradox', a situation where people freely provide personal data (about themselves and others) while displaying difference in their intentions to disclose personal information.<a href="#refsPrivacy" class="refs">[6]</a> During your interaction with Dave we asked you three questions from which we could judge the degree to which you respected Karen's right to her personal privacy. While Karen did invite you into her home and her life, she didn't invite you into her room (nor did Dave into his).</p>
+                <p>As opposed to use existing items, we developed these items uniquely for the Karen experience so that they were personal and reflective of the context within which they were tested.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                <h2>Blast Theory Says</h2>
+                <p>Dave was always an important part of Karen's world as we developed the project. Although this is primarily a story that unfolds between you and Karen, we wanted other aspects of her life to spill out and usurp her ability to be in control.</p>
+                <p>Because Dave is intrusive and manipulative he is very unsympathetic at first: there seems little reason to trust him nor to take up his invitation to go into Karen's room.</p>
+                <p>However in doing so we learn important things about Dave and Karen. His invasion of privacy is actually focused on you, not her. He wants your file. It is entirely possible that Karen is relaxed about him going into her room and that Dave has her tacit - or explicit - permission to do so.</p>
+                <div class="backToTop"><a href="#">back to top ^</a></div>
+                
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ********* PAGE - FEEDBACK ********** -->
+
+<div data-role="page" class="mainPage" id="page10">
+
+    <div class="noDecoration no-subPage">
+
+        <!-- navTop + close -->
+        <div class="navTop">
+            <a class="navClose" href="#">Close</a>
+        </div>
+
+        <!-- navigation -->
+        <a class="navLeft" href="#page9"><</a>
+        
+        <!-- fixed width content -->
+        <div class="content">
+
+            <!-- top content -->
+            <div class="contentTop">
+
+                <!-- headline START -->
+                <h1 class="pageTitle">
+                    FEEDBACK
+                </h1>
+                <p>Did we get you right?<br/>Or were we way off?</p><p>Email us to let us know what you thought...</p>
+                <p><a href="mailto:karen@blasttheory.co.uk">karen@blasttheory.co.uk</a>
+
+            </div>
+
+            <!-- read more bar -->
+            <div class="readMore"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/visData.js?v=0.5"></script>
+
+<!-- real data file
+<script type="text/javascript" src="js/realData.js?v=0.5"></script>
+-->
+
+<script>
+
+    /*If you want to use real data coment out xhr request and uncoment this
+    var data = realData;
+    filterData(data);
+    */
+
+    var xhr = new XMLHttpRequest();
+
+
+    xhr.onreadystatechange = function () {
+
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+            // turn the JSON string into a JS object
+            var data = JSON.parse(xhr.responseText);
+            filterData(data);
+        }
+    };
+
+
+    xhr.open('POST', url, true);
+    // must set content type for POST
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // urlencoded email and password hash
+    xhr.send('hash=hashValue&email=user%40domain.com');
+
+</script>
+
+</body>
+</html>

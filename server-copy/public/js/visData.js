@@ -7,6 +7,154 @@ var COUNTRY = 0;
 var DEFAULT_RENDER_HEIGHT = 230;
 var countryData = [];
 
+var info = {
+    "scales": [
+        {
+            "name": "KscalePrivacy",
+            "min": 0,
+            "max": 6,
+            "min-label": "Respect",
+            "max-label": "Disrespect",
+            "questions": ["Privacy01","Privacy02","Privacy03"],
+            "classifications": [
+                {
+                    "min": 0,
+                    "max": 2,
+                    "name": "HIGH",
+                    "label": "High respect for Karen’s privacy"
+                },
+                {
+                    "min": 3,
+                    "max": 3,
+                    "name": "MODERATE",
+                    "label": "Moderate respect for Karen’s privacy"
+                },
+                {
+                    "min": 4,
+                    "max": 6,
+                    "name": "LOW",
+                    "label": "Low respect for Karen’s privacy"
+                }
+            ]
+        },
+        {
+            "name": "scaleNeuro",
+            "min": 2,
+            "max": 10,
+            "min-label": "Low",
+            "max-label": "High",
+            "questions": ["Neuro01","Neuro02"],
+            "classifications": [
+                {
+                    "min":2,
+                    "max": 5,
+                    "name": "LOW",
+                    "label": "Low"
+                },
+                {
+                    "min":6,
+                    "max": 6,
+                    "name": "UNSURE",
+                    "label": "Unsure"
+                },
+                {
+                    "min":7,
+                    "max": 10,
+                    "name": "HIGH",
+                    "label": "High"
+                }
+            ]
+        },
+        {
+            "name": "scaleLOC",
+            "min": 0,
+            "max": 4,
+            "min-label": "External",
+            "max-label": "Internal",
+            "questions": ["LOC01","LOC02"],
+            "classifications": [
+                {
+                    "min":0,
+                    "max": 2,
+                    "name": "EXTERNAL",
+                    "label": "External"
+                },
+                {
+                    "min":3,
+                    "max": 4,
+                    "name": "INTERNAL",
+                    "label": "Internal"
+                }
+            ]
+        },
+        {
+            "name": "scaleOpenness",
+            "min": 2,
+            "max": 10,
+            "min-label": "Low",
+            "max-label": "High",
+            "questions": ["Open01","Open02"],
+            "classifications": [
+                {
+                    "min":2,
+                    "max": 5,
+                    "name": "LOW",
+                    "label": "Low"
+                },
+                {
+                    "name": "UNSURE",
+                    "min":6,
+                    "max": 6,
+                    "name": "LOW",
+                    "label": "Unsure"
+                },
+                {
+                    "min":7,
+                    "max": 10,
+                    "name": "HIGH",
+                    "label": "High"
+                }
+            ]
+        }
+    ],
+    "questions": [
+        {
+            "name": "UserGoal",
+            "answers": [
+                {
+                    "value": "CONTROL",
+                    "label": "Control"
+                },
+                {
+                    "value": "REVIEW",
+                    "label": "Life Goals"
+                },
+                {
+                    "value": "ATTITUDE",
+                    "label": "Relationships"
+                }
+            ]
+        },
+        {
+            "name": "Object",
+            "answers": [
+                {
+                    "value": "BANGLE",
+                    "label": "Bangle"
+                },
+                {
+                    "value": "CAMERA",
+                    "label": "Camera"
+                },
+                {
+                    "value": "DEER",
+                    "label": "Deer Family"
+                }
+            ]
+        }
+    ]
+};
+
 function getItem(data, key, item) {
     //See if item in data
     for(var i in data) {
@@ -132,32 +280,18 @@ VisApp.prototype.getInfoScale = function(name) {
     return null;
 };
 
-var app = null;
-var intervalId;
-
-function filterData(data) {
-    //Render the data
-    //Uber hack!!!!!!
-    intervalId = setInterval(function(){
-        if(app != null) {
-            clearInterval(intervalId);
-            app.filterData(data);
-        }
-    }, 500);
-}
-
 $(document).ready(function() {
     //Init app
-    //Set up swiping between pages
-    linkPages();
-
+    //var pageElem = $(".subPageTop");
     var renderHeight = $('.vis').height();
     if(renderHeight === 0) {
         renderHeight = DEFAULT_RENDER_HEIGHT;
     }
     $('.contentTop').height(window.innerHeight - 90);
+    //pageElem.height(window.innerHeight);
 
-    app = new VisApp(renderHeight);
+    //Set up swiping between pages
+    linkPages();
 
     //Scrolling
     $('.readMore').on('click', function() {
@@ -167,6 +301,29 @@ $(document).ready(function() {
     $('.backToTop').on('click', function() {
         $.mobile.silentScroll(0);
     });
+
+    var app = new VisApp(renderHeight);
+
+    //Get some data
+    //app.readInfoFile("../data/info.json", function(info) {
+    app.info = info;
+        //app.readDataFile("data/report-full.json", function(data) {
+    console.log('the injected');
+    console.log(injectedData);
+    data = injectedData;
+
+    app.filterData(data);
+
+
+    //Get scale and distribution data
+    //DEBUG
+    //Use fake data for now
+    /*
+    var dataURL = 'https://kserver.blasttheory.com/user';
+    visApp.getData(dataURL, filterData);
+    */
+
+    //filterData.call(visApp, data);
 });
 
 VisApp.prototype.preProcessData = function () {
@@ -239,8 +396,6 @@ VisApp.prototype.filterData = function(data) {
     //Pre process data
     //Filter data
     //Get geo data
-    this.info = info;
-
     if(!data || !this.info) {
         console.log("No data!");
         return;

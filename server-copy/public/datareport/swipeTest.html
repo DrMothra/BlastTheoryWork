@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Karen Visualisations</title>
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/graphApp.js"></script>
+    <script type="text/javascript" src="js/visData.js"></script>
+
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/visStyles.css?v=0.1" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+    <div class="bigTitle centred">
+        Welcome to Karen
+    </div>
+
+    <div class="nextScreen">
+        <a href="#pagetwo"><img src="images/arrow-right.png"></a>
+    </div>
+
+    <div data-role="main" class="ui-content subTitle centred">
+        <p>Have a look at your profile.</p>
+    </div>
+
+</div>
+
+<div data-role="page" id="pagetwo">
+    <div class="title centred">
+        <p>Make a selection</p>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-3-8">
+            <a href="#pageone" data-transition="slide" data-direction="reverse"><img src="images/arrow-left.png"></a>
+        </div>
+        <div class="pure-u-1-4">
+            <ol type="1">
+                <li>Your personality</li>
+                <li>Your scales</li>
+                <li>Your responses</li>
+                <li>Distribution</li>
+            </ol>
+        </div>
+        <div class="pure-u-3-8 next">
+            <a href="#pagethree"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="pagethree">
+    <div class="title centred">
+        <p>Your Personality</p>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-8">
+            <a href="#pagetwo" data-transition="slide" data-direction="reverse"><img src="images/arrow-left.png"></a>
+        </div>
+        <div id="graph" class="pure-u-3-4 centred">
+
+        </div>
+        <div class="pure-u-1-8 next">
+            <a href="#pagefour"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="pagefour">
+    <div class="title centred">
+        <p>More Personality</p>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-8">
+            <a href="#pagethree" data-transition="slide" data-direction="reverse"><img src="images/arrow-left.png"></a>
+        </div>
+        <div id="pie" class="pure-u-3-4 centred">
+
+        </div>
+        <div class="pure-u-1-8 next">
+            <a href="#pagefive"><img src="images/arrow-right.png"></a>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="pagefive">
+    <div class="title centred">
+        <p>Distribution</p>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-8">
+            <a href="#pagefour" data-transition="slide" data-direction="reverse"><img src="images/arrow-left.png"></a>
+        </div>
+        <div id="distribution" class="pure-u-3-4 centred">
+
+        </div>
+        <div class="pure-u-1-8 next">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
