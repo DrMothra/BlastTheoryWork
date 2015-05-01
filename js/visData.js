@@ -158,6 +158,9 @@ $(document).ready(function() {
     $('.contentTop').height(window.innerHeight - 90);
 
     app = new VisApp(renderHeight);
+    app.readDataFile('data/example2-apparently-working.json', function(data) {
+        app.filterData(data);
+    });
 
     //Scrolling
     $('.readMore').on('click', function() {

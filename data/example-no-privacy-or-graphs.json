@@ -1,0 +1,4481 @@
+{
+  "scales": [
+    {
+      "name": "scaleMR",
+      "sum": 7,
+      "questions": [
+        {
+          "name": "MR02",
+          "text": "I try to think good thoughts no matter how badly I feel.",
+          "value": 2
+        },
+        {
+          "name": "MR01",
+          "text": "Although I'm sometimes sad, I mostly have an optimistic outlook.",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "KscaleFeel",
+      "sum": 0,
+      "questions": [
+        {
+          "name": "FeelT5",
+          "text": "I'm not sure how I feel.",
+          "value": 0
+        },
+        {
+          "name": "FeelT2",
+          "text": "When do we get to the good stuff?",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "GratefulEngage",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "GratefulFeel",
+          "text": "It felt like slender pickings.",
+          "value": 1
+        },
+        {
+          "name": "GratefulDo",
+          "text": "Yes.",
+          "value": 1
+        },
+        {
+          "name": "GratefulAsk",
+          "text": "Yes, I can do that.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scaleChildhood",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "Runaway",
+          "text": "Yes, one time.",
+          "value": 1
+        },
+        {
+          "name": "Childhood",
+          "text": "I would describe my childhood as happy.",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "scaleOpenness",
+      "sum": 6,
+      "questions": [
+        {
+          "name": "Openness02",
+          "text": "So, would you say you have excellent ideas?",
+          "value": 4
+        },
+        {
+          "name": "Openness01",
+          "text": "Having difficulty understanding abstract ideas?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleNeuro",
+      "sum": 10,
+      "questions": [
+        {
+          "name": "Neuro02",
+          "text": "What about getting stressed out easily?",
+          "value": 5
+        },
+        {
+          "name": "Neuro01",
+          "text": "And are you relaxed most of the time?",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "scaleIS",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "IS03",
+          "text": "It depends on the context.",
+          "value": 2
+        },
+        {
+          "name": "IS02",
+          "text": "Less of the silly. Don't mock my life choices.",
+          "value": 0
+        },
+        {
+          "name": "IS01",
+          "text": "That depends. What sort of pleasures?",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleDateSupport",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "DateAdvice",
+          "text": "Karen, don't rush into anything.",
+          "value": 1
+        },
+        {
+          "name": "ViewDate",
+          "text": "Too right.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scalePAD",
+      "sum": 6,
+      "questions": [
+        {
+          "name": "PAD02",
+          "text": "And how about this?",
+          "value": 2
+        },
+        {
+          "name": "PAD01",
+          "text": "Your life goals are guided by the people you're closest to. Now would you say Michael is more guided or more autonomous?",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "scaleRWB",
+      "sum": 8,
+      "questions": [
+        {
+          "name": "RWB02",
+          "text": "And would you say that they have frequent mood swings?",
+          "value": 4
+        },
+        {
+          "name": "RWB01",
+          "text": "Would you agree that Michael takes time out for others?",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "scaleLOC",
+      "sum": 4,
+      "questions": [
+        {
+          "name": "LOC02",
+          "text": "Yeah, the chickens always come home to roost.",
+          "value": 2
+        },
+        {
+          "name": "LOC01",
+          "text": "The universe? Yes, it's up to you.",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleIST2",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "IS03_T2",
+          "text": "Used to be.",
+          "value": 1
+        },
+        {
+          "name": "IS01_T2",
+          "text": "Maybe.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleConsistent",
+      "sum": 1,
+      "questions": [
+        {
+          "name": "Consistent02",
+          "value": 0
+        },
+        {
+          "name": "Consistent01",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleJudgemental",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "KarenFeel",
+          "text": "How was your walk?",
+          "value": 0
+        },
+        {
+          "name": "Judgemental02",
+          "value": 1
+        },
+        {
+          "name": "Judgemental01",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleGetInvolved",
+      "sum": 8,
+      "questions": [
+        {
+          "name": "CoinToss",
+          "text": "Tails",
+          "value": 1
+        },
+        {
+          "name": "GetInvolved04",
+          "text": "Yes – of course.",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved03",
+          "text": "You should tell her if you love her.",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved02",
+          "text": "Do you love her?",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved01",
+          "text": "You can't keep doing what?",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scaleAS",
+      "sum": 4,
+      "questions": [
+        {
+          "name": "AS02",
+          "text": "And would you agree that in a sexual union, tenderness is the most important quality?",
+          "value": 1
+        },
+        {
+          "name": "AS01",
+          "text": "Okay let's begin. Do you sometimes feel like biting or scratching during intercourse?",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "scaleGuilt",
+      "sum": 8,
+      "questions": [
+        {
+          "name": "Guilt02",
+          "text": "Do you sometimes harbour guilty secrets that you're afraid will come out one day?",
+          "value": 5
+        },
+        {
+          "name": "Guilt01",
+          "text": "Now. Are you sometimes disgusted by your own sexual desires and fantasies?",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "KscaleUserGuilt",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "UserGuilt04",
+          "text": "I'm sorry.",
+          "value": 1
+        },
+        {
+          "name": "UserGuilt03",
+          "text": "I need to tell you something about Dave.",
+          "value": 1
+        },
+        {
+          "name": "UserGuilt02",
+          "text": "Hold on. I told Dave not to.",
+          "value": 1
+        },
+        {
+          "name": "UserGuilt01",
+          "text": "Did Dave say something?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "KscaleUserFeedback",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "UserFeedback03",
+          "text": "Thanks, I'll remember what you've said. ",
+          "value": 2
+        },
+        {
+          "name": "UserFeedback02",
+          "text": "Are you talking about me or you?",
+          "value": 0
+        },
+        {
+          "name": "UserFeedback01",
+          "text": "I shouldn't have treated you that way.",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "KscaleEval",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "KarenEval02",
+          "text": "Yes it's been fun.",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "name": "HadSomething",
+      "value": 5,
+      "text": "I thought we really had something."
+    },
+    {
+      "name": "Honesty",
+      "value": 2,
+      "text": "Karen, I've been honest with you."
+    },
+    {
+      "name": "KarenEval02",
+      "value": 3,
+      "text": "Yes it's been fun."
+    },
+    {
+      "name": "UserFeedback03",
+      "value": 2,
+      "text": "Thanks, I'll remember what you've said. "
+    },
+    {
+      "name": "UserFeedback02",
+      "value": 0,
+      "text": "Are you talking about me or you?"
+    },
+    {
+      "name": "UserGoalRecalled",
+      "value": 1,
+      "text": "I know. So what?"
+    },
+    {
+      "name": "FeelT5",
+      "value": 0,
+      "text": "I'm not sure how I feel."
+    },
+    {
+      "name": "KarenFeel",
+      "value": 0,
+      "text": "How was your walk?"
+    },
+    {
+      "name": "UserFeedback01",
+      "value": 0,
+      "text": "I shouldn't have treated you that way."
+    },
+    {
+      "name": "UserGuilt04",
+      "value": 1,
+      "text": "I'm sorry."
+    },
+    {
+      "name": "Secrecy",
+      "value": 1,
+      "text": "I'm not sure."
+    },
+    {
+      "name": "DaveReveal",
+      "value": 0,
+      "text": "He's a creep."
+    },
+    {
+      "name": "UserGuilt03",
+      "value": 1,
+      "text": "I need to tell you something about Dave."
+    },
+    {
+      "name": "UserGuilt02",
+      "value": 1,
+      "text": "Hold on. I told Dave not to."
+    },
+    {
+      "name": "UserGuilt01",
+      "value": 2,
+      "text": "Did Dave say something?"
+    },
+    {
+      "name": "Guilt02",
+      "value": 5,
+      "text": "Do you sometimes harbour guilty secrets that you're afraid will come out one day?"
+    },
+    {
+      "name": "Guilt01",
+      "value": 3,
+      "text": "Now. Are you sometimes disgusted by your own sexual desires and fantasies?"
+    },
+    {
+      "name": "AS02",
+      "value": 1,
+      "text": "And would you agree that in a sexual union, tenderness is the most important quality?"
+    },
+    {
+      "name": "AS01",
+      "value": 3,
+      "text": "Okay let's begin. Do you sometimes feel like biting or scratching during intercourse?"
+    },
+    {
+      "name": "FeelT4",
+      "value": 2,
+      "text": "Yes – let's get going!"
+    },
+    {
+      "name": "CoinToss",
+      "value": 1,
+      "text": "Tails"
+    },
+    {
+      "name": "GetInvolved04",
+      "value": 2,
+      "text": "Yes – of course."
+    },
+    {
+      "name": "GetInvolved03",
+      "value": 2,
+      "text": "You should tell her if you love her."
+    },
+    {
+      "name": "GetInvolved02",
+      "value": 2,
+      "text": "Do you love her?"
+    },
+    {
+      "name": "GetInvolved01",
+      "value": 1,
+      "text": "You can't keep doing what?"
+    },
+    {
+      "name": "Aggression",
+      "value": 1,
+      "text": "Don't get angry at me."
+    },
+    {
+      "name": "DateReveal",
+      "value": 1,
+      "text": "No, definitely not."
+    },
+    {
+      "name": "Privacy04",
+      "value": 0,
+      "text": "She'd be right up for it."
+    },
+    {
+      "name": "IS03_T2",
+      "value": 1,
+      "text": "Used to be."
+    },
+    {
+      "name": "IS01_T2",
+      "value": 1,
+      "text": "Maybe."
+    },
+    {
+      "name": "Privacy03",
+      "value": 1,
+      "text": "No, not really."
+    },
+    {
+      "name": "Privacy02",
+      "value": 1,
+      "text": "What are you going to do?"
+    },
+    {
+      "name": "Privacy01",
+      "value": 0,
+      "text": "Get lost you creep. I'm out of here. Bye."
+    },
+    {
+      "name": "ImpersonalSexConfirm",
+      "value": 1,
+      "text": "I don't always tell the truth."
+    },
+    {
+      "name": "QueryDave01",
+      "value": 2,
+      "text": "Where's Karen?"
+    },
+    {
+      "name": "DesireKaren01",
+      "value": 0,
+      "text": "No."
+    },
+    {
+      "name": "LOC02",
+      "value": 2,
+      "text": "Yeah, the chickens always come home to roost."
+    },
+    {
+      "name": "LOC01",
+      "value": 2,
+      "text": "The universe? Yes, it's up to you."
+    },
+    {
+      "name": "SigOtherEval",
+      "value": 4,
+      "text": "You've nailed it."
+    },
+    {
+      "name": "RWB02",
+      "value": 4,
+      "text": "And would you say that they have frequent mood swings?"
+    },
+    {
+      "name": "RWB01",
+      "value": 4,
+      "text": "Would you agree that Michael takes time out for others?"
+    },
+    {
+      "name": "PAD02",
+      "value": 2,
+      "text": "And how about this?"
+    },
+    {
+      "name": "PAD01",
+      "value": 4,
+      "text": "Your life goals are guided by the people you're closest to. Now would you say Michael is more guided or more autonomous?"
+    },
+    {},
+    {
+      "name": "KarenEval01",
+      "value": 0,
+      "text": "Do I have to spell it out? Not great."
+    },
+    {
+      "name": "LocationHome03",
+      "value": "geolocation",
+      "time": 1428589866,
+      "text": "At home. Taking it easy."
+    },
+    {
+      "name": "DateAdvice",
+      "value": 1,
+      "text": "Karen, don't rush into anything."
+    },
+    {
+      "name": "ViewDate",
+      "value": 1,
+      "text": "Too right."
+    },
+    {
+      "name": "DateTop",
+      "value": "SEQUINS",
+      "text": "Sequins"
+    },
+    {
+      "name": "IS03",
+      "value": 2,
+      "text": "It depends on the context."
+    },
+    {
+      "name": "IS02",
+      "value": 0,
+      "text": "Less of the silly. Don't mock my life choices."
+    },
+    {
+      "name": "IS01",
+      "value": 1,
+      "text": "That depends. What sort of pleasures?"
+    },
+    {
+      "name": "DrugsStory",
+      "value": 0,
+      "text": "Oh, great. A drugs story."
+    },
+    {
+      "name": "PastLife",
+      "value": "STEAMPUNK",
+      "text": "Pioneering Victorian steampunk."
+    },
+    {
+      "name": "PastLifeBelief",
+      "value": 2,
+      "text": "Sure. Matter isn't destroyed, just reshaped."
+    },
+    {
+      "name": "LocationOut02",
+      "value": "geolocation",
+      "time": 1428526770,
+      "text": "Maybe. I'm out but we can chat."
+    },
+    {
+      "name": "SigOtherWhy",
+      "value": "No idea"
+    },
+    {
+      "name": "SigOtherName",
+      "value": "Michael"
+    },
+    {
+      "name": "SigOther",
+      "value": "PARTNER",
+      "text": "It's my partner."
+    },
+    {
+      "name": "Object",
+      "value": "DEER",
+      "text": "Deer Family"
+    },
+    {
+      "name": "SexPref",
+      "value": "WOMEN",
+      "text": "Women"
+    },
+    {
+      "name": "Neuro02",
+      "value": 5,
+      "text": "What about getting stressed out easily?"
+    },
+    {
+      "name": "Openness02",
+      "value": 4,
+      "text": "So, would you say you have excellent ideas?"
+    },
+    {
+      "name": "Neuro01",
+      "value": 5,
+      "text": "And are you relaxed most of the time?"
+    },
+    {
+      "name": "Openness01",
+      "value": 2,
+      "text": "Having difficulty understanding abstract ideas?"
+    },
+    {
+      "name": "Runaway",
+      "value": 1,
+      "text": "Yes, one time."
+    },
+    {
+      "name": "Childhood",
+      "value": 4,
+      "text": "I would describe my childhood as happy."
+    },
+    {
+      "name": "GratefulFeel",
+      "value": 1,
+      "text": "It felt like slender pickings."
+    },
+    {
+      "name": "GratefulText",
+      "value": "Blue skies"
+    },
+    {
+      "name": "GratefulDo",
+      "value": 1,
+      "text": "Yes."
+    },
+    {
+      "name": "GratefulAsk",
+      "value": 1,
+      "text": "Yes, I can do that."
+    },
+    {
+      "name": "AloneT1",
+      "value": 1,
+      "text": "Yes, I'm alone."
+    },
+    {
+      "name": "LocationWork01",
+      "value": "geolocation",
+      "time": 1428161805,
+      "text": "No, I'm at work."
+    },
+    {
+      "name": "QueryT1",
+      "value": 2,
+      "text": "Is what I say going to be confidential?"
+    },
+    {
+      "name": "FeelT2",
+      "value": 0,
+      "text": "When do we get to the good stuff?"
+    },
+    {
+      "name": "MR02",
+      "value": 2,
+      "text": "I try to think good thoughts no matter how badly I feel."
+    },
+    {
+      "name": "MR01",
+      "value": 5,
+      "text": "Although I'm sometimes sad, I mostly have an optimistic outlook."
+    },
+    {
+      "name": "UserGoal",
+      "value": "REVIEW",
+      "text": "I want to review my life goals."
+    },
+    {
+      "name": "Name",
+      "value": "Kelly"
+    },
+    {
+      "name": "FeelT1",
+      "value": 2,
+      "text": "I'm quite excited actually."
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "time": 1428131844,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428131948,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "time": 1428161290,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428161837,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "time": 1428290396,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428290926,
+      "id": 3
+    },
+    {
+      "id": 4,
+      "time": 1428337129,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428337292,
+      "id": 4
+    },
+    {
+      "id": 6,
+      "time": 1428526727,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428527015,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "time": 1428532583,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428532890,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "time": 1428589842,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428592745,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "time": 1428635664,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428635874,
+      "id": 9
+    },
+    {
+      "id": 11,
+      "time": 1428710405,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428710482,
+      "id": 11
+    },
+    {
+      "id": 12,
+      "time": 1428854406,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428854541,
+      "id": 12
+    },
+    {
+      "id": 13,
+      "time": 1428944827,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1428945507,
+      "id": 13
+    },
+    {
+      "id": 14,
+      "time": 1429054391,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1429054551,
+      "id": 14
+    },
+    {
+      "id": 15,
+      "time": 1429801823,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1429801927,
+      "id": 15
+    },
+    {
+      "id": 16,
+      "time": 1429899848,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1429900707,
+      "id": 16
+    },
+    {
+      "id": 17,
+      "time": 1429981348,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1429981490,
+      "id": 17
+    },
+    {
+      "id": 18,
+      "time": 1430005601,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1430005703,
+      "id": 18
+    },
+    {
+      "id": 19,
+      "time": 1430011813,
+      "historyType": "startSession"
+    },
+    {
+      "historyType": "endSession",
+      "time": 1430011921,
+      "id": 19
+    }
+  ],
+  "geo": [
+    {
+      "lat": 41.8322639465332,
+      "lng": -87.79813385009766,
+      "date": "2015-04-04T03:58:19.760Z",
+      "timestamp": 1428119900
+    },
+    {
+      "lng": -87.78913116455078,
+      "lat": 41.83347702026367,
+      "timestamp": 1428131770,
+      "date": "2015-04-04T07:16:10.337Z"
+    },
+    {
+      "lng": -87.7891845703125,
+      "lat": 41.83346176147461,
+      "timestamp": 1428131980,
+      "date": "2015-04-04T07:19:40.454Z"
+    },
+    {
+      "lng": -87.79029083251953,
+      "lat": 41.833309173583984,
+      "timestamp": 1428132041,
+      "date": "2015-04-04T07:20:40.612Z"
+    },
+    {
+      "lng": -87.78916931152344,
+      "lat": 41.833683013916016,
+      "timestamp": 1428132115,
+      "date": "2015-04-04T07:21:54.635Z"
+    },
+    {
+      "lng": -87.7891616821289,
+      "lat": 41.83353805541992,
+      "timestamp": 1428132250,
+      "date": "2015-04-04T07:24:10.495Z"
+    },
+    {
+      "lat": 41.83195114135742,
+      "lng": -87.8003158569336,
+      "date": "2015-04-04T15:32:39.529Z",
+      "timestamp": 1428161560
+    },
+    {
+      "lng": -87.8010482788086,
+      "lat": 41.83184814453125,
+      "timestamp": 1428161860,
+      "date": "2015-04-04T15:37:39.576Z"
+    },
+    {
+      "lat": 41.83352279663086,
+      "lng": -87.7889633178711,
+      "date": "2015-04-06T03:20:18.226Z",
+      "timestamp": 1428290418
+    },
+    {
+      "lng": -87.7894058227539,
+      "lat": 41.83345031738281,
+      "timestamp": 1428290666,
+      "date": "2015-04-06T03:24:25.534Z"
+    },
+    {
+      "lng": -87.801025390625,
+      "lat": 41.83184814453125,
+      "timestamp": 1428290964,
+      "date": "2015-04-06T03:29:24.415Z"
+    },
+    {
+      "lat": 41.88799285888672,
+      "lng": -87.79451751708984,
+      "date": "2015-04-06T16:19:12.465Z",
+      "timestamp": 1428337152
+    },
+    {
+      "lng": -87.79462432861328,
+      "lat": 41.88800811767578,
+      "timestamp": 1428337192,
+      "date": "2015-04-06T16:19:52.080Z"
+    },
+    {
+      "lng": -87.7945785522461,
+      "lat": 41.88800811767578,
+      "timestamp": 1428337225,
+      "date": "2015-04-06T16:20:24.969Z"
+    },
+    {
+      "lng": -87.79458618164062,
+      "lat": 41.88801956176758,
+      "timestamp": 1428337258,
+      "date": "2015-04-06T16:20:57.851Z"
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.888023376464844,
+      "timestamp": 1428337321,
+      "date": "2015-04-06T16:22:00.761Z"
+    },
+    {
+      "lng": -87.79461669921875,
+      "lat": 41.888004302978516,
+      "timestamp": 1428337358,
+      "date": "2015-04-06T16:22:38.217Z"
+    },
+    {
+      "lat": 41.888004302978516,
+      "lng": -87.79461669921875,
+      "date": "2015-04-06T16:23:28.995Z",
+      "timestamp": 1428337409
+    },
+    {
+      "lng": -87.79456329345703,
+      "lat": 41.88800811767578,
+      "timestamp": 1428337440,
+      "date": "2015-04-06T16:24:00.164Z"
+    },
+    {
+      "lng": -87.79454040527344,
+      "lat": 41.888031005859375,
+      "timestamp": 1428337473,
+      "date": "2015-04-06T16:24:32.810Z"
+    },
+    {
+      "lng": -87.79451751708984,
+      "lat": 41.88799285888672,
+      "timestamp": 1428337725,
+      "date": "2015-04-06T16:28:44.619Z"
+    },
+    {
+      "lng": -87.79452514648438,
+      "lat": 41.887996673583984,
+      "timestamp": 1428337758,
+      "date": "2015-04-06T16:29:17.928Z"
+    },
+    {
+      "lng": -87.79459381103516,
+      "lat": 41.8880500793457,
+      "timestamp": 1428337792,
+      "date": "2015-04-06T16:29:51.829Z"
+    },
+    {
+      "lat": 41.88799285888672,
+      "lng": -87.7945785522461,
+      "date": "2015-04-06T16:31:19.491Z",
+      "timestamp": 1428337879
+    },
+    {
+      "lat": 41.88801956176758,
+      "lng": -87.79460906982422,
+      "date": "2015-04-08T20:59:13.984Z",
+      "timestamp": 1428526754
+    },
+    {
+      "lng": -87.79459381103516,
+      "lat": 41.8880500793457,
+      "timestamp": 1428526790,
+      "date": "2015-04-08T20:59:49.749Z"
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.88802719116211,
+      "timestamp": 1428526823,
+      "date": "2015-04-08T21:00:22.674Z"
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.888057708740234,
+      "timestamp": 1428526856,
+      "date": "2015-04-08T21:00:55.546Z"
+    },
+    {
+      "lng": -87.79457092285156,
+      "lat": 41.888031005859375,
+      "timestamp": 1428526918,
+      "date": "2015-04-08T21:01:58.433Z"
+    },
+    {
+      "lng": -87.79837036132812,
+      "lat": 41.88893127441406,
+      "timestamp": 1428527005,
+      "date": "2015-04-08T21:03:25.354Z"
+    },
+    {
+      "lat": 41.8880729675293,
+      "lng": -87.79466247558594,
+      "date": "2015-04-08T21:04:01.311Z",
+      "timestamp": 1428527041
+    },
+    {
+      "lng": -87.79460906982422,
+      "lat": 41.88805389404297,
+      "timestamp": 1428527072,
+      "date": "2015-04-08T21:04:32.152Z"
+    },
+    {
+      "lng": -87.79460906982422,
+      "lat": 41.88805389404297,
+      "timestamp": 1428527111,
+      "date": "2015-04-08T21:05:10.914Z"
+    },
+    {
+      "lng": -87.79452514648438,
+      "lat": 41.88796615600586,
+      "timestamp": 1428528635,
+      "date": "2015-04-08T21:30:35.313Z"
+    },
+    {
+      "lng": -87.79460906982422,
+      "lat": 41.88802719116211,
+      "timestamp": 1428528677,
+      "date": "2015-04-08T21:31:17.250Z"
+    },
+    {
+      "lng": -87.79463195800781,
+      "lat": 41.88796615600586,
+      "timestamp": 1428529675,
+      "date": "2015-04-08T21:47:54.979Z"
+    },
+    {
+      "lng": -87.79450225830078,
+      "lat": 41.887969970703125,
+      "timestamp": 1428532138,
+      "date": "2015-04-08T22:28:58.472Z"
+    },
+    {
+      "lat": 41.888065338134766,
+      "lng": -87.79463958740234,
+      "date": "2015-04-08T22:29:32.709Z",
+      "timestamp": 1428532173
+    },
+    {
+      "lng": -87.79467010498047,
+      "lat": 41.88801956176758,
+      "timestamp": 1428532576,
+      "date": "2015-04-08T22:36:15.873Z"
+    },
+    {
+      "lng": -87.79462432861328,
+      "lat": 41.88804626464844,
+      "timestamp": 1428532621,
+      "date": "2015-04-08T22:37:00.811Z"
+    },
+    {
+      "lng": -87.79461669921875,
+      "lat": 41.888057708740234,
+      "timestamp": 1428532656,
+      "date": "2015-04-08T22:37:36.307Z"
+    },
+    {
+      "lng": -87.79463195800781,
+      "lat": 41.88804244995117,
+      "timestamp": 1428532707,
+      "date": "2015-04-08T22:38:27.171Z"
+    },
+    {
+      "lng": -87.79459381103516,
+      "lat": 41.8880500793457,
+      "timestamp": 1428532740,
+      "date": "2015-04-08T22:38:59.973Z"
+    },
+    {
+      "lng": -87.79463195800781,
+      "lat": 41.888038635253906,
+      "timestamp": 1428532803,
+      "date": "2015-04-08T22:40:02.859Z"
+    },
+    {
+      "lng": -87.79463195800781,
+      "lat": 41.888038635253906,
+      "timestamp": 1428532874,
+      "date": "2015-04-08T22:41:13.864Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88804626464844,
+      "timestamp": 1428532926,
+      "date": "2015-04-08T22:42:05.764Z"
+    },
+    {
+      "lng": -87.79463958740234,
+      "lat": 41.88804626464844,
+      "timestamp": 1428533075,
+      "date": "2015-04-08T22:44:35.235Z"
+    },
+    {
+      "lng": -87.78887939453125,
+      "lat": 41.83373260498047,
+      "timestamp": 1428589841,
+      "date": "2015-04-09T14:30:41.001Z"
+    },
+    {
+      "lng": -87.78895568847656,
+      "lat": 41.83365249633789,
+      "timestamp": 1428592722,
+      "date": "2015-04-09T15:18:41.710Z"
+    },
+    {
+      "lng": -87.78889465332031,
+      "lat": 41.83361053466797,
+      "timestamp": 1428644561,
+      "date": "2015-04-10T05:42:40.621Z"
+    },
+    {
+      "lat": 41.78137969970703,
+      "lng": -87.74205780029297,
+      "date": "2015-04-11T00:00:29.210Z",
+      "timestamp": 1428710429
+    },
+    {
+      "lng": -87.74200439453125,
+      "lat": 41.78150939941406,
+      "timestamp": 1428710465,
+      "date": "2015-04-11T00:01:05.017Z"
+    },
+    {
+      "lng": -87.74188232421875,
+      "lat": 41.781368255615234,
+      "timestamp": 1428710498,
+      "date": "2015-04-11T00:01:37.881Z"
+    },
+    {
+      "lng": -87.79461669921875,
+      "lat": 41.8880500793457,
+      "timestamp": 1428860426,
+      "date": "2015-04-12T17:40:25.747Z"
+    },
+    {
+      "lng": -87.7977066040039,
+      "lat": 41.88877487182617,
+      "timestamp": 1428860600,
+      "date": "2015-04-12T17:43:20.097Z"
+    },
+    {
+      "lat": 41.833580017089844,
+      "lng": -87.78935241699219,
+      "date": "2015-04-13T17:16:36.517Z",
+      "timestamp": 1428945397
+    },
+    {
+      "lng": -87.7890853881836,
+      "lat": 41.833648681640625,
+      "timestamp": 1428945830,
+      "date": "2015-04-13T17:23:50.044Z"
+    },
+    {
+      "lat": 41.88801574707031,
+      "lng": -87.7945556640625,
+      "date": "2015-04-23T15:10:45.054Z",
+      "timestamp": 1429801845
+    },
+    {
+      "lng": -87.79447937011719,
+      "lat": 41.888004302978516,
+      "timestamp": 1429801878,
+      "date": "2015-04-23T15:11:17.848Z"
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.88804626464844,
+      "timestamp": 1429801917,
+      "date": "2015-04-23T15:11:56.531Z"
+    },
+    {
+      "lat": 41.83470916748047,
+      "lng": -87.79451751708984,
+      "date": "2015-04-24T18:28:37.202Z",
+      "timestamp": 1429900117
+    },
+    {
+      "lng": -87.79594421386719,
+      "lat": 41.834991455078125,
+      "timestamp": 1429900417,
+      "date": "2015-04-24T18:33:37.247Z"
+    },
+    {
+      "lng": -87.79608154296875,
+      "lat": 41.835018157958984,
+      "timestamp": 1429900718,
+      "date": "2015-04-24T18:38:37.759Z"
+    },
+    {
+      "lng": -87.79608154296875,
+      "lat": 41.835018157958984,
+      "timestamp": 1429900775,
+      "date": "2015-04-24T18:39:34.986Z"
+    },
+    {
+      "lng": -87.7887954711914,
+      "lat": 41.83359909057617,
+      "timestamp": 1429900828,
+      "date": "2015-04-24T18:40:28.236Z"
+    },
+    {
+      "lat": 41.83348846435547,
+      "lng": -87.7892074584961,
+      "date": "2015-04-25T23:47:05.136Z",
+      "timestamp": 1430005625
+    },
+    {
+      "lat": 41.83149337768555,
+      "lng": -87.78186798095703,
+      "date": "2015-04-26T01:36:20.272Z",
+      "timestamp": 1430012180
+    },
+    {
+      "lng": -87.78532409667969,
+      "lat": 41.83235168457031,
+      "timestamp": 1430012471,
+      "date": "2015-04-26T01:41:10.647Z"
+    },
+    {
+      "lng": -87.78221130371094,
+      "lat": 41.83157730102539,
+      "timestamp": 1430012536,
+      "date": "2015-04-26T01:42:16.372Z"
+    },
+    {
+      "lng": -87.78902435302734,
+      "lat": 41.83348083496094,
+      "timestamp": 1430013286,
+      "date": "2015-04-26T01:54:46.371Z"
+    },
+    {
+      "lng": -87.78935241699219,
+      "lat": 41.8333854675293,
+      "timestamp": 1430013514,
+      "date": "2015-04-26T01:58:33.951Z"
+    },
+    {
+      "lng": -87.78927612304688,
+      "lat": 41.833431243896484,
+      "timestamp": 1430013632,
+      "date": "2015-04-26T02:00:32.168Z"
+    },
+    {
+      "lat": 41.83346176147461,
+      "lng": -87.78913116455078,
+      "date": "2015-04-28T08:43:06.763Z",
+      "timestamp": 1430210587
+    },
+    {
+      "lat": 41.88798141479492,
+      "lng": -87.794677734375,
+      "date": "2015-04-30T21:17:07.067Z",
+      "timestamp": 1430428627
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428657,
+      "date": "2015-04-30T21:17:37.071Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428688,
+      "date": "2015-04-30T21:18:08.069Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428719,
+      "date": "2015-04-30T21:18:39.069Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428750,
+      "date": "2015-04-30T21:19:10.069Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428780,
+      "date": "2015-04-30T21:19:40.071Z"
+    },
+    {
+      "lat": 41.88798141479492,
+      "lng": -87.794677734375,
+      "date": "2015-04-30T21:20:11.065Z",
+      "timestamp": 1430428811
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428841,
+      "date": "2015-04-30T21:20:41.066Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428871,
+      "date": "2015-04-30T21:21:11.072Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428902,
+      "date": "2015-04-30T21:21:42.068Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428933,
+      "date": "2015-04-30T21:22:13.064Z"
+    },
+    {
+      "lng": -87.794677734375,
+      "lat": 41.88798141479492,
+      "timestamp": 1430428964,
+      "date": "2015-04-30T21:22:44.066Z"
+    },
+    {
+      "lat": 41.88803482055664,
+      "lng": -87.79461669921875,
+      "date": "2015-04-30T21:23:54.015Z",
+      "timestamp": 1430429034
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.888031005859375,
+      "timestamp": 1430429157,
+      "date": "2015-04-30T21:25:56.886Z"
+    },
+    {
+      "lng": -87.79460144042969,
+      "lat": 41.888031005859375,
+      "timestamp": 1430429258,
+      "date": "2015-04-30T21:27:38.159Z"
+    },
+    {
+      "lng": -87.7945785522461,
+      "lat": 41.888038635253906,
+      "timestamp": 1430429400,
+      "date": "2015-04-30T21:29:59.790Z"
+    },
+    {
+      "lng": -87.7945785522461,
+      "lat": 41.888038635253906,
+      "timestamp": 1430429558,
+      "date": "2015-04-30T21:32:38.208Z"
+    },
+    {
+      "lng": -87.79467010498047,
+      "lat": 41.88798522949219,
+      "timestamp": 1430429858,
+      "date": "2015-04-30T21:37:38.256Z"
+    },
+    {
+      "lat": 41.888023376464844,
+      "lng": -87.7946548461914,
+      "date": "2015-04-30T21:42:38.300Z",
+      "timestamp": 1430430158
+    }
+  ],
+  "aggregate": {
+    "questions": [
+      {
+        "name": "memMood1",
+        "distribution": [
+          {
+            "value": 5,
+            "users": 1,
+            "percent": 100
+          }
+        ],
+        "total": 1
+      },
+      {
+        "name": "HadSomething",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 17,
+            "percent": 16
+          },
+          {
+            "value": 4,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 3,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 9,
+            "percent": 9
+          },
+          {
+            "value": 5,
+            "users": 22,
+            "percent": 21
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "Honesty",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 32,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 58,
+            "percent": 56
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "KarenEval02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 17,
+            "percent": 17
+          },
+          {
+            "value": 3,
+            "users": 49,
+            "percent": 48
+          },
+          {
+            "value": 2,
+            "users": 12,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 24
+          }
+        ],
+        "total": 103
+      },
+      {
+        "name": "UserFeedback03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 35,
+            "percent": 34
+          },
+          {
+            "value": 2,
+            "users": 52,
+            "percent": 50
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserFeedback02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 39,
+            "percent": 38
+          },
+          {
+            "value": 0,
+            "users": 65,
+            "percent": 63
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserGoalRecalled",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 58,
+            "percent": 56
+          },
+          {
+            "value": 1,
+            "users": 46,
+            "percent": 44
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "FeelT5",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 9,
+            "percent": 9
+          },
+          {
+            "value": 0,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 48
+          },
+          {
+            "value": 4,
+            "users": 10,
+            "percent": 10
+          },
+          {
+            "value": 3,
+            "users": 7,
+            "percent": 7
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "KarenFeel",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 54,
+            "percent": 52
+          },
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 48
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserFeedback01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 56,
+            "percent": 54
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 27,
+            "percent": 26
+          }
+        ],
+        "total": 103
+      },
+      {
+        "name": "UserGuilt04",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 48,
+            "percent": 46
+          },
+          {
+            "value": 0,
+            "users": 57,
+            "percent": 54
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Secrecy",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 42,
+            "percent": 40
+          },
+          {
+            "value": 2,
+            "users": 44,
+            "percent": 42
+          },
+          {
+            "value": 1,
+            "users": 19,
+            "percent": 18
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DaveReveal",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 8
+          },
+          {
+            "value": 3,
+            "users": 29,
+            "percent": 39
+          },
+          {
+            "value": 2,
+            "users": 23,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 16,
+            "percent": 22
+          }
+        ],
+        "total": 74
+      },
+      {
+        "name": "UserGuilt03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 74,
+            "percent": 70
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 11,
+            "percent": 10
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "UserGuilt02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 75,
+            "percent": 71
+          },
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "UserGuilt01",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 26
+          },
+          {
+            "value": 1,
+            "users": 42,
+            "percent": 65
+          },
+          {
+            "value": 2,
+            "users": 6,
+            "percent": 9
+          }
+        ],
+        "total": 65
+      },
+      {
+        "name": "Guilt02",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 18,
+            "percent": 17
+          },
+          {
+            "value": 5,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 22,
+            "percent": 21
+          },
+          {
+            "value": 4,
+            "users": 23,
+            "percent": 22
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Guilt01",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 5,
+            "users": 7,
+            "percent": 7
+          },
+          {
+            "value": 2,
+            "users": 21,
+            "percent": 20
+          },
+          {
+            "value": 4,
+            "users": 21,
+            "percent": 20
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "AS02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 39,
+            "percent": 37
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 3,
+            "users": 34,
+            "percent": 32
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 4,
+            "users": 12,
+            "percent": 11
+          },
+          {
+            "value": 5,
+            "users": 2,
+            "percent": 2
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "AS01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 6,
+            "percent": 6
+          },
+          {
+            "value": 3,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 27,
+            "percent": 26
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 5,
+            "users": 4,
+            "percent": 4
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "FeelT4",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 65,
+            "percent": 62
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Aggression",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 0,
+            "users": 55,
+            "percent": 52
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DateReveal",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 66,
+            "percent": 63
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy04",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 30,
+            "percent": 29
+          },
+          {
+            "value": 0,
+            "users": 42,
+            "percent": 40
+          },
+          {
+            "value": 2,
+            "users": 33,
+            "percent": 31
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "IS03_T2",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 18,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 37,
+            "percent": 52
+          },
+          {
+            "value": 2,
+            "users": 13,
+            "percent": 18
+          },
+          {
+            "value": 3,
+            "users": 3,
+            "percent": 4
+          }
+        ],
+        "total": 71
+      },
+      {
+        "name": "IS01_T2",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 40,
+            "percent": 60
+          },
+          {
+            "value": 2,
+            "users": 21,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 6,
+            "percent": 9
+          }
+        ],
+        "total": 67
+      },
+      {
+        "name": "Privacy03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 44,
+            "percent": 42
+          },
+          {
+            "value": 2,
+            "users": 46,
+            "percent": 44
+          },
+          {
+            "value": 0,
+            "users": 15,
+            "percent": 14
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 65,
+            "percent": 62
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 47,
+            "percent": 45
+          },
+          {
+            "value": 1,
+            "users": 41,
+            "percent": 39
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "ImpersonalSexConfirm",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 1,
+            "users": 22,
+            "percent": 21
+          },
+          {
+            "value": 3,
+            "users": 24,
+            "percent": 23
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "QueryDave01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 68,
+            "percent": 65
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DesireKaren01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 2,
+            "users": 77,
+            "percent": 72
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LOC02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 71,
+            "percent": 66
+          },
+          {
+            "value": 2,
+            "users": 19,
+            "percent": 18
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LOC01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 69,
+            "percent": 64
+          },
+          {
+            "value": 2,
+            "users": 29,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 9,
+            "percent": 8
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "RWB02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 26
+          },
+          {
+            "value": 0,
+            "users": 1,
+            "percent": 1
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 3,
+            "users": 24,
+            "percent": 22
+          },
+          {
+            "value": 5,
+            "users": 18,
+            "percent": 17
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "RWB01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 4,
+            "users": 36,
+            "percent": 34
+          },
+          {
+            "value": 3,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 1,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 5,
+            "users": 29,
+            "percent": 27
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "PAD02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 24
+          },
+          {
+            "value": 3,
+            "users": 37,
+            "percent": 35
+          },
+          {
+            "value": 1,
+            "users": 9,
+            "percent": 8
+          },
+          {
+            "value": 5,
+            "users": 8,
+            "percent": 7
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "PAD01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 4,
+            "users": 31,
+            "percent": 29
+          },
+          {
+            "value": 3,
+            "users": 27,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 6
+          },
+          {
+            "value": 5,
+            "users": 23,
+            "percent": 21
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "KarenEval01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 48,
+            "percent": 45
+          },
+          {
+            "value": 2,
+            "users": 45,
+            "percent": 42
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LocationOut03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 12,
+            "percent": 100
+          }
+        ],
+        "total": 12
+      },
+      {
+        "name": "DateAdvice",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 37,
+            "percent": 35
+          },
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 45,
+            "percent": 42
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "ViewDate",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 68,
+            "percent": 64
+          },
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 23
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "DateTop",
+        "distribution": [
+          {
+            "value": "BLOUSE",
+            "users": 81,
+            "percent": 75
+          },
+          {
+            "value": "SEQUINS",
+            "users": 27,
+            "percent": 25
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 43,
+            "percent": 40
+          },
+          {
+            "value": 0,
+            "users": 31,
+            "percent": 29
+          },
+          {
+            "value": 2,
+            "users": 34,
+            "percent": 31
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS02",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 1,
+            "users": 68,
+            "percent": 63
+          },
+          {
+            "value": 2,
+            "users": 24,
+            "percent": 22
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS01",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 2,
+            "users": 37,
+            "percent": 34
+          },
+          {
+            "value": 1,
+            "users": 61,
+            "percent": 56
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "DrugsStory",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 65,
+            "percent": 60
+          },
+          {
+            "value": 0,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 32,
+            "percent": 30
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "PastLifeBelief",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 21,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 38,
+            "percent": 35
+          },
+          {
+            "value": 0,
+            "users": 49,
+            "percent": 45
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "LocationWork02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 15,
+            "percent": 100
+          }
+        ],
+        "total": 15
+      },
+      {
+        "distribution": [
+          {
+            "users": 107,
+            "percent": 100
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "Object",
+        "distribution": [
+          {
+            "value": "CAMERA",
+            "users": 73,
+            "percent": 66,
+            "centroid": [
+              40.105877142389986,
+              -17.3553628207399
+            ]
+          },
+          {
+            "value": "BANGLE",
+            "users": 14,
+            "percent": 13,
+            "centroid": [
+              -21.052635558244994,
+              38.29460191791683
+            ]
+          },
+          {
+            "value": "DEER",
+            "users": 23,
+            "percent": 21,
+            "centroid": [
+              -43.7,
+              -3.552713678800501e-15
+            ]
+          }
+        ],
+        "total": 110
+      },
+      {
+        "name": "SexPref",
+        "distribution": [
+          {
+            "value": "TRANSGENDER",
+            "users": 6,
+            "percent": 5
+          },
+          {
+            "value": "MEN",
+            "users": 42,
+            "percent": 36
+          },
+          {
+            "value": "WOMEN",
+            "users": 50,
+            "percent": 43
+          },
+          {
+            "value": "UNKNOWN",
+            "users": 4,
+            "percent": 3
+          },
+          {
+            "value": "BISEXUAL",
+            "users": 14,
+            "percent": 12
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Neuro02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 27,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 3,
+            "users": 21,
+            "percent": 18
+          },
+          {
+            "value": 1,
+            "users": 11,
+            "percent": 9
+          },
+          {
+            "value": 4,
+            "users": 40,
+            "percent": 34
+          },
+          {
+            "value": 5,
+            "users": 14,
+            "percent": 12
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Openness02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 1,
+            "percent": 1
+          },
+          {
+            "value": 4,
+            "users": 60,
+            "percent": 52
+          },
+          {
+            "value": 3,
+            "users": 23,
+            "percent": 20
+          },
+          {
+            "value": 1,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 5,
+            "users": 16,
+            "percent": 14
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Neuro01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 29,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 4,
+            "users": 30,
+            "percent": 26
+          },
+          {
+            "value": 3,
+            "users": 32,
+            "percent": 28
+          },
+          {
+            "value": 5,
+            "users": 8,
+            "percent": 7
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Openness01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 8,
+            "percent": 7
+          },
+          {
+            "value": 4,
+            "users": 40,
+            "percent": 34
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 3,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 1,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 5,
+            "users": 49,
+            "percent": 42
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Runaway",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 17
+          },
+          {
+            "value": 3,
+            "users": 53,
+            "percent": 46
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 17
+          },
+          {
+            "value": 1,
+            "users": 23,
+            "percent": 20
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Childhood",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 17,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 3
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 5
+          },
+          {
+            "value": 4,
+            "users": 33,
+            "percent": 28
+          },
+          {
+            "value": 3,
+            "users": 21,
+            "percent": 18
+          },
+          {
+            "value": 5,
+            "users": 35,
+            "percent": 30
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulFeel",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 28,
+            "percent": 24
+          },
+          {
+            "value": 2,
+            "users": 50,
+            "percent": 43
+          },
+          {
+            "value": 0,
+            "users": 38,
+            "percent": 33
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulDo",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 97,
+            "percent": 84
+          },
+          {
+            "value": 0,
+            "users": 19,
+            "percent": 16
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulAsk",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 13,
+            "percent": 11
+          },
+          {
+            "value": 1,
+            "users": 108,
+            "percent": 89
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "AloneT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 86,
+            "percent": 71
+          },
+          {
+            "value": 0,
+            "users": 35,
+            "percent": 29
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "LocationWork01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 29,
+            "percent": 100
+          }
+        ],
+        "total": 29
+      },
+      {
+        "name": "QueryT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 41
+          },
+          {
+            "value": 2,
+            "users": 42,
+            "percent": 35
+          },
+          {
+            "value": 0,
+            "users": 29,
+            "percent": 24
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "FeelT2",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 81,
+            "percent": 67
+          },
+          {
+            "value": 0,
+            "users": 30,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 8
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "MR02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 30,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 2
+          },
+          {
+            "value": 4,
+            "users": 37,
+            "percent": 31
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 3,
+            "users": 26,
+            "percent": 21
+          },
+          {
+            "value": 5,
+            "users": 11,
+            "percent": 9
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "MR01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 22,
+            "percent": 18
+          },
+          {
+            "value": 4,
+            "users": 47,
+            "percent": 39
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 3,
+            "users": 20,
+            "percent": 16
+          },
+          {
+            "value": 1,
+            "users": 5,
+            "percent": 4
+          },
+          {
+            "value": 5,
+            "users": 26,
+            "percent": 21
+          }
+        ],
+        "total": 122
+      },
+      {
+        "name": "UserGoal",
+        "distribution": [
+          {
+            "value": "ATTITUDE",
+            "users": 30,
+            "percent": 25,
+            "centroid": [
+              6.096820311849513,
+              -43.272610067859546
+            ]
+          },
+          {
+            "value": "CONTROL",
+            "users": 56,
+            "percent": 46,
+            "centroid": [
+              31.139919233246015,
+              30.65934490733478
+            ]
+          },
+          {
+            "value": "REVIEW",
+            "users": 36,
+            "percent": 30,
+            "centroid": [
+              -43.7,
+              -1.4210854715202004e-14
+            ]
+          }
+        ],
+        "total": 122
+      },
+      {
+        "name": "FeelT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 30,
+            "percent": 21
+          },
+          {
+            "value": 0,
+            "users": 32,
+            "percent": 23
+          },
+          {
+            "value": 2,
+            "users": 78,
+            "percent": 56
+          }
+        ],
+        "total": 140
+      },
+      {
+        "name": "CoinToss",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 36,
+            "percent": 45
+          },
+          {
+            "value": 0,
+            "users": 40,
+            "percent": 50
+          },
+          {
+            "value": 1,
+            "users": 4,
+            "percent": 5
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved04",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 20
+          },
+          {
+            "value": 0,
+            "users": 24,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 40,
+            "percent": 50
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved03",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 55,
+            "percent": 69
+          },
+          {
+            "value": 1,
+            "users": 20,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 5,
+            "percent": 6
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 51,
+            "percent": 64
+          },
+          {
+            "value": 0,
+            "users": 11,
+            "percent": 14
+          },
+          {
+            "value": 1,
+            "users": 18,
+            "percent": 23
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 58,
+            "percent": 73
+          },
+          {
+            "value": 0,
+            "users": 22,
+            "percent": 28
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "KnowPeople",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 67,
+            "percent": 87
+          },
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 13
+          }
+        ],
+        "total": 77
+      },
+      {
+        "name": "LocationHome03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 77,
+            "percent": 100
+          }
+        ],
+        "total": 77
+      },
+      {
+        "name": "PastLife",
+        "distribution": [
+          {
+            "value": "DRUID",
+            "users": 9,
+            "percent": 24
+          },
+          {
+            "value": "NONE",
+            "users": 13,
+            "percent": 34
+          },
+          {
+            "value": "MUSKETEER",
+            "users": 6,
+            "percent": 16
+          },
+          {
+            "value": "STEAMPUNK",
+            "users": 10,
+            "percent": 26
+          }
+        ],
+        "total": 38
+      },
+      {
+        "name": "LocationOut02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 24,
+            "percent": 100
+          }
+        ],
+        "total": 24
+      },
+      {
+        "name": "LocationHome01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 74,
+            "percent": 100
+          }
+        ],
+        "total": 74
+      },
+      {
+        "name": "SigOther",
+        "distribution": [
+          {
+            "value": "FRIEND",
+            "users": 12,
+            "percent": 11
+          },
+          {
+            "value": "OTHER",
+            "users": 36,
+            "percent": 33
+          },
+          {
+            "value": "PARTNER",
+            "users": 52,
+            "percent": 48
+          },
+          {
+            "value": "DAD",
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": "MUM",
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": "FAMILY",
+            "users": 1,
+            "percent": 1
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "Disagreeable01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 34,
+            "percent": 100
+          }
+        ],
+        "total": 34
+      },
+      {
+        "name": "QueryDave02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 38,
+            "percent": 100
+          }
+        ],
+        "total": 38
+      },
+      {
+        "name": "LocationHome02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 70,
+            "percent": 100
+          }
+        ],
+        "total": 70
+      },
+      {
+        "name": "LocationOut01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 18,
+            "percent": 100
+          }
+        ],
+        "total": 18
+      },
+      {
+        "name": "LocationWork03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 17,
+            "percent": 100
+          }
+        ],
+        "total": 17
+      },
+      {
+        "name": "DesireKaren02",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 5,
+            "percent": 45
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 55
+          }
+        ],
+        "total": 11
+      },
+      {
+        "name": "SigOtherEval",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 10,
+            "percent": 12
+          },
+          {
+            "value": 3,
+            "users": 47,
+            "percent": 55
+          },
+          {
+            "value": 2,
+            "users": 15,
+            "percent": 18
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 4
+          }
+        ],
+        "total": 85
+      },
+      {
+        "name": "GratefulReminder",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 93
+          },
+          {
+            "value": 3,
+            "users": 1,
+            "percent": 4
+          },
+          {
+            "value": 1,
+            "users": 1,
+            "percent": 4
+          }
+        ],
+        "total": 27
+      }
+    ],
+    "scales": [
+      {
+        "name": "scaleMood",
+        "distribution": [
+          {
+            "value": 5,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          100
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleMR",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 15
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 6,
+            "users": 24
+          },
+          {
+            "value": 5,
+            "users": 14
+          },
+          {
+            "value": 3,
+            "users": 8
+          },
+          {
+            "value": 7,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 18
+          },
+          {
+            "value": 10,
+            "users": 8
+          },
+          {
+            "value": 9,
+            "users": 16
+          },
+          {
+            "value": 2,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          12,
+          1,
+          20,
+          11,
+          7,
+          13,
+          15,
+          7,
+          13,
+          2
+        ],
+        "mean": 6
+      },
+      {
+        "name": "KscaleFeel",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 38
+          },
+          {
+            "value": 0,
+            "users": 15
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 3,
+            "users": 25
+          },
+          {
+            "value": 5,
+            "users": 12
+          },
+          {
+            "value": 8,
+            "users": 2
+          },
+          {
+            "value": 6,
+            "users": 4
+          },
+          {
+            "value": 7,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          31,
+          12,
+          11,
+          8,
+          21,
+          10,
+          2,
+          3,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "GratefulEngage",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 42
+          },
+          {
+            "value": 3,
+            "users": 24
+          },
+          {
+            "value": 4,
+            "users": 42
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 0,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          34,
+          20,
+          34,
+          11,
+          1
+        ],
+        "mean": 3
+      },
+      {
+        "name": "scaleChildhood",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 18
+          },
+          {
+            "value": 3,
+            "users": 8
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 2,
+            "users": 5
+          },
+          {
+            "value": 7,
+            "users": 18
+          },
+          {
+            "value": 6,
+            "users": 19
+          },
+          {
+            "value": 5,
+            "users": 25
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 8,
+            "users": 20
+          }
+        ],
+        "distributionPercent": [
+          16,
+          7,
+          2,
+          4,
+          16,
+          16,
+          22,
+          1,
+          17
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleOpenness",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 6
+          },
+          {
+            "value": 6,
+            "users": 13
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 8,
+            "users": 31
+          },
+          {
+            "value": 7,
+            "users": 12
+          },
+          {
+            "value": 2,
+            "users": 2
+          },
+          {
+            "value": 3,
+            "users": 1
+          },
+          {
+            "value": 5,
+            "users": 4
+          },
+          {
+            "value": 9,
+            "users": 36
+          },
+          {
+            "value": 10,
+            "users": 10
+          }
+        ],
+        "distributionPercent": [
+          5,
+          11,
+          1,
+          27,
+          10,
+          2,
+          1,
+          3,
+          31,
+          9
+        ],
+        "mean": 8
+      },
+      {
+        "name": "scaleNeuro",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 16
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 5,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 2,
+            "users": 6
+          },
+          {
+            "value": 8,
+            "users": 19
+          },
+          {
+            "value": 7,
+            "users": 22
+          },
+          {
+            "value": 6,
+            "users": 21
+          },
+          {
+            "value": 10,
+            "users": 4
+          },
+          {
+            "value": 9,
+            "users": 7
+          }
+        ],
+        "distributionPercent": [
+          14,
+          2,
+          8,
+          9,
+          5,
+          16,
+          19,
+          18,
+          3,
+          6
+        ],
+        "mean": 6
+      },
+      {
+        "name": "scaleIS",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 29
+          },
+          {
+            "value": 2,
+            "users": 18
+          },
+          {
+            "value": 4,
+            "users": 29
+          },
+          {
+            "value": 5,
+            "users": 12
+          },
+          {
+            "value": 6,
+            "users": 9
+          },
+          {
+            "value": 0,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          8,
+          27,
+          17,
+          27,
+          11,
+          8,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleDateSupport",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 40
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 3,
+            "users": 27
+          },
+          {
+            "value": 1,
+            "users": 8
+          },
+          {
+            "value": 0,
+            "users": 15
+          }
+        ],
+        "distributionPercent": [
+          37,
+          16,
+          25,
+          7,
+          14
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scalePAD",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 7
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 8,
+            "users": 21
+          },
+          {
+            "value": 5,
+            "users": 11
+          },
+          {
+            "value": 3,
+            "users": 2
+          },
+          {
+            "value": 2,
+            "users": 5
+          },
+          {
+            "value": 6,
+            "users": 26
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 7,
+            "users": 23
+          },
+          {
+            "value": 9,
+            "users": 3
+          },
+          {
+            "value": 10,
+            "users": 6
+          }
+        ],
+        "distributionPercent": [
+          7,
+          2,
+          20,
+          10,
+          2,
+          5,
+          24,
+          1,
+          21,
+          3,
+          6
+        ],
+        "mean": 6
+      },
+      {
+        "name": "scaleRWB",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 4
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 5,
+            "users": 17
+          },
+          {
+            "value": 6,
+            "users": 26
+          },
+          {
+            "value": 7,
+            "users": 18
+          },
+          {
+            "value": 3,
+            "users": 3
+          },
+          {
+            "value": 8,
+            "users": 20
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 9,
+            "users": 4
+          },
+          {
+            "value": 10,
+            "users": 13
+          }
+        ],
+        "distributionPercent": [
+          4,
+          1,
+          16,
+          24,
+          17,
+          3,
+          19,
+          1,
+          4,
+          12
+        ],
+        "mean": 7
+      },
+      {
+        "name": "scaleLOC",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 54
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 3,
+            "users": 25
+          },
+          {
+            "value": 0,
+            "users": 5
+          }
+        ],
+        "distributionPercent": [
+          50,
+          9,
+          12,
+          23,
+          5
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scaleIST2",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 23
+          },
+          {
+            "value": 3,
+            "users": 16
+          },
+          {
+            "value": 2,
+            "users": 20
+          },
+          {
+            "value": 0,
+            "users": 12
+          },
+          {
+            "value": 5,
+            "users": 3
+          },
+          {
+            "value": 4,
+            "users": 7
+          }
+        ],
+        "distributionPercent": [
+          28,
+          20,
+          25,
+          15,
+          4,
+          9
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scaleAS",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 14
+          },
+          {
+            "value": 0,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 25
+          },
+          {
+            "value": 2,
+            "users": 6
+          },
+          {
+            "value": 5,
+            "users": 22
+          },
+          {
+            "value": 3,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 7
+          },
+          {
+            "value": 7,
+            "users": 9
+          },
+          {
+            "value": 9,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          13,
+          4,
+          24,
+          6,
+          21,
+          15,
+          7,
+          9,
+          2
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleGuilt",
+        "distribution": [
+          {
+            "value": 6,
+            "users": 27
+          },
+          {
+            "value": 2,
+            "users": 11
+          },
+          {
+            "value": 5,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 11
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 10,
+            "users": 5
+          },
+          {
+            "value": 7,
+            "users": 13
+          },
+          {
+            "value": 9,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          26,
+          10,
+          15,
+          10,
+          10,
+          10,
+          5,
+          12,
+          2
+        ],
+        "mean": 6
+      },
+      {
+        "name": "KscaleUserGuilt",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 40
+          },
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 2,
+            "users": 22
+          },
+          {
+            "value": 4,
+            "users": 24
+          },
+          {
+            "value": 5,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 4
+          },
+          {
+            "value": 0,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          38,
+          9,
+          21,
+          23,
+          4,
+          4,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleJudgemental",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 30
+          },
+          {
+            "value": 1,
+            "users": 54
+          },
+          {
+            "value": 2,
+            "users": 20
+          },
+          {
+            "value": 3,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          28,
+          51,
+          19,
+          2
+        ],
+        "mean": 1
+      },
+      {
+        "name": "KscaleEval",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 24
+          },
+          {
+            "value": 3,
+            "users": 18
+          },
+          {
+            "value": 2,
+            "users": 11
+          },
+          {
+            "value": 0,
+            "users": 12
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 5,
+            "users": 23
+          }
+        ],
+        "distributionPercent": [
+          23,
+          17,
+          10,
+          11,
+          16,
+          22
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleGetInvolved",
+        "distribution": [
+          {
+            "value": 9,
+            "users": 2
+          },
+          {
+            "value": 1,
+            "users": 3
+          },
+          {
+            "value": 7,
+            "users": 5
+          },
+          {
+            "value": 8,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 20
+          },
+          {
+            "value": 3,
+            "users": 9
+          },
+          {
+            "value": 5,
+            "users": 23
+          },
+          {
+            "value": 4,
+            "users": 11
+          },
+          {
+            "value": 2,
+            "users": 3
+          }
+        ],
+        "distributionPercent": [
+          3,
+          4,
+          6,
+          5,
+          25,
+          11,
+          29,
+          14,
+          4
+        ],
+        "mean": 5
+      },
+      {
+        "name": "KscaleDisagreeable",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 24
+          },
+          {
+            "value": 1,
+            "users": 24
+          }
+        ],
+        "distributionPercent": [
+          50,
+          50
+        ],
+        "mean": 2
+      },
+      {
+        "name": "KscaleUserFeedback",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 31
+          },
+          {
+            "value": 0,
+            "users": 3
+          },
+          {
+            "value": 2,
+            "users": 19
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 5,
+            "users": 4
+          }
+        ],
+        "distributionPercent": [
+          11,
+          37,
+          4,
+          23,
+          20,
+          5
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleConsistent",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 49
+          },
+          {
+            "value": 2,
+            "users": 21
+          },
+          {
+            "value": 3,
+            "users": 3
+          },
+          {
+            "value": 0,
+            "users": 11
+          }
+        ],
+        "distributionPercent": [
+          58,
+          25,
+          4,
+          13
+        ],
+        "mean": 1
+      },
+      {
+        "name": "KscalePrivacy",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 29
+          },
+          {
+            "value": 5,
+            "users": 14
+          },
+          {
+            "value": 3,
+            "users": 27
+          },
+          {
+            "value": 2,
+            "users": 7
+          },
+          {
+            "value": 1,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          37,
+          18,
+          35,
+          9,
+          1
+        ],
+        "mean": 4
+      },
+      {
+        "name": "KscaleDesireKaren",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 64
+          },
+          {
+            "value": 1,
+            "users": 2
+          },
+          {
+            "value": 0,
+            "users": 11
+          }
+        ],
+        "distributionPercent": [
+          83,
+          3,
+          14
+        ],
+        "mean": 2
+      }
+    ]
+  }
+}

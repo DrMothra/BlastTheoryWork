@@ -1,0 +1,5742 @@
+{
+  "scales": [
+    {
+      "name": "scaleMR",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "MR02",
+          "text": "I try to think good thoughts no matter how badly I feel.",
+          "value": 2
+        },
+        {
+          "name": "MR01",
+          "text": "Although I'm sometimes sad, I mostly have an optimistic outlook.",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "KscaleFeel",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "FeelT5",
+          "text": "Worried about you.",
+          "value": 1
+        },
+        {
+          "name": "FeelT4",
+          "text": "You don't look very well.",
+          "value": 0
+        },
+        {
+          "name": "FeelT2",
+          "text": "Fine",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "GratefulEngage",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "GratefulFeel",
+          "text": "It felt like slender pickings.",
+          "value": 1
+        },
+        {
+          "name": "GratefulDo",
+          "text": "Yes.",
+          "value": 1
+        },
+        {
+          "name": "GratefulAsk",
+          "text": "Yes, I can do that.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scaleChildhood",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "Runaway",
+          "text": "I thought about it.",
+          "value": 2
+        },
+        {
+          "name": "Childhood",
+          "text": "I would describe my childhood as happy.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scaleOpenness",
+      "sum": 7,
+      "questions": [
+        {
+          "name": "Openness02",
+          "text": "So, would you say you have excellent ideas?",
+          "value": 3
+        },
+        {
+          "name": "Openness01",
+          "text": "Having difficulty understanding abstract ideas?",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "scaleNeuro",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "Neuro02",
+          "text": "What about getting stressed out easily?",
+          "value": 3
+        },
+        {
+          "name": "Neuro01",
+          "text": "And are you relaxed most of the time?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleIS",
+      "sum": 4,
+      "questions": [
+        {
+          "name": "IS03",
+          "text": "It depends on the context.",
+          "value": 1
+        },
+        {
+          "name": "IS02",
+          "text": "You're right. We're animals deep down.",
+          "value": 2
+        },
+        {
+          "name": "IS01",
+          "text": "That depends. What sort of pleasures?",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleDateSupport",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "DateAdvice",
+          "text": "That's not for me to say.",
+          "value": 0
+        },
+        {
+          "name": "ViewDate",
+          "text": "Yes, please",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "KscaleEval",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "KarenEval02",
+          "text": "Yes it's been fun.",
+          "value": 3
+        },
+        {
+          "name": "KarenEval01",
+          "text": "Yes, very good, you're a natural",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scalePAD",
+      "sum": 6,
+      "questions": [
+        {
+          "name": "PAD02",
+          "text": "And how about this?",
+          "value": 4
+        },
+        {
+          "name": "PAD01",
+          "text": "More guided or more autonomous?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleRWB",
+      "sum": 4,
+      "questions": [
+        {
+          "name": "RWB02",
+          "text": "And would you say that they have frequent mood swings?",
+          "value": 2
+        },
+        {
+          "name": "RWB01",
+          "text": "Would you agree that Dave takes time out for others?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleLOC",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "LOC02",
+          "text": "Sometimes. I wish it was always true.",
+          "value": 1
+        },
+        {
+          "name": "LOC01",
+          "text": "Sometimes you can't control how things go",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleDesireKaren",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "DesireKaren01",
+          "text": "Of course.",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "KscalePrivacy",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "Privacy03",
+          "text": "Yes, go on. Let's see.",
+          "value": 2
+        },
+        {
+          "name": "Privacy02",
+          "text": "What are you going to do?",
+          "value": 1
+        },
+        {
+          "name": "Privacy01",
+          "text": "OK.",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "scaleIST2",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "IS03_T2",
+          "text": "Depends.",
+          "value": 1
+        },
+        {
+          "name": "IS01_T2",
+          "text": "Maybe.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleConsistent",
+      "sum": 1,
+      "questions": [
+        {
+          "name": "Consistent02",
+          "value": 0
+        },
+        {
+          "name": "Consistent01",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleJudgemental",
+      "sum": 2,
+      "questions": [
+        {
+          "name": "KarenFeel",
+          "text": "You look tired.",
+          "value": 1
+        },
+        {
+          "name": "Judgemental02",
+          "value": 0
+        },
+        {
+          "name": "Judgemental01",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleGetInvolved",
+      "sum": 7,
+      "questions": [
+        {
+          "name": "GetInvolved04",
+          "text": "Yes – of course.",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved03",
+          "text": "You should tell her if you love her.",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved02",
+          "text": "Do you love her?",
+          "value": 2
+        },
+        {
+          "name": "GetInvolved01",
+          "text": "You can't keep doing what?",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "scaleAS",
+      "sum": 6,
+      "questions": [
+        {
+          "name": "AS02",
+          "text": "And would you agree that in a sexual union, tenderness is the most important quality?",
+          "value": 3
+        },
+        {
+          "name": "AS01",
+          "text": "Okay let's begin. Do you sometimes feel like biting or scratching during intercourse?",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "scaleGuilt",
+      "sum": 6,
+      "questions": [
+        {
+          "name": "Guilt02",
+          "text": "Do you sometimes harbour guilty secrets that you're afraid will come out one day?",
+          "value": 3
+        },
+        {
+          "name": "Guilt01",
+          "text": "Now. Are you sometimes disgusted by your own sexual desires and fantasies?",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "KscaleUserGuilt",
+      "sum": 5,
+      "questions": [
+        {
+          "name": "UserGuilt04",
+          "text": "I'm sorry.",
+          "value": 1
+        },
+        {
+          "name": "UserGuilt03",
+          "text": "I need to tell you something about Dave.",
+          "value": 1
+        },
+        {
+          "name": "UserGuilt02",
+          "text": "I'm sorry, that shouldn't have happened.",
+          "value": 2
+        },
+        {
+          "name": "UserGuilt01",
+          "text": "I should tell you something about Dave.",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "KscaleUserFeedback",
+      "sum": 3,
+      "questions": [
+        {
+          "name": "UserFeedback03",
+          "text": "Thanks, I'll remember what you've said. ",
+          "value": 2
+        },
+        {
+          "name": "UserFeedback02",
+          "text": "I knew that.",
+          "value": 1
+        },
+        {
+          "name": "UserFeedback01",
+          "text": "I shouldn't have treated you that way.",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "name": "HadSomething",
+      "value": 4,
+      "text": "I thought we really had something."
+    },
+    {
+      "name": "Honesty",
+      "value": 2,
+      "text": "Karen, I've been honest with you."
+    },
+    {
+      "name": "KarenEval02",
+      "value": 3,
+      "text": "Yes it's been fun."
+    },
+    {
+      "name": "UserFeedback03",
+      "value": 2,
+      "text": "Thanks, I'll remember what you've said. "
+    },
+    {
+      "name": "UserFeedback02",
+      "value": 1,
+      "text": "I knew that."
+    },
+    {
+      "name": "UserGoalRecalled",
+      "value": 0,
+      "text": "I've lost track. A lot has happened since then."
+    },
+    {
+      "name": "FeelT5",
+      "value": 1,
+      "text": "Worried about you."
+    },
+    {
+      "name": "KarenFeel",
+      "value": 1,
+      "text": "You look tired."
+    },
+    {
+      "name": "UserFeedback01",
+      "value": 0,
+      "text": "I shouldn't have treated you that way."
+    },
+    {
+      "name": "UserGuilt04",
+      "value": 1,
+      "text": "I'm sorry."
+    },
+    {
+      "name": "Secrecy",
+      "value": 0,
+      "text": "I'm sorry, I know it's not right."
+    },
+    {
+      "name": "DaveReveal",
+      "value": 3,
+      "text": "He's in love with you."
+    },
+    {
+      "name": "UserGuilt03",
+      "value": 1,
+      "text": "I need to tell you something about Dave."
+    },
+    {
+      "name": "UserGuilt02",
+      "value": 2,
+      "text": "I'm sorry, that shouldn't have happened."
+    },
+    {
+      "name": "UserGuilt01",
+      "value": 1,
+      "text": "I should tell you something about Dave."
+    },
+    {
+      "name": "Guilt02",
+      "value": 3,
+      "text": "Do you sometimes harbour guilty secrets that you're afraid will come out one day?"
+    },
+    {
+      "name": "Guilt01",
+      "value": 3,
+      "text": "Now. Are you sometimes disgusted by your own sexual desires and fantasies?"
+    },
+    {
+      "name": "AS02",
+      "value": 3,
+      "text": "And would you agree that in a sexual union, tenderness is the most important quality?"
+    },
+    {
+      "name": "AS01",
+      "value": 3,
+      "text": "Okay let's begin. Do you sometimes feel like biting or scratching during intercourse?"
+    },
+    {
+      "name": "FeelT4",
+      "value": 0,
+      "text": "You don't look very well."
+    },
+    {
+      "name": "CoinToss",
+      "value": 0,
+      "text": "Not my choice"
+    },
+    {
+      "name": "GetInvolved04",
+      "value": 2,
+      "text": "Yes – of course."
+    },
+    {
+      "name": "GetInvolved03",
+      "value": 2,
+      "text": "You should tell her if you love her."
+    },
+    {
+      "name": "GetInvolved02",
+      "value": 2,
+      "text": "Do you love her?"
+    },
+    {
+      "name": "GetInvolved01",
+      "value": 1,
+      "text": "You can't keep doing what?"
+    },
+    {
+      "name": "Aggression",
+      "value": 0,
+      "text": "This has got nothing to do with me."
+    },
+    {
+      "name": "DateReveal",
+      "value": 1,
+      "text": "No, definitely not."
+    },
+    {
+      "name": "Privacy04",
+      "value": 0,
+      "text": "She'd be right up for it."
+    },
+    {
+      "name": "IS03_T2",
+      "value": 1,
+      "text": "Depends."
+    },
+    {
+      "name": "IS01_T2",
+      "value": 1,
+      "text": "Maybe."
+    },
+    {
+      "name": "Privacy03",
+      "value": 2,
+      "text": "Yes, go on. Let's see."
+    },
+    {
+      "name": "Privacy02",
+      "value": 1,
+      "text": "What are you going to do?"
+    },
+    {
+      "name": "Privacy01",
+      "value": 2,
+      "text": "OK."
+    },
+    {
+      "name": "ImpersonalSexConfirm",
+      "value": 3,
+      "text": "Well, that is true."
+    },
+    {
+      "name": "QueryDave01",
+      "value": 1,
+      "text": "Hey Dave, how's it going?"
+    },
+    {
+      "name": "KnowPeople",
+      "value": 1,
+      "text": "Yes, that's just the way life is."
+    },
+    {
+      "name": "DesireKaren01",
+      "value": 2,
+      "text": "Of course."
+    },
+    {
+      "name": "LOC02",
+      "value": 1,
+      "text": "Sometimes. I wish it was always true."
+    },
+    {
+      "name": "LOC01",
+      "value": 1,
+      "text": "Sometimes you can't control how things go"
+    },
+    {
+      "name": "SigOtherEval",
+      "value": 2,
+      "text": "I'm not sure about that."
+    },
+    {
+      "name": "RWB02",
+      "value": 2,
+      "text": "And would you say that they have frequent mood swings?"
+    },
+    {
+      "name": "RWB01",
+      "value": 2,
+      "text": "Would you agree that Dave takes time out for others?"
+    },
+    {
+      "name": "PAD02",
+      "value": 4,
+      "text": "And how about this?"
+    },
+    {
+      "name": "PAD01",
+      "value": 2,
+      "text": "More guided or more autonomous?"
+    },
+    {},
+    {
+      "name": "KarenEval01",
+      "value": 2,
+      "text": "Yes, very good, you're a natural"
+    },
+    {
+      "name": "LocationHome03",
+      "value": "geolocation",
+      "time": 1429463237,
+      "text": "At home. Taking it easy."
+    },
+    {
+      "name": "DateAdvice",
+      "value": 0,
+      "text": "That's not for me to say."
+    },
+    {
+      "name": "ViewDate",
+      "value": 2,
+      "text": "Yes, please"
+    },
+    {
+      "name": "DateTop",
+      "value": "BLOUSE",
+      "text": "Blouse"
+    },
+    {
+      "name": "IS03",
+      "value": 1,
+      "text": "It depends on the context."
+    },
+    {
+      "name": "IS02",
+      "value": 2,
+      "text": "You're right. We're animals deep down."
+    },
+    {
+      "name": "IS01",
+      "value": 1,
+      "text": "That depends. What sort of pleasures?"
+    },
+    {
+      "name": "DrugsStory",
+      "value": 2,
+      "text": "Please . . . go on."
+    },
+    {
+      "name": "PastLifeBelief",
+      "value": 0,
+      "text": "*politely* No, no I don't."
+    },
+    {
+      "name": "LocationHome02",
+      "value": "geolocation",
+      "time": 1429402229,
+      "text": "Sure. I'm just at home."
+    },
+    {
+      "name": "SigOtherWhy",
+      "value": "Married for security."
+    },
+    {
+      "name": "SigOtherName",
+      "value": "Dave"
+    },
+    {
+      "name": "SigOther",
+      "value": "PARTNER",
+      "text": "It's my partner."
+    },
+    {
+      "name": "Object",
+      "value": "CAMERA",
+      "text": "Camera"
+    },
+    {
+      "name": "SexPref",
+      "value": "MEN",
+      "text": "Men"
+    },
+    {
+      "name": "Neuro02",
+      "value": 3,
+      "text": "What about getting stressed out easily?"
+    },
+    {
+      "name": "Openness02",
+      "value": 3,
+      "text": "So, would you say you have excellent ideas?"
+    },
+    {
+      "name": "Neuro01",
+      "value": 2,
+      "text": "And are you relaxed most of the time?"
+    },
+    {
+      "name": "Openness01",
+      "value": 4,
+      "text": "Having difficulty understanding abstract ideas?"
+    },
+    {
+      "name": "Runaway",
+      "value": 2,
+      "text": "I thought about it."
+    },
+    {
+      "name": "Childhood",
+      "value": 1,
+      "text": "I would describe my childhood as happy."
+    },
+    {
+      "name": "GratefulFeel",
+      "value": 1,
+      "text": "It felt like slender pickings."
+    },
+    {
+      "name": "GratefulText",
+      "value": "I am grateful for my dog, Rita."
+    },
+    {
+      "name": "GratefulDo",
+      "value": 1,
+      "text": "Yes."
+    },
+    {
+      "name": "GratefulAsk",
+      "value": 1,
+      "text": "Yes, I can do that."
+    },
+    {
+      "name": "AloneT1",
+      "value": 1,
+      "text": "Yes, I'm alone."
+    },
+    {
+      "name": "LocationHome01",
+      "value": "geolocation",
+      "time": 1429237160,
+      "text": "Yes."
+    },
+    {
+      "name": "QueryT1",
+      "value": 0,
+      "text": "No, we're all good."
+    },
+    {
+      "name": "FeelT2",
+      "value": 2,
+      "text": "Fine"
+    },
+    {
+      "name": "MR02",
+      "value": 2,
+      "text": "I try to think good thoughts no matter how badly I feel."
+    },
+    {
+      "name": "MR01",
+      "value": 3,
+      "text": "Although I'm sometimes sad, I mostly have an optimistic outlook."
+    },
+    {
+      "name": "UserGoal",
+      "value": "REVIEW",
+      "text": "I want to review my life goals."
+    },
+    {
+      "name": "Name",
+      "value": "Laura"
+    },
+    {
+      "name": "FeelT1",
+      "value": 2,
+      "text": "I'm quite excited actually."
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "historyType": "startSession",
+      "time": 1429220064
+    },
+    {
+      "id": 1,
+      "historyType": "endSession",
+      "time": 1429220168
+    },
+    {
+      "id": 2,
+      "historyType": "startSession",
+      "time": 1429236897
+    },
+    {
+      "id": 2,
+      "historyType": "endSession",
+      "time": 1429237206
+    },
+    {
+      "id": 3,
+      "historyType": "startSession",
+      "time": 1429295901
+    },
+    {
+      "id": 3,
+      "historyType": "endSession",
+      "time": 1429296259
+    },
+    {
+      "id": 4,
+      "historyType": "startSession",
+      "time": 1429304305
+    },
+    {
+      "id": 4,
+      "historyType": "endSession",
+      "time": 1429304491
+    },
+    {
+      "id": 6,
+      "historyType": "startSession",
+      "time": 1429402182
+    },
+    {
+      "id": 6,
+      "historyType": "endSession",
+      "time": 1429402494
+    },
+    {
+      "id": 7,
+      "historyType": "startSession",
+      "time": 1429427255
+    },
+    {
+      "id": 7,
+      "historyType": "endSession",
+      "time": 1429427318
+    },
+    {
+      "id": 8,
+      "historyType": "startSession",
+      "time": 1429463211
+    },
+    {
+      "id": 8,
+      "historyType": "endSession",
+      "time": 1429463489
+    },
+    {
+      "id": 9,
+      "historyType": "startSession",
+      "time": 1429506432
+    },
+    {
+      "id": 9,
+      "historyType": "endSession",
+      "time": 1429506650
+    },
+    {
+      "id": 11,
+      "historyType": "startSession",
+      "time": 1429585307
+    },
+    {
+      "id": 11,
+      "historyType": "endSession",
+      "time": 1429585382
+    },
+    {
+      "id": 12,
+      "historyType": "startSession",
+      "time": 1429646727
+    },
+    {
+      "id": 12,
+      "historyType": "endSession",
+      "time": 1429646873
+    },
+    {
+      "id": 13,
+      "historyType": "startSession",
+      "time": 1429651788
+    },
+    {
+      "id": 13,
+      "historyType": "endSession",
+      "time": 1429652076
+    },
+    {
+      "id": 14,
+      "historyType": "startSession",
+      "time": 1429733230
+    },
+    {
+      "id": 14,
+      "historyType": "endSession",
+      "time": 1429733420
+    },
+    {
+      "id": 15,
+      "historyType": "startSession",
+      "time": 1429822409
+    },
+    {
+      "id": 15,
+      "historyType": "endSession",
+      "time": 1429822528
+    },
+    {
+      "id": 16,
+      "historyType": "startSession",
+      "time": 1429844514
+    },
+    {
+      "id": 16,
+      "historyType": "endSession",
+      "time": 1429844750
+    },
+    {
+      "id": 17,
+      "historyType": "startSession",
+      "time": 1429903152
+    },
+    {
+      "id": 17,
+      "historyType": "endSession",
+      "time": 1429903297
+    },
+    {
+      "id": 18,
+      "historyType": "startSession",
+      "time": 1429910352
+    },
+    {
+      "id": 18,
+      "historyType": "endSession",
+      "time": 1429910458
+    },
+    {
+      "id": 19,
+      "historyType": "startSession",
+      "time": 1429925211
+    },
+    {
+      "id": 19,
+      "historyType": "endSession",
+      "time": 1429925325
+    }
+  ],
+  "geo": [
+    {
+      "lat": 32.872406005859375,
+      "lng": -117.2354965209961,
+      "date": "2015-04-16T21:32:23.955Z",
+      "timestamp": 1429219944
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.87236785888672,
+      "timestamp": 1429219975,
+      "date": "2015-04-16T21:32:54.557Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87235641479492,
+      "timestamp": 1429220030,
+      "date": "2015-04-16T21:33:49.790Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87232971191406,
+      "timestamp": 1429220098,
+      "date": "2015-04-16T21:34:57.599Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.87236404418945,
+      "timestamp": 1429220230,
+      "date": "2015-04-16T21:37:10.283Z"
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.87236022949219,
+      "timestamp": 1429220263,
+      "date": "2015-04-16T21:37:42.802Z"
+    },
+    {
+      "lat": 32.87237548828125,
+      "lng": -117.23542022705078,
+      "date": "2015-04-16T21:39:09.765Z",
+      "timestamp": 1429220350
+    },
+    {
+      "lat": 32.872459411621094,
+      "lng": -117.23543548583984,
+      "date": "2015-04-17T02:15:16.253Z",
+      "timestamp": 1429236916
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87242889404297,
+      "timestamp": 1429236985,
+      "date": "2015-04-17T02:16:24.822Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872398376464844,
+      "timestamp": 1429237016,
+      "date": "2015-04-17T02:16:55.995Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872440338134766,
+      "timestamp": 1429237052,
+      "date": "2015-04-17T02:17:32.192Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87241744995117,
+      "timestamp": 1429237087,
+      "date": "2015-04-17T02:18:06.607Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87242126464844,
+      "timestamp": 1429237119,
+      "date": "2015-04-17T02:18:39.449Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.23545837402344,
+      "date": "2015-04-17T02:20:08.313Z",
+      "timestamp": 1429237208
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872432708740234,
+      "timestamp": 1429237248,
+      "date": "2015-04-17T02:20:48.474Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872413635253906,
+      "timestamp": 1429237299,
+      "date": "2015-04-17T02:21:38.603Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872413635253906,
+      "timestamp": 1429237336,
+      "date": "2015-04-17T02:22:16.189Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87246322631836,
+      "timestamp": 1429237369,
+      "date": "2015-04-17T02:22:49.431Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872440338134766,
+      "timestamp": 1429237403,
+      "date": "2015-04-17T02:23:22.760Z"
+    },
+    {
+      "lat": 32.872440338134766,
+      "lng": -117.23545837402344,
+      "date": "2015-04-17T18:38:57.743Z",
+      "timestamp": 1429295938
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724250793457,
+      "timestamp": 1429295993,
+      "date": "2015-04-17T18:39:53.471Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.8724250793457,
+      "timestamp": 1429296054,
+      "date": "2015-04-17T18:40:54.229Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87240982055664,
+      "timestamp": 1429296133,
+      "date": "2015-04-17T18:42:12.706Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872406005859375,
+      "timestamp": 1429296193,
+      "date": "2015-04-17T18:43:13.453Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872432708740234,
+      "timestamp": 1429296272,
+      "date": "2015-04-17T18:44:32.450Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.23544311523438,
+      "date": "2015-04-17T18:45:19.136Z",
+      "timestamp": 1429296319
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87245178222656,
+      "timestamp": 1429296400,
+      "date": "2015-04-17T18:46:40.443Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87251663208008,
+      "timestamp": 1429304295,
+      "date": "2015-04-17T20:58:15.396Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87245559692383,
+      "timestamp": 1429304333,
+      "date": "2015-04-17T20:58:53.043Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872440338134766,
+      "timestamp": 1429304396,
+      "date": "2015-04-17T20:59:55.596Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872459411621094,
+      "timestamp": 1429304430,
+      "date": "2015-04-17T21:00:29.908Z"
+    },
+    {
+      "lat": 32.87247085571289,
+      "lng": -117.23543548583984,
+      "date": "2015-04-17T21:01:12.622Z",
+      "timestamp": 1429304473
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87248992919922,
+      "timestamp": 1429304511,
+      "date": "2015-04-17T21:01:50.597Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.8724365234375,
+      "timestamp": 1429304544,
+      "date": "2015-04-17T21:02:24.170Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.872432708740234,
+      "timestamp": 1429304607,
+      "date": "2015-04-17T21:03:26.612Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872459411621094,
+      "timestamp": 1429304667,
+      "date": "2015-04-17T21:04:27.347Z"
+    },
+    {
+      "lat": 32.8723258972168,
+      "lng": -117.23542022705078,
+      "date": "2015-04-18T05:23:09.810Z",
+      "timestamp": 1429334590
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.87234115600586,
+      "timestamp": 1429334656,
+      "date": "2015-04-18T05:24:15.787Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.87232971191406,
+      "timestamp": 1429334733,
+      "date": "2015-04-18T05:25:32.573Z"
+    },
+    {
+      "lat": 32.87223815917969,
+      "lng": -117.23541259765625,
+      "date": "2015-04-19T00:10:06.801Z",
+      "timestamp": 1429402207
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.872215270996094,
+      "timestamp": 1429402240,
+      "date": "2015-04-19T00:10:39.938Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87226486206055,
+      "timestamp": 1429402291,
+      "date": "2015-04-19T00:11:30.874Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.872276306152344,
+      "timestamp": 1429402373,
+      "date": "2015-04-19T00:12:53.430Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.87226104736328,
+      "timestamp": 1429402448,
+      "date": "2015-04-19T00:14:07.670Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.872257232666016,
+      "timestamp": 1429402598,
+      "date": "2015-04-19T00:16:38.008Z"
+    },
+    {
+      "lat": 32.8722038269043,
+      "lng": -117.23530578613281,
+      "date": "2015-04-19T00:17:11.280Z",
+      "timestamp": 1429402631
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.87224578857422,
+      "timestamp": 1429402669,
+      "date": "2015-04-19T00:17:48.792Z"
+    },
+    {
+      "lat": 32.87241744995117,
+      "lng": -117.23538970947266,
+      "date": "2015-04-19T07:08:00.300Z",
+      "timestamp": 1429427280
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872413635253906,
+      "timestamp": 1429427312,
+      "date": "2015-04-19T07:08:31.654Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87238693237305,
+      "timestamp": 1429427372,
+      "date": "2015-04-19T07:09:31.681Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.8723030090332,
+      "timestamp": 1429427420,
+      "date": "2015-04-19T07:10:19.628Z"
+    },
+    {
+      "lng": -117.23535919189453,
+      "lat": 32.87233352661133,
+      "timestamp": 1429427453,
+      "date": "2015-04-19T07:10:52.964Z"
+    },
+    {
+      "lng": -117.23538208007812,
+      "lat": 32.872406005859375,
+      "timestamp": 1429427487,
+      "date": "2015-04-19T07:11:27.303Z"
+    },
+    {
+      "lat": 32.87228012084961,
+      "lng": -117.23545837402344,
+      "date": "2015-04-19T13:03:41.876Z",
+      "timestamp": 1429448622
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87229537963867,
+      "timestamp": 1429448652,
+      "date": "2015-04-19T13:04:11.889Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87235641479492,
+      "timestamp": 1429448686,
+      "date": "2015-04-19T13:04:45.636Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87229919433594,
+      "timestamp": 1429448721,
+      "date": "2015-04-19T13:05:20.661Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872291564941406,
+      "timestamp": 1429448773,
+      "date": "2015-04-19T13:06:12.591Z"
+    },
+    {
+      "lat": 32.872474670410156,
+      "lng": -117.2354736328125,
+      "date": "2015-04-19T17:07:14.634Z",
+      "timestamp": 1429463235
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872474670410156,
+      "timestamp": 1429463271,
+      "date": "2015-04-19T17:07:50.542Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.8724479675293,
+      "timestamp": 1429463304,
+      "date": "2015-04-19T17:08:24.182Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.8724479675293,
+      "timestamp": 1429463373,
+      "date": "2015-04-19T17:09:33.135Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87242126464844,
+      "timestamp": 1429463434,
+      "date": "2015-04-19T17:10:33.883Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872474670410156,
+      "timestamp": 1429463495,
+      "date": "2015-04-19T17:11:34.594Z"
+    },
+    {
+      "lat": 32.87247085571289,
+      "lng": -117.23548889160156,
+      "date": "2015-04-19T17:13:02.201Z",
+      "timestamp": 1429463582
+    },
+    {
+      "lng": -117.23550415039062,
+      "lat": 32.872467041015625,
+      "timestamp": 1429463643,
+      "date": "2015-04-19T17:14:02.911Z"
+    },
+    {
+      "lat": 32.872344970703125,
+      "lng": -117.23540496826172,
+      "date": "2015-04-20T05:07:35.064Z",
+      "timestamp": 1429506455
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.872379302978516,
+      "timestamp": 1429506508,
+      "date": "2015-04-20T05:08:27.985Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87232208251953,
+      "timestamp": 1429506542,
+      "date": "2015-04-20T05:09:02.443Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872344970703125,
+      "timestamp": 1429506575,
+      "date": "2015-04-20T05:09:34.901Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87235641479492,
+      "timestamp": 1429506636,
+      "date": "2015-04-20T05:10:35.648Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87232971191406,
+      "timestamp": 1429506670,
+      "date": "2015-04-20T05:11:10.232Z"
+    },
+    {
+      "lat": 32.87236404418945,
+      "lng": -117.23546600341797,
+      "date": "2015-04-20T05:12:31.392Z",
+      "timestamp": 1429506751
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87242889404297,
+      "timestamp": 1429506815,
+      "date": "2015-04-20T05:13:35.058Z"
+    },
+    {
+      "lat": 32.87238311767578,
+      "lng": -117.2354507446289,
+      "date": "2015-04-20T07:53:46.569Z",
+      "timestamp": 1429516427
+    },
+    {
+      "lat": 32.872413635253906,
+      "lng": -117.2354736328125,
+      "date": "2015-04-21T03:02:05.466Z",
+      "timestamp": 1429585325
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872432708740234,
+      "timestamp": 1429585358,
+      "date": "2015-04-21T03:02:38.223Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724479675293,
+      "timestamp": 1429585396,
+      "date": "2015-04-21T03:03:16.222Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872406005859375,
+      "timestamp": 1429585430,
+      "date": "2015-04-21T03:03:50.115Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.8724365234375,
+      "timestamp": 1429585464,
+      "date": "2015-04-21T03:04:23.839Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.87240219116211,
+      "timestamp": 1429585552,
+      "date": "2015-04-21T03:05:52.020Z"
+    },
+    {
+      "lat": 32.872440338134766,
+      "lng": -117.23545837402344,
+      "date": "2015-04-21T20:05:52.350Z",
+      "timestamp": 1429646752
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87242126464844,
+      "timestamp": 1429646802,
+      "date": "2015-04-21T20:06:41.729Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87245559692383,
+      "timestamp": 1429646879,
+      "date": "2015-04-21T20:07:59.086Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87244415283203,
+      "timestamp": 1429646920,
+      "date": "2015-04-21T20:08:40.266Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872440338134766,
+      "timestamp": 1429646961,
+      "date": "2015-04-21T20:09:20.873Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872432708740234,
+      "timestamp": 1429647025,
+      "date": "2015-04-21T20:10:25.027Z"
+    },
+    {
+      "lat": 32.87244415283203,
+      "lng": -117.23546600341797,
+      "date": "2015-04-21T20:10:59.565Z",
+      "timestamp": 1429647060
+    },
+    {
+      "lat": 32.87247848510742,
+      "lng": -117.23548126220703,
+      "date": "2015-04-21T21:30:12.262Z",
+      "timestamp": 1429651812
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87246322631836,
+      "timestamp": 1429651854,
+      "date": "2015-04-21T21:30:53.544Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87248229980469,
+      "timestamp": 1429651888,
+      "date": "2015-04-21T21:31:28.019Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87247085571289,
+      "timestamp": 1429651926,
+      "date": "2015-04-21T21:32:05.777Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.87246322631836,
+      "timestamp": 1429651987,
+      "date": "2015-04-21T21:33:06.519Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.872459411621094,
+      "timestamp": 1429652029,
+      "date": "2015-04-21T21:33:49.206Z"
+    },
+    {
+      "lat": 32.87245559692383,
+      "lng": -117.23548126220703,
+      "date": "2015-04-21T21:34:41.728Z",
+      "timestamp": 1429652082
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.872501373291016,
+      "timestamp": 1429652112,
+      "date": "2015-04-21T21:35:11.801Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872467041015625,
+      "timestamp": 1429652162,
+      "date": "2015-04-21T21:36:01.619Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87245559692383,
+      "timestamp": 1429652223,
+      "date": "2015-04-21T21:37:03.316Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872440338134766,
+      "timestamp": 1429652262,
+      "date": "2015-04-21T21:37:41.556Z"
+    },
+    {
+      "lat": 32.87232971191406,
+      "lng": -117.23538970947266,
+      "date": "2015-04-22T06:13:08.211Z",
+      "timestamp": 1429683188
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.87237548828125,
+      "timestamp": 1429683255,
+      "date": "2015-04-22T06:14:15.437Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.87235641479492,
+      "timestamp": 1429683297,
+      "date": "2015-04-22T06:14:56.656Z"
+    },
+    {
+      "lat": 32.87229537963867,
+      "lng": -117.23544311523438,
+      "date": "2015-04-22T10:02:46.191Z",
+      "timestamp": 1429696966
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872310638427734,
+      "timestamp": 1429697070,
+      "date": "2015-04-22T10:04:29.713Z"
+    },
+    {
+      "lng": -117.23529052734375,
+      "lat": 32.87215042114258,
+      "timestamp": 1429718715,
+      "date": "2015-04-22T16:05:14.582Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87226104736328,
+      "timestamp": 1429718795,
+      "date": "2015-04-22T16:06:35.286Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.872344970703125,
+      "timestamp": 1429718830,
+      "date": "2015-04-22T16:07:09.640Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87246322631836,
+      "timestamp": 1429718863,
+      "date": "2015-04-22T16:07:43.054Z"
+    },
+    {
+      "lat": 32.87229919433594,
+      "lng": -117.23539733886719,
+      "date": "2015-04-22T16:08:15.337Z",
+      "timestamp": 1429718895
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87253952026367,
+      "timestamp": 1429733227,
+      "date": "2015-04-22T20:07:07.424Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.872371673583984,
+      "timestamp": 1429733261,
+      "date": "2015-04-22T20:07:41.389Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87245178222656,
+      "timestamp": 1429733298,
+      "date": "2015-04-22T20:08:17.679Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87241744995117,
+      "timestamp": 1429733358,
+      "date": "2015-04-22T20:09:18.443Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87240982055664,
+      "timestamp": 1429733394,
+      "date": "2015-04-22T20:09:54.414Z"
+    },
+    {
+      "lat": 32.87245559692383,
+      "lng": -117.23545837402344,
+      "date": "2015-04-22T20:10:37.567Z",
+      "timestamp": 1429733438
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.87242126464844,
+      "timestamp": 1429733499,
+      "date": "2015-04-22T20:11:38.584Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724365234375,
+      "timestamp": 1429733544,
+      "date": "2015-04-22T20:12:23.896Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872413635253906,
+      "timestamp": 1429733578,
+      "date": "2015-04-22T20:12:57.899Z"
+    },
+    {
+      "lat": 32.87241744995117,
+      "lng": -117.23548889160156,
+      "date": "2015-04-23T20:53:48.123Z",
+      "timestamp": 1429822428
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724365234375,
+      "timestamp": 1429822463,
+      "date": "2015-04-23T20:54:23.015Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.8724365234375,
+      "timestamp": 1429822526,
+      "date": "2015-04-23T20:55:26.127Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.87242126464844,
+      "timestamp": 1429822561,
+      "date": "2015-04-23T20:56:00.927Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.87240982055664,
+      "timestamp": 1429822595,
+      "date": "2015-04-23T20:56:34.940Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87235641479492,
+      "timestamp": 1429822635,
+      "date": "2015-04-23T20:57:15.194Z"
+    },
+    {
+      "lat": 32.87241744995117,
+      "lng": -117.2354507446289,
+      "date": "2015-04-23T20:57:49.462Z",
+      "timestamp": 1429822669
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.8724365234375,
+      "timestamp": 1429822703,
+      "date": "2015-04-23T20:58:23.328Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.8724365234375,
+      "timestamp": 1429822739,
+      "date": "2015-04-23T20:58:58.767Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.872440338134766,
+      "timestamp": 1429822772,
+      "date": "2015-04-23T20:59:31.664Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87242889404297,
+      "timestamp": 1429822839,
+      "date": "2015-04-23T21:00:38.889Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.8724365234375,
+      "timestamp": 1429822924,
+      "date": "2015-04-23T21:02:03.979Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.23546600341797,
+      "date": "2015-04-23T21:04:11.385Z",
+      "timestamp": 1429823051
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87244415283203,
+      "timestamp": 1429823126,
+      "date": "2015-04-23T21:05:25.617Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.8724250793457,
+      "timestamp": 1429823427,
+      "date": "2015-04-23T21:10:26.812Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872413635253906,
+      "timestamp": 1429823483,
+      "date": "2015-04-23T21:11:23.246Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87245178222656,
+      "timestamp": 1429823531,
+      "date": "2015-04-23T21:12:10.921Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87241744995117,
+      "timestamp": 1429823565,
+      "date": "2015-04-23T21:12:44.937Z"
+    },
+    {
+      "lat": 32.872413635253906,
+      "lng": -117.23548126220703,
+      "date": "2015-04-23T21:13:26.955Z",
+      "timestamp": 1429823607
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87242126464844,
+      "timestamp": 1429823688,
+      "date": "2015-04-23T21:14:47.859Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872413635253906,
+      "timestamp": 1429823723,
+      "date": "2015-04-23T21:15:23.162Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87240219116211,
+      "timestamp": 1429823798,
+      "date": "2015-04-23T21:16:37.506Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.87244415283203,
+      "timestamp": 1429823864,
+      "date": "2015-04-23T21:17:43.780Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87241744995117,
+      "timestamp": 1429823906,
+      "date": "2015-04-23T21:18:26.064Z"
+    },
+    {
+      "lat": 32.87242126464844,
+      "lng": -117.23548126220703,
+      "date": "2015-04-23T21:19:33.410Z",
+      "timestamp": 1429823973
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.872413635253906,
+      "timestamp": 1429824034,
+      "date": "2015-04-23T21:20:34.152Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872432708740234,
+      "timestamp": 1429824096,
+      "date": "2015-04-23T21:21:36.365Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87241744995117,
+      "timestamp": 1429824157,
+      "date": "2015-04-23T21:22:37.419Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87240982055664,
+      "timestamp": 1429824239,
+      "date": "2015-04-23T21:23:58.994Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724250793457,
+      "timestamp": 1429824331,
+      "date": "2015-04-23T21:25:31.485Z"
+    },
+    {
+      "lat": 32.872432708740234,
+      "lng": -117.2354507446289,
+      "date": "2015-04-23T21:26:32.840Z",
+      "timestamp": 1429824393
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87241744995117,
+      "timestamp": 1429824451,
+      "date": "2015-04-23T21:27:31.398Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87241744995117,
+      "timestamp": 1429824512,
+      "date": "2015-04-23T21:28:31.748Z"
+    },
+    {
+      "lat": 32.87244415283203,
+      "lng": -117.23544311523438,
+      "date": "2015-04-23T21:30:17.199Z",
+      "timestamp": 1429824617
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87241744995117,
+      "timestamp": 1429824692,
+      "date": "2015-04-23T21:31:32.352Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87242889404297,
+      "timestamp": 1429824779,
+      "date": "2015-04-23T21:32:58.979Z"
+    },
+    {
+      "lat": 32.87242889404297,
+      "lng": -117.2354736328125,
+      "date": "2015-04-24T03:02:21.944Z",
+      "timestamp": 1429844542
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724365234375,
+      "timestamp": 1429844605,
+      "date": "2015-04-24T03:03:25.146Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87244415283203,
+      "timestamp": 1429844645,
+      "date": "2015-04-24T03:04:05.034Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872413635253906,
+      "timestamp": 1429844675,
+      "date": "2015-04-24T03:04:35.143Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.87242889404297,
+      "timestamp": 1429844709,
+      "date": "2015-04-24T03:05:08.870Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.8724250793457,
+      "timestamp": 1429844746,
+      "date": "2015-04-24T03:05:46.040Z"
+    },
+    {
+      "lat": 32.872467041015625,
+      "lng": -117.23543548583984,
+      "date": "2015-04-24T03:06:16.982Z",
+      "timestamp": 1429844777
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.872467041015625,
+      "timestamp": 1429844815,
+      "date": "2015-04-24T03:06:55.364Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87242889404297,
+      "timestamp": 1429844873,
+      "date": "2015-04-24T03:07:52.912Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87248992919922,
+      "timestamp": 1429844908,
+      "date": "2015-04-24T03:08:27.879Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87244415283203,
+      "timestamp": 1429844939,
+      "date": "2015-04-24T03:08:58.592Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.23544311523438,
+      "date": "2015-04-24T19:19:33.340Z",
+      "timestamp": 1429903173
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872459411621094,
+      "timestamp": 1429903209,
+      "date": "2015-04-24T19:20:08.543Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.872413635253906,
+      "timestamp": 1429903242,
+      "date": "2015-04-24T19:20:41.930Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87248229980469,
+      "timestamp": 1429903288,
+      "date": "2015-04-24T19:21:28.057Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.872432708740234,
+      "timestamp": 1429903328,
+      "date": "2015-04-24T19:22:08.300Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87241744995117,
+      "timestamp": 1429903396,
+      "date": "2015-04-24T19:23:15.539Z"
+    },
+    {
+      "lat": 32.87241744995117,
+      "lng": -117.23546600341797,
+      "date": "2015-04-24T19:26:23.619Z",
+      "timestamp": 1429903584
+    },
+    {
+      "lng": -117.23551177978516,
+      "lat": 32.87242889404297,
+      "timestamp": 1429903659,
+      "date": "2015-04-24T19:27:38.956Z"
+    },
+    {
+      "lng": -117.23562622070312,
+      "lat": 32.87220001220703,
+      "timestamp": 1429910349,
+      "date": "2015-04-24T21:19:09.157Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872432708740234,
+      "timestamp": 1429910394,
+      "date": "2015-04-24T21:19:54.088Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872432708740234,
+      "timestamp": 1429910455,
+      "date": "2015-04-24T21:20:55.020Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87248611450195,
+      "timestamp": 1429910487,
+      "date": "2015-04-24T21:21:27.008Z"
+    },
+    {
+      "lat": 32.8724250793457,
+      "lng": -117.23548126220703,
+      "date": "2015-04-24T21:22:12.567Z",
+      "timestamp": 1429910533
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87239456176758,
+      "timestamp": 1429910567,
+      "date": "2015-04-24T21:22:46.622Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.872413635253906,
+      "timestamp": 1429910627,
+      "date": "2015-04-24T21:23:47.497Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87239456176758,
+      "timestamp": 1429911024,
+      "date": "2015-04-24T21:30:23.666Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.8724365234375,
+      "timestamp": 1429911105,
+      "date": "2015-04-24T21:31:44.718Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87240982055664,
+      "timestamp": 1429911171,
+      "date": "2015-04-24T21:32:51.454Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.2354507446289,
+      "date": "2015-04-25T01:27:14.210Z",
+      "timestamp": 1429925234
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87248229980469,
+      "timestamp": 1429925295,
+      "date": "2015-04-25T01:28:14.935Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.8724365234375,
+      "timestamp": 1429925379,
+      "date": "2015-04-25T01:29:38.638Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872467041015625,
+      "timestamp": 1429925445,
+      "date": "2015-04-25T01:30:44.541Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.87240219116211,
+      "timestamp": 1429925487,
+      "date": "2015-04-25T01:31:26.574Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.872440338134766,
+      "timestamp": 1429925547,
+      "date": "2015-04-25T01:32:27.326Z"
+    },
+    {
+      "lat": 32.87241744995117,
+      "lng": -117.23548126220703,
+      "date": "2015-04-25T01:33:14.306Z",
+      "timestamp": 1429925594
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87241744995117,
+      "timestamp": 1429925640,
+      "date": "2015-04-25T01:34:00.249Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.872474670410156,
+      "timestamp": 1429925714,
+      "date": "2015-04-25T01:35:14.200Z"
+    },
+    {
+      "lat": 32.872215270996094,
+      "lng": -117.23542022705078,
+      "date": "2015-04-25T03:50:09.434Z",
+      "timestamp": 1429933809
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87239074707031,
+      "timestamp": 1429933844,
+      "date": "2015-04-25T03:50:44.226Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87240219116211,
+      "timestamp": 1429933925,
+      "date": "2015-04-25T03:52:05.187Z"
+    },
+    {
+      "lat": 32.87234115600586,
+      "lng": -117.23542022705078,
+      "date": "2015-04-25T17:47:11.144Z",
+      "timestamp": 1429984031
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.872398376464844,
+      "timestamp": 1429984063,
+      "date": "2015-04-25T17:47:42.914Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87239456176758,
+      "timestamp": 1429984102,
+      "date": "2015-04-25T17:48:22.365Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87238693237305,
+      "timestamp": 1429984186,
+      "date": "2015-04-25T17:49:46.287Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87239456176758,
+      "timestamp": 1429984235,
+      "date": "2015-04-25T17:50:34.912Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87236022949219,
+      "timestamp": 1429984267,
+      "date": "2015-04-25T17:51:06.896Z"
+    },
+    {
+      "lat": 32.872337341308594,
+      "lng": -117.23543548583984,
+      "date": "2015-04-25T17:51:50.857Z",
+      "timestamp": 1429984311
+    },
+    {
+      "lng": -117.23538208007812,
+      "lat": 32.872379302978516,
+      "timestamp": 1429984351,
+      "date": "2015-04-25T17:52:30.965Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.8723258972168,
+      "timestamp": 1429984386,
+      "date": "2015-04-25T17:53:06.038Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.872310638427734,
+      "timestamp": 1429984427,
+      "date": "2015-04-25T17:53:47.178Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87236404418945,
+      "timestamp": 1429984458,
+      "date": "2015-04-25T17:54:18.320Z"
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.872344970703125,
+      "timestamp": 1429984492,
+      "date": "2015-04-25T17:54:52.108Z"
+    },
+    {
+      "lat": 32.87242126464844,
+      "lng": -117.23543548583984,
+      "date": "2015-04-25T17:55:28.094Z",
+      "timestamp": 1429984528
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.872440338134766,
+      "timestamp": 1429984564,
+      "date": "2015-04-25T17:56:03.995Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.872406005859375,
+      "timestamp": 1429984603,
+      "date": "2015-04-25T17:56:42.954Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87236785888672,
+      "timestamp": 1429984914,
+      "date": "2015-04-25T18:01:53.744Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87229537963867,
+      "timestamp": 1429984947,
+      "date": "2015-04-25T18:02:26.746Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87226486206055,
+      "timestamp": 1429984979,
+      "date": "2015-04-25T18:02:59.098Z"
+    },
+    {
+      "lat": 32.872344970703125,
+      "lng": -117.23538970947266,
+      "date": "2015-04-25T18:04:13.375Z",
+      "timestamp": 1429985053
+    },
+    {
+      "lat": 32.87236022949219,
+      "lng": -117.23543548583984,
+      "date": "2015-04-26T06:18:26.777Z",
+      "timestamp": 1430029107
+    },
+    {
+      "lng": -117.23538208007812,
+      "lat": 32.8723258972168,
+      "timestamp": 1430029141,
+      "date": "2015-04-26T06:19:00.702Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87228012084961,
+      "timestamp": 1430029174,
+      "date": "2015-04-26T06:19:34.444Z"
+    },
+    {
+      "lng": -117.2353515625,
+      "lat": 32.872379302978516,
+      "timestamp": 1430029212,
+      "date": "2015-04-26T06:20:11.814Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87236022949219,
+      "timestamp": 1430029248,
+      "date": "2015-04-26T06:20:47.991Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87232971191406,
+      "timestamp": 1430029279,
+      "date": "2015-04-26T06:21:19.053Z"
+    },
+    {
+      "lat": 32.8724250793457,
+      "lng": -117.2354736328125,
+      "date": "2015-04-27T02:44:42.650Z",
+      "timestamp": 1430102683
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87242126464844,
+      "timestamp": 1430102762,
+      "date": "2015-04-27T02:46:02.257Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.87236404418945,
+      "timestamp": 1430102793,
+      "date": "2015-04-27T02:46:33.031Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.872352600097656,
+      "timestamp": 1430102832,
+      "date": "2015-04-27T02:47:12.289Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.872344970703125,
+      "timestamp": 1430102870,
+      "date": "2015-04-27T02:47:50.372Z"
+    },
+    {
+      "lng": -117.23542022705078,
+      "lat": 32.872344970703125,
+      "timestamp": 1430103011,
+      "date": "2015-04-27T02:50:10.719Z"
+    },
+    {
+      "lat": 32.872493743896484,
+      "lng": -117.23543548583984,
+      "date": "2015-04-27T02:50:43.797Z",
+      "timestamp": 1430103044
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872398376464844,
+      "timestamp": 1430103082,
+      "date": "2015-04-27T02:51:22.073Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87240219116211,
+      "timestamp": 1430103113,
+      "date": "2015-04-27T02:51:53.281Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872406005859375,
+      "timestamp": 1430103149,
+      "date": "2015-04-27T02:52:29.133Z"
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.87241744995117,
+      "timestamp": 1430103192,
+      "date": "2015-04-27T02:53:12.071Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.87241744995117,
+      "timestamp": 1430103245,
+      "date": "2015-04-27T02:54:04.630Z"
+    },
+    {
+      "lat": 32.872406005859375,
+      "lng": -117.23544311523438,
+      "date": "2015-04-27T02:54:40.766Z",
+      "timestamp": 1430103281
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87238693237305,
+      "timestamp": 1430103314,
+      "date": "2015-04-27T02:55:13.615Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87238693237305,
+      "timestamp": 1430103346,
+      "date": "2015-04-27T02:55:46.187Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87240982055664,
+      "timestamp": 1430103419,
+      "date": "2015-04-27T02:56:58.580Z"
+    },
+    {
+      "lng": -117.23541259765625,
+      "lat": 32.87249755859375,
+      "timestamp": 1430103453,
+      "date": "2015-04-27T02:57:33.188Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.87242889404297,
+      "timestamp": 1430103522,
+      "date": "2015-04-27T02:58:42.138Z"
+    },
+    {
+      "lng": -117.23542785644531,
+      "lat": 32.87242126464844,
+      "timestamp": 1430158187,
+      "date": "2015-04-27T18:09:46.923Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.87241744995117,
+      "timestamp": 1430158257,
+      "date": "2015-04-27T18:10:57.413Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724479675293,
+      "timestamp": 1430158309,
+      "date": "2015-04-27T18:11:48.621Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87242126464844,
+      "timestamp": 1430158352,
+      "date": "2015-04-27T18:12:31.571Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87242889404297,
+      "timestamp": 1430159215,
+      "date": "2015-04-27T18:26:54.933Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87244415283203,
+      "timestamp": 1430159287,
+      "date": "2015-04-27T18:28:07.256Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872432708740234,
+      "timestamp": 1430159317,
+      "date": "2015-04-27T18:28:37.415Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87240219116211,
+      "timestamp": 1430159378,
+      "date": "2015-04-27T18:29:38.167Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87240219116211,
+      "timestamp": 1430159618,
+      "date": "2015-04-27T18:33:37.643Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872291564941406,
+      "timestamp": 1430159653,
+      "date": "2015-04-27T18:34:12.592Z"
+    },
+    {
+      "lng": -117.23539733886719,
+      "lat": 32.87227249145508,
+      "timestamp": 1430159697,
+      "date": "2015-04-27T18:34:56.773Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87226867675781,
+      "timestamp": 1430159770,
+      "date": "2015-04-27T18:36:10.348Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.872283935546875,
+      "timestamp": 1430159802,
+      "date": "2015-04-27T18:36:41.665Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.872283935546875,
+      "timestamp": 1430161976,
+      "date": "2015-04-27T19:12:56.438Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872440338134766,
+      "timestamp": 1430162012,
+      "date": "2015-04-27T19:13:32.227Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.8724479675293,
+      "timestamp": 1430162080,
+      "date": "2015-04-27T19:14:39.844Z"
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87244415283203,
+      "timestamp": 1430162157,
+      "date": "2015-04-27T19:15:57.132Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.872440338134766,
+      "timestamp": 1430163063,
+      "date": "2015-04-27T19:31:03.343Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87245178222656,
+      "timestamp": 1430163099,
+      "date": "2015-04-27T19:31:39.439Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872413635253906,
+      "timestamp": 1430163136,
+      "date": "2015-04-27T19:32:15.745Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87241744995117,
+      "timestamp": 1430163167,
+      "date": "2015-04-27T19:32:47.021Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.8724365234375,
+      "timestamp": 1430163208,
+      "date": "2015-04-27T19:33:27.850Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872459411621094,
+      "timestamp": 1430165889,
+      "date": "2015-04-27T20:18:09.316Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872432708740234,
+      "timestamp": 1430165927,
+      "date": "2015-04-27T20:18:47.224Z"
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.8724479675293,
+      "timestamp": 1430165988,
+      "date": "2015-04-27T20:19:48.145Z"
+    },
+    {
+      "lat": 32.8724479675293,
+      "lng": -117.23551177978516,
+      "date": "2015-04-27T21:17:23.738Z",
+      "timestamp": 1430169444
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.8724479675293,
+      "timestamp": 1430169478,
+      "date": "2015-04-27T21:17:58.276Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872371673583984,
+      "timestamp": 1430169510,
+      "date": "2015-04-27T21:18:29.844Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.8724250793457,
+      "timestamp": 1430169544,
+      "date": "2015-04-27T21:19:03.629Z"
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.87244415283203,
+      "timestamp": 1430169583,
+      "date": "2015-04-27T21:19:43.400Z"
+    },
+    {
+      "lng": -117.23548889160156,
+      "lat": 32.87241744995117,
+      "timestamp": 1430169616,
+      "date": "2015-04-27T21:20:16.377Z"
+    },
+    {
+      "lat": 32.872432708740234,
+      "lng": -117.23548126220703,
+      "date": "2015-04-27T21:21:34.878Z",
+      "timestamp": 1430169695
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87251663208008,
+      "timestamp": 1430175337,
+      "date": "2015-04-27T22:55:36.585Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87246322631836,
+      "timestamp": 1430175387,
+      "date": "2015-04-27T22:56:27.099Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87242889404297,
+      "timestamp": 1430175422,
+      "date": "2015-04-27T22:57:02.142Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.87240982055664,
+      "timestamp": 1430175489,
+      "date": "2015-04-27T22:58:09.471Z"
+    },
+    {
+      "lng": -117.23548126220703,
+      "lat": 32.872406005859375,
+      "timestamp": 1430175550,
+      "date": "2015-04-27T22:59:10.183Z"
+    },
+    {
+      "lat": 32.8724250793457,
+      "lng": -117.23543548583984,
+      "date": "2015-04-28T02:16:57.656Z",
+      "timestamp": 1430187418
+    },
+    {
+      "lng": -117.2354965209961,
+      "lat": 32.87238693237305,
+      "timestamp": 1430187487,
+      "date": "2015-04-28T02:18:07.190Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.872398376464844,
+      "timestamp": 1430187525,
+      "date": "2015-04-28T02:18:44.817Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.87241744995117,
+      "timestamp": 1430187561,
+      "date": "2015-04-28T02:19:21.239Z"
+    },
+    {
+      "lat": 32.872310638427734,
+      "lng": -117.23543548583984,
+      "date": "2015-04-28T18:03:05.296Z",
+      "timestamp": 1430244185
+    },
+    {
+      "lng": -117.2354507446289,
+      "lat": 32.87233352661133,
+      "timestamp": 1430244226,
+      "date": "2015-04-28T18:03:46.229Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87230682373047,
+      "timestamp": 1430244280,
+      "date": "2015-04-28T18:04:40.424Z"
+    },
+    {
+      "lng": -117.23538970947266,
+      "lat": 32.87233352661133,
+      "timestamp": 1430244341,
+      "date": "2015-04-28T18:05:41.200Z"
+    },
+    {
+      "lng": -117.23543548583984,
+      "lat": 32.87238311767578,
+      "timestamp": 1430288129,
+      "date": "2015-04-29T06:15:29.171Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87237548828125,
+      "timestamp": 1430288190,
+      "date": "2015-04-29T06:16:29.937Z"
+    },
+    {
+      "lng": -117.23540496826172,
+      "lat": 32.87237548828125,
+      "timestamp": 1430288265,
+      "date": "2015-04-29T06:17:45.429Z"
+    },
+    {
+      "lat": 32.8724365234375,
+      "lng": -117.23545837402344,
+      "date": "2015-04-29T11:18:23.127Z",
+      "timestamp": 1430306303
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.8724365234375,
+      "timestamp": 1430306337,
+      "date": "2015-04-29T11:18:56.583Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87240982055664,
+      "timestamp": 1430306411,
+      "date": "2015-04-29T11:20:10.838Z"
+    },
+    {
+      "lng": -117.23545837402344,
+      "lat": 32.872352600097656,
+      "timestamp": 1430332139,
+      "date": "2015-04-29T18:28:59.444Z"
+    },
+    {
+      "lng": -117.2354736328125,
+      "lat": 32.87242126464844,
+      "timestamp": 1430332178,
+      "date": "2015-04-29T18:29:37.824Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.8724250793457,
+      "timestamp": 1430332213,
+      "date": "2015-04-29T18:30:13.429Z"
+    },
+    {
+      "lat": 32.872432708740234,
+      "lng": -117.23544311523438,
+      "date": "2015-04-29T18:30:57.802Z",
+      "timestamp": 1430332258
+    },
+    {
+      "lng": -117.23546600341797,
+      "lat": 32.872406005859375,
+      "timestamp": 1430332295,
+      "date": "2015-04-29T18:31:34.530Z"
+    },
+    {
+      "lng": -117.23544311523438,
+      "lat": 32.87245178222656,
+      "timestamp": 1430332325,
+      "date": "2015-04-29T18:32:04.713Z"
+    },
+    {
+      "lat": 32.872467041015625,
+      "lng": -117.23543548583984,
+      "date": "2015-04-30T03:06:43.314Z",
+      "timestamp": 1430363203
+    }
+  ],
+  "aggregate": {
+    "questions": [
+      {
+        "name": "memMood1",
+        "distribution": [
+          {
+            "value": 5,
+            "users": 1,
+            "percent": 100
+          }
+        ],
+        "total": 1
+      },
+      {
+        "name": "HadSomething",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 17,
+            "percent": 16
+          },
+          {
+            "value": 4,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 3,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 9,
+            "percent": 9
+          },
+          {
+            "value": 5,
+            "users": 22,
+            "percent": 21
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "Honesty",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 32,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 58,
+            "percent": 56
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "KarenEval02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 17,
+            "percent": 17
+          },
+          {
+            "value": 3,
+            "users": 49,
+            "percent": 48
+          },
+          {
+            "value": 2,
+            "users": 12,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 24
+          }
+        ],
+        "total": 103
+      },
+      {
+        "name": "UserFeedback03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 35,
+            "percent": 34
+          },
+          {
+            "value": 2,
+            "users": 52,
+            "percent": 50
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserFeedback02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 39,
+            "percent": 38
+          },
+          {
+            "value": 0,
+            "users": 65,
+            "percent": 63
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserGoalRecalled",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 58,
+            "percent": 56
+          },
+          {
+            "value": 1,
+            "users": 46,
+            "percent": 44
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "FeelT5",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 9,
+            "percent": 9
+          },
+          {
+            "value": 0,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 48
+          },
+          {
+            "value": 4,
+            "users": 10,
+            "percent": 10
+          },
+          {
+            "value": 3,
+            "users": 7,
+            "percent": 7
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "KarenFeel",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 54,
+            "percent": 52
+          },
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 48
+          }
+        ],
+        "total": 104
+      },
+      {
+        "name": "UserFeedback01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 56,
+            "percent": 54
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 27,
+            "percent": 26
+          }
+        ],
+        "total": 103
+      },
+      {
+        "name": "UserGuilt04",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 48,
+            "percent": 46
+          },
+          {
+            "value": 0,
+            "users": 57,
+            "percent": 54
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Secrecy",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 42,
+            "percent": 40
+          },
+          {
+            "value": 2,
+            "users": 44,
+            "percent": 42
+          },
+          {
+            "value": 1,
+            "users": 19,
+            "percent": 18
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DaveReveal",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 8
+          },
+          {
+            "value": 3,
+            "users": 29,
+            "percent": 39
+          },
+          {
+            "value": 2,
+            "users": 23,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 16,
+            "percent": 22
+          }
+        ],
+        "total": 74
+      },
+      {
+        "name": "UserGuilt03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 74,
+            "percent": 70
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 11,
+            "percent": 10
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "UserGuilt02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 75,
+            "percent": 71
+          },
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "UserGuilt01",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 26
+          },
+          {
+            "value": 1,
+            "users": 42,
+            "percent": 65
+          },
+          {
+            "value": 2,
+            "users": 6,
+            "percent": 9
+          }
+        ],
+        "total": 65
+      },
+      {
+        "name": "Guilt02",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 18,
+            "percent": 17
+          },
+          {
+            "value": 5,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 22,
+            "percent": 21
+          },
+          {
+            "value": 4,
+            "users": 23,
+            "percent": 22
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Guilt01",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 5,
+            "users": 7,
+            "percent": 7
+          },
+          {
+            "value": 2,
+            "users": 21,
+            "percent": 20
+          },
+          {
+            "value": 4,
+            "users": 21,
+            "percent": 20
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "AS02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 39,
+            "percent": 37
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 3,
+            "users": 34,
+            "percent": 32
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 4,
+            "users": 12,
+            "percent": 11
+          },
+          {
+            "value": 5,
+            "users": 2,
+            "percent": 2
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "AS01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 6,
+            "percent": 6
+          },
+          {
+            "value": 3,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 27,
+            "percent": 26
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 5,
+            "users": 4,
+            "percent": 4
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "FeelT4",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 26,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 65,
+            "percent": 62
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Aggression",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 25,
+            "percent": 24
+          },
+          {
+            "value": 0,
+            "users": 55,
+            "percent": 52
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DateReveal",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 66,
+            "percent": 63
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy04",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 30,
+            "percent": 29
+          },
+          {
+            "value": 0,
+            "users": 42,
+            "percent": 40
+          },
+          {
+            "value": 2,
+            "users": 33,
+            "percent": 31
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "IS03_T2",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 18,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 37,
+            "percent": 52
+          },
+          {
+            "value": 2,
+            "users": 13,
+            "percent": 18
+          },
+          {
+            "value": 3,
+            "users": 3,
+            "percent": 4
+          }
+        ],
+        "total": 71
+      },
+      {
+        "name": "IS01_T2",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 40,
+            "percent": 60
+          },
+          {
+            "value": 2,
+            "users": 21,
+            "percent": 31
+          },
+          {
+            "value": 0,
+            "users": 6,
+            "percent": 9
+          }
+        ],
+        "total": 67
+      },
+      {
+        "name": "Privacy03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 44,
+            "percent": 42
+          },
+          {
+            "value": 2,
+            "users": 46,
+            "percent": 44
+          },
+          {
+            "value": 0,
+            "users": 15,
+            "percent": 14
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 65,
+            "percent": 62
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 19
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "Privacy01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 47,
+            "percent": 45
+          },
+          {
+            "value": 1,
+            "users": 41,
+            "percent": 39
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "ImpersonalSexConfirm",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 31,
+            "percent": 30
+          },
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 27
+          },
+          {
+            "value": 1,
+            "users": 22,
+            "percent": 21
+          },
+          {
+            "value": 3,
+            "users": 24,
+            "percent": 23
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "QueryDave01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 68,
+            "percent": 65
+          },
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 19
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 105
+      },
+      {
+        "name": "DesireKaren01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 2,
+            "users": 77,
+            "percent": 72
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LOC02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 71,
+            "percent": 66
+          },
+          {
+            "value": 2,
+            "users": 19,
+            "percent": 18
+          },
+          {
+            "value": 0,
+            "users": 17,
+            "percent": 16
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LOC01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 69,
+            "percent": 64
+          },
+          {
+            "value": 2,
+            "users": 29,
+            "percent": 27
+          },
+          {
+            "value": 0,
+            "users": 9,
+            "percent": 8
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "RWB02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 28,
+            "percent": 26
+          },
+          {
+            "value": 0,
+            "users": 1,
+            "percent": 1
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 24
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 3,
+            "users": 24,
+            "percent": 22
+          },
+          {
+            "value": 5,
+            "users": 18,
+            "percent": 17
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "RWB01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 4,
+            "users": 36,
+            "percent": 34
+          },
+          {
+            "value": 3,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 1,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 5,
+            "users": 29,
+            "percent": 27
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "PAD02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 4,
+            "users": 26,
+            "percent": 24
+          },
+          {
+            "value": 3,
+            "users": 37,
+            "percent": 35
+          },
+          {
+            "value": 1,
+            "users": 9,
+            "percent": 8
+          },
+          {
+            "value": 5,
+            "users": 8,
+            "percent": 7
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "PAD01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": 4,
+            "users": 31,
+            "percent": 29
+          },
+          {
+            "value": 3,
+            "users": 27,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 6
+          },
+          {
+            "value": 5,
+            "users": 23,
+            "percent": 21
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "KarenEval01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 48,
+            "percent": 45
+          },
+          {
+            "value": 2,
+            "users": 45,
+            "percent": 42
+          },
+          {
+            "value": 0,
+            "users": 14,
+            "percent": 13
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "LocationOut03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 12,
+            "percent": 100
+          }
+        ],
+        "total": 12
+      },
+      {
+        "name": "DateAdvice",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 37,
+            "percent": 35
+          },
+          {
+            "value": 2,
+            "users": 25,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 45,
+            "percent": 42
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "ViewDate",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 13
+          },
+          {
+            "value": 2,
+            "users": 68,
+            "percent": 64
+          },
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 23
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "DateTop",
+        "distribution": [
+          {
+            "value": "BLOUSE",
+            "users": 81,
+            "percent": 75
+          },
+          {
+            "value": "SEQUINS",
+            "users": 27,
+            "percent": 25
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS03",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 43,
+            "percent": 40
+          },
+          {
+            "value": 0,
+            "users": 31,
+            "percent": 29
+          },
+          {
+            "value": 2,
+            "users": 34,
+            "percent": 31
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS02",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 16,
+            "percent": 15
+          },
+          {
+            "value": 1,
+            "users": 68,
+            "percent": 63
+          },
+          {
+            "value": 2,
+            "users": 24,
+            "percent": 22
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "IS01",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 9
+          },
+          {
+            "value": 2,
+            "users": 37,
+            "percent": 34
+          },
+          {
+            "value": 1,
+            "users": 61,
+            "percent": 56
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "DrugsStory",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 65,
+            "percent": 60
+          },
+          {
+            "value": 0,
+            "users": 11,
+            "percent": 10
+          },
+          {
+            "value": 2,
+            "users": 32,
+            "percent": 30
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "PastLifeBelief",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 21,
+            "percent": 19
+          },
+          {
+            "value": 2,
+            "users": 38,
+            "percent": 35
+          },
+          {
+            "value": 0,
+            "users": 49,
+            "percent": 45
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "LocationWork02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 15,
+            "percent": 100
+          }
+        ],
+        "total": 15
+      },
+      {
+        "distribution": [
+          {
+            "users": 107,
+            "percent": 100
+          }
+        ],
+        "total": 107
+      },
+      {
+        "name": "Object",
+        "distribution": [
+          {
+            "value": "CAMERA",
+            "users": 73,
+            "percent": 66,
+            "centroid": [
+              -49.400000000000006,
+              7.105427357601002e-15
+            ]
+          },
+          {
+            "value": "BANGLE",
+            "users": 14,
+            "percent": 13,
+            "centroid": [
+              39.03365761135912,
+              -30.277608450457024
+            ]
+          },
+          {
+            "value": "DEER",
+            "users": 23,
+            "percent": 21,
+            "centroid": [
+              45.33707850878868,
+              19.61910579735815
+            ]
+          }
+        ],
+        "total": 110
+      },
+      {
+        "name": "SexPref",
+        "distribution": [
+          {
+            "value": "TRANSGENDER",
+            "users": 6,
+            "percent": 5
+          },
+          {
+            "value": "MEN",
+            "users": 42,
+            "percent": 36
+          },
+          {
+            "value": "WOMEN",
+            "users": 50,
+            "percent": 43
+          },
+          {
+            "value": "UNKNOWN",
+            "users": 4,
+            "percent": 3
+          },
+          {
+            "value": "BISEXUAL",
+            "users": 14,
+            "percent": 12
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Neuro02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 27,
+            "percent": 23
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 3,
+            "users": 21,
+            "percent": 18
+          },
+          {
+            "value": 1,
+            "users": 11,
+            "percent": 9
+          },
+          {
+            "value": 4,
+            "users": 40,
+            "percent": 34
+          },
+          {
+            "value": 5,
+            "users": 14,
+            "percent": 12
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Openness02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 1,
+            "percent": 1
+          },
+          {
+            "value": 4,
+            "users": 60,
+            "percent": 52
+          },
+          {
+            "value": 3,
+            "users": 23,
+            "percent": 20
+          },
+          {
+            "value": 1,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 5,
+            "users": 16,
+            "percent": 14
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Neuro01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 29,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 4,
+            "users": 30,
+            "percent": 26
+          },
+          {
+            "value": 3,
+            "users": 32,
+            "percent": 28
+          },
+          {
+            "value": 5,
+            "users": 8,
+            "percent": 7
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Openness01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 8,
+            "percent": 7
+          },
+          {
+            "value": 4,
+            "users": 40,
+            "percent": 34
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 3,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 1,
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": 5,
+            "users": 49,
+            "percent": 42
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Runaway",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 20,
+            "percent": 17
+          },
+          {
+            "value": 3,
+            "users": 53,
+            "percent": 46
+          },
+          {
+            "value": 0,
+            "users": 20,
+            "percent": 17
+          },
+          {
+            "value": 1,
+            "users": 23,
+            "percent": 20
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "Childhood",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 17,
+            "percent": 15
+          },
+          {
+            "value": 0,
+            "users": 4,
+            "percent": 3
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 5
+          },
+          {
+            "value": 4,
+            "users": 33,
+            "percent": 28
+          },
+          {
+            "value": 3,
+            "users": 21,
+            "percent": 18
+          },
+          {
+            "value": 5,
+            "users": 35,
+            "percent": 30
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulFeel",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 28,
+            "percent": 24
+          },
+          {
+            "value": 2,
+            "users": 50,
+            "percent": 43
+          },
+          {
+            "value": 0,
+            "users": 38,
+            "percent": 33
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulDo",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 97,
+            "percent": 84
+          },
+          {
+            "value": 0,
+            "users": 19,
+            "percent": 16
+          }
+        ],
+        "total": 116
+      },
+      {
+        "name": "GratefulAsk",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 13,
+            "percent": 11
+          },
+          {
+            "value": 1,
+            "users": 108,
+            "percent": 89
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "AloneT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 86,
+            "percent": 71
+          },
+          {
+            "value": 0,
+            "users": 35,
+            "percent": 29
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "LocationWork01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 29,
+            "percent": 100
+          }
+        ],
+        "total": 29
+      },
+      {
+        "name": "QueryT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 50,
+            "percent": 41
+          },
+          {
+            "value": 2,
+            "users": 42,
+            "percent": 35
+          },
+          {
+            "value": 0,
+            "users": 29,
+            "percent": 24
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "FeelT2",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 81,
+            "percent": 67
+          },
+          {
+            "value": 0,
+            "users": 30,
+            "percent": 25
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 8
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "MR02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 30,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 2
+          },
+          {
+            "value": 4,
+            "users": 37,
+            "percent": 31
+          },
+          {
+            "value": 1,
+            "users": 14,
+            "percent": 12
+          },
+          {
+            "value": 3,
+            "users": 26,
+            "percent": 21
+          },
+          {
+            "value": 5,
+            "users": 11,
+            "percent": 9
+          }
+        ],
+        "total": 121
+      },
+      {
+        "name": "MR01",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 22,
+            "percent": 18
+          },
+          {
+            "value": 4,
+            "users": 47,
+            "percent": 39
+          },
+          {
+            "value": 0,
+            "users": 2,
+            "percent": 2
+          },
+          {
+            "value": 3,
+            "users": 20,
+            "percent": 16
+          },
+          {
+            "value": 1,
+            "users": 5,
+            "percent": 4
+          },
+          {
+            "value": 5,
+            "users": 26,
+            "percent": 21
+          }
+        ],
+        "total": 122
+      },
+      {
+        "name": "UserGoal",
+        "distribution": [
+          {
+            "value": "ATTITUDE",
+            "users": 30,
+            "percent": 25,
+            "centroid": [
+              6.8920577438298665,
+              -48.916863554971656
+            ]
+          },
+          {
+            "value": "CONTROL",
+            "users": 56,
+            "percent": 46,
+            "centroid": [
+              35.201647828886806,
+              34.65838989524801
+            ]
+          },
+          {
+            "value": "REVIEW",
+            "users": 36,
+            "percent": 30,
+            "centroid": [
+              -49.400000000000006,
+              -3.552713678800501e-15
+            ]
+          }
+        ],
+        "total": 122
+      },
+      {
+        "name": "FeelT1",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 30,
+            "percent": 21
+          },
+          {
+            "value": 0,
+            "users": 32,
+            "percent": 23
+          },
+          {
+            "value": 2,
+            "users": 78,
+            "percent": 56
+          }
+        ],
+        "total": 140
+      },
+      {
+        "name": "CoinToss",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 36,
+            "percent": 45
+          },
+          {
+            "value": 0,
+            "users": 40,
+            "percent": 50
+          },
+          {
+            "value": 1,
+            "users": 4,
+            "percent": 5
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved04",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 16,
+            "percent": 20
+          },
+          {
+            "value": 0,
+            "users": 24,
+            "percent": 30
+          },
+          {
+            "value": 1,
+            "users": 40,
+            "percent": 50
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved03",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 55,
+            "percent": 69
+          },
+          {
+            "value": 1,
+            "users": 20,
+            "percent": 25
+          },
+          {
+            "value": 0,
+            "users": 5,
+            "percent": 6
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved02",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 51,
+            "percent": 64
+          },
+          {
+            "value": 0,
+            "users": 11,
+            "percent": 14
+          },
+          {
+            "value": 1,
+            "users": 18,
+            "percent": 23
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "GetInvolved01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 58,
+            "percent": 73
+          },
+          {
+            "value": 0,
+            "users": 22,
+            "percent": 28
+          }
+        ],
+        "total": 80
+      },
+      {
+        "name": "KnowPeople",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 67,
+            "percent": 87
+          },
+          {
+            "value": 0,
+            "users": 10,
+            "percent": 13
+          }
+        ],
+        "total": 77
+      },
+      {
+        "name": "LocationHome03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 77,
+            "percent": 100
+          }
+        ],
+        "total": 77
+      },
+      {
+        "name": "PastLife",
+        "distribution": [
+          {
+            "value": "DRUID",
+            "users": 9,
+            "percent": 24
+          },
+          {
+            "value": "NONE",
+            "users": 13,
+            "percent": 34
+          },
+          {
+            "value": "MUSKETEER",
+            "users": 6,
+            "percent": 16
+          },
+          {
+            "value": "STEAMPUNK",
+            "users": 10,
+            "percent": 26
+          }
+        ],
+        "total": 38
+      },
+      {
+        "name": "LocationOut02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 24,
+            "percent": 100
+          }
+        ],
+        "total": 24
+      },
+      {
+        "name": "LocationHome01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 74,
+            "percent": 100
+          }
+        ],
+        "total": 74
+      },
+      {
+        "name": "SigOther",
+        "distribution": [
+          {
+            "value": "FRIEND",
+            "users": 12,
+            "percent": 11
+          },
+          {
+            "value": "OTHER",
+            "users": 36,
+            "percent": 33
+          },
+          {
+            "value": "PARTNER",
+            "users": 52,
+            "percent": 48
+          },
+          {
+            "value": "DAD",
+            "users": 3,
+            "percent": 3
+          },
+          {
+            "value": "MUM",
+            "users": 4,
+            "percent": 4
+          },
+          {
+            "value": "FAMILY",
+            "users": 1,
+            "percent": 1
+          }
+        ],
+        "total": 108
+      },
+      {
+        "name": "Disagreeable01",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 34,
+            "percent": 100
+          }
+        ],
+        "total": 34
+      },
+      {
+        "name": "QueryDave02",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 38,
+            "percent": 100
+          }
+        ],
+        "total": 38
+      },
+      {
+        "name": "LocationHome02",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 70,
+            "percent": 100
+          }
+        ],
+        "total": 70
+      },
+      {
+        "name": "LocationOut01",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 18,
+            "percent": 100
+          }
+        ],
+        "total": 18
+      },
+      {
+        "name": "LocationWork03",
+        "distribution": [
+          {
+            "value": "geolocation",
+            "users": 17,
+            "percent": 100
+          }
+        ],
+        "total": 17
+      },
+      {
+        "name": "DesireKaren02",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 5,
+            "percent": 45
+          },
+          {
+            "value": 1,
+            "users": 6,
+            "percent": 55
+          }
+        ],
+        "total": 11
+      },
+      {
+        "name": "SigOtherEval",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 10,
+            "percent": 12
+          },
+          {
+            "value": 3,
+            "users": 47,
+            "percent": 55
+          },
+          {
+            "value": 2,
+            "users": 15,
+            "percent": 18
+          },
+          {
+            "value": 1,
+            "users": 10,
+            "percent": 12
+          },
+          {
+            "value": 0,
+            "users": 3,
+            "percent": 4
+          }
+        ],
+        "total": 85
+      },
+      {
+        "name": "GratefulReminder",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 25,
+            "percent": 93
+          },
+          {
+            "value": 3,
+            "users": 1,
+            "percent": 4
+          },
+          {
+            "value": 1,
+            "users": 1,
+            "percent": 4
+          }
+        ],
+        "total": 27
+      }
+    ],
+    "scales": [
+      {
+        "name": "scaleMood",
+        "distribution": [
+          {
+            "value": 5,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          100
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleMR",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 15
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 6,
+            "users": 24
+          },
+          {
+            "value": 5,
+            "users": 14
+          },
+          {
+            "value": 3,
+            "users": 8
+          },
+          {
+            "value": 7,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 18
+          },
+          {
+            "value": 10,
+            "users": 8
+          },
+          {
+            "value": 9,
+            "users": 16
+          },
+          {
+            "value": 2,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          12,
+          1,
+          20,
+          11,
+          7,
+          13,
+          15,
+          7,
+          13,
+          2
+        ],
+        "mean": 6
+      },
+      {
+        "name": "KscaleFeel",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 38
+          },
+          {
+            "value": 0,
+            "users": 15
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 3,
+            "users": 25
+          },
+          {
+            "value": 5,
+            "users": 12
+          },
+          {
+            "value": 8,
+            "users": 2
+          },
+          {
+            "value": 6,
+            "users": 4
+          },
+          {
+            "value": 7,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          31,
+          12,
+          11,
+          8,
+          21,
+          10,
+          2,
+          3,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "GratefulEngage",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 42
+          },
+          {
+            "value": 3,
+            "users": 24
+          },
+          {
+            "value": 4,
+            "users": 42
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 0,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          34,
+          20,
+          34,
+          11,
+          1
+        ],
+        "mean": 3
+      },
+      {
+        "name": "scaleChildhood",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 18
+          },
+          {
+            "value": 3,
+            "users": 8
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 2,
+            "users": 5
+          },
+          {
+            "value": 7,
+            "users": 18
+          },
+          {
+            "value": 6,
+            "users": 19
+          },
+          {
+            "value": 5,
+            "users": 25
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 8,
+            "users": 20
+          }
+        ],
+        "distributionPercent": [
+          16,
+          7,
+          2,
+          4,
+          16,
+          16,
+          22,
+          1,
+          17
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleOpenness",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 6
+          },
+          {
+            "value": 6,
+            "users": 13
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 8,
+            "users": 31
+          },
+          {
+            "value": 7,
+            "users": 12
+          },
+          {
+            "value": 2,
+            "users": 2
+          },
+          {
+            "value": 3,
+            "users": 1
+          },
+          {
+            "value": 5,
+            "users": 4
+          },
+          {
+            "value": 9,
+            "users": 36
+          },
+          {
+            "value": 10,
+            "users": 10
+          }
+        ],
+        "distributionPercent": [
+          5,
+          11,
+          1,
+          27,
+          10,
+          2,
+          1,
+          3,
+          31,
+          9
+        ],
+        "mean": 8
+      },
+      {
+        "name": "scaleNeuro",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 16
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 5,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 2,
+            "users": 6
+          },
+          {
+            "value": 8,
+            "users": 19
+          },
+          {
+            "value": 7,
+            "users": 22
+          },
+          {
+            "value": 6,
+            "users": 21
+          },
+          {
+            "value": 10,
+            "users": 4
+          },
+          {
+            "value": 9,
+            "users": 7
+          }
+        ],
+        "distributionPercent": [
+          14,
+          2,
+          8,
+          9,
+          5,
+          16,
+          19,
+          18,
+          3,
+          6
+        ],
+        "mean": 6
+      },
+      {
+        "name": "scaleIS",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 29
+          },
+          {
+            "value": 2,
+            "users": 18
+          },
+          {
+            "value": 4,
+            "users": 29
+          },
+          {
+            "value": 5,
+            "users": 12
+          },
+          {
+            "value": 6,
+            "users": 9
+          },
+          {
+            "value": 0,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          8,
+          27,
+          17,
+          27,
+          11,
+          8,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleDateSupport",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 40
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 3,
+            "users": 27
+          },
+          {
+            "value": 1,
+            "users": 8
+          },
+          {
+            "value": 0,
+            "users": 15
+          }
+        ],
+        "distributionPercent": [
+          37,
+          16,
+          25,
+          7,
+          14
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scalePAD",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 7
+          },
+          {
+            "value": 0,
+            "users": 2
+          },
+          {
+            "value": 8,
+            "users": 21
+          },
+          {
+            "value": 5,
+            "users": 11
+          },
+          {
+            "value": 3,
+            "users": 2
+          },
+          {
+            "value": 2,
+            "users": 5
+          },
+          {
+            "value": 6,
+            "users": 26
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 7,
+            "users": 23
+          },
+          {
+            "value": 9,
+            "users": 3
+          },
+          {
+            "value": 10,
+            "users": 6
+          }
+        ],
+        "distributionPercent": [
+          7,
+          2,
+          20,
+          10,
+          2,
+          5,
+          24,
+          1,
+          21,
+          3,
+          6
+        ],
+        "mean": 6
+      },
+      {
+        "name": "scaleRWB",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 4
+          },
+          {
+            "value": 0,
+            "users": 1
+          },
+          {
+            "value": 5,
+            "users": 17
+          },
+          {
+            "value": 6,
+            "users": 26
+          },
+          {
+            "value": 7,
+            "users": 18
+          },
+          {
+            "value": 3,
+            "users": 3
+          },
+          {
+            "value": 8,
+            "users": 20
+          },
+          {
+            "value": 1,
+            "users": 1
+          },
+          {
+            "value": 9,
+            "users": 4
+          },
+          {
+            "value": 10,
+            "users": 13
+          }
+        ],
+        "distributionPercent": [
+          4,
+          1,
+          16,
+          24,
+          17,
+          3,
+          19,
+          1,
+          4,
+          12
+        ],
+        "mean": 7
+      },
+      {
+        "name": "scaleLOC",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 54
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 1,
+            "users": 13
+          },
+          {
+            "value": 3,
+            "users": 25
+          },
+          {
+            "value": 0,
+            "users": 5
+          }
+        ],
+        "distributionPercent": [
+          50,
+          9,
+          12,
+          23,
+          5
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scaleIST2",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 23
+          },
+          {
+            "value": 3,
+            "users": 16
+          },
+          {
+            "value": 2,
+            "users": 20
+          },
+          {
+            "value": 0,
+            "users": 12
+          },
+          {
+            "value": 5,
+            "users": 3
+          },
+          {
+            "value": 4,
+            "users": 7
+          }
+        ],
+        "distributionPercent": [
+          28,
+          20,
+          25,
+          15,
+          4,
+          9
+        ],
+        "mean": 2
+      },
+      {
+        "name": "scaleAS",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 14
+          },
+          {
+            "value": 0,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 25
+          },
+          {
+            "value": 2,
+            "users": 6
+          },
+          {
+            "value": 5,
+            "users": 22
+          },
+          {
+            "value": 3,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 7
+          },
+          {
+            "value": 7,
+            "users": 9
+          },
+          {
+            "value": 9,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          13,
+          4,
+          24,
+          6,
+          21,
+          15,
+          7,
+          9,
+          2
+        ],
+        "mean": 5
+      },
+      {
+        "name": "scaleGuilt",
+        "distribution": [
+          {
+            "value": 6,
+            "users": 27
+          },
+          {
+            "value": 2,
+            "users": 11
+          },
+          {
+            "value": 5,
+            "users": 16
+          },
+          {
+            "value": 8,
+            "users": 11
+          },
+          {
+            "value": 4,
+            "users": 10
+          },
+          {
+            "value": 3,
+            "users": 10
+          },
+          {
+            "value": 10,
+            "users": 5
+          },
+          {
+            "value": 7,
+            "users": 13
+          },
+          {
+            "value": 9,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          26,
+          10,
+          15,
+          10,
+          10,
+          10,
+          5,
+          12,
+          2
+        ],
+        "mean": 6
+      },
+      {
+        "name": "KscaleUserGuilt",
+        "distribution": [
+          {
+            "value": 3,
+            "users": 40
+          },
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 2,
+            "users": 22
+          },
+          {
+            "value": 4,
+            "users": 24
+          },
+          {
+            "value": 5,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 4
+          },
+          {
+            "value": 0,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          38,
+          9,
+          21,
+          23,
+          4,
+          4,
+          2
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleJudgemental",
+        "distribution": [
+          {
+            "value": 0,
+            "users": 30
+          },
+          {
+            "value": 1,
+            "users": 54
+          },
+          {
+            "value": 2,
+            "users": 20
+          },
+          {
+            "value": 3,
+            "users": 2
+          }
+        ],
+        "distributionPercent": [
+          28,
+          51,
+          19,
+          2
+        ],
+        "mean": 1
+      },
+      {
+        "name": "KscaleEval",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 24
+          },
+          {
+            "value": 3,
+            "users": 18
+          },
+          {
+            "value": 2,
+            "users": 11
+          },
+          {
+            "value": 0,
+            "users": 12
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 5,
+            "users": 23
+          }
+        ],
+        "distributionPercent": [
+          23,
+          17,
+          10,
+          11,
+          16,
+          22
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleGetInvolved",
+        "distribution": [
+          {
+            "value": 9,
+            "users": 2
+          },
+          {
+            "value": 1,
+            "users": 3
+          },
+          {
+            "value": 7,
+            "users": 5
+          },
+          {
+            "value": 8,
+            "users": 4
+          },
+          {
+            "value": 6,
+            "users": 20
+          },
+          {
+            "value": 3,
+            "users": 9
+          },
+          {
+            "value": 5,
+            "users": 23
+          },
+          {
+            "value": 4,
+            "users": 11
+          },
+          {
+            "value": 2,
+            "users": 3
+          }
+        ],
+        "distributionPercent": [
+          3,
+          4,
+          6,
+          5,
+          25,
+          11,
+          29,
+          14,
+          4
+        ],
+        "mean": 5
+      },
+      {
+        "name": "KscaleDisagreeable",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 24
+          },
+          {
+            "value": 1,
+            "users": 24
+          }
+        ],
+        "distributionPercent": [
+          50,
+          50
+        ],
+        "mean": 2
+      },
+      {
+        "name": "KscaleUserFeedback",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 9
+          },
+          {
+            "value": 3,
+            "users": 31
+          },
+          {
+            "value": 0,
+            "users": 3
+          },
+          {
+            "value": 2,
+            "users": 19
+          },
+          {
+            "value": 4,
+            "users": 17
+          },
+          {
+            "value": 5,
+            "users": 4
+          }
+        ],
+        "distributionPercent": [
+          11,
+          37,
+          4,
+          23,
+          20,
+          5
+        ],
+        "mean": 3
+      },
+      {
+        "name": "KscaleConsistent",
+        "distribution": [
+          {
+            "value": 1,
+            "users": 49
+          },
+          {
+            "value": 2,
+            "users": 21
+          },
+          {
+            "value": 3,
+            "users": 3
+          },
+          {
+            "value": 0,
+            "users": 11
+          }
+        ],
+        "distributionPercent": [
+          58,
+          25,
+          4,
+          13
+        ],
+        "mean": 1
+      },
+      {
+        "name": "KscalePrivacy",
+        "distribution": [
+          {
+            "value": 4,
+            "users": 29
+          },
+          {
+            "value": 5,
+            "users": 14
+          },
+          {
+            "value": 3,
+            "users": 27
+          },
+          {
+            "value": 2,
+            "users": 7
+          },
+          {
+            "value": 1,
+            "users": 1
+          }
+        ],
+        "distributionPercent": [
+          37,
+          18,
+          35,
+          9,
+          1
+        ],
+        "mean": 4
+      },
+      {
+        "name": "KscaleDesireKaren",
+        "distribution": [
+          {
+            "value": 2,
+            "users": 64
+          },
+          {
+            "value": 1,
+            "users": 2
+          },
+          {
+            "value": 0,
+            "users": 11
+          }
+        ],
+        "distributionPercent": [
+          83,
+          3,
+          14
+        ],
+        "mean": 2
+      }
+    ]
+  }
+}
